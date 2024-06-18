@@ -1,6 +1,6 @@
 <?php
 include "config/config.php";
-include "config/functions.php";
+
 session_start();
 $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
 
@@ -59,15 +59,9 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
     if (isset($_SESSION['id'])) {
 
     ?>
-
-        <div id="unocoma">
-            <h1>Bienvendo <?= user($_SESSION['id']); ?></h1>
-        </div>
-        <div id="uno"> <a href="modulos/logout.php">Toca aqui para Salir</a> </div>
-
         <?php
 
-        if (file_exists("modulos/" . $p . ".php")) {
+        if (file_exists("modulos/" . $p . ".php")){
             include "modulos/" . $p . ".php";
         } else {
             echo "este modulo no existe";
