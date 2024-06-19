@@ -12,7 +12,7 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
 <head>
     <title></title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <?php

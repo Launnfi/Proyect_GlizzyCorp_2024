@@ -7,8 +7,9 @@
 </head>
 <body>
 <?php 
-    $ubi = 'abo';
+    $ubi = 'Ayu';
     include 'plantilla.php';
     ?>
+    
 </body>
 </html>
