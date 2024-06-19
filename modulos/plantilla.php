@@ -22,3 +22,5 @@
             <a href="about_us.php" <?php if($ubi=="abo"){echo "class='aca'";}?>>sobre nosotros</a>
             <a href="Ayuda.php" <?php if($ubi=="Ayu"){echo "class='aca'";}?>>Ayuda</a>
     </header>
+
+    
