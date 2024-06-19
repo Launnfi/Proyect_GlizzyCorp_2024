@@ -8,23 +8,39 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <style type="text/css">
-        header {
-    background-color: rgb(252, 204, 245);
-    color: black; 
-    padding: 10px 0;
-    text-align: center;
-}
+     <!-- Bootstrap CSS -->
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-header a {
-    color: black;
-    text-decoration: none;
-    margin: 0 10px;
-}
-.a{
-    text-align: left;
-}
-    </style>
+
+<style>
+    /* Estilos opcionales para el header */
+    .carousel-caption-custom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+    header {
+        background-color: rgb(252, 204, 245);
+        color: black; 
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    header a {
+        color: black;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    .a{
+        text-align: left;
+    }
+    
+</style>
 </head>
 <body>
     <header>
