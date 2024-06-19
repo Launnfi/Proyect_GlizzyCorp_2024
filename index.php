@@ -12,10 +12,9 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
 <head>
     <title></title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
 <?php
     if (isset($_POST['reg'])) {
         $user = $_POST['reguser'];
@@ -78,6 +77,7 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
         if (isset($_GET['p']) != 'registro') {  ?>
 
             <center>
+                <div class="iniciarses">
                 <h1>Iniciar sesion</h1>
                 <form method="POST" action="">
                     <label> Nombre: </label>
@@ -87,9 +87,11 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
                     <input type="submit" name="log" class="boton" value="Ingresar">
                 </form>
                 <a href="?p=registro">Registrarse</a>
+            </div>
             </center>
         <?php } else { ?>
             <center>
+                <div class="registrarses">
                 <h1>Registrarse</h1>
                 <form method="POST" action="">
                      <label> Nombre: </label>
@@ -102,9 +104,10 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
                     <input type="text" name="regDir" class="texto" placeholder="Direccion" required> <br><br>
                     <label >Telefono:</label>
                     <input type="text" name="regTel" class="texto" placeholder="Telefono" required> <br><br>
-                    <input type="submit" name="reg" class="boton" value="registrarme">
+                    <input type="submit" name="reg" class="boton" value="Registrarse">
                 </form>
                 <a href="./">Loguearme</a>
+            </div>
             </center>
         <?php } ?>
 

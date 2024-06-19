@@ -7,25 +7,23 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header con enlaces</title>
-    <!-- Aquí puedes agregar estilos CSS si lo deseas -->
-    <style>
-        /* Estilos opcionales para el header */
+    <title>Inicio</title>
+    <style type="text/css">
         header {
-            background-color: rgb(252, 204, 245);
-            color: black; 
-            padding: 10px 0;
-            text-align: center;
-        }
-        
-        header a {
-            color: black;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .a{
-            text-align: left;
-        }
+    background-color: rgb(252, 204, 245);
+    color: black; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.a{
+    text-align: left;
+}
     </style>
 </head>
 <body>

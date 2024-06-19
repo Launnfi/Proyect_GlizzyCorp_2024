@@ -1,0 +1,15 @@
+header {
+    background-color: rgb(252, 204, 245);
+    color: black; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.a{
+    text-align: left;
+}
