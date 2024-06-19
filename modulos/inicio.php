@@ -1,8 +1,5 @@
 <?php
 session_start();
-include "config/config.php";
-include "config/functions.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,8 +36,6 @@ include "config/functions.php";
         </nav>
     </header>
 <div id="unocoma">
-       <div> <h1>Bienvenido <?= user($_SESSION['id']); ?></h1></div>
-
         </div>
         <div id="salir"> <a href="logout.php">Toca aqui para Salir</a> </div>
 
