@@ -12,7 +12,7 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
 <head>
     <title></title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stylelogin.css">
 </head>
 <body>
 <?php
@@ -84,7 +84,8 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
             </div>
             </center>
         <?php } else { ?>
-            <center>
+                <center>
+
                 <div class="registrarses">
                 <h1>Registrarse</h1>
                 <form method="POST" action="">
@@ -101,8 +102,9 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
                     <input type="submit" name="reg" class="boton" value="Registrarse">
                 </form>
                 <a href="./">Loguearme</a>
-            </div>
-            </center>
+                </div>
+                </center>
+       
         <?php } ?>
 
     <?php } ?>

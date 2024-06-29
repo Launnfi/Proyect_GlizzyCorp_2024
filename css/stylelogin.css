@@ -1,11 +1,11 @@
 body {
-        background: rgb(252, 204, 245);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
+    background: rgb(252, 204, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .iniciarses, .registrarses {
@@ -46,3 +46,4 @@ input.boton {
 input.boton:hover {
     background-color: rgb(81, 88, 189);
 }
+

@@ -9,10 +9,17 @@ session_start();
     <title>Inicio</title>
      <!-- Bootstrap CSS -->
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/styleprincipal.css">
+     <style>
+    .carousel-inner {
+            height: 500px; 
+        }
 
+        .carousel-item img {
+            height: 500px; 
+            object-fit: cover; 
+        }
 
-<style>
-    /* Estilos opcionales para el header */
     .carousel-caption-custom {
         position: absolute;
         bottom: 0;
@@ -32,10 +39,7 @@ session_start();
     include 'plantilla.php';
     ?>
 
-    <div id="unocoma">
-        </div>
-        <div id="salir"> <a href="logout.php">Toca aqui para Salir</a> </div>
-<?php
+    <?php
 // Datos del carrusel (pueden provenir de una base de datos)
 $images = [
     ["src" => "https://www.anahuac.mx/mexico/sites/default/files/styles/webp/public/noticias/Los-colores-que-utilizamos-en-la-ropa-dicen-como-somos.jpg.webp?itok=k3GFCGkN", "description" => "Descripción de la imagen 1"],
