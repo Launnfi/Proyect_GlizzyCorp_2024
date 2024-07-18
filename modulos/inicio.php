@@ -7,7 +7,6 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-     <!-- Bootstrap CSS -->
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="css/styleprincipal.css">
      <style>
@@ -40,7 +39,6 @@ session_start();
     ?>
 
     <?php
-// Datos del carrusel (pueden provenir de una base de datos)
 $images = [
     ["src" => "https://www.anahuac.mx/mexico/sites/default/files/styles/webp/public/noticias/Los-colores-que-utilizamos-en-la-ropa-dicen-como-somos.jpg.webp?itok=k3GFCGkN", "description" => "Descripción de la imagen 1"],
     ["src" => "https://i.ebayimg.com/images/g/KRsAAOSwJoZmSivs/s-l1600.webp", "description" => "Descripción de la imagen 2"],
@@ -73,13 +71,10 @@ $images = [
         <span class="sr-only">Siguiente</span>
     </a>
 </div>
-
-<!-- Bootstrap JS y dependencias -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Contenido de la página -->
     <section id="seccion1">
         <h2>Sección 1</h2>
         <p>Contenido de la sección 1...</p>

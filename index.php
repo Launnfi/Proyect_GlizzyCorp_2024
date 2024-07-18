@@ -13,6 +13,7 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
     <title></title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <link rel="stylesheet" href="css/stylelogin.css">
+    
 </head>
 <body>
 <?php
@@ -26,6 +27,7 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
 
         $c = $con->query("SELECT nombre FROM usuario WHERE nombre = '$user'");
         if ($c->num_rows > 0) {
+            
             echo "ya existe un usuario con ese nombre";
         } else {
             $s = $con->query("INSERT INTO usuario (nombre, correo, pass, direccion, tel) VALUES ('$user','$correo', '$pass','$dir','$tel')");
@@ -47,9 +49,13 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
             $r = $q->fetch_array();
             $_SESSION['id'] = $r['id'];
             header("Location: modulos/inicio.php");
-            exit; // Asegura que el script se detenga aquí
+            exit; 
         } else {
-            echo "Nombre de usuario o contraseña incorrectos";
+
+            ?> <div class="erroses">
+                <?php echo "Nombre o usuario incorrectos" ?>
+            </div>
+            <?php
         }
     }
     ?>
@@ -70,7 +76,7 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
         <?php
         if (isset($_GET['p']) != 'registro') {  ?>
 
-            <center>
+
                 <div class="iniciarses">
                 <h1>Iniciar sesion</h1>
                 <form method="POST" action="">
@@ -82,9 +88,9 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
                 </form>
                 <a href="?p=registro">Registrarse</a>
             </div>
-            </center>
+           
         <?php } else { ?>
-                <center>
+                
 
                 <div class="registrarses">
                 <h1>Registrarse</h1>
@@ -103,12 +109,13 @@ $p = isset($_GET['p']) ? $_GET['p'] : "inicio";
                 </form>
                 <a href="./">Loguearme</a>
                 </div>
-                </center>
+                
        
         <?php } ?>
 
     <?php } ?>
 
 </body>
+
 
 </html>

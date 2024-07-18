@@ -62,6 +62,7 @@
     cursor: pointer;
     margin-left: 10px;
     padding: 0;
+    
 }
 
 .icon-door {
