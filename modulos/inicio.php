@@ -7,52 +7,39 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-       <!-- Bootstrap CSS -->
-       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap CSS -->
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/styleprincipal.css">
+     <style>
+    .carousel-inner {
+            height: 500px; 
+        }
 
+        .carousel-item img {
+            height: 500px; 
+            object-fit: cover; 
+        }
 
-    <style>
-        /* Estilos opcionales para el header */
-        .carousel-caption-custom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        header {
-            background-color: rgb(252, 204, 245);
-            color: black; 
-            padding: 10px 0;
-            text-align: center;
-        }
-        
-        header a {
-            color: black;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .a{
-            text-align: left;
-        }
-        
-    </style>
+    .carousel-caption-custom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+    
+</style>
 </head>
 <body>
-<header>
-        <nav>
-            <a name= "a" href="inicio.php">Inicio</a>
-            <a name= "a" href="#seccion2">categorias</a>
-            <a name= "a" href="about_us.php">sobre nosotros</a>
-        </nav>
-    </header>
-    <div id="unocoma">
-        </div>
-        <div id="salir"> <a href="logout.php">Toca aqui para Salir</a> </div>
-<?php
+    <?php 
+    $ubi = 'ini';
+    include 'plantilla.php';
+    ?>
+
+    <?php
 // Datos del carrusel (pueden provenir de una base de datos)
 $images = [
     ["src" => "https://www.anahuac.mx/mexico/sites/default/files/styles/webp/public/noticias/Los-colores-que-utilizamos-en-la-ropa-dicen-como-somos.jpg.webp?itok=k3GFCGkN", "description" => "Descripción de la imagen 1"],
