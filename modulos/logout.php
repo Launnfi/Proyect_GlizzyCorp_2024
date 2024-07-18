@@ -1,5 +1,5 @@
 <?php
-//cierra la secion del usuario
+//cierra la sesion del usuario
 session_start();
 session_unset();
 session_destroy();
