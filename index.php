@@ -1,122 +1,25 @@
-<?php
-include "config/config.php";
-
-session_start();
-$p = isset($_GET['p']) ? $_GET['p'] : "inicio";
-
-
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title></title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-    <link rel="stylesheet" href="css/stylelogin.css">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicenta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php
-    if (isset($_POST['reg'])) {
-        $user = $_POST['reguser'];
-        $pass = md5($_POST['regpass']);
-        $dir = $_POST['regDir']; 
-        $correo = $_POST['regCor'];
-        $tel = $_POST['regTel'];
-        
 
-        $c = $con->query("SELECT nombre FROM usuario WHERE nombre = '$user'");
-        if ($c->num_rows > 0) {
-            ?> <div class="erorreg"> <?php
-            echo "ya existe un usuario con ese nombre";
-        } else {
-            $s = $con->query("INSERT INTO usuario (nombre, correo, pass, direccion, tel) VALUES ('$user','$correo', '$pass','$dir','$tel')");
-            if ($s) {
-                echo "se ah registrado correctamente";
-            }else{
-                echo "hubo un error";
-            }
-        }
-        ?> </div> <?php
-    }
-    ?>
-    <?php
-    if (isset($_POST['log'])) {
-        $user = $_POST['loguser'];
-        $pass = md5($_POST['logpass']);
+<div class="navbar">
+    <div class="searchbox"><img src="" alt="logo">
+    <input type="text" class="buscador">
+    <span class="inputgroupe">
+    <i class="fa-solid fa-magnifying-glass"></i>    
+    </span>
+</div>
+</div>
     
-        $q = $con->query("SELECT * FROM usuario WHERE nombre = '$user' AND pass = '$pass'");
-        if ($q->num_rows > 0) {
-            $r = $q->fetch_array();
-            $_SESSION['id'] = $r['id'];
-            header("Location: modulos/inicio.php");
-            exit; 
-        } else {
-
-            ?> <div class="erroses">
-                <?php echo "Nombre o usuario incorrectos" ?>
-            </div>
-            <?php
-        }
-    }
-    ?>
-
-    <?php
-    if (isset($_SESSION['id'])) {
-
-    ?>
-        <?php
-
-        if (file_exists("modulos/" . $p . ".php")){
-            include "modulos/" . $p . ".php";
-        } else {
-            echo "este modulo no existe";
-        }
-    } else { ?>
-
-        <?php
-        if (isset($_GET['p']) != 'registro') {  ?>
-
-            <center>
-                <div class="iniciarses">
-                <h1>Iniciar sesion</h1>
-                <form method="POST" action="">
-                    <label> Nombre: </label>
-                    <input type="text" name="loguser" class="texto" placeholder="Nombre" required> <br><br>
-                    <label> Contraseña: </label>
-                    <input type="password" name="logpass" class="texto" placeholder="Contraseña" required><br><br>
-                    <input type="submit" name="log" class="boton" value="Ingresar">
-                </form>
-                <a href="?p=registro">Registrarse</a>
-                </div>
-            </center>
-        <?php } else { ?>
-                
-            <center>
-                <div class="registrarses">
-                <h1>Registrarse</h1>
-                <form method="POST" action="">
-                     <label> Nombre: </label>
-                    <input type="text" name="reguser" class="texto" placeholder="Nombre" required> <br><br>
-                    <label> Contraseña: </label>
-                    <input type="password" name="regpass" class="texto" placeholder="Contraseña" required><br><br>
-                    <label>Correo:</label>
-                    <input type="text" name="regCor" class="texto" placeholder="Correo" required> <br><br>
-                    <label>Direccion:</label>
-                    <input type="text" name="regDir" class="texto" placeholder="Direccion" required> <br><br>
-                    <label >Telefono:</label>
-                    <input type="text" name="regTel" class="texto" placeholder="Telefono" required> <br><br>
-                    <input type="submit" name="reg" class="boton" value="Registrarse">
-                </form>
-                <a href="./">Loguearme</a>
-                </div>
-                </center>
-       
-        <?php } ?>
-
-    <?php } ?>
-
+    
 </body>
-
-
 </html>
