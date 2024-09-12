@@ -209,12 +209,28 @@
                </div><!-- col-sm-4 Finish -->
                
            </div><!-- same-height-row Finish -->
-
-           <img src="images\GlizzyLogo.png" alt="VicentaLogo" class="hidden-xs" height="500px" width="500px">
+            <center>
+           <img src="images\GlizzyLogo.png" alt="VicentaLogo" class="hidden-xs" height="250px" width="250px">
            
+           <br>
+           <div class="col-md-9">
+            <div class="box" id="ingles"><p><strong>Ingles</strong></p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ullam blanditiis ad ut quidem maxime atque praesentium eveniet nulla omnis consequatur quod? Odit maiores aliquam illum eos earum perferendis doloribus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea qui placeat autem eligendi mollitia aliquid dignissimos odit deleniti soluta ducimus minus hic consequatur eum quidem, fuga quae atque, inventore rerum?
+                </p> 
+        </div>
+        <div class="box" id="español">
+            <p><strong>Español</strong></p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis aut nisi nostrum omnis enim? Accusamus alias temporibus expedita dignissimos nisi fuga nam perspiciatis itaque unde? Quas explicabo modi beatae tenetur?
+        </div>
+        </div>
+        </center>
+          
+
        </div><!-- container Finish -->
        
    </div><!-- #advantages Finish -->
+
 
        
     <?php
