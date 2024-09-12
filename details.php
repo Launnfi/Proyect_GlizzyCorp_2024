@@ -6,7 +6,7 @@
     <title>Vicenta</title>
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
    
@@ -54,8 +54,8 @@
                
                <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                   <img src="images/ecom-store-logo.png" alt="M-dev-Store Logo" class="hidden-xs">
-                   <img src="images/ecom-store-logo-mobile.png" alt="M-dev-Store Logo Mobile" class="visible-xs">
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
                    
                </a><!-- navbar-brand home Finish -->
                
@@ -277,6 +277,8 @@
 
                     </div><!-- row Finish -->
                   </div><!-- col-sm-6 Finish -->
+                  <br>
+                  <br>
                     
                     
                 <div class="box" id="details"><!-- box begin -->

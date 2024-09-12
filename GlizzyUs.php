@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vicenta</title>
-    <link rel="stylesheet" href="styles/bootstrap-337.min.css">
-    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-   
-   <div id="top"><!-- Top Begin -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sobre GlizzyCorp</title>
+        <link rel="stylesheet" href="styles/bootstrap-337.min.css">
+        <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+
+    <body>
+
+    <div id="top"><!-- Top Begin -->
        
        <div class="container"><!-- container Begin -->
            
@@ -26,16 +27,16 @@
                <ul class="menu"><!-- cmenu Begin -->
                    
                    <li>
-                       <a href="../customer_register.php">Registrarme</a>
+                       <a href="customer_register.php">Registrarme</a>
                    </li>
                    <li>
-                       <a href="my_account.php">Mi cuenta</a>
+                       <a href="customer/my_account.php">Mi cuenta</a>
                    </li>
                    <li>
-                       <a href="../cart.php">Ir al Carrito</a>
+                       <a href="cart.php">Ir al Carrito</a>
                    </li>
                    <li>
-                       <a href="../checkout.php">Login</a>
+                       <a href="checkout.php">Login</a>
                    </li>
                    
                </ul><!-- menu Finish -->
@@ -52,10 +53,10 @@
            
            <div class="navbar-header"><!-- navbar-header Begin -->
                
-               <a href="../index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
+               <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
-                <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
                    
                </a><!-- navbar-brand home Finish -->
                
@@ -83,20 +84,20 @@
                    
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
-                       <li >
-                           <a href="../index.php">Home</a>
-                       </li>
-                       <li>
-                           <a href="../tienda.php">Comprar</a>
-                       </li>
                        <li class="active">
-                           <a href="my_account.php">mi cuenta</a>
+                           <a href="index.php">Home</a>
                        </li>
                        <li>
-                           <a href="../cart.php">Carrito</a>
+                           <a href="tienda.php">Comprar</a>
                        </li>
                        <li>
-                           <a href="../contact.php">Contactanos</a>
+                           <a href="customer/my_account.php">mi cuenta</a>
+                       </li>
+                       <li>
+                           <a href="cart.php">Carrito</a>
+                       </li>
+                       <li>
+                           <a href="contact.php">Contactanos</a>
                        </li>
                        
                    </ul><!-- nav navbar-nav left Finish -->
@@ -153,77 +154,78 @@
        
    </div><!-- navbar navbar-default Finish -->
 
-   <div id="content"><!-- content begin -->
-    <div class="container"><!-- container begin -->
-        <div class="col-md-12"><!-- col-md-12 begin -->
+   <div id="advantages"><!-- #advantages Begin -->
+       
+       <div class="container"><!-- container Begin -->
+           
+           <div class="same-height-row"><!-- same-height-row Begin -->
+               
+               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+                   
+                   <div class="box same-height"><!-- box same-height Begin -->
+                       
+                       <div class="img" href=""></div>
+                       
+                       <h3><p>Benjamin Càceres</p></h3>
+                       
+                       <a href="#">LinkedIn</a>
+                       <a href="#">GitHub</a>
+                       <p>Gmail: benjacaceres266@gmail.com</p>
+                       
+                   </div><!-- box same-height Finish -->
+                   
+               </div><!-- col-sm-4 Finish -->
+               
+               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+                   
+                   <div class="box same-height"><!-- box same-height Begin -->
+                       
+                   <div class="img" href=""></div>
+                       
+                   <h3><p>Lautaro Camejo</p></h3>
+                       
+                       <a href="#">LinkedIn</a>
+                       <a href="#">GitHub</a>
+                       <p>Gmail: lautacamejo6@gmail.com</p>
+                       
+                   </div><!-- box same-height Finish -->
+                   
+               </div><!-- col-sm-4 Finish -->
+               
+               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+                   
+                   <div class="box same-height"><!-- box same-height Begin -->
+                       
+                   <div class="img" href=""></div>
+                       
+                   <h3><p>Nicolas Siffredo</p></h3>
+                       
+                       <a href="#">LinkedIn</a>
+                       <a href="#">GitHub</a>
+                       <p>Gmail: chinchulinnico@gmail.com</p>
+                       
+                   </div><!-- box same-height Finish -->
+                   
+               </div><!-- col-sm-4 Finish -->
+               
+           </div><!-- same-height-row Finish -->
 
-        <ul class="breadcrumb"><!-- breadcrumb begin-->
-            <li>
-                <a href="index.php">Inicio</a>
-            </li>
-            <li>
-                Mi cuenta
-            </li>
-        </ul>
+           <img src="images\GlizzyLogo.png" alt="VicentaLogo" class="hidden-xs" height="500px" width="500px">
+           
+       </div><!-- container Finish -->
+       
+   </div><!-- #advantages Finish -->
 
-        <div class="col-md-3"><!-- col-md-3 begin -->
-        <?php
-
-             include("includes/sidebar.php");
-
-        ?>
-        </div><!-- col-md-3 finish -->
-        <div class="col-md-9"><!-- col-md-9 empieza -->
-
-            <div class="box"><!-- box empieza -->
-
-
-            <?php 
-            if(isset($_GET['misOrdenes'])){
-                include("misOrdenes.php");
-            }
-            ?>
-             <?php 
-            if(isset($_GET['pagoOff'])){
-                include("pagoOff.php");
-            }
-            ?>
-              <?php 
-            if(isset($_GET['editarInfo'])){
-                include("editarInfo.php");
-            }
-            ?>
-               <?php 
-            if(isset($_GET['cambiarCont'])){
-                include("cambiarCont.php");
-            }
-            ?>
-             <?php 
-            if(isset($_GET['eliminarCuenta'])){
-                include("eliminarCuenta.php");
-            }
-            ?>
-
-
-
-            </div><!-- box empieza -->
-
-
-        </div><!-- col-md-9 termina -->
-
-
-        </div><!-- container finish -->
-    </div><!-- content finish -->
-    
+       
     <?php
 
-    include("includes/footer.php")
+        include("footer.php")
 
-    ?>
+        ?>
+        
+        <script src="js/jquery-331.min.js"></script>
+        <script src="js/bootstrap-337.min.js"></script>
 
-    <script src="js/jquery-331.min.js"></script>
-    <script src="js/bootstrap-337.min.js"></script>
+    </body>
 
-
-</body>
 </html>

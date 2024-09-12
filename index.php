@@ -54,8 +54,8 @@
                
                <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                   <img src="images\Logo-Pc-movil.png" alt="M-dev-Store Logo" class="hidden-xs" width=150px height=50px>
-                   <img src="images\Logo-Pc-movil.png" alt="M-dev-Store Logo Mobile" class="visible-xs" width=150px height=50px>
+                   <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
+                   <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
                    
                </a><!-- navbar-brand home Finish -->
                

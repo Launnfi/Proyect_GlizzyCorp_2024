@@ -51,11 +51,12 @@
                     <br/>Direccion
                     <br/>Numero
                     <br/>Mail
-                    <br/><strong>GlizzyCorp</strong>
+                    <br>
+                    <br/><Strong>GlizzyCorp</Strong></a>
                     
                 </p><!-- p Finish -->
                 
-                <a href="contactanos.php">Mira nuestra pagina de contactos</a>
+                <a href="GlizzyUs.php">Mira nuestra pagina de contactos</a>
                 
                 <hr class="hidden-md hidden-lg">
                 
@@ -110,7 +111,7 @@
         </div><!-- col-md-6 Finish -->
         <div class="col-md-6"><!-- col-md-6 Begin -->
             
-            <p class="pull-right">Echo por : <a href="#">GlizzyCorp</a></p>
+            <p class="pull-right">Hecho por : <a href="#">GlizzyCorp</a></p>
             
         </div><!-- col-md-6 Finish -->
     </div><!-- container Finish -->

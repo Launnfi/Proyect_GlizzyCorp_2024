@@ -29,7 +29,7 @@
                        <a href="customer_register.php">Registrarme</a>
                    </li>
                    <li>
-                       <a href="checkout.php">Mi cuenta</a>
+                   <a href="customer/my_account.php">Mi cuenta</a>
                    </li>
                    <li>
                        <a href="cart.php">Ir al Carrito</a>
@@ -54,8 +54,8 @@
                
                <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                   <img src="images/ecom-store-logo.png" alt="M-dev-Store Logo" class="hidden-xs">
-                   <img src="images/ecom-store-logo-mobile.png" alt="M-dev-Store Logo Mobile" class="visible-xs">
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
                    
                </a><!-- navbar-brand home Finish -->
                
