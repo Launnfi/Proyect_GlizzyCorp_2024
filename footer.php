@@ -30,11 +30,36 @@
                 <h4>Categorias de productos</h4>
                 
                 <ul><!-- ul Begin -->
-                    <li><a href="#">Accesorios</a></li>
-                    <li><a href="#">Camisetas</a></li>
-                    <li><a href="#">Zapatos</a></li>
-                    <li><a href="#">Vestidos</a></li>
-                    <li><a href="#">Pantalones</a></li>
+
+                <?php 
+                    
+                $get_p_cats = "select * from productos_categorias";
+                    
+                    $run_p_cats = mysqli_query($con,$get_p_cats);
+                
+                    while($row_p_cats=mysqli_fetch_array($run_p_cats)){
+                        
+                        $p_cat_id = $row_p_cats['p_cat_id'];
+                        
+                        $p_cat_titulo = $row_p_cats['p_cat_titulo'];
+                        
+                        echo "
+                        
+                            <li>
+                            
+                                <a href='shop.php?p_cat=$p_cat_id'>
+                                
+                                    $p_cat_titulo
+                                
+                                </a>
+                            
+                            </li>
+                        
+                        ";
+                        
+                    }
+                
+                ?>
                 </ul><!-- ul Finish -->
                 
                 <hr class="hidden-md hidden-lg">
