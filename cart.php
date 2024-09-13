@@ -385,7 +385,7 @@
                             </a>
                             
                             <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">M-Dev Tank Top Women</a></h3>
+                                <h3><a href="details.php">Conjunto del paris saint german</a></h3>
                                 
                                 <p class="price">$40</p>
                                 
@@ -401,7 +401,7 @@
                             </a>
                             
                             <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">M-Dev Street Shirt Women</a></h3>
+                                <h3><a href="details.php">Ropa de bebe</a></h3>
                                 
                                 <p class="price">$45</p>
                                 
@@ -417,7 +417,7 @@
                             </a>
                             
                             <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">M-Dev Polo T-Shirt Women</a></h3>
+                                <h3><a href="details.php">Conjunto de dinosauros</a></h3>
                                 
                                 <p class="price">$50</p>
                                 
@@ -439,13 +439,13 @@
 
             <div class="box-header">
 
-            <h3>Order Summary</h3>
+            <h3>Resumen del pedido </h3>
 
             </div><!-- box-header finish -->
 
             <p class="text-muted">
 
-            shipping and additional costs are calculated based on value you have entered
+            Los costos de envío y adicionales se calculan según el valor que haya ingresado.
 
             </p><!-- text-muted finish -->
             <div class="table-responsive"><!-- table-responsive begin -->
@@ -462,7 +462,7 @@
             </tr>
 
             <tr>
-                <td>shipping and handling</td>
+                <td>envío y manipulación</td>
                 <td>$0</td>
 
             </tr>

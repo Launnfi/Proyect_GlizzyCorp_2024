@@ -184,8 +184,8 @@
                        
                    <h3><p>Lautaro Camejo</p></h3>
                        
-                       <a href="#">LinkedIn</a>
-                       <a href="#">GitHub</a>
+                       <a href="https://linkedin.com/in/lauta-camejo-0b3a68299/">LinkedIn</a>
+                       <a href="https://github.com/Launnfi">GitHub</a>
                        <p>Gmail: lautacamejo6@gmail.com</p>
                        
                    </div><!-- box same-height Finish -->

@@ -90,7 +90,7 @@
                            <a href="tienda.php">Comprar</a>
                        </li>
                        <li>
-                           <a href="checkout.php">mi cuenta</a>
+                           <a href="customer/my_account.php">mi cuenta</a>
                        </li>
                        <li>
                            <a href="cart.php">Carrito</a>
