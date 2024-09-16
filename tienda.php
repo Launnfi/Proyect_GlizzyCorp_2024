@@ -1,3 +1,7 @@
+<?php 
+include("db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,264 +179,135 @@
         </div><!-- col-md-3 finish -->
 
             <div class="col-md-9"><!-- col-md-9 begin -->
-                <div class="box"><!-- box begin -->
-                    <h1>Tienda</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti cupiditate eum necessitatibus, consequatur ab et, doloribus beatae illo, quod explicabo incidunt! Nobis rem recusandae mollitia aliquid cum nihil assumenda deserunt.
-                    </p>
-                </div><!-- box finish -->
+
+                <?php
+
+                if(!isset($_GET['p_cat'])){
+
+                    if(!isset($_GET['cat'])){
+
+                
+
+                        echo "
+
+                        <div class='box'><!-- box begin -->
+                            <h1>Tienda</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti cupiditate eum necessitatibus, consequatur ab et, doloribus beatae illo, quod explicabo incidunt! Nobis rem recusandae mollitia aliquid cum nihil assumenda deserunt.
+                            </p>
+                        </div><!-- box finish -->
+                        ";
+                    }
+                    }
+                ?>
+                
                 <div class="row"><!-- row begin -->
 
-            <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsiv begin -->
+                <?php
+                if(!isset($_GET['p_cat'])){
 
-                    <div class="product"><!-- product Begin -->
-                   
-                   <a href="details.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/product-1.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="details.php">
-                              Camiseta de niña
-                           </a>
-                       </h3>
-                       
-                       <p class="price">$1000</p>
-                       
-                       <p class="button">
-                           
-                           <a href="details.php" class="btn btn-default">Ver Detalles</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Añadir al carrito
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-                     </div><!-- product Finish -->
+                    if(!isset($_GET['cat'])){
 
-                    </div><!-- col-md-4 col-sm-6 center-responsiv finish -->
+                        $per_page = 6;
 
-            <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsiv begin -->
+                        if(isset($_GET['page'])){
 
-                <div class="product"><!-- product Begin -->
+                            $page = $_GET['page'];
 
-                <a href="details.php">
-   
-                <img class="img-responsive" src="admin_area/product_images/product-1.jpg" alt="Product 1">
-                
-                                    </a>
+                        }else{
 
-                                    <div class="text"><!-- text Begin -->
-                                    
-                                    <h3>
-                                        <a href="details.php">
-                                            Camiseta de niña
-                                        </a>
-                                    </h3>
-                                    
-                                    <p class="price">$1000</p>
-                                    
-                                    <p class="button">
+                                $page = 1;
+                            
+                        }
+                        
+                        $start_from = ($page-1) * $per_page;
+                             
+                        $get_productos = "SELECT * from productos order by 1 DESC LIMIT $start_from,$per_page";
+                         
+                        $run_productos = mysqli_query($con,$get_productos);
+
+                        if (!$run_productos) {
+                            echo "Error en la consulta: " . mysqli_error($con);
+                            exit();
+                        }
+                         
+                        while($row_products=mysqli_fetch_array($run_productos)){
+
+                                $pro_id = $row_products['producto_id'];
+        
+                                $pro_titulo = $row_products['producto_titulo'];
+                                
+                                $pro_precio = $row_products['producto_precio'];
+                                
+                                $pro_img1 = $row_products['producto_img1'];
+
+                                echo"
+                                    <div class= 'col-md-4 col-sm-6 center-responsive'>
+
+                                     <div class= 'product'> 
+                                         <a href= 'details.php?pro_id=$pro_id'> 
                                         
-                                        <a href="details.php" class="btn btn-default">Ver Detalles</a>
+                                            <img class = 'img-responsive' src= 'admin_area/product_images/$pro_img1'>
                                         
-                                        <a href="details.php" class="btn btn-primary">
-                                            
-                                            <i class="fa fa-shopping-cart">
-                                                Añadir al carrito
-                                            </i>
-                                            
-                                        </a>
+                                         </a>
+                                        <div class= 'text'> 
                                         
-                                    </p>
-                                    
-                                    </div><!-- text Finish -->
+                                            <h3>
+                                            <a href= 'details.php?pro_id= $pro_id'> $pro_titulo </a>
 
-                                    </div><!-- product Finish -->
+                                            </h3>
+                                            <p class= 'precio'> 
+                                              $  $pro_precio
+                                            </p>
 
-                </div><!-- col-md-4 col-sm-6 center-responsiv finish -->
-            <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsiv begin -->
+                                            <p class = 'button'>
+                                            <a class= 'btn btn-default' href= 'details.php?pro_id= $pro_id'>
+                                            Ver detalles
+                                            </a>
 
-                    <div class="product"><!-- product Begin -->
+                                             <p class = 'button'>
 
-                    <a href="details.php">
-                    
-                    <img class="img-responsive" src="admin_area/product_images/product-1.jpg" alt="Product 1">
-                    
-                    </a>
+                                            <a class= 'btn btn-primary' href= 'details.php?pro_id= $pro_id'>
+                                            <i class = 'fa fa-shopping-cart' > </i> Añadir al carrito
 
-                    <div class="text"><!-- text Begin -->
-                    
-                    <h3>
-                        <a href="details.php">
-                            Camiseta de niña
-                        </a>
-                    </h3>
-                    
-                    <p class="price">$1000</p>
-                    
-                    <p class="button">
-                        
-                        <a href="details.php" class="btn btn-default">Ver Detalles</a>
-                        
-                        <a href="details.php" class="btn btn-primary">
+                                            </a>
+
+
+                                            </p>
+
+                                        
+                                        </div>
+
+
+                                      </div>
+                                        
+                                     </div>
+                                    ";
+                                
+
                             
-                            <i class="fa fa-shopping-cart">
-                                Añadir al carrito
-                            </i>
-                            
-                        </a>
                         
-                    </p>
-                    
-                    </div><!-- text Finish -->
 
-                    </div><!-- product Finish -->
-
-                    </div><!-- col-md-4 col-sm-6 center-responsiv finish -->
-            <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsiv begin -->
-
-                    <div class="product"><!-- product Begin -->
-
-                    <a href="details.php">
-                    
-                    <img class="img-responsive" src="admin_area/product_images/product-1.jpg" alt="Product 1">
-                    
-                    </a>
-
-                    <div class="text"><!-- text Begin -->
-                    
-                    <h3>
-                        <a href="details.php">
-                            Camiseta de niña
-                        </a>
-                    </h3>
-                    
-                    <p class="price">$1000</p>
-                    
-                    <p class="button">
+                        }
                         
-                        <a href="details.php" class="btn btn-default">Ver Detalles</a>
-                        
-                        <a href="details.php" class="btn btn-primary">
-                            
-                            <i class="fa fa-shopping-cart">
-                                Añadir al carrito
-                            </i>
-                            
-                        </a>
-                        
-                    </p>
-                    
-                    </div><!-- text Finish -->
+                        ?>
 
-                    </div><!-- product Finish -->
-
-                    </div><!-- col-md-4 col-sm-6 center-responsiv finish -->
-            <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsiv begin -->
-
-                <div class="product"><!-- product Begin -->
-
-                <a href="details.php">
                 
-                <img class="img-responsive" src="admin_area/product_images/product-1.jpg" alt="Product 1">
-                
-                </a>
-
-                <div class="text"><!-- text Begin -->
-                
-                <h3>
-                    <a href="details.php">
-                        Camiseta de niña
-                    </a>
-                </h3>
-                
-                <p class="price">$1000</p>
-                
-                <p class="button">
-                    
-                    <a href="details.php" class="btn btn-default">Ver Detalles</a>
-                    
-                    <a href="details.php" class="btn btn-primary">
-                        
-                        <i class="fa fa-shopping-cart">
-                            Añadir al carrito
-                        </i>
-                        
-                    </a>
-                    
-                </p>
-                
-                </div><!-- text Finish -->
-
-                </div><!-- product Finish -->
-
-                </div><!-- col-md-4 col-sm-6 center-responsiv finish -->
-            <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsiv begin -->
-
-                    <div class="product"><!-- product Begin -->
-
-                    <a href="details.php">
-                    
-                    <img class="img-responsive" src="admin_area/product_images/product-1.jpg" alt="Product 1">
-                    
-                    </a>
-
-                    <div class="text"><!-- text Begin -->
-                    
-                    <h3>
-                        <a href="details.php">
-                            Camiseta de niña
-                        </a>
-                    </h3>
-                    
-                    <p class="price">$1000</p>
-                    
-                    <p class="button">
-                        
-                        <a href="details.php" class="btn btn-default">Ver Detalles</a>
-                        
-                        <a href="details.php" class="btn btn-primary">
-                            
-                            <i class="fa fa-shopping-cart">
-                                Añadir al carrito
-                            </i>
-                            
-                        </a>
-                        
-                    </p>
-                    
-                        </div><!-- text Finish -->
-
-                        </div><!-- product Finish -->
-
-                        </div><!-- col-md-4 col-sm-6 center-responsiv finish -->
             </div><!-- row finish -->
          </div><!-- col-md-9 finish -->
 
      </div><!-- col-md-12 finish -->
 
     <center>
-        <ul class="pagination">
-            <li><a href="#"><<</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">>></a></li>
-        </ul>
+        <ul class="pag">
+        <?php
+
+
+                    }
+                }    
+
+        ?>
+   </ul>
     </center>
 
         </div><!-- container finish -->
