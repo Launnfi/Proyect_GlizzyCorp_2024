@@ -170,6 +170,7 @@ include("db.php");
             </li>
         </ul>
 
+        </div><!-- col-md-12 finish -->
         <div class="col-md-3"><!-- col-md-3 begin -->
         <?php
 
@@ -294,22 +295,55 @@ include("db.php");
 
                 
             </div><!-- row finish -->
-         </div><!-- col-md-9 finish -->
+         
 
-     </div><!-- col-md-12 finish -->
+     
 
     <center>
-        <ul class="pag">
+        <ul class="pagination">
         <?php
+        $query = "SELECT * FROM productos";
+        $resultado = mysqli_query($con, $query);
+        $total_rec = mysqli_num_rows($resultado);
+        $total_pag = ceil($total_rec / $per_page);
 
+        // Primera página
+        echo "
+            <li>
+                <a href='tienda.php?page=1'>Página Inicio</a>
+            </li>
+        ";
 
-                    }
-                }    
+        // Páginas intermedias
+        for ($i = 1; $i <= $total_pag; $i++) {
+            echo "
+                <li>
+                    <a href='tienda.php?page=".$i."'>".$i."</a>
+                </li>
+            ";
+        }
+
+        // Última página
+        echo "
+            <li>
+                <a href='tienda.php?page=".$total_pag."'>Última casilla</a>
+            </li>
+        ";
+         }
+             }    
 
         ?>
    </ul>
     </center>
-
+              
+             
+                     <?php
+                     
+                      getPCatpro(); ?>  
+                     
+              
+    
+          </div><!-- col-md-9 finish -->
         </div><!-- container finish -->
     </div><!-- content finish -->
     
