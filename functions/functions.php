@@ -246,7 +246,7 @@ function getcatpro(){
         
         $cat_id = $_GET['cat'];
         
-        $get_cat = "select * from categorias where cat_id='$cat_id'";
+        $get_cat = "SELECT * from categorias where cat_id='$cat_id'";
         
         $run_cat = mysqli_query($db,$get_cat);
         
@@ -256,7 +256,7 @@ function getcatpro(){
         
         $cat_desc = $row_cat['cat_desc'];
         
-        $get_cat = "select * from productos where cat_id='$cat_id'";
+        $get_cat = "SELECT * from productos where cat_id='$cat_id' LIMIT 0,6";
         
         $run_products = mysqli_query($db,$get_cat);
         

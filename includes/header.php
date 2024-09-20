@@ -1,6 +1,46 @@
 <?php 
 include("db.php");
+
 ?>
+
+<?php 
+
+if(isset($_GET['pro_id'])){
+
+    $producto_id = $_GET['pro_id'];
+
+    $get_product = "select * from productos where producto_id='$producto_id'";
+
+    $run_product = mysqli_query($con,$get_product);
+
+    $row_product = mysqli_fetch_array($run_product);
+
+    $p_cat_id = $row_product['p_cat_id'];
+
+    $pro_titulo = $row_product['producto_titulo'];
+
+    $pro_price = $row_product['producto_precio'];
+
+    $pro_desc = $row_product['producto_desc'];
+
+    $pro_img1 = $row_product['producto_img1'];
+
+    $pro_img2 = $row_product['producto_img2'];
+
+    $pro_img3 = $row_product['producto_img3'];
+
+    $get_p_cat = "select * from productos_categorias where p_cat_id='$p_cat_id'";
+
+    $run_p_cat = mysqli_query($con,$get_p_cat);
+
+    $row_p_cat = mysqli_fetch_array($run_p_cat);
+
+    $p_cat_titulo = $row_p_cat['p_cat_titulo'];
+
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +72,7 @@ include("db.php");
                        <a href="customer_register.php">Registrarme</a>
                    </li>
                    <li>
-                   <a href="customer/my_account.php">Mi cuenta</a>
+                       <a href="customer/my_account.php">Mi cuenta</a>
                    </li>
                    <li>
                        <a href="cart.php">Ir al Carrito</a>
@@ -86,19 +126,19 @@ include("db.php");
                    
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
-                       <li >
+                       <li class="<?= $active == 'Inicio' ? 'active' : '' ?>" >
                            <a href="index.php">Home</a>
                        </li>
-                       <li>
+                       <li class= "<?= $active == 'Comprar' ? 'active' : '' ?>" >
                            <a href="tienda.php">Comprar</a>
                        </li>
-                       <li>
+                       <li class="<?= $active == 'Mi cuenta' ? 'active' : '' ?>">
                            <a href="customer/my_account.php">mi cuenta</a>
                        </li>
-                       <li>
+                       <li class="<?= $active == 'Carrito' ? 'active' : '' ?>">
                            <a href="cart.php">Carrito</a>
                        </li>
-                       <li  class="active">
+                       <li class="<?= $active == 'Contactanos' ? 'active' : '' ?>">
                            <a href="contact.php">Contactanos</a>
                        </li>
                        
@@ -155,115 +195,3 @@ include("db.php");
        </div><!-- container Finish -->
        
    </div><!-- navbar navbar-default Finish -->
-  <?php
-$active = "Contactanos";
-include("includes/header.php");
-?>
-
-   <div id="content"><!-- content begin -->
-    <div class="container"><!-- container begin -->
-        <div class="col-md-12"><!-- col-md-12 begin -->
-
-        <ul class="breadcrumb"><!-- breadcrumb begin-->
-            <li>
-                <a href="index.php">Inicio</a>
-            </li>
-            <li>
-                Contactanos
-            </li>
-        </ul>
-
-        <div class="col-md-3"><!-- col-md-3 begin -->
-        <?php
-
-             include("includes/sidebar.php");
-
-        ?>
-        </div><!-- col-md-3 finish -->
-        <div class="col-md-9"><!-- col-md-9 begin -->
-            
-            <div class="box"><!-- box begin -->
-
-            <div class="box-header"><!-- box-header begin -->
-
-            <center>
-
-                <h2>Sientete seguro de contactarnos</h2>
-
-                <p class="text-muted">
-                Por cualquier pregunta, eres libre de contactrarnos. Estamos dispuestos en solucionar cualquier duda que tengas 😊 
-
-
-                </p>
-
-            </center>
-
-            <form action="contact.php" method="post"><!-- form begin -->
-
-            <div class="form-group"><!-- form-group begin -->
-
-            <label>Nombre</label>
-            <input type="text" class="form-control" name="name" required>
-
-
-
-            </div><!-- form-group finish -->
-            <div class="form-group"><!-- form-group begin -->
-
-                <label>e-mail</label>
-                <input type="text" class="form-control" name="email" required>
-
-
-
-                </div><!-- form-group finish --> 
-              </div><!-- form-group finish -->
-                <div class="form-group"><!-- form-group begin -->
-
-                <label>Asunto</label>
-                <input type="text" class="form-control" name="subject" required> 
-                
-              </div><!-- form-group finish -->
-                <div class="form-group"><!-- form-group begin -->
-
-                <label>Mensaje</label>
-                <textarea name="message" class="form-control"></textarea>
-
-                </div><!-- form-group finish -->
-
-                <div class="text-center"><!-- text-center begin -->
-                    <button type="submit" name="submit" class="btn btn-primary">
-
-                    <i class="fa fa-user-md"></i>Enviar mensaje
-                    </button>
-
-                </div><!-- text-center finish -->
-
-
-
-            </form><!-- form finish -->
-
-
-            </div><!-- box-header finish -->
-
-
-            </div><!-- box finish -->
-
-
-            </div><!-- col-md-3 finish -->
-
-        
-        </div><!-- container finish -->
-    </div><!-- content finish -->
-    
-    <?php
-
-    include("footer.php")
-
-    ?>
-
-    <script src="js/jquery-331.min.js"></script>
-    <script src="js/bootstrap-337.min.js"></script>
-
-
-</body>
-</html>

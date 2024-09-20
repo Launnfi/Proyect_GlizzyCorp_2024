@@ -155,6 +155,11 @@ include("db.php");
        </div><!-- container Finish -->
        
    </div><!-- navbar navbar-default Finish -->
+<?php
+$active = "Carrito";
+include("includes/header.php");
+
+?>
 
    <div id="content"><!-- content begin -->
     <div class="container"><!-- container begin -->
