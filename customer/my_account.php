@@ -1,3 +1,12 @@
+<?php 
+$active = "Mi cuenta";
+?>
+<?php 
+
+include("../db.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +44,7 @@
                        <a href="../cart.php">Ir al Carrito</a>
                    </li>
                    <li>
-                       <a href="../checkout.php">Login</a>
+                       <a href="checkout.php">Login</a>
                    </li>
                    
                </ul><!-- menu Finish -->
@@ -52,10 +61,10 @@
            
            <div class="navbar-header"><!-- navbar-header Begin -->
                
-               <a href="../index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
+               <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                <img src="customer\images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
-                <img src="customer\images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
                    
                </a><!-- navbar-brand home Finish -->
                
@@ -83,19 +92,19 @@
                    
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
-                       <li >
+                       <li class="<?= $active == 'Inicio' ? 'active' : '' ?>" >
                            <a href="../index.php">Home</a>
                        </li>
-                       <li>
+                       <li class= "<?= $active == 'Comprar' ? 'active' : '' ?>" >
                            <a href="../tienda.php">Comprar</a>
                        </li>
-                       <li class="active">
+                       <li class="<?= $active == 'Mi cuenta' ? 'active' : '' ?>">
                            <a href="my_account.php">mi cuenta</a>
                        </li>
-                       <li>
+                       <li class="<?= $active == 'Carrito' ? 'active' : '' ?>">
                            <a href="../cart.php">Carrito</a>
                        </li>
-                       <li>
+                       <li class="<?= $active == 'Contactanos' ? 'active' : '' ?>">
                            <a href="../contact.php">Contactanos</a>
                        </li>
                        
@@ -152,7 +161,6 @@
        </div><!-- container Finish -->
        
    </div><!-- navbar navbar-default Finish -->
-
    <div id="content"><!-- content begin -->
     <div class="container"><!-- container begin -->
         <div class="col-md-12"><!-- col-md-12 begin -->

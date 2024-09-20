@@ -423,7 +423,9 @@ body{
         height: auto;
     }
 }
-
+.logo{
+    height: 40px;
+}
 
 
 
