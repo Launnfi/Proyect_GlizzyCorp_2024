@@ -603,7 +603,7 @@ body{
 /*  Details.php Styles */
 
 
-#content #productMain{
+/* #content #productMain{
     margin-bottom: 30px;
 }
 #content #productMain .price{
@@ -622,7 +622,157 @@ body{
 }
 #content .headline{
     height: 340px;
+} */
+
+#productMain {
+    margin-top: 20px;
 }
+
+#mainImage img {
+    width: 100%; 
+    border-radius: 10px; 
+}
+
+#mainImage .carousel-inner .item {
+    transition: transform 0.3s ease; 
+}
+
+#myCarousel .carousel-indicators li {
+    background-color: #ff6699; 
+}
+
+#myCarousel .carousel-indicators .active {
+    background-color: #007bff; 
+}
+
+.carousel-control {
+    color: #007bff; 
+}
+
+.carousel-control:hover {
+    color: #ff6699; 
+}
+
+.box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px; 
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 30px;
+}
+
+.box h1 {
+    font-family: 'Arial', sans-serif;
+    color: #333; 
+}
+
+.form-horizontal .form-group label {
+    font-weight: bold;
+    color: #007bff; 
+}
+
+.form-horizontal .form-control {
+    border-radius: 20px; 
+    border: 1px solid #e0e0e0;
+}
+
+.price {
+    color: #ff6699; 
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-center.buttons .btn-primary {
+    background-color: #ff6699; 
+    border: none;
+    border-radius: 20px;
+}
+
+.text-center.buttons .btn-primary:hover {
+    background-color: #ffc9d9; 
+}
+
+.text-center.buttons .btn-default {
+    background-color: #007bff; 
+    border: none;
+    border-radius: 20px;
+}
+
+.text-center.buttons .btn-default:hover {
+    background-color: #89bfff; 
+}
+
+#thumbs .thumb img {
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 10px;
+}
+
+#details {
+    margin-top: 20px;
+}
+
+#details h4 {
+    color: #007bff; 
+}
+
+#details ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+#details ul li:before {
+    content: "\f00c"; 
+    font-family: FontAwesome;
+    color: #ff6699; 
+    margin-right: 10px;
+}
+
+#same-height-row {
+    margin-top: 30px;
+}
+
+.same-height.headline h3 {
+    font-family: 'Arial', sans-serif;
+    color: #007bff;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.product.same-height {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.product.same-height img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.product.same-height .text h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+.product.same-height .price {
+    font-size: 18px;
+    color: #ff6699;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.product.same-height .price:hover {
+    color: #007bff; 
+}
+
 
 /*#cart.php stilo */
 
