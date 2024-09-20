@@ -1,3 +1,6 @@
+<?php 
+include("db.php");
+?>
 <div id="footer"><!-- #footer Begin -->
     <div class="container"><!-- container Begin -->
         <div class="row"><!-- row Begin -->
