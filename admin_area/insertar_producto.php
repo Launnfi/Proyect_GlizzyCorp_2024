@@ -266,7 +266,7 @@ if(isset($_POST['submit'])){
     
     if($run_product){
         
-        echo "<script>alert('El producto se aÃ±adio correctamente')</script>";
+        echo "<script>alert('El producto se añadio correctamente')</script>";
         echo "<script>window.open('insertar_producto.php','_self')</script>";
         
     }
