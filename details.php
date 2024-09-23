@@ -1,6 +1,4 @@
-<?php 
-include("db.php");
-?>
+
 <?php
 $active = "Comprar";
 include("includes/header.php");
@@ -72,44 +70,58 @@ include("includes/header.php");
                        <div class="box"><!-- box empeza -->
                            <h1 class="text-center"><?php echo $pro_titulo; ?></h1>
                            
-                           <form action="details.php?adds_cart=<?php echo $pro_id; ?>" class="form-horizontal" method="post"><!-- form-horizontal empeza -->
-                               <div class="form-group"><!-- form-group empeza -->
-                                   <label for="" class="col-md-5 control-label">Cantidad</label>
-                                   
-                                   <div class="col-md-7"><!-- col-md-7 empeza -->
-                                          <select name="product_qty" id="" class="form-control"><!-- select empeza -->
-                                           <option>1</option>
-                                           <option>2</option>
-                                           <option>3</option>
-                                           <option>4</option>
-                                           <option>5</option>
-                                           </select><!-- select Finish -->
-                                   
-                                    </div><!-- col-md-7 Finish -->
-                                   
-                               </div><!-- form-group Finish -->
-                               
-                               <div class="form-group"><!-- form-group empeza -->
-                                   <label class="col-md-5 control-label">Tallas</label>
-                                   
-                                   <div class="col-md-7"><!-- col-md-7 empeza -->
-                                       
-                                       <select name="product_size" class="form-control"><!-- form-control empeza -->
-                                          
-                                           <option>Selecciona un talle</option>
-                                           <option>S</option>
-                                           <option>M</option>
-                                           <option>L</option>
-                                           
-                                       </select><!-- form-control Finish -->
-                                       
-                                   </div><!-- col-md-7 Finish -->
-                               </div><!-- form-group Finish -->
+                           <?php add_cart(); ?>
 
-                            <p class="price"><?php echo $pro_price; ?></p>
-                            <p class="text-center buttons"><button class="btn btn-primary i fa fa-shopping-cart">Añadir al carrito</button></p>
+                        
+                           <form action="details.php?add_cart=<?php echo $pro_id; ?>" method="post" class="form-horizontal">
+                                <!-- form-horizontal empieza -->
+                                <div class="form-group">
+                                    <!-- form-group empieza -->
+                                    <label for="" class="col-md-5 control-label">Cantidad</label>
 
-                            </form><!-- form-horizontal Finish -->
+                                    <div class="col-md-7">
+                                        <!-- col-md-7 empieza -->
+                                        <select name="cant" id="" class="form-control" required>
+                                            <!-- select empieza -->
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                        <!-- select termina -->
+                                    </div>
+                                    <!-- col-md-7 termina -->
+                                </div>
+                                <!-- form-group termina -->
+
+                                <div class="form-group">
+                                    <!-- form-group empieza -->
+                                    <label class="col-md-5 control-label">Tallas</label>
+
+                                    <div class="col-md-7">
+                                        <!-- col-md-7 empieza -->
+                                        <select name="talle" class="form-control" required oninput="setCustomValidity('')"
+                                            oninvalid="setCustomValidity('Seleccione un talle')">
+                                            <!-- form-control empieza -->
+                                            <option disabled selected>Selecciona un talle</option>
+                                            <option>S</option>
+                                            <option>M</option>
+                                            <option>L</option>
+                                        </select>
+                                        <!-- form-control termina -->
+                                    </div>
+                                    <!-- col-md-7 termina -->
+                                </div>
+                                <!-- form-group termina -->
+
+                                <p class="price"><?php echo "$ $pro_price" ?></p>
+                                <p class="text-center buttons">
+                                    <button type="submit" class="btn btn-primary i fa fa-shopping-cart">Añadir al carrito</button>
+                                </p>
+                            </form>
+                            
+                            <!-- form-horizontal Finish -->
                         </div><!-- boxFinish -->
                  
                     <div class="row" id="thumbs"><!-- row empeza -->
@@ -171,7 +183,7 @@ include("includes/header.php");
 
                     <?php 
                     
-                    $get_productos = "SELECT * FROM productos order by 1 DESC LIMIT 0,3";
+                    $get_productos = "SELECT * FROM productos order by RAND() LIMIT 0,3";
 
                     $run_productos = mysqli_query($con, $get_productos);
 
@@ -197,7 +209,7 @@ include("includes/header.php");
                                 <div class= 'text'>
                                 <h3><a href='details.php?pro_id=$pro_id'> $pro_titulo </a></h3>
 
-                                <p class ='price'>$ $pro_price</p>
+                                <p class ='price'> <p class='price'> "; echo "$"; echo" $pro_price </p>
                                 </div>
 
                             </div>

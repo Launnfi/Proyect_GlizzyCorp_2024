@@ -1,6 +1,4 @@
-<?php 
-include("db.php");
-?>
+
 <?php
 $active = "Carrito";
 include("includes/header.php");

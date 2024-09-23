@@ -9,7 +9,7 @@
         <ul class="nav nav-pills nav-stacked category-menu"> <!-- nav nav-pills nav-stacked category-menu begin -->
         
         <?php
-        include("functions/functions.php");
+       
 
         getPCats();
         

@@ -1,6 +1,5 @@
 <?php
     $active = "Inicio";
-    include("functions/functions.php");
     include("includes/header.php")
 ?>
 
