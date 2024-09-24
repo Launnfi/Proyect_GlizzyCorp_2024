@@ -1,6 +1,6 @@
 <?php 
-include("db.php");
-include("functions/functions.php");
+include("../db.php");
+include("../functions/functions.php");
 
 ?>
 
@@ -50,7 +50,7 @@ if(isset($_GET['pro_id'])){
     <title>Vicenta</title>
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
    
@@ -61,7 +61,7 @@ if(isset($_GET['pro_id'])){
            <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
                
                <a href="#" class="btn btn-success btn-sm">Bienvenido</a>
-               <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total: <?php echo mont_total(); ?> </a>
+               <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total: $ <?php echo mont_total(); ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -70,16 +70,16 @@ if(isset($_GET['pro_id'])){
                <ul class="menu"><!-- cmenu Begin -->
                    
                    <li>
-                       <a href="customer_register.php">Registrarme</a>
+                       <a href="../customer_register.php">Registrarme</a>
                    </li>
                    <li>
-                       <a href="customer/my_account.php">Mi cuenta</a>
+                       <a href="my_account.php">Mi cuenta</a>
                    </li>
                    <li>
-                       <a href="cart.php">Ir al Carrito</a>
+                       <a href="../cart.php">Ir al Carrito</a>
                    </li>
                    <li>
-                       <a href="checkout.php">Login</a>
+                       <a href="../checkout.php">Login</a>
                    </li>
                    
                </ul><!-- menu Finish -->
@@ -96,7 +96,7 @@ if(isset($_GET['pro_id'])){
            
            <div class="navbar-header"><!-- navbar-header Begin -->
                
-               <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
+               <a href="../index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
                <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
                <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
@@ -128,19 +128,19 @@ if(isset($_GET['pro_id'])){
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
                        <li class="<?= $active == 'Inicio' ? 'active' : '' ?>" >
-                           <a href="index.php">Home</a>
+                           <a href="../index.php">Home</a>
                        </li>
                        <li class= "<?= $active == 'Comprar' ? 'active' : '' ?>" >
-                           <a href="tienda.php">Comprar</a>
+                           <a href="../tienda.php">Comprar</a>
                        </li>
                        <li class="<?= $active == 'Mi cuenta' ? 'active' : '' ?>">
-                           <a href="customer/my_account.php">mi cuenta</a>
+                           <a href="my_account.php">mi cuenta</a>
                        </li>
                        <li class="<?= $active == 'Carrito' ? 'active' : '' ?>">
-                           <a href="cart.php">Carrito</a>
+                           <a href="../cart.php">Carrito</a>
                        </li>
                        <li class="<?= $active == 'Contactanos' ? 'active' : '' ?>">
-                           <a href="contact.php">Contactanos</a>
+                           <a href="../contact.php">Contactanos</a>
                        </li>
                        
                    </ul><!-- nav navbar-nav left Finish -->

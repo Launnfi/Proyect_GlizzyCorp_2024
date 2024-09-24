@@ -23,10 +23,22 @@ include("includes/header.php");
 
         <div class="box"><!-- box begin -->
 
+    
         <form action="cart.php" method="post" enctype=",ultipart/from-data">
 
             <h1>Carrito de compras</h1>
-            <p class="text-muted">solamente se pueden poner 3 cosas en el carrito</p>
+
+            <?php 
+            $ip_add = getRealIpUser();
+
+            $sel_cart = "SELECT * from cart where ip_add = '$ip_add'";
+
+            $run_cart = mysqli_query($con, $sel_cart);
+
+            $cont= mysqli_num_rows($run_cart);
+
+            ?>
+            <p class="text-muted">Tienes <?php echo $cont; ?> cosas en el carrito</p>
 
             <div class="table-responsive"><!-- table-responsive begin -->
 
@@ -45,143 +57,88 @@ include("includes/header.php");
 
             </tr>
 
-                
             </thead><!-- thead final -->
 
             <tbody> <!-- tbody empieza -->
 
+            <?php  
+            $total = 0;
+
+            while($row_cart = mysqli_fetch_array($run_cart)){
+
+                $pro_id = $row_cart['p_id']; 
+
+                $pro_talle = $row_cart['talle']; 
+
+                $pro_cant = $row_cart['cant']; 
+            
+                $get_productos = "SELECT * from productos where producto_id = '$pro_id'";
+
+                $run_productos = mysqli_query($con, $get_productos);
+
+                while($row_productos = mysqli_fetch_array($run_productos)){
+
+                    $producto_titulo = $row_productos['producto_titulo'];
+
+                    $producto_img = $row_productos['producto_img1'];
+
+                    $unti_prec = $row_productos['producto_precio'];
+
+                    $sub_total = $row_productos['producto_precio']*$pro_cant;
+
+                    $total += $sub_total;
+
+            ?>
+
             <tr>
                 <td>
-                  <img class="img-responisve" src="admin_area/product_images/ProductoA2.jpg" alt="Producto 3a">
+                  <img class="img-responisve" src="admin_area/product_images/<?php echo $producto_img;?>" alt="Producto 3a">
                 </td>
 
                 <td>
 
-                <a href="#">Ropa de dinosaurio</a>
+                <a href="details.php?pro_id=<?php echo $pro_id;?> "><?php echo $producto_titulo;?></a>
 
                 </td>
 
                 <td>
-                2
+                <?php echo $pro_cant;?>
                 </td>
                 <td>
 
-                    $1500
+                <?php echo $producto_prec;?>
 
                 </td>
 
                 <td>
-                    S
+                <?php echo $pro_talle;?>
                 </td>
 
                 <td>
-                    <input type="checkbox" name= "remove[]">
+                    <input type="checkbox" name= "remove[]" value="<?php echo $pro_id;?>">
                 </td>
 
                 <td>
 
-                    $3000
+                <?php echo $sub_total;?>
 
                 </td>
             </tr>
 
+            <?php 
+                }
+        } ?>
+
 
             </tbody><!-- tbody final -->
-            <tbody> <!-- tbody empieza -->
-
-<tr>
-    <td>
-      <img class="img-responisve" src="admin_area/product_images/ProductoA2.jpg" alt="Producto 3a">
-    </td>
-
-    <td>
-
-    <a href="#">Ropa de dinosaurio</a>
-
-    </td>
-   
-    <td>
-        2
-</td>
-
-    <td>
-
-        $1500
-
-    </td>
-
-    <td>
-        S
-    </td>
-
-    <td>
-        <input type="checkbox" name= "remove[]">
-    </td>
-
-    <td>
-
-        $3000
-
-    </td>
-</tr>
-
-
-</tbody><!-- tbody final -->
-<tbody> <!-- tbody empieza -->
-
-<tr>
-    <td>
-      <img class="img-responisve" src="admin_area/product_images/ProductoA2.jpg" alt="Producto 3a">
-    </td>
-
-    <td>
-
-    <a href="#">Ropa de dinosaurio</a>
-
-    </td>
-
-  
-
-    <td>
-
-            2
-
-    </td>
-
-    <td>
-         $1500
-    </td>
-
-    <td>
-        
-        s
-        
-    </td>
-
-    <td>
-
-        <input type="checkbox" name= "remove[]">
-
-    </td>
-    <td>
-
-        $3000
-
-    </td>
-</tr>
-
-
-</tbody><!-- tbody final -->
-
 
         <tfoot><!-- tfoot begin -->
         
         <tr>
             
         <th colspan="5"> total</th>
-        <th colspan="2"> $4500</th>
+        <th colspan="2"> <?php echo $total;?></th>
         </tr>
-
 
         </tfoot><!-- tfoot finish -->
 
@@ -203,7 +160,7 @@ include("includes/header.php");
 
                 <div class="pull-right"><!--pull-left begin -->
 
-            <button type="submit"  name= "update" value="Update cart" class="btn btn-default"><!--btn btn-default" begin -->
+            <button type="submit"  name= "act" value="Update cart" class="btn btn-default"><!--btn btn-default" begin -->
 
              <i class="fa fa-refresh"></i>Actualizar Carrito
 
@@ -222,7 +179,41 @@ include("includes/header.php");
 
         </form><!-- from finish -->
 
-        </div><!-- box finish --> <div id="same-height-row"><!-- same-height-row begin -->
+        </div><!-- box finish -->
+        <?php 
+        function act_cart(){
+
+
+            global $con;
+
+            if(isset($_POST['act'])){
+
+                foreach($_POST['remove'] as $rem_id){
+
+                    $elim_prod = "DELETE from cart where p_id = $rem_id";
+
+                    $run_elim = mysqli_query($con, $elim_prod);
+
+                    if($run_elim){
+
+                        echo "<script>window.open('cart.php', '_self')</script>";
+
+
+
+                    }
+
+                }
+
+
+            }
+        }
+        echo $up_cart =  act_cart();
+        
+        
+        ?>
+
+        
+        <div id="same-height-row"><!-- same-height-row begin -->
                     <div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 begin -->
                         <div class="box same-height headline"><!--box same-height headline begin -->
 
@@ -230,57 +221,50 @@ include("includes/header.php");
                             
                         </div><!--box same-height headline Finish -->
                     </div><!-- col-md-3 col-sm-6 Finish -->
-                    <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/Producto.jpg" alt="Product 6">
+                    <?php 
+                    
+                    $get_productos = "SELECT * from productos order by rand() LIMIT 0,3";
+
+                    $run_productos = mysqli_query($con, $get_productos);
+
+                    while($row_productos = mysqli_fetch_array($run_productos)){
+
+                        $pro_id = $row_productos['producto_id'];
+
+                        $pro_titulo = $row_productos['producto_titulo'];
+
+                        $pro_img = $row_productos['producto_img1'];
+
+                        $pro_precio = $row_productos['producto_precio'];
+
+                        $sub_total = $pro_precio * $pro_cant;
+
+                        echo "
+                        
+                        
+                    
+                    <div class='col-md-3 col-sm-6 center-responsive'><!-- col-md-3 col-sm-6 center-responsive Begin -->
+                       <div class='product same-height'><!-- product same-height Begin -->
+                           <a href='details.php?pro_id=$pro_id'>
+                               <img class='img-responsive' src='admin_area/product_images/$pro_img' alt='Product 6'>
                             </a>
                             
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Conjunto del paris saint german</a></h3>
+                            <div class='text'><!-- text Begin -->
+                                <h3><a href='details.php?pro_id=$pro_id>$pro_titulo</a></h3>
                                 
-                                <p class="price">$40</p>
+                                <p class='price'>$$pro_precio</p>
                                 
                             </div><!-- text Finish -->
                             
                         </div><!-- product same-height Finish -->
                    </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
-                   
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/ProductoA3.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Ropa de bebe</a></h3>
-                                
-                                <p class="price">$45</p>
-                                
-                            </div><!-- text Finish -->
-                            
-                        </div><!-- product same-height Finish -->
-                   </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
-                   
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/ProductoA1.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Conjunto de dinosauros</a></h3>
-                                
-                                <p class="price">$50</p>
-                                
-                            </div><!-- text Finish -->
-                            </div> <!-- product same-height Finish -->
-                </div><!-- same-height-row Finish -->
-                </div><!--col-d-3 col-sm-6  Finish -->
-                     
-        
+                   ";
 
 
+
+                    }
+                    ?>
+        </div><!-- same-height-row termina -->
         </div><!-- col-md-9 finish -->
         <div class="col-md-3"><!-- col-md-3 begin -->
 
@@ -308,8 +292,8 @@ include("includes/header.php");
             
             <tr>
 
-            <td>Sub-total de la Orden</td>
-            <th>$4000</th>
+            <td>Sub-total</td>
+            <th> <?php echo "$". $sub_total; ?> </th>
 
             </tr>
 
@@ -328,7 +312,7 @@ include("includes/header.php");
             
             <tr class="total">
                 <td>Total</td>
-                <th>$5000</th>
+                <th><?php echo $total; ?></th>
 
             </tr>
 

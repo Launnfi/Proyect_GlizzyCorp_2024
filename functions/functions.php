@@ -405,3 +405,53 @@ function getcatpro(){
     }
     
 }
+
+function items(){
+    global $db;
+
+    $ip_add = getRealIpUser();
+
+    // Corregir la consulta para comparar el valor de la columna con la variable
+    $get_items = "SELECT * FROM cart WHERE ip_add = '$ip_add'";
+
+    $run_items = mysqli_query($db, $get_items);
+
+    $cont_items = mysqli_num_rows($run_items);
+    
+    echo $cont_items;
+}
+
+function mont_total(){
+
+    global $db;
+
+    $ip_add = getRealIpUser();
+
+    $total = 0;
+
+    $selecc_cart = "SELECT * FROM cart WHERE ip_add = '$ip_add'";
+
+    $run_cart = mysqli_query($db, $selecc_cart);
+
+    while($rec = mysqli_fetch_array($run_cart)){
+
+        $pro_id = $rec['p_id'];
+
+        $pro_cant = $rec['cant'];
+
+        $get_precio = "SELECT * FROM productos WHERE producto_id = '$pro_id'";
+
+        $run_precio = mysqli_query($db, $get_precio);
+
+        while($row_precio = mysqli_fetch_array($run_precio)){
+
+            $sub_total = $row_precio['producto_precio'] * $pro_cant;
+
+            $total += $sub_total; // Sumar el subtotal al total general
+
+        }
+    }
+
+    // Mostrar el total sin necesidad de un condicional
+    echo "$" . $total;
+}
