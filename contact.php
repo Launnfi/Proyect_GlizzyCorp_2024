@@ -86,6 +86,37 @@ include("includes/header.php");
 
             </form><!-- form finish -->
 
+            <?php 
+if (isset($_POST['submit'])) {
+
+    # Admin recibe el mensaje con esto
+    $user_nombre = $_POST['name'];
+    $user_email = $_POST['email'];
+    $user_asun = $_POST['subject'];
+    $user_msg = $_POST['message'];
+
+    $res_email = "lautacamejo6@gmail.com";  // Cambia esto al email real
+
+    # Cabeceras para el email a admin
+    $headers = "From: " . $user_email . "\r\n" .
+               "Reply-To: " . $user_email . "\r\n" .
+               "X-Mailer: PHP/" . phpversion();
+
+    mail($res_email, $user_asun, $user_msg, $headers);
+
+    # Auto respuesta al usuario
+    $asunto = "Bienvenido a nuestro sitio web";
+    $msg = "Gracias por enviarnos su mensaje, responderemos lo más pronto posible.";
+
+    # Cabeceras para el email de respuesta
+    $de = "From: lautacamejo6@gmail.com ";  // Cambia esto al email real
+
+    mail($user_email, $asunto, $msg, $de);
+
+    echo "<h2 align='center'>Tu mensaje se envió correctamente</h2>";
+}
+?>
+
 
             </div><!-- box-header finish -->
 

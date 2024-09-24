@@ -227,6 +227,8 @@ include("includes/header.php");
 
                     $run_productos = mysqli_query($con, $get_productos);
 
+                   
+
                     while($row_productos = mysqli_fetch_array($run_productos)){
 
                         $pro_id = $row_productos['producto_id'];
@@ -237,7 +239,7 @@ include("includes/header.php");
 
                         $pro_precio = $row_productos['producto_precio'];
 
-                        $sub_total = $pro_precio * $pro_cant;
+                        
 
                         echo "
                         
@@ -293,7 +295,8 @@ include("includes/header.php");
             <tr>
 
             <td>Sub-total</td>
-            <th> <?php echo "$". $sub_total; ?> </th>
+            <th> <?php
+            echo "$". $total; ?> </th>
 
             </tr>
 

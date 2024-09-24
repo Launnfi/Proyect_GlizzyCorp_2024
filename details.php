@@ -73,7 +73,7 @@ include("includes/header.php");
                            <?php add_cart(); ?>
 
                         
-                           <form action="details.php?add_cart=<?php echo $pro_id; ?>" method="post" class="form-horizontal">
+                           <form action="details.php?add_cart=<?php echo $pro_id; ?>" method="POST" class="form-horizontal">
                                 <!-- form-horizontal empieza -->
                                 <div class="form-group">
                                     <!-- form-group empieza -->
