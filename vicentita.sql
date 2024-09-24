@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2024 a las 01:30:29
+-- Tiempo de generación: 25-09-2024 a las 01:30:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,7 +39,9 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`cat_id`, `cat_titulo`, `cat_desc`) VALUES
 (1, 'queseso', 'queseso'),
-(2, 'anachuchu', 'anachuchu');
+(2, 'anachuchu', 'anachuchu'),
+(3, 'Niñas', 'Aqui encontraras todo tipo de ropa para niñas'),
+(4, 'Niños', 'Aqui encontraras todo tipo de ropa para niños');
 
 -- --------------------------------------------------------
 
@@ -66,7 +68,9 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`producto_id`, `p_cat_id`, `cat_id`, `date`, `producto_titulo`, `producto_img1`, `producto_img2`, `producto_img3`, `producto_precio`, `producto_desc`, `producto_keywords`) VALUES
-(1, 1, 0, '2024-09-12 23:30:00', 'chinchulin', 'images (1).jpg', 'images.jpg', 'ERv_whhXYAAw0rH.jpg', 350, 'tumbalacasamamitumbalacasamamitumbalacasamami', 'hola');
+(2, 1, 0, '2024-09-17 01:29:49', 'conjunto del paris', 'images.jpeg', 'images.jpeg', 'images.jpeg', 321, 'si', 'nashe'),
+(3, 3, 0, '2024-09-22 21:45:46', 'Vestido ', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_3789a4ad.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_b206d4c8.jpg', 1000, 'Vestido de niña con puntos ', 'vest_niña'),
+(4, 4, 0, '2024-09-24 02:27:08', 'Producto prueba', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_d7e31dd9.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_fd2f8bcc.jpg', 2344, 'Descripción prueba', 'hola');
 
 -- --------------------------------------------------------
 
@@ -86,7 +90,9 @@ CREATE TABLE `productos_categorias` (
 
 INSERT INTO `productos_categorias` (`p_cat_id`, `p_cat_titulo`, `p_cat_desc`) VALUES
 (1, 'chuchuua', 'chuchuua'),
-(2, 'tumbalacasamami', 'tumbalacasamami');
+(2, 'tumbalacasamami', 'tumbalacasamami'),
+(3, 'Conjuntos', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sapiente sunt quae modi, possimus maxime iusto impedit harum incidunt nostrum quibusdam reprehenderit voluptas? Animi quam ullam in exercitationem eius. Iure!'),
+(4, 'Vestidos', 'Vestidos para niñas');
 
 -- --------------------------------------------------------
 
@@ -143,19 +149,19 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `producto_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `producto_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `productos_categorias`
 --
 ALTER TABLE `productos_categorias`
-  MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `slider`

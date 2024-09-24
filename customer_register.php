@@ -42,7 +42,7 @@ include("includes/header.php");
             <div class="form-group"><!-- form-group begin -->
 
             <label>Nombre</label>
-            <input type="text" class="form-control" name="c_name" required>
+            <input type="text" class="form-control" name="c_nombre" required>
 
 
 
@@ -63,27 +63,27 @@ include("includes/header.php");
                <div class="form-group"><!-- form-group begin -->
 
                 <label>Departamento</label>
-                <input type="text" class="form-control" name="c_country" required>  <!-- cambar nombre de bariables en lo posible -->
+                <input type="text" class="form-control" name="c_pais" required>  <!-- cambar nombre de bariables en lo posible -->
                 
                 
               </div><!-- form-group finish -->   
                <div class="form-group"><!-- form-group begin -->
 
                 <label>Direccion</label>
-                <input type="text" class="form-control" name="c_city" required> 
+                <input type="text" class="form-control" name="c_ciudad" required> 
                 
               </div><!-- form-group finish -->
               
                <div class="form-group"><!-- form-group begin -->
 
                 <label>Numero de telefono</label>
-                <input type="text" class="form-control" name="c_contact" required> 
+                <input type="text" class="form-control" name="c_contacto" required> 
                 
               </div><!-- form-group finish -->
                <div class="form-group"><!-- form-group begin -->
 
                 <label>Foto de Perfil</label>
-                <input type="file" class="form-control form-height-custom" name="c_image" required> 
+                <input type="file" class="form-control form-height-custom" name="c_img" required> 
                 
               </div><!-- form-group finish -->
               
@@ -120,3 +120,63 @@ include("includes/header.php");
 
 </body>
 </html>
+
+<?php 
+
+if(isset($_POST['register'])){
+    
+    $c_nombre = $_POST['c_nombre'];
+    
+    $c_email = $_POST['c_email'];
+    
+    $c_pass = $_POST['c_pass'];
+    
+    $c_ciudad = $_POST['c_ciudad'];
+    
+    $c_contacto = $_POST['c_contacto'];
+    
+    $c_direccion = $_POST['c_direccion'];
+    
+    $c_img = $_FILES['c_img']['name'];
+    
+    $c_img_tmp = $_FILES['c_img']['tmp_name'];
+    
+    $c_ip = getRealIpUser();
+    
+    move_uploaded_file($c_img_tmp,"customer/customer_images/$c_img");
+    
+    $insert_customer = "insert into customer (cliente_nombre,cliente_email,cliente_pass,cliente_ciudad,cliente_contacto,cliente_direccion,cliente_img,cliente_ip) values ('$c_nombre','$c_email','$c_pass','$c_ciudad','$c_contacto','$c_direccion','$c_img','$c_ip')";
+    
+    $run_customer = mysqli_query($con,$insert_customer);
+    
+    $sel_cart = "select * from cart where ip_add='$c_ip'";
+    
+    $run_cart = mysqli_query($con,$sel_cart);
+    
+    $check_cart = mysqli_num_rows($run_cart);
+    
+    if($check_cart>0){
+        
+        /// registra con items en el carrito ///
+        
+        $_SESSION['cliente_email']=$c_email;
+        
+        echo "<script>alert('Has sido registrado correctamente')</script>";
+        
+        echo "<script>window.open('checkout.php','_self')</script>";
+        
+    }else{
+        
+        /// Registrar sin items en el carrito ///
+        
+        $_SESSION['cliente_email']=$c_email;
+        
+        echo "<script>alert('Has sido registrado correctamente')</script>";
+        
+        echo "<script>window.open('index.php','_self')</script>";
+        
+    }
+    
+}
+
+?>

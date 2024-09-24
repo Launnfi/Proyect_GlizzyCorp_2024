@@ -60,7 +60,20 @@ if(isset($_GET['pro_id'])){
            
            <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
                
-               <a href="#" class="btn btn-success btn-sm">Bienvenido</a>
+                <?php 
+                   
+                   if(!isset($_SESSION['cliente_email'])){
+                       
+                       echo "Bienvenido: Invitado";
+                       
+                   }else{
+                       
+                       echo "Bienvenido: " . $_SESSION['cliente_email'] . "";
+                       
+                   }
+                   
+                ?>
+                   
                <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total: <?php echo mont_total(); ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
