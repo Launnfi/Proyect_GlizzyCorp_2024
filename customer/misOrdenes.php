@@ -27,7 +27,7 @@
             
             <tbody>
 
-            |<tr>
+            <tr>
                 <th>#1</th>
                 <td>$1400</td>
                 <td>42313214</td>
@@ -43,7 +43,7 @@
             </tbody>
                 <tbody>
 
-            |<tr>
+            <tr>
                 <th>#2</th>
                 <td>$1400</td>
                 <td>42313214</td>
@@ -52,13 +52,13 @@
                 <td>10-2-2024</td>
                 <td>Sin pagar</td>
                 <td>
-                    <a href="confirmar.php" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
+                   <a href="confirmar.php" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
                 </td>
             </tr>   
 
             </tbody>    <tbody>
 
-            |<tr>
+            <tr>
                 <th>#3</th>
                 <td>$1400</td>
                 <td>42313214</td>

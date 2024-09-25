@@ -1,6 +1,6 @@
 <?php 
 
-    $active='Account';
+    $active='Mi cuenta';
     include("includes/header.php");
 
 ?>
