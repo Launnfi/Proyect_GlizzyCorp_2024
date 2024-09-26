@@ -73,7 +73,7 @@ include("includes/header.php");
                            <?php add_cart(); ?>
 
                         
-                           <form action="details.php?add_cart=<?php echo $pro_id; ?>" method="POST" class="form-horizontal">
+                           <form action="details.php?pro_id=<?php echo $producto_id; ?>" method="POST" class="form-horizontal">
                                 <!-- form-horizontal empieza -->
                                 <div class="form-group">
                                     <!-- form-group empieza -->
@@ -114,11 +114,13 @@ include("includes/header.php");
                                     <!-- col-md-7 termina -->
                                 </div>
                                 <!-- form-group termina -->
-
+                                   
                                 <p class="price"><?php echo "$ $pro_price" ?></p>
                                 <p class="text-center buttons">
+                                    <input type="hidden" name="pro_id" value="<?php echo $producto_id; ?>">
                                     <button type="submit" class="btn btn-primary i fa fa-shopping-cart">Añadir al carrito</button>
                                 </p>
+                                
                             </form>
                             
                             <!-- form-horizontal Finish -->
@@ -202,7 +204,7 @@ include("includes/header.php");
 
                             <div class ='product same-height' >
                             
-                                <a href= 'details.php?pro_id= $pro_id '>
+                                <a href= 'details.php?pro_id= $producto_id '>
                                 <img class= 'img-responsive' src='admin_area/product_images/$pro_img1'>
                                 </a>
 

@@ -82,7 +82,7 @@ include("includes/header.php");
 
                     $producto_img = $row_productos['producto_img1'];
 
-                    $unti_prec = $row_productos['producto_precio'];
+                    $pro_precio = $row_productos['producto_precio'];
 
                     $sub_total = $row_productos['producto_precio']*$pro_cant;
 
@@ -106,7 +106,7 @@ include("includes/header.php");
                 </td>
                 <td>
 
-                <?php echo $producto_prec;?>
+                <?php echo $pro_precio;?>
 
                 </td>
 

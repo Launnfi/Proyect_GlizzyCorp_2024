@@ -23,20 +23,21 @@ function getRealIpUser(){
 function add_cart(){
     global $db;
     
-    if(isset($_GET['add_cart'])){
+    if(isset($_POST['pro_id'])){
         $ip_add = getRealIpUser();
-        $p_id = $_GET['add_cart'];
-        $product_qty = $_POST['cant']; // Coincidir con el nombre en el formulario
-        $product_size = $_POST['talle']; // Coincidir con el nombre en el formulario
+        $p_id = $_POST['pro_id'];
+        $cant = $_POST['cant']; // Coincidir con el nombre en el formulario
+        $talle = $_POST['talle']; // Coincidir con el nombre en el formulario
         
         $check_product = "SELECT * FROM cart WHERE ip_add='$ip_add' AND p_id='$p_id'";
+        #echo "SELECT * FROM cart WHERE ip_add='$ip_add' AND p_id='$p_id'";
         $run_check = mysqli_query($db, $check_product);
         
         if(mysqli_num_rows($run_check) > 0){
             echo "<script>alert('Este producto ya ha sido añadido al carrito');</script>";
             echo "<script>window.open('details.php?pro_id=$p_id','_self');</script>";
         } else {
-            $query = "INSERT INTO cart (p_id, ip_add, qty, size) VALUES ('$p_id', '$ip_add', '$product_qty', '$product_size')";
+            $query = "INSERT INTO cart (p_id, ip_add, cant, talle) VALUES ('$p_id', '$ip_add', '$cant', '$talle')";
             $run_query = mysqli_query($db, $query);
             
             if ($run_query) {

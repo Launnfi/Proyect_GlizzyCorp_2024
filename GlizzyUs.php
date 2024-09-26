@@ -74,8 +74,14 @@ include("includes/header.php");
            <br>
            <div class="col-md-9">
             <div class="box" id="ingles"><p><strong>Ingles</strong></p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ullam blanditiis ad ut quidem maxime atque praesentium eveniet nulla omnis consequatur quod? Odit maiores aliquam illum eos earum perferendis doloribus.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea qui placeat autem eligendi mollitia aliquid dignissimos odit deleniti soluta ducimus minus hic consequatur eum quidem, fuga quae atque, inventore rerum?
+                <p>Who Are We?
+ GLIZZY CORP is an innovative company in the programming sector, dedicated to providing service-oriented programs to businesses. We take pride in serving a diverse customer base in Salto, delivering technological solutions that meet their specific needs. Our goal is to transform the user experience through intuitive, efficient, and adaptable software.
+Our History
+ The company was born out of a project requested by UTU, where we successfully created a program for a business and presented a detailed defense of it.
+Our Mission
+ Our mission is to design and develop programs that are both simple and functional, providing an engaging and effective user experience for the target audience. We firmly believe in the importance of creating software that not only fulfills its technical purpose but is also intuitive and enjoyable to use.
+Our Team
+ Our team consists of Nicolas Siffredo, Lautaro Camejo, and Benjamin Caceres, students of the computer science bachelor’s program at UTU
                 </p> 
         </div>
         <div class="box" id="español">
