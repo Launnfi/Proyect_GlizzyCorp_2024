@@ -75,7 +75,7 @@ if(isset($_GET['pro_id'])){
                    
                 ?>
                    
-               <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total: <?php echo mont_total(); ?> </a>
+               <a href="cerrar_sesion.php"><?php items(); ?> Productos en tu carrito | Total: <?php echo mont_total(); ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -93,7 +93,7 @@ if(isset($_GET['pro_id'])){
                        <a href="cart.php">Ir al Carrito</a>
                    </li>
                    <li>
-                       <a href="checkout.php">Login</a>
+                       <a href="cerrar_sesion.php">Login</a>
                    </li>
                    
                </ul><!-- menu Finish -->
@@ -147,8 +147,23 @@ if(isset($_GET['pro_id'])){
                        <li class= "<?= $active == 'Comprar' ? 'active' : '' ?>" >
                            <a href="tienda.php">Comprar</a>
                        </li>
+
                        <li class="<?= $active == 'Mi cuenta' ? 'active' : '' ?>">
-                           <a href="customer/my_account.php">mi cuenta</a>
+
+                            <?php 
+                           
+                             if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='cerrar_sesion.php'>My Account</a>";
+                               
+                            }else{
+                               
+                              echo"<a href='customer/my_account.php?my_orders'>My Account</a>"; 
+                               
+                             }
+                           
+                           ?>
+                           
                        </li>
                        <li class="<?= $active == 'Carrito' ? 'active' : '' ?>">
                            <a href="cart.php">Carrito</a>

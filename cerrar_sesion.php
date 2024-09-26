@@ -40,7 +40,7 @@
                
            }else{
                
-               include("payment_options.php");
+               include("opciones_de_pago.php");
                
            }
            
