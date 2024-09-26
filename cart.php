@@ -137,7 +137,7 @@ include("includes/header.php");
         <tr>
             
         <th colspan="5"> total</th>
-        <th colspan="2"> <?php echo $total;?></th>
+        <th colspan="2"> <?php echo "$". $total;?></th>
         </tr>
 
         </tfoot><!-- tfoot finish -->
@@ -254,7 +254,7 @@ include("includes/header.php");
                             <div class='text'><!-- text Begin -->
                                 <h3><a href='details.php?pro_id=$pro_id>$pro_titulo</a></h3>
                                 
-                                <p class='price'>$$pro_precio</p>
+                                <p class='price'>$ $pro_precio</p>
                                 
                             </div><!-- text Finish -->
                             
@@ -315,7 +315,7 @@ include("includes/header.php");
             
             <tr class="total">
                 <td>Total</td>
-                <th><?php echo $total; ?></th>
+                <th><?php echo "$". $total; ?></th>
 
             </tr>
 

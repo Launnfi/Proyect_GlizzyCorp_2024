@@ -74,7 +74,7 @@ if(isset($_GET['pro_id'])){
                    
                 ?>
                 
-               <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total: $ <?php echo mont_total(); ?> </a>
+               <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total:  <?php echo mont_total(); ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
