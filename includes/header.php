@@ -154,11 +154,11 @@ if(isset($_GET['pro_id'])){
                            
                              if(!isset($_SESSION['customer_email'])){
                                
-                               echo"<a href='cerrar_sesion.php'>My Account</a>";
+                               echo"<a href='cerrar_sesion.php'>Mi cuenta</a>";
                                
                             }else{
                                
-                              echo"<a href='customer/my_account.php?my_orders'>My Account</a>"; 
+                              echo"<a href='my_account.php?my_orders'>Mi cuenta</a>"; 
                                
                              }
                            

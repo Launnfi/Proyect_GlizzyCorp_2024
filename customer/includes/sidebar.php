@@ -54,7 +54,7 @@
 
         </li>
         <li class="<?php if(isset($_GET['cerrarSecion'])){echo"active";} ?>">
-            <a href="logout.php">
+            <a href="../logout.php">
             
             <i class="fa fa-sign-out"></i>Cerrar la seción
             </a>
