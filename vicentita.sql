@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2024 a las 01:39:46
+-- Tiempo de generación: 25-09-2024 a las 19:32:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `vicentita`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cart`
+--
+
+CREATE TABLE `cart` (
+  `p_id` int(10) NOT NULL,
+  `ip_add` int(255) NOT NULL,
+  `cant` int(10) NOT NULL,
+  `talle` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -42,6 +55,64 @@ INSERT INTO `categorias` (`cat_id`, `cat_titulo`, `cat_desc`) VALUES
 (2, 'anachuchu', 'anachuchu'),
 (3, 'Niñas', 'Aqui encontraras todo tipo de ropa para niñas'),
 (4, 'Niños', 'Aqui encontraras todo tipo de ropa para niños');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `customer`
+--
+
+CREATE TABLE `customer` (
+  `cliente_id` int(11) NOT NULL,
+  `cliente_nombre` varchar(255) NOT NULL,
+  `cliente_email` varchar(255) NOT NULL,
+  `cliente_pass` varchar(255) NOT NULL,
+  `cliente_ciudad` text NOT NULL,
+  `cliente_contacto` varchar(255) NOT NULL,
+  `cliente_direccion` text NOT NULL,
+  `cliente_img` text NOT NULL,
+  `cliente_ip` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `customer`
+--
+
+INSERT INTO `customer` (`cliente_id`, `cliente_nombre`, `cliente_email`, `cliente_pass`, `cliente_ciudad`, `cliente_contacto`, `cliente_direccion`, `cliente_img`, `cliente_ip`) VALUES
+(1, 'prueba', 'prueba@mail.com', 'prueba', 'cielo', '21343214241', '', '1-TpRZz7_400x400.jpg', '::1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ordenes_cliente`
+--
+
+CREATE TABLE `ordenes_cliente` (
+  `orden_id` int(11) NOT NULL,
+  `cliente_id` int(10) NOT NULL,
+  `monto` int(100) NOT NULL,
+  `numero_orden` int(100) NOT NULL,
+  `cant` int(10) NOT NULL,
+  `tamaño` text NOT NULL,
+  `fecha_orden` date NOT NULL,
+  `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ordenes_pendientes`
+--
+
+CREATE TABLE `ordenes_pendientes` (
+  `orden_id` int(10) NOT NULL,
+  `cliente_id` int(10) NOT NULL,
+  `numero_orden` int(10) NOT NULL,
+  `producto_id` text NOT NULL,
+  `cant` int(10) NOT NULL,
+  `tamaño` text NOT NULL,
+  `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -124,6 +195,24 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+-- Indices de la tabla `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`cliente_id`);
+
+--
+-- Indices de la tabla `ordenes_cliente`
+--
+ALTER TABLE `ordenes_cliente`
+  ADD PRIMARY KEY (`orden_id`);
+
+--
+-- Indices de la tabla `ordenes_pendientes`
+--
+ALTER TABLE `ordenes_pendientes`
+  ADD PRIMARY KEY (`orden_id`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -150,6 +239,24 @@ ALTER TABLE `slider`
 --
 ALTER TABLE `categorias`
   MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `ordenes_cliente`
+--
+ALTER TABLE `ordenes_cliente`
+  MODIFY `orden_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ordenes_pendientes`
+--
+ALTER TABLE `ordenes_pendientes`
+  MODIFY `orden_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
