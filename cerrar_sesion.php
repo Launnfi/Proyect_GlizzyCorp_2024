@@ -5,32 +5,32 @@
 
 ?>
    
-   <div id="content"><!-- #content Begin -->
-       <div class="container"><!-- container Begin -->
-           <div class="col-md-12"><!-- col-md-12 Begin -->
+   <div id="content"><!-- #content empieza -->
+       <div class="container"><!-- container empieza -->
+           <div class="col-md-12"><!-- col-md-12 empieza -->
                
-               <ul class="breadcrumb"><!-- breadcrumb Begin -->
+               <ul class="breadcrumb"><!-- breadcrumb empieza -->
                    <li>
                        <a href="index.php">Inicio</a>
                    </li>
                    <li>
                        Registrarme
                    </li>
-               </ul><!-- breadcrumb Finish -->
+               </ul><!-- breadcrumb termina -->
                
-           </div><!-- col-md-12 Finish -->
+           </div><!-- col-md-12 termina -->
            
-           <div class="col-md-3"><!-- col-md-3 Begin -->
+           <div class="col-md-3"><!-- col-md-3 empieza -->
    
    <?php 
     
-    include("includes/sidebar.php");
+    include("customer/includes/sidebar.php");
     
     ?>
                
-           </div><!-- col-md-3 Finish -->
+           </div><!-- col-md-3 termina -->
            
-           <div class="col-md-9"><!-- col-md-9 Begin -->
+           <div class="col-md-9"><!-- col-md-9 empieza -->
            
            <?php 
            
@@ -47,10 +47,10 @@
            
            ?>
            
-           </div><!-- col-md-9 Finish -->
+           </div><!-- col-md-9 termina -->
            
-       </div><!-- container Finish -->
-   </div><!-- #content Finish -->
+       </div><!-- container termina -->
+   </div><!-- #content termina -->
    
    <?php 
     

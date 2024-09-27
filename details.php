@@ -28,7 +28,7 @@ include("includes/header.php");
              include("includes/sidebar.php");
 
         ?>
-        </div><!-- col-md-3 finish -->
+        </div><!-- col-md-3 termina -->
         <div class="col-md-9"><!-- col-md-9 empeza -->
                <div id="productMain" class="row"><!-- row empeza -->
                    <div class="col-sm-6"><!-- col-sm-6 empeza -->
@@ -38,7 +38,7 @@ include("includes/header.php");
                                    <li data-target="#myCarousel" data-slide-to="0" class="active" ></li>
                                    <li data-target="#myCarousel" data-slide-to="1"></li>
                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                               </ol><!-- carousel-indicators Finish -->
+                               </ol><!-- carousel-indicators termina -->
                                
                                <div class="carousel-inner">
                                    <div class="item active">
@@ -55,16 +55,16 @@ include("includes/header.php");
                                <a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control empeza -->
                                    <span class="glyphicon glyphicon-chevron-left"></span>
                                    <span class="sr-only">Anterior</span>
-                               </a><!-- left carousel-control Finish -->
+                               </a><!-- left carousel-control termina -->
                                
                                <a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- right carousel-control empeza -->
                                    <span class="glyphicon glyphicon-chevron-right"></span>
                                    <span class="sr-only">Siguiente</span>
-                               </a><!-- right carousel-control Finish -->
+                               </a><!-- right carousel-control termina -->
                                
-                           </div><!-- carousel slide Finish -->
-                       </div><!-- mainImage Finish -->
-                   </div><!-- col-sm-6 Finish -->
+                           </div><!-- carousel slide termina -->
+                       </div><!-- mainImage termina -->
+                   </div><!-- col-sm-6 termina -->
                    
                    <div class="col-sm-6"><!-- col-sm-6 empeza -->
                        <div class="box"><!-- box empeza -->
@@ -123,35 +123,35 @@ include("includes/header.php");
                                 
                             </form>
                             
-                            <!-- form-horizontal Finish -->
-                        </div><!-- boxFinish -->
+                            <!-- form-horizontal termina -->
+                        </div><!-- boxtermina -->
                  
                     <div class="row" id="thumbs"><!-- row empeza -->
 
                     <div class="col-xs-4"><!-- "col-xs-4 empeza -->
                         <a data-target="#myCarousel" data-slide-to="0" href="#" class="thumb"><!-- "thumb empeza -->
                             <img src="admin_area/product_images/<?php echo $pro_img1; ?>" alt="producto 1" class="img-responsive">
-                        </a><!-- "thumb finish -->
-                    </div><!-- "col-xs-4 finish -->
+                        </a><!-- "thumb termina -->
+                    </div><!-- "col-xs-4 termina -->
                     
                     <div class="col-xs-4"><!-- "col-xs-4 empeza -->
                         <a data-target="#myCarousel" data-slide-to="1" href="#" class="thumb"><!-- "thumb empeza -->
                             <img src="admin_area/product_images/<?php echo $pro_img2; ?>" alt="producto 2" class="img-responsive">
-                        </a><!-- "thumb finish -->
-                    </div><!-- "col-xs-4 finish -->
+                        </a><!-- "thumb termina -->
+                    </div><!-- "col-xs-4 termina -->
                     
                     <div class="col-xs-4"><!-- "col-xs-4 empeza -->
                         <a data-target="#myCarousel" data-slide-to="2" href="#" class="thumb"><!-- "thumb empeza -->
                             <img src="admin_area/product_images/<?php echo $pro_img3; ?>" alt="producto 3" class="img-responsive">
-                        </a><!-- "thumb finish -->
-                    </div><!-- "col-xs-4 finish -->
+                        </a><!-- "thumb termina -->
+                    </div><!-- "col-xs-4 termina -->
 
-                    </div><!-- row Finish -->
-                  </div><!-- col-sm-6 Finish -->
+                    </div><!-- row termina -->
+                  </div><!-- col-sm-6 termina -->
 
                   <br>
                   <br>
-                    </div><!-- row Finish -->
+                    </div><!-- row termina -->
                
                     
                 <div class="box" id="details"><!-- box empeza -->
@@ -172,7 +172,7 @@ include("includes/header.php");
 
                 <hr>
 
-            </div><!-- box Finish -->
+            </div><!-- box termina -->
 
                 <div id="row same-height-row"><!-- same-height-row empeza -->
                     <div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 empeza -->
@@ -180,8 +180,8 @@ include("includes/header.php");
 
                             <h3 class="text-center">Te podria interesar</h3>
                             
-                        </div><!--box same-height headline Finish -->
-                    </div><!-- col-md-3 col-sm-6 Finish -->
+                        </div><!--box same-height headline termina -->
+                    </div><!-- col-md-3 col-sm-6 termina -->
 
                     <?php 
                     
@@ -223,17 +223,17 @@ include("includes/header.php");
                     
                     ?>
                    
-                </div><!-- same-height-row Finish -->
+                </div><!-- same-height-row termina -->
         
              
              
-                     </div><!-- productMain finish -->
+                     </div><!-- productMain termina -->
     
-                      </div><!-- col-md-9 finish -->
+                      </div><!-- col-md-9 termina -->
 
 
-            </div><!-- container finish -->
-    </div><!-- content finish -->
+            </div><!-- container termina -->
+    </div><!-- content termina -->
     
     <?php
 

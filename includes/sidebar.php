@@ -1,12 +1,12 @@
-<div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu begin -->
-    <div class="panel-heading"><!-- panel-title begin -->
+<div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu empieza -->
+    <div class="panel-heading"><!-- panel-title empieza -->
         
         <h3 class="panel-title">Categorias</h3>
 
-    </div><!-- panel-title finish -->
+    </div><!-- panel-title termina -->
 
-    <div class="panel-body"><!-- panel-body begin -->
-        <ul class="nav nav-pills nav-stacked category-menu"> <!-- nav nav-pills nav-stacked category-menu begin -->
+    <div class="panel-body"><!-- panel-body empieza -->
+        <ul class="nav nav-pills nav-stacked category-menu"> <!-- nav nav-pills nav-stacked category-menu empieza -->
         
         <?php
        
@@ -16,18 +16,18 @@
         ?>
 
         </ul>
-    </div><!-- panel-body finish -->
-</div><!-- panel panel-default sidebar-menu finish -->
+    </div><!-- panel-body termina -->
+</div><!-- panel panel-default sidebar-menu termina -->
 
-<div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu begin -->
-    <div class="panel-heading"><!-- panel-title begin -->
+<div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu empieza -->
+    <div class="panel-heading"><!-- panel-title empieza -->
         
         <h3 class="panel-title">Genero</h3>
 
-    </div><!-- panel-title finish -->
+    </div><!-- panel-title termina -->
 
-    <div class="panel-body"><!-- panel-body begin -->
-        <ul class="nav nav-pills nav-stacked category-menu"> <!-- nav nav-pills nav-stacked category-menu begin -->
+    <div class="panel-body"><!-- panel-body empieza -->
+        <ul class="nav nav-pills nav-stacked category-menu"> <!-- nav nav-pills nav-stacked category-menu empieza -->
 
         <?php
 
@@ -36,5 +36,5 @@
         ?>
 
         </ul>
-    </div><!-- panel-body finish -->
-</div><!-- panel panel-default sidebar-menu finish -->
+    </div><!-- panel-body termina -->
+</div><!-- panel panel-default sidebar-menu termina -->

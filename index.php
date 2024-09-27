@@ -4,22 +4,22 @@
 ?>
 
    
-   <div class="container" id="slider"><!-- container Begin -->
+   <div class="container" id="slider"><!-- container empieza -->
        
-       <div class="col-md-12"><!-- col-md-12 Begin -->
+       <div class="col-md-12"><!-- col-md-12 empieza -->
            
-           <div class="carousel slide" id="myCarousel" data-ride="carousel"><!-- carousel slide Begin -->
+           <div class="carousel slide" id="myCarousel" data-ride="carousel"><!-- carousel slide empieza -->
                
-               <ol class="carousel-indicators"><!-- carousel-indicators Begin -->
+               <ol class="carousel-indicators"><!-- carousel-indicators empieza -->
                    
                    <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
                    <li data-target="#myCarousel" data-slide-to="1"></li>
                    <li data-target="#myCarousel" data-slide-to="2"></li>
                    <li data-target="#myCarousel" data-slide-to="3"></li>
                    
-               </ol><!-- carousel-indicators Finish -->
+               </ol><!-- carousel-indicators termino -->
                
-               <div class="carousel-inner"><!-- carousel-inner Begin -->
+               <div class="carousel-inner"><!-- carousel-inner empieza -->
                    
                    <div class="item active">
                        
@@ -92,117 +92,117 @@
 ?>  //ESTO SE USA DESPUES DE PONER LAS IMAGENES DEL CARRUCEL EN DA BASE DE DATOS, LA TABLA SE LLAMA SLIDER-->
                    
                    
-               </div><!-- carousel-inner Finish -->
+               </div><!-- carousel-inner termino -->
                
-               <a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control Begin -->
+               <a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control empieza -->
                    
                    <span class="glyphicon glyphicon-chevron-left"></span>
                    <span class="sr-only">Anterior</span>
                    
-               </a><!-- left carousel-control Finish -->
+               </a><!-- left carousel-control termino -->
                
-               <a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- left carousel-control Begin -->
+               <a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- left carousel-control empieza -->
                    
                    <span class="glyphicon glyphicon-chevron-right"></span>
                    <span class="sr-only">Siguiente</span>
                    
-               </a><!-- left carousel-control Finish -->
+               </a><!-- left carousel-control termino -->
                
-           </div><!-- carousel slide Finish -->
+           </div><!-- carousel slide termino -->
            
-       </div><!-- col-md-12 Finish -->
+       </div><!-- col-md-12 termino -->
        
-   </div><!-- container Finish -->
+   </div><!-- container termino -->
    
-   <div id="advantages"><!-- #advantages Begin -->
+   <div id="advantages"><!-- #advantages empieza -->
        
-       <div class="container"><!-- container Begin -->
+       <div class="container"><!-- container empieza -->
            
-           <div class="same-height-row"><!-- same-height-row Begin -->
+           <div class="same-height-row"><!-- same-height-row empieza -->
                
-               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+               <div class="col-sm-4"><!-- col-sm-4 empieza -->
                    
-                   <div class="box same-height"><!-- box same-height Begin -->
+                   <div class="box same-height"><!-- box same-height empieza -->
                        
-                       <div class="icon"><!-- icon Begin -->
+                       <div class="icon"><!-- icon empieza -->
                            
                            <i class="fa fa-heart"></i>
                            
-                       </div><!-- icon Finish -->
+                       </div><!-- icon termino -->
                        
                        <h3><a href="#">Mejores ofertas</a></h3>
                        
                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                        
-                   </div><!-- box same-height Finish -->
+                   </div><!-- box same-height termino -->
                    
-               </div><!-- col-sm-4 Finish -->
+               </div><!-- col-sm-4 termino -->
                
-               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+               <div class="col-sm-4"><!-- col-sm-4 empieza -->
                    
-                   <div class="box same-height"><!-- box same-height Begin -->
+                   <div class="box same-height"><!-- box same-height empieza -->
                        
-                       <div class="icon"><!-- icon Begin -->
+                       <div class="icon"><!-- icon empieza -->
                            
                            <i class="fa fa-tag"></i>
                            
-                       </div><!-- icon Finish -->
+                       </div><!-- icon termino -->
                        
                        <h3><a href="#">Mejores precios</a></h3>
                        
                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                        
-                   </div><!-- box same-height Finish -->
+                   </div><!-- box same-height termino -->
                    
-               </div><!-- col-sm-4 Finish -->
+               </div><!-- col-sm-4 termino -->
                
-               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+               <div class="col-sm-4"><!-- col-sm-4 empieza -->
                    
-                   <div class="box same-height"><!-- box same-height Begin -->
+                   <div class="box same-height"><!-- box same-height empieza -->
                        
-                       <div class="icon"><!-- icon Begin -->
+                       <div class="icon"><!-- icon empieza -->
                            
                            <i class="fa fa-thumbs-up"></i>
                            
-                       </div><!-- icon Finish -->
+                       </div><!-- icon termino -->
                        
                        <h3><a href="#">100% Original</a></h3>
                        
                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                        
-                   </div><!-- box same-height Finish -->
+                   </div><!-- box same-height termino -->
                    
-               </div><!-- col-sm-4 Finish -->
+               </div><!-- col-sm-4 termino -->
                
-           </div><!-- same-height-row Finish -->
+           </div><!-- same-height-row termino -->
            
-       </div><!-- container Finish -->
+       </div><!-- container termino -->
        
-   </div><!-- #advantages Finish -->
+   </div><!-- #advantages termino -->
    
-   <div id="hot"><!-- #hot Begin -->
+   <div id="hot"><!-- #hot empieza -->
        
-       <div class="box"><!-- box Begin -->
+       <div class="box"><!-- box empieza -->
            
-           <div class="container"><!-- container Begin -->
+           <div class="container"><!-- container empieza -->
                
-               <div class="col-md-12"><!-- col-md-12 Begin -->
+               <div class="col-md-12"><!-- col-md-12 empieza -->
                    
                    <h2>
                        Nuestros Ultimos Productos
                    </h2>
                    
-               </div><!-- col-md-12 Finish -->
+               </div><!-- col-md-12 termino -->
                
-           </div><!-- container Finish -->
+           </div><!-- container termino -->
            
-       </div><!-- box Finish -->
+       </div><!-- box termino -->
        
-   </div><!-- #hot Finish -->
+   </div><!-- #hot termino -->
    
-   <div id="content" class="container"><!-- container Begin -->
+   <div id="content" class="container"><!-- container empieza -->
        
-       <div class="row"><!-- row Begin -->
+       <div class="row"><!-- row empieza -->
 
         <?php 
            
@@ -210,9 +210,9 @@
            
         ?>
            
-       </div><!-- row Finish -->
+       </div><!-- row termino -->
        
-   </div><!-- container Finish -->
+   </div><!-- container termino -->
 
    <?php
 

@@ -1,16 +1,16 @@
-<div class="box"><!-- box Begin -->
+<div class="box"><!-- box empieza -->
     
     <h1 class="text-center">Opciones de pago</h1>  
     
-     <p class="lead text-center"><!-- lead text-center Begin -->
+     <p class="lead text-center"><!-- lead text-center empieza -->
          
          <a class="" href="#"> Pagos sin conexion </a>
          
-     </p><!-- lead text-center Finish -->
+     </p><!-- lead text-center termino -->
      
-     <center><!-- center Begin -->
+     <center><!-- center empieza -->
          
-        <p class="lead"><!-- lead Begin -->
+        <p class="lead"><!-- lead empieza -->
             
             <a href="#">
                 
@@ -20,8 +20,8 @@
                 
             </a>
             
-        </p> <!-- lead Finish -->
+        </p> <!-- lead termino -->
          
-     </center><!-- center Finish -->
+     </center><!-- center termino -->
     
-</div><!-- box Finish -->
+</div><!-- box termino -->

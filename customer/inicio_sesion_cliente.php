@@ -1,8 +1,8 @@
-<div class="box"><!-- box Begin -->
+<div class="box"><!-- box empieza -->
     
-  <div class="box-header"><!-- box-header Begin -->
+  <div class="box-header"><!-- box-header empieza -->
       
-      <center><!-- center Begin -->
+      <center><!-- center empieza -->
           
           <h1> Login </h1>
           
@@ -10,29 +10,29 @@
           
           <p class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, maxime. Laudantium omnis, ullam, fuga officia provident error corporis consectetur aliquid corrupti recusandae minus ipsam quasi. Perspiciatis nemo, nostrum magni odit! </p>
           
-      </center><!-- center Finish -->
+      </center><!-- center termina -->
       
-  </div><!-- box-header Finish -->
+  </div><!-- box-header termina -->
    
-  <form method="post" action="cerrar_sesion.php"><!-- form Begin -->
+  <form method="post" action="cerrar_sesion.php"><!-- form empieza -->
       
-      <div class="form-group"><!-- form-group Begin -->
+      <div class="form-group"><!-- form-group empieza -->
           
           <label> Email </label>
           
           <input name="c_email" type="text" class="form-control" required>
           
-      </div><!-- form-group Finish -->
+      </div><!-- form-group termina -->
       
-       <div class="form-group"><!-- form-group Begin -->
+       <div class="form-group"><!-- form-group empieza -->
           
           <label> contraseña </label>
           
           <input name="c_pass" type="password" class="form-control" required>
           
-      </div><!-- form-group Finish -->
+      </div><!-- form-group termina -->
       
-      <div class="text-center"><!-- text-center Begin -->
+      <div class="text-center"><!-- text-center empieza -->
           
           <button name="login" value="Login" class="btn btn-primary">
               
@@ -40,11 +40,11 @@
               
           </button>
           
-      </div><!-- text-center Finish -->     
+      </div><!-- text-center termina -->     
       
-  </form><!-- form Finish -->
+  </form><!-- form termina -->
    
-  <center><!-- center Begin -->
+  <center><!-- center empieza -->
       
      <a href="customer_register.php">
          
@@ -52,9 +52,9 @@
          
      </a> 
       
-  </center><!-- center Finish -->
+  </center><!-- center termina -->
     
-</div><!-- box Finish -->
+</div><!-- box termina -->
 
 
 <?php 

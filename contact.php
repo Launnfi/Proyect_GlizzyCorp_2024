@@ -4,11 +4,11 @@ $active = "Contactanos";
 include("includes/header.php");
 ?>
 
-   <div id="content"><!-- content begin -->
-    <div class="container"><!-- container begin -->
-        <div class="col-md-12"><!-- col-md-12 begin -->
+   <div id="content"><!-- content empieza -->
+    <div class="container"><!-- container empieza -->
+        <div class="col-md-12"><!-- col-md-12 empieza -->
 
-        <ul class="breadcrumb"><!-- breadcrumb begin-->
+        <ul class="breadcrumb"><!-- breadcrumb empieza-->
             <li>
                 <a href="index.php">Inicio</a>
             </li>
@@ -17,18 +17,18 @@ include("includes/header.php");
             </li>
         </ul>
 
-        <div class="col-md-3"><!-- col-md-3 begin -->
+        <div class="col-md-3"><!-- col-md-3 empieza -->
         <?php
 
              include("includes/sidebar.php");
 
         ?>
-        </div><!-- col-md-3 finish -->
-        <div class="col-md-9"><!-- col-md-9 begin -->
+        </div><!-- col-md-3 termina -->
+        <div class="col-md-9"><!-- col-md-9 empieza -->
             
-            <div class="box"><!-- box begin -->
+            <div class="box"><!-- box empieza -->
 
-            <div class="box-header"><!-- box-header begin -->
+            <div class="box-header"><!-- box-header empieza -->
 
             <center>
 
@@ -42,49 +42,49 @@ include("includes/header.php");
 
             </center>
 
-            <form action="contact.php" method="post"><!-- form begin -->
+            <form action="contact.php" method="post"><!-- form empieza -->
 
-            <div class="form-group"><!-- form-group begin -->
+            <div class="form-group"><!-- form-group empieza -->
 
             <label>Nombre</label>
             <input type="text" class="form-control" name="name" required>
 
 
 
-            </div><!-- form-group finish -->
-            <div class="form-group"><!-- form-group begin -->
+            </div><!-- form-group termina -->
+            <div class="form-group"><!-- form-group empieza -->
 
                 <label>e-mail</label>
                 <input type="text" class="form-control" name="email" required>
 
 
 
-                </div><!-- form-group finish --> 
-              </div><!-- form-group finish -->
-                <div class="form-group"><!-- form-group begin -->
+                </div><!-- form-group termina --> 
+              </div><!-- form-group termina -->
+                <div class="form-group"><!-- form-group empieza -->
 
                 <label>Asunto</label>
                 <input type="text" class="form-control" name="subject" required> 
                 
-              </div><!-- form-group finish -->
-                <div class="form-group"><!-- form-group begin -->
+              </div><!-- form-group termina -->
+                <div class="form-group"><!-- form-group empieza -->
 
                 <label>Mensaje</label>
                 <textarea name="message" class="form-control"></textarea>
 
-                </div><!-- form-group finish -->
+                </div><!-- form-group termina -->
 
-                <div class="text-center"><!-- text-center begin -->
+                <div class="text-center"><!-- text-center empieza -->
                     <button type="submit" name="submit" class="btn btn-primary">
 
                     <i class="fa fa-user-md"></i>Enviar mensaje
                     </button>
 
-                </div><!-- text-center finish -->
+                </div><!-- text-center termina -->
 
 
 
-            </form><!-- form finish -->
+            </form><!-- form termina -->
 
             <?php 
 if (isset($_POST['submit'])) {
@@ -118,17 +118,17 @@ if (isset($_POST['submit'])) {
 ?>
 
 
-            </div><!-- box-header finish -->
+            </div><!-- box-header termina -->
 
 
-            </div><!-- box finish -->
+            </div><!-- box termina -->
 
 
-            </div><!-- col-md-3 finish -->
+            </div><!-- col-md-3 termina -->
 
         
-        </div><!-- container finish -->
-    </div><!-- content finish -->
+        </div><!-- container termina -->
+    </div><!-- content termina -->
     
     <?php
 

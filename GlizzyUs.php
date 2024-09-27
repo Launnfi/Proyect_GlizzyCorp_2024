@@ -13,15 +13,15 @@ include("includes/header.php");
         <link rel="stylesheet" href="styles/styles.css">
     </head>
 
-   <div id="advantages"><!-- #advantages Begin -->
+   <div id="advantages"><!-- #advantages empieza -->
        
-       <div class="container"><!-- container Begin -->
+       <div class="container"><!-- container empieza -->
            
-           <div class="same-height-row"><!-- same-height-row Begin -->
+           <div class="same-height-row"><!-- same-height-row empieza -->
                
-               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+               <div class="col-sm-4"><!-- col-sm-4 empieza -->
                    
-                   <div class="box same-height"><!-- box same-height Begin -->
+                   <div class="box same-height"><!-- box same-height empieza -->
                        
                        <div class="img" href=""></div>
                        
@@ -31,13 +31,13 @@ include("includes/header.php");
                        <a href="#">GitHub</a>
                        <p>Gmail: benjacaceres266@gmail.com</p>
                        
-                   </div><!-- box same-height Finish -->
+                   </div><!-- box same-height termino -->
                    
-               </div><!-- col-sm-4 Finish -->
+               </div><!-- col-sm-4 termino -->
                
-               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+               <div class="col-sm-4"><!-- col-sm-4 empieza -->
                    
-                   <div class="box same-height"><!-- box same-height Begin -->
+                   <div class="box same-height"><!-- box same-height empieza -->
                        
                    <div class="img" href=""></div>
                        
@@ -47,13 +47,13 @@ include("includes/header.php");
                        <a href="https://github.com/Launnfi">GitHub</a>
                        <p>Gmail: lautacamejo6@gmail.com</p>
                        
-                   </div><!-- box same-height Finish -->
+                   </div><!-- box same-height termino -->
                    
-               </div><!-- col-sm-4 Finish -->
+               </div><!-- col-sm-4 termino -->
                
-               <div class="col-sm-4"><!-- col-sm-4 Begin -->
+               <div class="col-sm-4"><!-- col-sm-4 empieza -->
                    
-                   <div class="box same-height"><!-- box same-height Begin -->
+                   <div class="box same-height"><!-- box same-height empieza -->
                        
                    <div class="img" href=""></div>
                        
@@ -63,11 +63,11 @@ include("includes/header.php");
                        <a href="#">GitHub</a>
                        <p>Gmail: chinchulinnico@gmail.com</p>
                        
-                   </div><!-- box same-height Finish -->
+                   </div><!-- box same-height termino -->
                    
-               </div><!-- col-sm-4 Finish -->
+               </div><!-- col-sm-4 termino -->
                
-           </div><!-- same-height-row Finish -->
+           </div><!-- same-height-row termino -->
             <center>
            <img src="images\GlizzyLogo.png" alt="VicentaLogo" class="hidden-xs" height="250px" width="250px">
            
@@ -92,9 +92,9 @@ Our Team
         </center>
           
 
-       </div><!-- container Finish -->
+       </div><!-- container termino -->
        
-   </div><!-- #advantages Finish -->
+   </div><!-- #advantages termino -->
 
 
        

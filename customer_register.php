@@ -4,11 +4,11 @@
 $active = "Mi cuenta";
 include("includes/header.php");
 ?>
-   <div id="content"><!-- content begin -->
-    <div class="container"><!-- container begin -->
-        <div class="col-md-12"><!-- col-md-12 begin -->
+   <div id="content"><!-- content empieza -->
+    <div class="container"><!-- container empieza -->
+        <div class="col-md-12"><!-- col-md-12 empieza -->
 
-        <ul class="breadcrumb"><!-- breadcrumb begin-->
+        <ul class="breadcrumb"><!-- breadcrumb empieza-->
             <li>
                 <a href="index.php">Inicio</a>
             </li>
@@ -17,18 +17,18 @@ include("includes/header.php");
             </li>
         </ul>
         </div>
-        <div class="col-md-3"><!-- col-md-3 begin -->
+        <div class="col-md-3"><!-- col-md-3 empieza -->
         <?php
 
              include("includes/sidebar.php");
 
         ?>
-        </div><!-- col-md-3 finish -->
-        <div class="col-md-9"><!-- col-md-9 begin -->
+        </div><!-- col-md-3 termina -->
+        <div class="col-md-9"><!-- col-md-9 empieza -->
             
-            <div class="box"><!-- box begin -->
+            <div class="box"><!-- box empieza -->
 
-            <div class="box-header"><!-- box-header begin -->
+            <div class="box-header"><!-- box-header empieza -->
 
             <center>
 
@@ -37,76 +37,76 @@ include("includes/header.php");
             </center>
             </div>
 
-            <form action="customer_register.php" method="post" enctype="multipart/form-data"> <!-- form begin -->
+            <form action="customer_register.php" method="post" enctype="multipart/form-data"> <!-- form empieza -->
 
-            <div class="form-group"><!-- form-group begin -->
+            <div class="form-group"><!-- form-group empieza -->
 
             <label>Nombre</label>
             <input type="text" class="form-control" name="c_nombre" required>
 
 
 
-            </div><!-- form-group finish -->
-            <div class="form-group"><!-- form-group begin -->
+            </div><!-- form-group termina -->
+            <div class="form-group"><!-- form-group empieza -->
 
                 <label>Tu e-mail</label>
                 <input type="text" class="form-control" name="c_email" required>
 
-                </div><!-- form-group finish --> 
+                </div><!-- form-group termina --> 
               
-                <div class="form-group"><!-- form-group begin -->
+                <div class="form-group"><!-- form-group empieza -->
 
                 <label>Contraseña</label>
                 <input type="password" class="form-control" name="c_pass" required>
 
-              </div><!-- form-group finish -->
-               <div class="form-group"><!-- form-group begin -->
+              </div><!-- form-group termina -->
+               <div class="form-group"><!-- form-group empieza -->
 
                 <label>Departamento</label>
                 <input type="text" class="form-control" name="c_pais" required>  <!-- cambar nombre de bariables en lo posible -->
                 
                 
-              </div><!-- form-group finish -->   
-               <div class="form-group"><!-- form-group begin -->
+              </div><!-- form-group termina -->   
+               <div class="form-group"><!-- form-group empieza -->
 
                 <label>Direccion</label>
                 <input type="text" class="form-control" name="c_ciudad" required> 
                 
-              </div><!-- form-group finish -->
+              </div><!-- form-group termina -->
               
-               <div class="form-group"><!-- form-group begin -->
+               <div class="form-group"><!-- form-group empieza -->
 
                 <label>Numero de telefono</label>
                 <input type="text" class="form-control" name="c_contacto" required> 
                 
-              </div><!-- form-group finish -->
-               <div class="form-group"><!-- form-group begin -->
+              </div><!-- form-group termina -->
+               <div class="form-group"><!-- form-group empieza -->
 
                 <label>Foto de Perfil</label>
                 <input type="file" class="form-control form-height-custom" name="c_img" required> 
                 
-              </div><!-- form-group finish -->
+              </div><!-- form-group termina -->
               
-                <div class="text-center"><!-- text-center begin -->
+                <div class="text-center"><!-- text-center empieza -->
                     <button type="submit" name="register" class="btn btn-primary">
 
                     <i class="fa fa-user-md"></i>Registrarse
                     </button>
 
-                </div><!-- text-center finish -->
+                </div><!-- text-center termina -->
 
 
 
-            </form><!-- form finish -->
+            </form><!-- form termina -->
 
-            </div><!-- box finish -->
+            </div><!-- box termina -->
 
 
-            </div><!-- col-md-3 finish -->
+            </div><!-- col-md-3 termina -->
 
         
-        </div><!-- container finish -->
-    </div><!-- content finish -->
+        </div><!-- container termina -->
+    </div><!-- content termina -->
     
     <?php
 

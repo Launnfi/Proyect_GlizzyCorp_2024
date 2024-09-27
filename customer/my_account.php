@@ -7,12 +7,12 @@ include("includes/header.php")
 ?>
 
        
-   </div><!-- navbar navbar-default Finish -->
-   <div id="content"><!-- content begin -->
-    <div class="container"><!-- container begin -->
-        <div class="col-md-12"><!-- col-md-12 begin -->
+   </div><!-- navbar navbar-default termina -->
+   <div id="content"><!-- content empieza -->
+    <div class="container"><!-- container empieza -->
+        <div class="col-md-12"><!-- col-md-12 empieza -->
 
-        <ul class="breadcrumb"><!-- breadcrumb begin-->
+        <ul class="breadcrumb"><!-- breadcrumb empieza-->
             <li>
                 <a href="index.php">Inicio</a>
             </li>
@@ -21,13 +21,13 @@ include("includes/header.php")
             </li>
         </ul>
 
-        <div class="col-md-3"><!-- col-md-3 begin -->
+        <div class="col-md-3"><!-- col-md-3 empieza -->
         <?php
 
              include("includes/sidebar.php");
 
         ?>
-        </div><!-- col-md-3 finish -->
+        </div><!-- col-md-3 termina -->
         <div class="col-md-9"><!-- col-md-9 empieza -->
 
             <div class="box"><!-- box empieza -->
@@ -67,8 +67,8 @@ include("includes/header.php")
         </div><!-- col-md-9 termina -->
 
 
-        </div><!-- container finish -->
-    </div><!-- content finish -->
+        </div><!-- container termina -->
+    </div><!-- content termina -->
     
     <?php
 

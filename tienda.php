@@ -4,11 +4,11 @@ include("includes/header.php");
 
 ?>
 
-   <div id="content"><!-- content begin -->
-    <div class="container"><!-- container begin -->
-        <div class="col-md-12"><!-- col-md-12 begin -->
+   <div id="content"><!-- content empieza -->
+    <div class="container"><!-- container empieza -->
+        <div class="col-md-12"><!-- col-md-12 empieza -->
 
-        <ul class="breadcrumb"><!-- breadcrumb begin-->
+        <ul class="breadcrumb"><!-- breadcrumb empieza-->
             <li>
                 <a href="index.php">Inicio</a>
             </li>
@@ -18,16 +18,16 @@ include("includes/header.php");
 
         </ul>
 
-        </div><!-- col-md-12 finish -->
-        <div class="col-md-3"><!-- col-md-3 begin -->
+        </div><!-- col-md-12 termino -->
+        <div class="col-md-3"><!-- col-md-3 empieza -->
         <?php
 
              include("includes/sidebar.php");
 
         ?>
-        </div><!-- col-md-3 finish -->
+        </div><!-- col-md-3 termino -->
 
-            <div class="col-md-9"><!-- col-md-9 begin -->
+            <div class="col-md-9"><!-- col-md-9 empieza -->
 
                 <?php
 
@@ -39,18 +39,18 @@ include("includes/header.php");
 
                         echo "
 
-                        <div class='box'><!-- box begin -->
+                        <div class='box'><!-- box empieza -->
                             <h1>Tienda</h1>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti cupiditate eum necessitatibus, consequatur ab et, doloribus beatae illo, quod explicabo incidunt! Nobis rem recusandae mollitia aliquid cum nihil assumenda deserunt.
                             </p>
-                        </div><!-- box finish -->
+                        </div><!-- box termino -->
                         ";
                     }
                     }
                 ?>
                 
-                <div class="row"><!-- row begin -->
+                <div class="row"><!-- row empieza -->
 
                 <?php
                 if(!isset($_GET['p_cat'])){
@@ -142,7 +142,7 @@ include("includes/header.php");
                         ?>
 
                 
-            </div><!-- row finish -->
+            </div><!-- row termino -->
          
 
      
@@ -191,9 +191,9 @@ include("includes/header.php");
                      
               
     
-          </div><!-- col-md-9 finish -->
-        </div><!-- container finish -->
-    </div><!-- content finish -->
+          </div><!-- col-md-9 termino -->
+        </div><!-- container termino -->
+    </div><!-- content termino -->
     
     <?php
 

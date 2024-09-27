@@ -1,37 +1,37 @@
 <?php 
 ?>
-<div id="footer"><!-- #footer Begin -->
-    <div class="container"><!-- container Begin -->
-        <div class="row"><!-- row Begin -->
-            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 Begin -->
+<div id="footer"><!-- #footer empieza -->
+    <div class="container"><!-- container empieza -->
+        <div class="row"><!-- row empieza -->
+            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 empieza -->
                
                <h4>Paginas</h4>
                 
-                <ul><!-- ul Begin -->
+                <ul><!-- ul empieza -->
                     <li><a href="cart.php">Carrito</a></li>
                     <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="tienda.php">Shop</a></li>
                     <li><a href="customer/my_account.php">My Account</a></li>
-                </ul><!-- ul Finish -->
+                </ul><!-- ul termino -->
                 
                 <hr>
                 
                 <h4>Seccion de usuarios</h4>
                 
-                <ul><!-- ul Begin -->
+                <ul><!-- ul empieza -->
                     <li><a href="Micuenta.php">Login</a></li>
                     <li><a href="customer_register.php">registarme</a></li>
-                </ul><!-- ul Finish -->
+                </ul><!-- ul termino -->
                 
                 <hr class="hidden-md hidden-lg hidden-sm">
                 
-            </div><!-- col-sm-6 col-md-3 Finish -->
+            </div><!-- col-sm-6 col-md-3 termino -->
             
-            <div class="com-sm-6 col-md-3"><!-- col-sm-6 col-md-3 Begin -->
+            <div class="com-sm-6 col-md-3"><!-- col-sm-6 col-md-3 empieza -->
                 
                 <h4>Categorias de productos</h4>
                 
-                <ul><!-- ul Begin -->
+                <ul><!-- ul empieza -->
 
                 <?php 
                     
@@ -62,13 +62,13 @@
                     }
                 
                 ?>
-                </ul><!-- ul Finish -->
+                </ul><!-- ul termino -->
                 
                 <hr class="hidden-md hidden-lg">
                 
-            </div><!-- col-sm-6 col-md-3 Finish -->
+            </div><!-- col-sm-6 col-md-3 termino -->
             
-            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 Begin -->
+            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 empieza -->
                 
                 <h4>Encuentranos</h4>
                 
@@ -81,13 +81,13 @@
                     <br>
                     <br/><Strong>GlizzyCorp</Strong></a>
                     
-                </p><!-- p Finish -->
+                </p><!-- p termino -->
                 
                 <a href="GlizzyUs.php">Mira nuestra pagina de contactos</a>
                 
                 <hr class="hidden-md hidden-lg">
                 
-            </div><!-- col-sm-6 col-md-3 Finish -->
+            </div><!-- col-sm-6 col-md-3 termino -->
             
             <div class="col-sm-6 col-md-3">
                 
@@ -97,19 +97,19 @@
                     No te pierdas nuestros productos
                 </p>
                 
-                <form action="" method="post"><!-- form begin -->
-                    <div class="input-group"><!-- input-group begin -->
+                <form action="" method="post"><!-- form empieza -->
+                    <div class="input-group"><!-- input-group empieza -->
                         
                         <input type="text" class="form-control" name="email">
                         
-                        <span class="input-group-btn"><!-- input-group-btn begin -->
+                        <span class="input-group-btn"><!-- input-group-btn empieza -->
                             
                             <input type="submit" value="subscribe" class="btn btn-default">
                             
-                        </span><!-- input-group-btn Finish -->
+                        </span><!-- input-group-btn termino -->
                         
-                    </div><!-- input-group Finish -->
-                </form><!-- form Finish -->
+                    </div><!-- input-group termino -->
+                </form><!-- form termino -->
                 
                 <hr>
                 
@@ -124,22 +124,22 @@
                 </p>
                 
             </div>
-        </div><!-- row Finish -->
-    </div><!-- container Finish -->
-</div><!-- #footer Finish -->
+        </div><!-- row termino -->
+    </div><!-- container termino -->
+</div><!-- #footer termino -->
 
 
-<div id="copyright"><!-- #copyright Begin -->
-    <div class="container"><!-- container Begin -->
-        <div class="col-md-6"><!-- col-md-6 Begin -->
+<div id="copyright"><!-- #copyright empieza -->
+    <div class="container"><!-- container empieza -->
+        <div class="col-md-6"><!-- col-md-6 empieza -->
             
             <p class="pull-left">&copy; 2018 Vicenta Todos los derechos reservados</p>
             
-        </div><!-- col-md-6 Finish -->
-        <div class="col-md-6"><!-- col-md-6 Begin -->
+        </div><!-- col-md-6 termino -->
+        <div class="col-md-6"><!-- col-md-6 empieza -->
             
             <p class="pull-right">Hecho por : <a href="#">GlizzyCorp</a></p>
             
-        </div><!-- col-md-6 Finish -->
-    </div><!-- container Finish -->
-</div><!-- #copyright Finish -->
+        </div><!-- col-md-6 termino -->
+    </div><!-- container termino -->
+</div><!-- #copyright termino -->
