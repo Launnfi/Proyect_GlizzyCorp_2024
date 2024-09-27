@@ -2,9 +2,10 @@
 
     $active='Mi cuenta';
     include("includes/header.php");
+    
 
 ?>
-   
+   <link rel="stylesheet" href="customer/styles/style.css">
    <div id="content"><!-- #content empieza -->
        <div class="container"><!-- container empieza -->
            <div class="col-md-12"><!-- col-md-12 empieza -->
@@ -24,7 +25,7 @@
    
    <?php 
     
-    include("customer/includes/sidebar.php");
+    include("includes/sidebar_usu.php");
     
     ?>
                
