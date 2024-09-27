@@ -129,7 +129,7 @@ if(isset($_POST['register'])){
     
     $c_email = $_POST['c_email'];
     
-    $c_pass = $_POST['c_pass'];
+    $c_pass = md5($_POST['c_pass']); #md5 encripta la contraseña
     
     $c_ciudad = $_POST['c_ciudad'];
     
