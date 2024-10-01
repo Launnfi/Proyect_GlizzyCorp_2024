@@ -28,7 +28,7 @@ include("includes/header.php");
                        <h3><p>Benjamin Càceres</p></h3>
                        
                        <a href="#">LinkedIn</a>
-                       <a href="#">GitHub</a>
+                       <a href="https://github.com/Benjacaceres266">GitHub</a>
                        <p>Gmail: benjacaceres266@gmail.com</p>
                        
                    </div><!-- box same-height termino -->
@@ -60,7 +60,7 @@ include("includes/header.php");
                    <h3><p>Nicolas Siffredo</p></h3>
                        
                        <a href="#">LinkedIn</a>
-                       <a href="#">GitHub</a>
+                       <a href="https://github.com/NicoSiffredo">GitHub</a>
                        <p>Gmail: chinchulinnico@gmail.com</p>
                        
                    </div><!-- box same-height termino -->
@@ -74,19 +74,36 @@ include("includes/header.php");
            <br>
            <div class="col-md-9">
             <div class="box" id="ingles"><p><strong>Ingles</strong></p>
-                <p>Who Are We?
- GLIZZY CORP is an innovative company in the programming sector, dedicated to providing service-oriented programs to businesses. We take pride in serving a diverse customer base in Salto, delivering technological solutions that meet their specific needs. Our goal is to transform the user experience through intuitive, efficient, and adaptable software.
-Our History
- The company was born out of a project requested by UTU, where we successfully created a program for a business and presented a detailed defense of it.
-Our Mission
- Our mission is to design and develop programs that are both simple and functional, providing an engaging and effective user experience for the target audience. We firmly believe in the importance of creating software that not only fulfills its technical purpose but is also intuitive and enjoyable to use.
-Our Team
- Our team consists of Nicolas Siffredo, Lautaro Camejo, and Benjamin Caceres, students of the computer science bachelor’s program at UTU
-                </p> 
+                <p><strong>Who Are We?</strong>
+                    GLIZZY CORP is an innovative company in the programming sector, dedicated to providing service-oriented programs to businesses. We take pride in serving a diverse customer base in Salto, delivering technological solutions that meet their specific needs. Our goal is to transform the user experience through intuitive, efficient, and adaptable software.
+                    </p> 
+                   <p> <strong>Our History</strong>
+                    The company was born out of a project requested by UTU, where we successfully created a program for a business and presented a detailed defense of it.
+                    </p>
+                    <p><strong>Our Mission</strong>
+                    Our mission is to design and develop programs that are both simple and functional, providing an engaging and effective user experience for the target audience. We firmly believe in the importance of creating software that not only fulfills its technical purpose but is also intuitive and enjoyable to use.
+                    </p>
+                    <p><strong>Our Team</strong>
+                    Our team consists of Nicolas Siffredo, Lautaro Camejo, and Benjamin Caceres, students of the computer science bachelor’s program at UTU
+                    </p>             
         </div>
         <div class="box" id="español">
             <p><strong>Español</strong></p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis aut nisi nostrum omnis enim? Accusamus alias temporibus expedita dignissimos nisi fuga nam perspiciatis itaque unde? Quas explicabo modi beatae tenetur?
+           <p><strong>Quiénes Somos</strong>
+            GLIZZY CORP es una empresa innovadora en el sector de programación, dedicada a ofrecer programas serviciales a empresas,Nos enorgullecemos de servir a una base diversa de clientes en Salto, brindando soluciones tecnológicas que responden a sus necesidades específicas. Nuestra meta es transformar la experiencia del usuario a través de software intuitivo, eficiente y adaptable.
+            </p>
+            <p>
+            <strong>Nuestra Historia</strong>
+            La empresa nace gracias a un proyecto solicitado por UTU en el que debemos crear exitosamente un programa para una empresa y presentar una defensa detallada sobre el mismo.
+            </p>
+            <p>
+            <strong>Nuestra Misión</strong>
+            Nuestra misión es diseñar y desarrollar programas que sean tanto sencillos como funcionales, proporcionando una experiencia de usuario atractiva y efectiva para la audiencia a la que están dirigidos. Creemos firmemente en la importancia de crear software que no solo cumpla con su propósito técnico, sino que también sea intuitivo y agradable de usar. 
+            </p>
+            <p>
+            <strong>Nuestro Equipo</strong>
+            Nuestro equipo está compuesto por Nicolas Siffredo, Lautaro Camejo y Benjamin Caceres, estudiantes del bachillerato de informática en UTU
+            </p>
         </div>
         </div>
         </center>
