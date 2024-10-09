@@ -7,16 +7,20 @@ include("functions/functions.php");
 
 <?php 
 
+// Verificamos si está presente el parámetro 'pro_id'
 if(isset($_GET['pro_id'])){
 
+    // Guardamos el valor de 'pro_id' que viene desde la URL en una variable
     $producto_id = $_GET['pro_id'];
-
+    
+    // Consulta SQL para obtener los detalles del producto con el ID correspondiente
     $get_product = "select * from productos where producto_id='$producto_id'";
 
     $run_product = mysqli_query($con,$get_product);
 
     $row_product = mysqli_fetch_array($run_product);
 
+    //obtiene cada detalle de los productos
     $p_cat_id = $row_product['p_cat_id'];
 
     $pro_titulo = $row_product['producto_titulo'];
@@ -31,12 +35,14 @@ if(isset($_GET['pro_id'])){
 
     $pro_img3 = $row_product['producto_img3'];
 
+    // Consulta SQL para obtener detalles de la categoría del producto
     $get_p_cat = "select * from productos_categorias where p_cat_id='$p_cat_id'";
 
     $run_p_cat = mysqli_query($con,$get_p_cat);
 
     $row_p_cat = mysqli_fetch_array($run_p_cat);
 
+    // Obtenemos el título de la categoría del producto
     $p_cat_titulo = $row_p_cat['p_cat_titulo'];
 
 }

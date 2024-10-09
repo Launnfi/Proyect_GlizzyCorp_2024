@@ -184,7 +184,7 @@ include("includes/header.php");
                     </div><!-- col-md-3 col-sm-6 termina -->
 
                     <?php 
-                    
+                    //Selecciona productos aleatoriamente
                     $get_productos = "SELECT * FROM productos order by RAND() LIMIT 0,3";
 
                     $run_productos = mysqli_query($con, $get_productos);
