@@ -13,15 +13,15 @@ include("includes/header.php");
         <link rel="stylesheet" href="styles/styles.css">
     </head>
 
-   <div id="advantages"><!-- #advantages empieza -->
+   <div id="advantages">
        
-       <div class="container"><!-- container empieza -->
+       <div class="container">
            
-           <div class="same-height-row"><!-- same-height-row empieza -->
+           <div class="same-height-row">
                
-               <div class="col-sm-4"><!-- col-sm-4 empieza -->
+               <div class="col-sm-4">
                    
-                   <div class="box same-height"><!-- box same-height empieza -->
+                   <div class="box same-height">
                        
                        <div class="img" href=""></div>
                        
@@ -31,13 +31,13 @@ include("includes/header.php");
                        <a href="https://github.com/Benjacaceres266">GitHub</a>
                        <p>Gmail: benjacaceres266@gmail.com</p>
                        
-                   </div><!-- box same-height termino -->
+                   </div>
                    
-               </div><!-- col-sm-4 termino -->
+               </div>
                
-               <div class="col-sm-4"><!-- col-sm-4 empieza -->
+               <div class="col-sm-4">
                    
-                   <div class="box same-height"><!-- box same-height empieza -->
+                   <div class="box same-height">
                        
                    <div class="img" href=""></div>
                        
@@ -47,13 +47,13 @@ include("includes/header.php");
                        <a href="https://github.com/Launnfi">GitHub</a>
                        <p>Gmail: lautacamejo6@gmail.com</p>
                        
-                   </div><!-- box same-height termino -->
+                   </div>
                    
-               </div><!-- col-sm-4 termino -->
+               </div>
                
-               <div class="col-sm-4"><!-- col-sm-4 empieza -->
+               <div class="col-sm-4">
                    
-                   <div class="box same-height"><!-- box same-height empieza -->
+                   <div class="box same-height">
                        
                    <div class="img" href=""></div>
                        
@@ -63,17 +63,17 @@ include("includes/header.php");
                        <a href="https://github.com/NicoSiffredo">GitHub</a>
                        <p>Gmail: chinchulinnico@gmail.com</p>
                        
-                   </div><!-- box same-height termino -->
+                   </div>
                    
-               </div><!-- col-sm-4 termino -->
+               </div>
                
-           </div><!-- same-height-row termino -->
+           </div>
             <center>
            <img src="images\GlizzyLogo.png" alt="VicentaLogo" class="hidden-xs" height="250px" width="250px">
            
            <br>
            <div class="col-md-9">
-            <div class="box" id="ingles"><p><strong>Ingles</strong></p>
+            <div class="box" id="ingles"><p><strong>About Us | Inglés |</strong></p>
                 <p><strong>Who Are We?</strong>
                     GLIZZY CORP is an innovative company in the programming sector, dedicated to providing service-oriented programs to businesses. We take pride in serving a diverse customer base in Salto, delivering technological solutions that meet their specific needs. Our goal is to transform the user experience through intuitive, efficient, and adaptable software.
                     </p> 
@@ -88,7 +88,7 @@ include("includes/header.php");
                     </p>             
         </div>
         <div class="box" id="español">
-            <p><strong>Español</strong></p>
+            <p><strong>Sobre Nosotros | Español |</strong></p>
            <p><strong>Quiénes Somos</strong>
             GLIZZY CORP es una empresa innovadora en el sector de programación, dedicada a ofrecer programas serviciales a empresas,Nos enorgullecemos de servir a una base diversa de clientes en Salto, brindando soluciones tecnológicas que responden a sus necesidades específicas. Nuestra meta es transformar la experiencia del usuario a través de software intuitivo, eficiente y adaptable.
             </p>
@@ -109,9 +109,9 @@ include("includes/header.php");
         </center>
           
 
-       </div><!-- container termino -->
+       </div>
        
-   </div><!-- #advantages termino -->
+   </div>
 
 
        
