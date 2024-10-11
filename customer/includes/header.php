@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include("../db.php");
 include("../functions/functions.php");
 
@@ -160,7 +161,7 @@ if(isset($_GET['pro_id'])){
                    
                </div><!-- padding-nav termina -->
                
-               <a href="cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary empieza -->
+               <a href="../cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary empieza -->
                    
                    <i class="fa fa-shopping-cart"></i>
                    

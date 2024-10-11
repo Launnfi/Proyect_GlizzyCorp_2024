@@ -104,7 +104,7 @@ include("includes/header.php");
                                         <select name="talle" class="form-control" required oninput="setCustomValidity('')"
                                             oninvalid="setCustomValidity('Seleccione un talle')">
                                             <!-- form-control empieza -->
-                                            <option disabled selected>Selecciona un talle</option>
+                                            <option value="" disabled selected>Selecciona un talle</option>
                                             <option>S</option>
                                             <option>M</option>
                                             <option>L</option>
