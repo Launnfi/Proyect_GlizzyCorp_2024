@@ -1,20 +1,44 @@
-
 <div class="panel panel-default sidebar-menu"><!-- panel panel-default slidebar-menu empieza -->
     <div class="panel-heading"><!-- panel-heading empieza -->
         
-        <center>
+        <?php 
+        if(!isset($_SESSION['cliente_email'])) {
+            
+            echo "
+            <center>
+            <img class='perf img-responsive' src='customer/customer_images/sign-icon.png' alt='Imagen del cliente'>
+            </center>
+            <br>
 
-        <img class="perf" src="customer/customer_images/Foto_Perfil.JPG" alt="Foto de perfil"></IMG>
+            <h3 class='panel-title' align='center'>
+            Nombre: Invitado
+            </h3>
+            ";
+        }else{
+                 // Obtener el correo del cliente desde la sesión
+                 $cliente_sesion = $_SESSION['cliente_email'];
 
-        </center>
-        
-        <br>
-        <h3 aling="center" class="panel-title"><!-- pannel-title empieza -->
-            Nombre: Martin Perez Disalvo
-
-
-
-        </h3><!-- pannel-title termina -->
+                 // Consulta para obtener los datos del cliente
+                 $get_cliente = "SELECT * FROM customer WHERE cliente_email = '$cliente_sesion'";
+                 $run_cliente = mysqli_query($con, $get_cliente);
+                 $row_cliente = mysqli_fetch_array($run_cliente);
+     
+                 // Obtener imagen y nombre del cliente
+                 $cliente_img = $row_cliente['cliente_img'];
+                 $cliente_nom = $row_cliente['cliente_nombre'];
+     
+                 echo "
+                 <center>
+                 <img class='perf img-responsive' src='customer_images/$cliente_img' alt='Imagen del cliente'>
+                 </center>
+                 <br>
+     
+                 <h3 class='panel-title' align='center'>
+                 Nombre: $cliente_nom
+                 </h3>
+                 ";
+        }
+        ?>
 
         </div><!-- panel-heading termina -->
 

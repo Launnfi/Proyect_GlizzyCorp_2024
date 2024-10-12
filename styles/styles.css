@@ -329,7 +329,7 @@ body{
         font-size: 14px;
     }
 }
-
+}
 @media (max-width: 576px) {
     #advantages {
         padding: 20px 5px;
@@ -825,3 +825,4 @@ body{
 #copyright .pull-right a:hover {
     color: #ff6699; 
 }
+]

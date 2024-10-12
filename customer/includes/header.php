@@ -94,8 +94,7 @@ if(isset($_GET['pro_id'])){
                    </li>
                    <li>
                        <a href="../cerrar_sesion.php">Login</a>
-                   </li>
-                   
+                   </li>         
                </ul><!-- menu termina -->
                
            </div><!-- col-md-6 termina -->

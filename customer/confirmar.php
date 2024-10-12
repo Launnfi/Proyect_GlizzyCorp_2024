@@ -1,3 +1,20 @@
+<?php 
+$active = "Mi cuenta";
+?>
+<?php 
+session_start();
+
+if(!isset($_SESSION['cliente_email'])){
+
+    echo "<script>window.open('../cerrar_sesion.php', '_self')</script>";
+
+}else{
+
+
+include("../db.php");
+include("../functions/functions.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +33,21 @@
            
            <div class="col-md-6 offer"><!-- col-md-6 offer empieza -->
                
-               <a href="#" class="btn btn-success btn-sm">Bienvenido</a>
-               <a href="checkout.php">4 Productos en tu carrito | Total: $10000 </a>
+           <?php 
+                   
+                   if(!isset($_SESSION['cliente_email'])){
+                       
+                       echo "Bienvenido: Invitado";
+                       
+                   }else{
+                       
+                       echo "Bienvenido: " . $_SESSION['cliente_email'] . "";
+                       
+                   }
+                   
+                ?>
+                
+               <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total:  <?php echo mont_total(); ?> </a>
                
            </div><!-- col-md-6 offer termina -->
            
@@ -35,7 +65,7 @@
                        <a href="../cart.php">Ir al Carrito</a>
                    </li>
                    <li>
-                       <a href="../checkout.php">Login</a>
+                       <a href="../cerrar_sesion.php">Login</a>
                    </li>
                    
                </ul><!-- menu termina -->
@@ -54,8 +84,8 @@
                
                <a href="../index.php" class="navbar-brand home"><!-- navbar-brand home empieza -->
                    
-                   <img src="images/ecom-store-logo.png" alt="M-dev-Store Logo" class="hidden-xs">
-                   <img src="images/ecom-store-logo-mobile.png" alt="M-dev-Store Logo Mobile" class="visible-xs">
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
+               <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
                    
                </a><!-- navbar-brand home termina -->
                
@@ -83,19 +113,19 @@
                    
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left empieza -->
                        
-                       <li >
+                       <li class="<?= $active == 'Inicio' ? 'active' : '' ?>" >
                            <a href="../index.php">Home</a>
                        </li>
-                       <li>
+                       <li class= "<?= $active == 'Comprar' ? 'active' : '' ?>" >
                            <a href="../tienda.php">Comprar</a>
                        </li>
-                       <li class="active">
+                       <li class="<?= $active == 'Mi cuenta' ? 'active' : '' ?>">
                            <a href="my_account.php">mi cuenta</a>
                        </li>
-                       <li>
+                       <li class="<?= $active == 'Carrito' ? 'active' : '' ?>">
                            <a href="../cart.php">Carrito</a>
                        </li>
-                       <li>
+                       <li class="<?= $active == 'Contactanos' ? 'active' : '' ?>">
                            <a href="../contact.php">Contactanos</a>
                        </li>
                        
@@ -103,11 +133,11 @@
                    
                </div><!-- padding-nav termina -->
                
-               <a href="cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary empieza -->
+               <a href="../cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary empieza -->
                    
                    <i class="fa fa-shopping-cart"></i>
                    
-                   <span>4 Productos en tu carrito</span>
+                   <span><?php items(); ?>  Productos en tu carrito</span>
                    
                </a><!-- btn navbar-btn btn-primary termina -->
                
@@ -269,3 +299,4 @@
 
 </body>
 </html>
+<?php }?>
