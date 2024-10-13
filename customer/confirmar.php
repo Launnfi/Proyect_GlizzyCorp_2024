@@ -14,6 +14,12 @@ if(!isset($_SESSION['cliente_email'])){
 include("../db.php");
 include("../functions/functions.php");
 
+if(isset($_GET['orden_id'])){
+
+    $orden_id = $_GET['orden_id'];
+
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -209,7 +215,7 @@ include("../functions/functions.php");
 
                 <h1 aling = "center">Porfavor confirmar su pago</h1>
 
-                <form action="confirmar.php" method="post" enctype="multipart/form-data"><!-- form empieza -->
+                <form action="confirmar.php?update_id='<?php echo $orden_id ?>" method="post" enctype="multipart/form-data"><!-- form empieza -->
 
                     <div class="form-group"><!-- form-group empieza -->
 

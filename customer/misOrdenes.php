@@ -27,50 +27,74 @@
             
             <tbody>
 
+            <?php 
+            
+            $clente_sesion = $_SESSION['cliente_email'];
+
+            $get_cliente = "SELECT * FROM customer WHERE cliente_email = '$clente_sesion'";
+
+            $run_cliente = mysqli_query($con, $get_cliente);
+
+            $row_cliente = mysqli_fetch_array($run_cliente);
+
+            $cliente_id = $row_cliente['cliente_id'];
+
+            $get_orden = "SELECT * from ordenes_cliente WHERE cliente_id = '$cliente_id'";
+
+            $run_orden = mysqli_query($con, $get_orden);
+
+            $i = 0;
+
+            while($row_orden = mysqli_fetch_array($run_orden)){
+
+                $orden_id = $row_orden['orden_id'];
+
+                $monto = $row_orden['monto'];
+
+                $numero_orden = $row_orden['numero_orden'];
+
+                $cant = $row_orden['cant'];
+
+                $talla = $row_orden['tamaño'];
+
+                $estado = $row_orden['estado'];
+
+                $fecha_orden = substr($row_orden['fecha_orden'],0,11);
+
+                $i++;
+
+                if($estado == 'Pendiente'){
+
+                    $estado == 'No pago';
+
+
+                }else{
+                    $estado == 'Pago';
+                }
+
+            
+            
+            ?>
+
             <tr>
-                <th>#1</th>
-                <td>$1400</td>
-                <td>42313214</td>
-                <td>2 </td>
-                <td> S </td>
-                <td>10-2-2024</td>
-                <td>Sin pagar</td>
+                <th><?php echo $i; ?></th>
+                <td><?php echo $monto; ?></td>
+                <td><?php echo $numero_orden; ?></td>
+                <td><?php echo $cant; ?> </td>
+                <td> <?php echo $talla; ?></td>
+                <td><?php echo $fecha_orden; ?></td>
+                <td><?php echo $estado; ?></td>
                 <td>
-                    <a href="confirmar.php" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
+                    <a href="confirmar.php?orden_id = '<?php echo $orden_id ?>" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
                 </td>
             </tr>   
+<?php } ?>
+             </tbody>
 
-            </tbody>
                 <tbody>
 
             <tr>
-                <th>#2</th>
-                <td>$1400</td>
-                <td>42313214</td>
-                <td>2 </td>
-                <td> L </td>
-                <td>10-2-2024</td>
-                <td>Sin pagar</td>
-                <td>
-                   <a href="confirmar.php" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
-                </td>
-            </tr>   
-
-            </tbody>    <tbody>
-
-            <tr>
-                <th>#3</th>
-                <td>$1400</td>
-                <td>42313214</td>
-                <td>2 </td>
-                <td> M </td>
-                <td>10-2-2024</td>
-                <td>Sin pagar</td>
-                <td>
-                    <a href="confirmar.php" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
-                </td>
-            </tr>   
-
+                
             </tbody>
 
         </table><!-- table table-bordered table-hover termina -->
