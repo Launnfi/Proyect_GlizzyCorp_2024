@@ -12,3 +12,33 @@
     </form><!--from termina-->
 
 </center>
+
+<?php 
+
+$c_email = $_SESSION['cliente_email'];
+
+if(isset($_POST['Yes'])){
+    
+    $delete_customer = "delete from customer where cliente_email='$c_email'";
+    
+    $run_delete_customer = mysqli_query($con,$delete_customer);
+    
+    if($run_delete_customer){
+        
+        session_destroy();
+        
+        echo "<script>alert('Cuenta borrada con exito')</script>";
+        
+        echo "<script>window.open('../index.php','_self')</script>";
+        
+    }
+    
+}
+
+if(isset($_POST['No'])){
+    
+    echo "<script>window.open('my_account.php?my_orders','_self')</script>";
+    
+}
+
+?>
