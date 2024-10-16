@@ -5,11 +5,11 @@ include("includes/header.php");
 
 ?>
 
-   <div id="content"><!-- content empieza -->
-    <div class="container"><!-- container empieza -->
-        <div class="col-md-12"><!-- col-md-12 empieza -->
+   <div id="content">
+    <div class="container">
+        <div class="col-md-12">
 
-        <ul class="breadcrumb"><!-- breadcrumb empieza-->
+        <ul class="breadcrumb">
             <li>
                 <a href="index.php">Inicio</a>
             </li>
@@ -17,11 +17,11 @@ include("includes/header.php");
                 Carrito
             </li>
         </ul>
-        </div><!-- col-md-12 termina -->
+        </div>
 
-        <div id="cart" class="col-md-9"><!-- col-md-9 empieza -->
+        <div id="cart" class="col-md-9">
 
-        <div class="box"><!-- box empieza -->
+        <div class="box">
 
     
         <form action="cart.php" method="post" enctype="multipart/from-data">
@@ -40,11 +40,11 @@ include("includes/header.php");
             ?>
             <p class="text-muted">Tienes <?php echo $cont; ?> cosas en el carrito</p>
 
-            <div class="table-responsive"><!-- table-responsive empieza -->
+            <div class="table-responsive">
 
-            <table class="table"><!-- table empieza -->
+            <table class="table">
 
-            <thead><!-- thead empieza -->
+            <thead>
 
             <tr>
 
@@ -57,9 +57,9 @@ include("includes/header.php");
 
             </tr>
 
-            </thead><!-- thead final -->
+            </thead>
 
-            <tbody> <!-- tbody empieza -->
+            <tbody>
 
             <?php  
             $total = 0;
@@ -130,9 +130,9 @@ include("includes/header.php");
         } ?>
 
 
-            </tbody><!-- tbody final -->
+            </tbody>
 
-        <tfoot><!-- tfoot empieza -->
+        <tfoot>
         
         <tr>
             
@@ -140,31 +140,31 @@ include("includes/header.php");
         <th colspan="2"> <?php echo "$". $total;?></th>
         </tr>
 
-        </tfoot><!-- tfoot termina -->
+        </tfoot>
 
 
-            </table><!-- table termina -->
+            </table>
 
-            </div><!-- table-responsive termina -->
+            </div>
 
-            <div class="box-footer"><!--box-footer empieza -->
-                <div class="pull-left"><!--pull-left empieza -->
+            <div class="box-footer">
+                <div class="pull-left">
 
-                    <a href="index.php" class="btn btn-default"><!--btn btn-default" empieza -->
+                    <a href="index.php" class="btn btn-default">
 
                     <i class="fa fa-chevron-left"></i>Continuar comprando
 
-                    </a><!--btn btn-default" termina -->
+                    </a>
 
-                </div><!--pull-left dinish -->
+                </div>
 
-                <div class="pull-right"><!--pull-left empieza -->
+                <div class="pull-right">
 
-            <button type="submit"  name= "act" value="Update cart" class="btn btn-default"><!--btn btn-default" empieza -->
+            <button type="submit"  name= "act" value="Update cart" class="btn btn-default">
 
              <i class="fa fa-refresh"></i>Actualizar Carrito
 
-            </button><!--btn btn-default" termina -->
+            </button>
 
             <a href="cerrar_sesion.php" class="btn btn-primary">
 
@@ -172,14 +172,14 @@ include("includes/header.php");
 
             </a>
 
-            </div><!--pull-right dinish -->
+            </div>
 
             
-            </div><!--box-footer termina -->
+            </div>
 
-        </form><!-- from termina -->
+        </form>
 
-        </div><!-- box termina -->
+        </div>
         <?php 
         function act_cart(){
             global $con;
@@ -202,14 +202,14 @@ include("includes/header.php");
         ?>
 
         
-        <div id="same-height-row"><!-- same-height-row empieza -->
-                    <div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 empieza -->
-                        <div class="box same-height headline"><!--box same-height headline empieza -->
+        <div id="same-height-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box same-height headline">
 
                             <h3 class="text-center">Te podria interesar</h3>
                             
-                        </div><!--box same-height headline termina -->
-                    </div><!-- col-md-3 col-sm-6 termina -->
+                        </div>
+                    </div>
                     <?php 
                     
                     $get_productos = "SELECT * from productos order by rand() LIMIT 0,3";
@@ -255,11 +255,11 @@ include("includes/header.php");
 
                     }
                     ?>
-        </div><!-- same-height-row termina -->
-        </div><!-- col-md-9 termina -->
-        <div class="col-md-3"><!-- col-md-3 empieza -->
+        </div>
+        </div>
+        <div class="col-md-3">
 
-            <div id="order-summary" class="box"><!-- box empieza -->
+            <div id="order-summary" class="box">
 
 
            
@@ -268,18 +268,17 @@ include("includes/header.php");
 
             <h3>Resumen del pedido </h3>
 
-            </div><!-- box-header termina -->
+            </div>
 
             <p class="text-muted">
 
             Los costos de envío y adicionales se calculan según el valor que haya ingresado.
 
-            </p><!-- text-muted termina -->
-            <div class="table-responsive"><!-- table-responsive empieza -->
-
+            </p>
+            <div class="table-responsive">
             <table class= "table">
 
-            <tbody><!-- me dio paja comentar lo de abajo-->
+            <tbody>
             
             <tr>
 

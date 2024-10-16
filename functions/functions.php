@@ -23,7 +23,8 @@ function getRealIpUser(){
     }
     
     
-}
+} //esta afuncion está diseñada para obtener la IP real del usuario, 
+//incluso si este está detrás de un proxy, lo que mejora la precisión de la información recolectada.
 
 //Funcion que agrega productos al carrito
 function add_cart(){

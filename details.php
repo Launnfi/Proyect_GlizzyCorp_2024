@@ -204,7 +204,7 @@ include("includes/header.php");
 
                             <div class ='product same-height' >
                             
-                                <a href= 'details.php?pro_id= $producto_id '>
+                                <a href= 'details.php?pro_id= $pro_id '>
                                 <img class= 'img-responsive' src='admin_area/product_images/$pro_img1'>
                                 </a>
 

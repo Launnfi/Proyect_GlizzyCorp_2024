@@ -34,7 +34,7 @@ $cliente_img = $row_customer['cliente_img'];
 
     <div class="form-group"><!--form-group empieza -->
     <label>Mail</label>
-    <input type="text" name="c_email" class="form-control" value="<?php echo $cliente_mail; ?>" required>
+    <input type="text" name="c_email" class="form-control" value="<?php echo $cliente_email; ?>" required>
     </div><!--form-group termina -->
 
     <div class="form-group"><!--form-group empieza -->
@@ -96,7 +96,7 @@ if(isset($_POST['update'])){
     
     move_uploaded_file ($c_image_tmp,"customer_images/$c_image");
     
-    $update_customer = "update customer set cliente_nombre='$c_name',cliente_mail='$c_email',cliente_ciudad='$c_departamento',cliente_direccion='$c_direccion',cliente_contacto='$c_contacto',cliente_img='$c_image' where cliente_id='$update_id' ";
+    $update_customer = "update customer set cliente_nombre='$c_name',cliente_email='$c_email',cliente_ciudad='$c_departamento',cliente_direccion='$c_direccion',cliente_contacto='$c_contacto',cliente_img='$c_image' where cliente_id='$update_id' ";
     
     $run_customer = mysqli_query($con,$update_customer);
     
@@ -104,7 +104,7 @@ if(isset($_POST['update'])){
         
         echo "<script>alert('Tu cuenta se ha actualizado, por favor reinicie la sesion')</script>";
         
-        echo "<script>window.open('cerrar_sesion.php','_self')</script>";
+        echo "<script>window.open('../cerrar_sesion.php','_self')</script>";
         
     }
     
