@@ -173,7 +173,7 @@ if(isset($_GET['orden_id'])){
                     $fecha_pago = $_POST['date'];
                     $complete = "Completado";
                     
-                    $insert_payment = "INSERT INTO pagos (numero_factura, cantidad, metodo_pago, ref_no, fecha_pago) VALUES ('$numero_fact', '$cantidad', '$metodo_pago', '$ref_no', '$fecha_pago')";
+                    $insert_payment = "INSERT INTO pagos (numero_factura, cantidad, metodo_pago, num_ref, fecha_pago) VALUES ('$numero_fact', '$cantidad', '$metodo_pago', '$ref_no', '$fecha_pago')";
                     $run_payment = mysqli_query($con, $insert_payment);
 
                     $update_customer_order = "UPDATE ordenes_cliente SET estado='$complete' WHERE orden_id='$orden_id'";
@@ -184,7 +184,7 @@ if(isset($_GET['orden_id'])){
                     
                     if($run_pending_order){
                         echo "<script>alert('Gracias por tu compra, tiempo estimado de llegada 1-3 días. O si seleccionó la opción de pago express, puede ir a retirar su pedido.')</script>";
-                        echo "<script>window.open('my_account.php?my_orders', '_self')</script>";
+                        echo "<script>window.open('my_account.php?misOrdenes', '_self')</script>";
                     }
                 }
                 ?>
