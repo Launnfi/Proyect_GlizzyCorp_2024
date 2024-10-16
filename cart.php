@@ -185,8 +185,6 @@ include("includes/header.php");
             global $con;
         
             if(isset($_POST['act'])){
-                // Verifica si existe 'remove' y si es un array
-                if(isset($_POST['remove']) && is_array($_POST['remove'])) {
                     foreach($_POST['remove'] as $rem_id){
                         $elim_prod = "DELETE from cart where p_id = $rem_id";
                         $run_elim = mysqli_query($con, $elim_prod);
@@ -197,7 +195,6 @@ include("includes/header.php");
                     }
                 }
             }
-        }
         
         echo $up_cart =  act_cart();
         

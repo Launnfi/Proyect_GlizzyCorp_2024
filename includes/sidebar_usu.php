@@ -29,7 +29,7 @@
      
                  echo "
                  <center>
-                 <img class='perf img-responsive' src='customer_images/$cliente_img' alt='Imagen del cliente'>
+                 <img class='perf img-responsive' src='customer/customer_images/$cliente_img' alt='Imagen del cliente'>
                  </center>
                  <br>
      

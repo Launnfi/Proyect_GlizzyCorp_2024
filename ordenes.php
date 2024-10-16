@@ -11,8 +11,7 @@ $ip_add = getRealIpUser();
 $estado = "Pendiente";
 $num_fac = mt_rand();
 
-// Asegúrate de que `$ip_add` se use correctamente
-$select_cart = "SELECT * FROM cart WHERE ip_add = '$ip_add'"; // Cambiado aquí
+$select_cart = "SELECT * FROM cart WHERE ip_add = '$ip_add'"; 
 
 $run_cart = mysqli_query($con, $select_cart);
 
@@ -27,7 +26,6 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     while($row_producto = mysqli_fetch_array($run_producto)){
         $sub_total = $row_producto['producto_precio'] * $pro_cant;
 
-        // Cambiar 'NOW()' a NOW() sin comillas
         $insertar_cli_ord = "INSERT INTO ordenes_cliente (cliente_id, monto, numero_orden, cant, tamaño, fecha_orden, estado) VALUES ('$id_cliente', '$sub_total', '$num_fac', '$pro_cant', '$pro_talle', NOW(), '$estado')";
 
         if (!mysqli_query($con, $insertar_cli_ord)) {
@@ -42,8 +40,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     }
 }
 
-// Mover la eliminación del carrito fuera del bucle
-$elim_cart = "DELETE FROM cart WHERE ip_add = '$ip_add'"; // Cambiado aquí
+$elim_cart = "DELETE FROM cart WHERE ip_add = '$ip_add'";
 
 if (mysqli_query($con, $elim_cart)) {
     echo "<script>alert('Tus órdenes fueron enviadas. Gracias por su compra ☺️');</script>";
