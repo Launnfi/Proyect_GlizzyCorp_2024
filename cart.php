@@ -24,7 +24,7 @@ include("includes/header.php");
         <div class="box"><!-- box empieza -->
 
     
-        <form action="cart.php" method="post" enctype=",ultipart/from-data">
+        <form action="cart.php" method="post" enctype="multipart/from-data">
 
             <h1>Carrito de compras</h1>
 
@@ -182,31 +182,23 @@ include("includes/header.php");
         </div><!-- box termina -->
         <?php 
         function act_cart(){
-
-
             global $con;
-
+        
             if(isset($_POST['act'])){
-
-                foreach($_POST['remove'] as $rem_id){
-
-                    $elim_prod = "DELETE from cart where p_id = $rem_id";
-
-                    $run_elim = mysqli_query($con, $elim_prod);
-
-                    if($run_elim){
-
-                        echo "<script>window.open('cart.php', '_self')</script>";
-
-
-
+                // Verifica si existe 'remove' y si es un array
+                if(isset($_POST['remove']) && is_array($_POST['remove'])) {
+                    foreach($_POST['remove'] as $rem_id){
+                        $elim_prod = "DELETE from cart where p_id = $rem_id";
+                        $run_elim = mysqli_query($con, $elim_prod);
+        
+                        if($run_elim){
+                            echo "<script>window.open('cart.php', '_self')</script>";
+                        }
                     }
-
                 }
-
-
             }
         }
+        
         echo $up_cart =  act_cart();
         
         

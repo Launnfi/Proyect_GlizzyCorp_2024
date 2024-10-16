@@ -36,7 +36,7 @@
 
 if(isset($_POST['submit'])){
     
-    $c_email = $_SESSION['customer_email'];
+    $c_email = $_SESSION['cliente_email'];
     
     $c_old_pass = $_POST['old_pass'];
     
