@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2024 a las 15:08:59
+-- Tiempo de generación: 16-10-2024 a las 23:54:32
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,14 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
+  `admin_nombre` varchar(255) NOT NULL,
+  `admin_email` varchar(255) NOT NULL,
+  `admin_pass` varchar(255) NOT NULL,
+  `admin_img` text NOT NULL,
+  `admin_ciudad` text NOT NULL,
+  `admin_sobre` text NOT NULL,
+  `admin_contacto` varchar(255) NOT NULL,
+  `admin_trabajo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `cart`
 --
 
 CREATE TABLE `cart` (
   `p_id` int(10) NOT NULL,
-  `ip_add` varchar(255) NOT NULL,
+  `ip_add` int(255) NOT NULL,
   `cant` int(10) NOT NULL,
-  `talle` varchar(255) NOT NULL
+  `talle` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,8 +57,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`p_id`, `ip_add`, `cant`, `talle`) VALUES
-(0, '0', 1, '0'),
-(4, '0', 1, 'M');
+(3, 0, 1, 0),
+(4, 0, 1, 0),
+(2, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -67,6 +86,22 @@ INSERT INTO `categorias` (`cat_id`, `cat_titulo`, `cat_desc`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `cupon`
+--
+
+CREATE TABLE `cupon` (
+  `cupon_id` int(11) NOT NULL,
+  `producto_id` int(100) NOT NULL,
+  `cupon_titulo` varchar(255) NOT NULL,
+  `cupon_precio` varchar(255) NOT NULL,
+  `cupon_codigo` varchar(255) NOT NULL,
+  `cupon_limite` int(100) NOT NULL,
+  `cupon_usado` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `customer`
 --
 
@@ -88,8 +123,20 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`cliente_id`, `cliente_nombre`, `cliente_email`, `cliente_pass`, `cliente_ciudad`, `cliente_contacto`, `cliente_direccion`, `cliente_img`, `cliente_ip`) VALUES
 (1, 'prueba', 'prueba@mail.com', 'prueba', 'cielo', '21343214241', '', '1-TpRZz7_400x400.jpg', '::1'),
-(2, 'SI', 'negros@gmail.com', '1234', 'calle ronca', '213123', '', 'Logo-UTU-Blanco-Negro.png', '::1'),
-(3, 'no', 'negros@gmail.com', '1234', 'calle ronca', '213123', '', 'Logo-UTU-Blanco-Negro.png', '::1');
+(2, 'prueba', 'prueba@mail.com', '1234', 'cielo', '21343214241', '', '1f379f720243a065247e03e70cdacf6c.jpg', '::1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `manufacturerias`
+--
+
+CREATE TABLE `manufacturerias` (
+  `manufactureria_id` int(11) NOT NULL,
+  `manufactureria_titulo` text NOT NULL,
+  `manufactureria_top` text NOT NULL,
+  `manufactureria_img` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -122,6 +169,21 @@ CREATE TABLE `ordenes_pendientes` (
   `cant` int(10) NOT NULL,
   `tamaño` text NOT NULL,
   `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pagos`
+--
+
+CREATE TABLE `pagos` (
+  `pago_id` int(10) NOT NULL,
+  `numero_factura` int(10) NOT NULL,
+  `cantidad` int(10) NOT NULL,
+  `metodo_pago` text NOT NULL,
+  `num_ref` int(10) NOT NULL,
+  `fecha_pago` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -199,16 +261,34 @@ INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`) VALUES
 --
 
 --
+-- Indices de la tabla `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
+
+--
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+-- Indices de la tabla `cupon`
+--
+ALTER TABLE `cupon`
+  ADD PRIMARY KEY (`cupon_id`);
+
+--
 -- Indices de la tabla `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`cliente_id`);
+
+--
+-- Indices de la tabla `manufacturerias`
+--
+ALTER TABLE `manufacturerias`
+  ADD PRIMARY KEY (`manufactureria_id`);
 
 --
 -- Indices de la tabla `ordenes_cliente`
@@ -221,6 +301,12 @@ ALTER TABLE `ordenes_cliente`
 --
 ALTER TABLE `ordenes_pendientes`
   ADD PRIMARY KEY (`orden_id`);
+
+--
+-- Indices de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+  ADD PRIMARY KEY (`pago_id`);
 
 --
 -- Indices de la tabla `productos`
@@ -245,6 +331,12 @@ ALTER TABLE `slider`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
@@ -254,7 +346,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `manufacturerias`
+--
+ALTER TABLE `manufacturerias`
+  MODIFY `manufactureria_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ordenes_cliente`
@@ -267,6 +365,12 @@ ALTER TABLE `ordenes_cliente`
 --
 ALTER TABLE `ordenes_pendientes`
   MODIFY `orden_id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+  MODIFY `pago_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
