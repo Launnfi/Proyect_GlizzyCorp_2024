@@ -97,7 +97,7 @@ include("../db.php");
                               
                           </select>
                           
-                      </div>>
+                      </div>
                        
                    </div>
                    
