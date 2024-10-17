@@ -80,7 +80,7 @@
         <li class="<?php if(isset($_GET['cerrarSecion'])){echo"active";} ?>">
             <a href="logout.php">
             
-            <i class="fa fa-sign-out"></i>Cerrar la seción
+            <i class="fa fa-sign-out"></i>Cerrar la sesión
             </a>
 
         </li>
