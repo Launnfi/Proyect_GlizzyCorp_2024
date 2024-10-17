@@ -63,7 +63,7 @@ if(isset($_POST['login'])){
     
     $cliente_email = $_POST['c_email'];
     
-    $cliente_pass = $_POST['c_pass'];
+    $cliente_pass = md5($_POST['c_pass']);
     
     $select_customer = "select * from customer where cliente_email='$cliente_email' AND cliente_pass='$cliente_pass'";
     
