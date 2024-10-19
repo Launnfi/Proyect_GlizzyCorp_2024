@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
     
     $c_new_pass_again = $_POST['new_pass_again'];
     
-    $sel_c_old_pass = "select * from customer where customer_pass='$c_old_pass'";
+    $sel_c_old_pass = "SELECT * from customer where cliente_pass='$c_old_pass'";
     
     $run_c_old_pass = mysqli_query($con,$sel_c_old_pass);
     

@@ -17,9 +17,9 @@
 
 $c_email = $_SESSION['cliente_email'];
 
-if(isset($_POST['Yes'])){
+if(isset($_POST['si'])){
     
-    $delete_customer = "delete from customer where cliente_email='$c_email'";
+    $delete_customer = "DELETE from customer where cliente_email='$c_email'";
     
     $run_delete_customer = mysqli_query($con,$delete_customer);
     
