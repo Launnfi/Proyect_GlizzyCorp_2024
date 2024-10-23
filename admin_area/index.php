@@ -13,15 +13,23 @@
     <div id="wrapper"><!-- wrapper e -->
 
     <?php include ("includes/sidebar.php"); ?>
+
         <div id="page-wrapper">
             <div class="container-fluid">
 
-
+                <?php
+                
+                    if(isset($_GET['panel'])){
+                    
+                        include("panel.php");
+                    
+                }
+            
+                ?>
 
             </div>
         </div>
     </div><!-- wrapper t -->
-
 
 <script src="js/jquery-331.min.js"></script>
 <script src="js/bootstrap-337.min.js"></script>
