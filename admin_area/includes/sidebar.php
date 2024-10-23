@@ -12,7 +12,7 @@
             
         </button><!-- navbar-toggle finish -->
         
-        <a href="index.php?dashboard" class="navbar-brand">Admin Area</a>
+        <a href="index.php?panel" class="navbar-brand">Admin Area</a>
         
     </div><!-- navbar-header finish -->
     
@@ -84,7 +84,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse"><!-- collapse navbar-collapse navbar-ex1-collapse begin -->
         <ul class="nav navbar-nav side-nav"><!-- nav navbar-nav side-nav begin -->
             <li><!-- li begin -->
-                <a href="index.php?dashboard"><!-- a href begin -->
+                <a href="index.php?panel"><!-- a href begin -->
                         
                         <i class="fa fa-fw fa-dashboard"></i> Panel
                         

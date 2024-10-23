@@ -177,6 +177,12 @@ if(isset($_GET['pro_id'])){
                        <li class="<?= $active == 'Contactanos' ? 'active' : '' ?>">
                            <a href="contact.php">Contactanos</a>
                        </li>
+                       <li class="<?= $active == 'Blog' ? 'active' : '' ?>">
+                           <a href="blog.php">Blog</a>
+                       </li>
+                       <li class="<?= $active == 'FAQ' ? 'active' : '' ?>">
+                           <a href="faq.php">Preguntas Frecuentes</a>
+                       </li>
                        
                    </ul><!-- nav navbar-nav left termina -->
                    

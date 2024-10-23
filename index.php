@@ -130,7 +130,7 @@
                            
                        </div><!-- icon termino -->
                        
-                       <h3><a href="#">Mejores ofertas</a></h3>
+                       <h3><p>Mejores ofertas</p></h3>
                        
                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                        
@@ -148,7 +148,7 @@
                            
                        </div><!-- icon termino -->
                        
-                       <h3><a href="#">Mejores precios</a></h3>
+                       <h3><p>Mejores precios</p></h3>
                        
                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                        
@@ -166,7 +166,7 @@
                            
                        </div><!-- icon termino -->
                        
-                       <h3><a href="#">100% Original</a></h3>
+                       <h3><p>100% Original</p></h3>
                        
                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                        

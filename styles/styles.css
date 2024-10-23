@@ -347,8 +347,18 @@ body{
         font-size: 13px;
     }
 }
-
-
+·ingles{
+    background-color: #ffffff; 
+    border: 2px solid #e3e3e3; 
+    border-radius: 15px; 
+    padding: 20px;
+    margin: 15px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    flex: 1; 
+    max-width: 300px; 
+    min-width: 250px; 
+}
 /* Latest Products Styles */
 
 #hot {
@@ -825,4 +835,3 @@ body{
 #copyright .pull-right a:hover {
     color: #ff6699; 
 }
-]

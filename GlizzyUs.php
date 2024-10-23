@@ -72,8 +72,9 @@ include("includes/header.php");
            <img src="images\GlizzyLogo.png" alt="VicentaLogo" class="hidden-xs" height="250px" width="250px">
            
            <br>
-           <div class="col-md-9">
-            <div class="box" id="ingles"><p><strong>About Us | Inglés |</strong></p>
+           <div class="col-md-12" id="ingles">
+            
+            <div class="box"><p><strong>About Us | Inglés |</strong></p>
                 <p><strong>Who Are We?</strong>
                     GLIZZY CORP is an innovative company in the programming sector, dedicated to providing service-oriented programs to businesses. We take pride in serving a diverse customer base in Salto, delivering technological solutions that meet their specific needs. Our goal is to transform the user experience through intuitive, efficient, and adaptable software.
                     </p> 
@@ -87,7 +88,9 @@ include("includes/header.php");
                     Our team consists of Nicolas Siffredo, Lautaro Camejo, and Benjamin Caceres, students of the computer science bachelor’s program at UTU
                     </p>             
         </div>
-        <div class="box" id="español">
+        </div>
+        <div class="col-md-12">
+        <div class="box" 
             <p><strong>Sobre Nosotros | Español |</strong></p>
            <p><strong>Quiénes Somos</strong>
             GLIZZY CORP es una empresa innovadora en el sector de programación, dedicada a ofrecer programas serviciales a empresas,Nos enorgullecemos de servir a una base diversa de clientes en Salto, brindando soluciones tecnológicas que responden a sus necesidades específicas. Nuestra meta es transformar la experiencia del usuario a través de software intuitivo, eficiente y adaptable.
