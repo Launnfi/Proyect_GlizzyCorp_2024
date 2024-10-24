@@ -1,4 +1,5 @@
 <?php 
+include("includes/db.php");
    if(!isset($_SESSION['admin_email'])){
         
     echo "<script>window.open('login.php','_self')</script>";
@@ -34,7 +35,7 @@
                     </div><!-- col-xs-3 finish -->
                     
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right begin -->
-                        <div class="huge"> 17 </div>
+                        <div class="huge"> <?php echo $cont_productos; ?> </div>
                            
                         <div> Productos </div>
                         
@@ -74,7 +75,7 @@
                     </div><!-- col-xs-3 finish -->
                     
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right begin -->
-                        <div class="huge"> 7 </div>
+                        <div class="huge"> <?php echo $cont_customers; ?> </div>
                            
                         <div> Clientes </div>
                         
@@ -114,7 +115,7 @@
                     </div><!-- col-xs-3 finish -->
                     
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right begin -->
-                        <div class="huge"> 5 </div>
+                        <div class="huge"> <?php echo $cont_p_cat; ?> </div>
                            
                         <div> Categoria de productos </div>
                         
@@ -154,7 +155,7 @@
                     </div><!-- col-xs-3 finish -->
                     
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right begin -->
-                        <div class="huge"> 25 </div>
+                        <div class="huge"> <?php echo $cont_pend_ord; ?> </div>
                            
                         <div> Ordenes </div>
                         
@@ -201,67 +202,70 @@
                         
                         <thead><!-- thead begin -->
                           
-                            <tr><!-- th begin -->
-                           
-                                <th> Numero de orden: </th>
-                                <th> email del cliente: </th>
-                                <th> Numero de factura: </th>
-                                <th> Id de producto: </th>
-                                <th> Cantidad de productos: </th>
-                                <th> Tamaño del producto: </th>
-                                <th> Status: </th>
-                            
-                            </tr><!-- th finish -->
-                            
+                        <tr><!-- th begin -->
+                            <th>Número de orden:</th>
+                            <th>Email del cliente:</th>
+                            <th>Número de factura:</th>
+                            <th>ID de producto:</th>
+                            <th>Cantidad de productos:</th>
+                            <th>Tamaño del producto:</th>
+                            <th>Status:</th>
+                        </tr><!-- th finish -->
+
                         </thead><!-- thead finish -->
-                        
+
                         <tbody><!-- tbody begin -->
-                           
-                            <tr><!-- tr begin -->
-                                <td> 1 </td>
-                                <td> pelanggan@gmail.com </td>
-                                <td> 32sa32 </td>
-                                <td> 24 </td>
-                                <td> 2 </td>
-                                <td> Grande </td>
-                                <td> Pendiente </td>
+                        <?php 
+                        $get_orden = "SELECT * FROM ordenes_pendientes ORDER BY 1 DESC LIMIT 0,4"; // Consulta SQL
+                        $run_orden = mysqli_query($con, $get_orden);
+
+                        // Verifica si la consulta se ejecutó correctamente
+                        if (!$run_orden) {
+                            die("Error en la consulta: " . mysqli_error($con)); // Muestra el error si la consulta falla
+                        }
+
+                        while ($row_orden = mysqli_fetch_array($run_orden)) {
+                            $orden_id = $row_orden['orden_id'];
+                            $c_id = $row_orden['cliente_id'];
+                            $numero_orden = $row_orden['numero_orden'];
+                            $producto_id = $row_orden['producto_id'];
+                            $cant = $row_orden['cant'];
+                            $tamaño = $row_orden['tamaño'];
+                            $orden_estado = $row_orden['status'];
+                        ?>
+                        <tr><!-- tr begin -->
+                            <td><?php echo $orden_id; ?></td>
+                            <td>
+                                <?php 
+                                $get_cliente = "SELECT * FROM customer WHERE cliente_id = '$c_id'"; // Consulta SQL
+                                $run_cliente = mysqli_query($con, $get_cliente);
                                 
-                            </tr><!-- tr finish -->
-                           
-                            <tr><!-- tr begin -->
-                                <td> 1 </td>
-                                <td> pelanggan@gmail.com </td>
-                                <td> 32sa32 </td>
-                                <td> 24 </td>
-                                <td> 2 </td>
-                                <td> Grande </td>
-                                <td> Pendiente </td>
-                                
-                            </tr><!-- tr finish -->
-                           
-                            <tr><!-- tr begin -->
-                                <td> 1 </td>
-                                <td> pelanggan@gmail.com </td>
-                                <td> 32sa32 </td>
-                                <td> 24 </td>
-                                <td> 2 </td>
-                                <td> Grande </td>
-                                <td> Pendiente </td>
-                                
-                            </tr><!-- tr finish -->
-                           
-                            <tr><!-- tr begin -->
-                                <td> 1 </td>
-                                <td> pelanggan@gmail.com </td>
-                                <td> 32sa32 </td>
-                                <td> 24 </td>
-                                <td> 2 </td>
-                                <td> Grande </td>
-                                <td> Pendiente </td>
-                                
-                            </tr><!-- tr finish -->
-                            
+                                // Verifica si la consulta se ejecutó correctamente
+                                if (!$run_cliente) {
+                                    die("Error en la consulta del cliente: " . mysqli_error($con)); // Muestra el error si la consulta falla
+                                }
+
+                                $row_cliente = mysqli_fetch_array($run_cliente);
+                                $cliente_email = $row_cliente['cliente_email'];
+                                echo $cliente_email; 
+                                ?>
+                            </td>
+                            <td><?php echo $numero_orden; ?></td>
+                            <td><?php echo $producto_id; ?></td>
+                            <td><?php echo $cant; ?></td>
+                            <td><?php echo $tamaño; ?></td>
+                            <td>
+                                <?php 
+                                echo ($orden_estado == "Pendiente") ? "Pendiente" : "Completada"; // Simplificación de la salida
+                                ?>
+                            </td>
+                        </tr><!-- tr finish -->
+                        <?php 
+                        } 
+                        ?>
+
                         </tbody><!-- tbody finish -->
+
                         
                     </table><!-- table table-hover table-striped table-bordered finish -->
                 </div><!-- table-responsive finish -->
@@ -286,12 +290,12 @@
             <div class="panel-body"><!-- panel-body begin -->
                 <div class="mb-md thumb-info"><!-- mb-md thumb-info begin -->
 
-                    <img src="admin_images/m-dev-info.jpg" alt="admin-thumb-info" class="rounded img-responsive">
+                    <img src="admin_imagen/<?php echo $admin_img; ?>" alt="admin-thumb-info" class="rounded img-responsive">
                     
                     <div class="thumb-info-title"><!-- thumb-info-title begin -->
                        
-                        <span class="thumb-info-inner"> Nico </span>
-                        <span class="thumb-info-type"> programador web </span>
+                        <span class="thumb-info-inner"> <?php echo $admin_nombre; ?></span>
+                        <span class="thumb-info-type"> <?php echo $admin_trabajo; ?> </span>
                         
                     </div><!-- thumb-info-title finish -->
 
@@ -299,9 +303,9 @@
                 
                 <div class="mb-md"><!-- mb-md begin -->
                     <div class="widget-content-expanded"><!-- widget-content-expanded begin -->
-                        <i class="fa fa-user"></i> <span> Email: </span> chon@gmail.com <br/>
-                        <i class="fa fa-flag"></i> <span> Ciudad: </span> Salto <br/>
-                        <i class="fa fa-envelope"></i> <span> Contacto: </span> 0818-0683-3157 <br/>
+                        <i class="fa fa-user"></i> <span> Email: </span> <?php echo $admin_email; ?><br/>
+                        <i class="fa fa-flag"></i> <span> Ciudad: </span> <?php echo $admin_ciudad; ?> <br/>
+                        <i class="fa fa-envelope"></i> <span> Contacto: </span> <?php echo $admin_contacto; ?><br/>
                     </div><!-- widget-content-expanded finish -->
                     
                     <hr class="dotted short">
@@ -312,7 +316,7 @@
                         
                         Esta aplicacion fue creada por Glizzycorp. <br/>
                         <a href="#"> Glizzycorp </a> <br/>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci doloribus tempore non ut velit, nesciunt totam, perspiciatis corrupti expedita nulla aut necessitatibus eius nisi. Unde quasi, recusandae doloribus minus quisquam.
+                        <?php echo $admin_sobre; ?>
                         
                     </p><!-- p finish -->
                     

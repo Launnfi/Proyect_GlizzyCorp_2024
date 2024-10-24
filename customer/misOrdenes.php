@@ -57,7 +57,7 @@
 
                 $talla = $row_orden['tamaño'];
 
-                $estado = $row_orden['estado'];
+                $estado = $row_orden['status'];
 
                 $fecha_orden = substr($row_orden['fecha_orden'],0,11);
 

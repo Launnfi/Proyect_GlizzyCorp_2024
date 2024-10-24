@@ -2,6 +2,12 @@
 
 include("../db.php");
 
+if(!isset($_SESSION['admin_email'])){
+        
+    echo "<script>window.open('login.php','_self')</script>";
+
+    }else{
+
 ?>
 
 <!DOCTYPE html>
@@ -229,9 +235,7 @@ include("../db.php");
     </div>
     
 </div>
-        
-    <script src="js/jquery-331.min.js"></script>
-    <script src="js/bootstrap-337.min.js"></script> 
+
     <script src="js/tinymce/tinymce.min.js"></script>
     <script>tinymce.init({ selector:'textarea'});</script>
 </body>
@@ -267,10 +271,10 @@ if(isset($_POST['submit'])){
     if($run_product){
         
         echo "<script>alert('El producto se añadio correctamente')</script>";
-        echo "<script>window.open('insertar_producto.php','_self')</script>";
+        echo "<script>window.open('index.php?ver_productos','_self')</script>";
         
     }
     
 }
-
+    }
 ?>

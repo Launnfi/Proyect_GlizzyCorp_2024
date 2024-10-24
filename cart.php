@@ -160,12 +160,6 @@ include("includes/header.php");
 
                 <div class="pull-right">
 
-            <button type="submit"  name= "act" value="Update cart" class="btn btn-default">
-
-             <i class="fa fa-refresh"></i>Actualizar Carrito
-
-            </button>
-
             <a href="cerrar_sesion.php" class="btn btn-primary">
 
                 Pagar <i class="fa fa-chevron-right"></i>
@@ -180,27 +174,6 @@ include("includes/header.php");
         </form>
 
         </div>
-        <?php 
-        function act_cart(){
-            global $con;
-        
-            if(isset($_POST['act'])){
-                    foreach($_POST['remove'] as $rem_id){
-                        $elim_prod = "DELETE from cart where p_id = $rem_id";
-                        $run_elim = mysqli_query($con, $elim_prod);
-        
-                        if($run_elim){
-                            echo "<script>window.open('cart.php', '_self')</script>";
-                        }
-                    }
-                }
-            }
-        
-        echo $up_cart =  act_cart();
-        
-        
-        ?>
-
         
         <div id="same-height-row">
                     <div class="col-md-3 col-sm-6">

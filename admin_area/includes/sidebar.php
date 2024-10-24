@@ -30,13 +30,13 @@
             
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><!-- dropdown-toggle begin -->
                 
-                <i class="fa fa-user"></i> Vicenta <b class="caret"></b>
+                <i class="fa fa-user"></i> <?php echo $admin_nombre; ?> <b class="caret"></b>
                 
             </a><!-- dropdown-toggle finish -->
             
             <ul class="dropdown-menu"><!-- dropdown-menu begin -->
                 <li><!-- li begin -->
-                    <a href="index.php?user_profile"><!-- a href begin -->
+                    <a href="index.php?user_perf=<?php echo $admin_id;  ?>"><!-- a href begin -->
                         
                         <i class="fa fa-fw fa-user"></i> Perfil
                         
@@ -48,7 +48,7 @@
                         
                         <i class="fa fa-fw fa-envelope"></i> Productos
                         
-                        <span class="badge">7</span>
+                        <span class="badge"><?php echo $cont_productos ?></span>
                         
                     </a><!-- a href finish -->
                 </li><!-- li finish -->
@@ -58,7 +58,7 @@
                         
                         <i class="fa fa-fw fa-users"></i> Clientes
                         
-                        <span class="badge">11</span>
+                        <span class="badge"><?php echo $cont_customers ?></span>
                         
                     </a><!-- a href finish -->
                 </li><!-- li finish -->
@@ -68,7 +68,7 @@
                         
                         <i class="fa fa-fw fa-gear"></i> Producto Categorias 
                         
-                        <span class="badge">4</span>
+                        <span class="badge"><?php echo  $cont_p_cat ?></span>
                         
                     </a><!-- a href finish -->
                 </li><!-- li finish -->
@@ -110,7 +110,7 @@
                 
                 <ul id="products" class="collapse"><!-- collapse begin -->
                     <li><!-- li begin -->
-                        <a href="index.php?insert_product"> Insertar Productos  </a>
+                        <a href="index.php?insertar_productos"> Insertar Productos  </a>
                     </li><!-- li finish -->
                     <li><!-- li begin -->
                         <a href="index.php?view_products"> Ver productos  </a>
@@ -210,7 +210,7 @@
                         <a href="index.php?view_users"> Ver Usuario </a>
                     </li><!-- li finish -->
                     <li><!-- li begin -->
-                        <a href="index.php?user_profile"> Editar Perfil del usuario  </a>
+                        <a href="index.php?user_profile=<?php echo $admin_id ?>"> Editar Perfil del usuario  </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 
