@@ -4,7 +4,6 @@ $active = "Carrito";
 include("includes/header.php");
 
 ?>
-
    <div id="content">
     <div class="container">
         <div class="col-md-12">
@@ -115,9 +114,10 @@ include("includes/header.php");
                 </td>
 
                 <td>
-                    <input type="checkbox" name= "remove[]" value="<?php echo $pro_id;?>">
+                    <button type="button" class="btn btn-danger remove-item" data-id="<?php echo $pro_id; ?>">
+                        Eliminar
+                    </button>
                 </td>
-
                 <td>
 
                 <?php echo $sub_total;?>
@@ -338,7 +338,7 @@ include("includes/header.php");
 
                 <script src="js/jquery-331.min.js"></script>
                 <script src="js/bootstrap-337.min.js"></script>
-
+                <script src="js/cart.js"></script>
 
 </body>
 </html>
