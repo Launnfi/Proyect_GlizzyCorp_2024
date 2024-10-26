@@ -48,7 +48,7 @@
         
         $row_p_cat = mysqli_fetch_array($run_p_cat);
         
-        $p_cat_title = $row_p_cat['p_cat_title'];
+        $p_cat_titulo = $row_p_cat['p_cat_titulo'];
         
         $get_cat = "select * from categorias where cat_id='$cat'";
         
@@ -56,7 +56,7 @@
         
         $row_cat = mysqli_fetch_array($run_cat);
         
-        $cat_title = $row_cat['cat_titulo'];
+        $cat_titulo = $row_cat['cat_titulo'];
 
 ?>
 
@@ -127,7 +127,7 @@
                           
                           <select name="product_cat" class="form-control"><!-- form-control Begin -->
                               
-                              <option value="<?php echo $p_cat; ?>"> <?php echo $p_cat_title; ?> </option>
+                              <option value="<?php echo $p_cat; ?>"> <?php echo $p_cat_titulo; ?> </option>
                               
                               <?php 
                               
@@ -137,11 +137,11 @@
                               while ($row_p_cats=mysqli_fetch_array($run_p_cats)){
                                   
                                   $p_cat_id = $row_p_cats['p_cat_id'];
-                                  $p_cat_title = $row_p_cats['p_cat_title'];
+                                  $p_cat_titulo = $row_p_cats['p_cat_titulo'];
                                   
                                   echo "
                                   
-                                  <option value='$p_cat_id'> $p_cat_title </option>
+                                  <option value='$p_cat_id'> $p_cat_titulo </option>
                                   
                                   ";
                                   
@@ -163,7 +163,7 @@
                           
                           <select name="cat" class="form-control"><!-- form-control Begin -->
                               
-                              <option value="<?php echo $cat; ?>"> <?php echo $cat_title; ?> </option>
+                              <option value="<?php echo $cat; ?>"> <?php echo $cat_titulo; ?> </option>
                               
                               <?php 
                               
@@ -173,11 +173,11 @@
                               while ($row_cat=mysqli_fetch_array($run_cat)){
                                   
                                   $cat_id = $row_cat['cat_id'];
-                                  $cat_title = $row_cat['cat_title'];
+                                  $cat_titulo = $row_cat['cat_titulo'];
                                   
                                   echo "
                                   
-                                  <option value='$cat_id'> $cat_title </option>
+                                  <option value='$cat_id'> $cat_titulo </option>
                                   
                                   ";
                                   
