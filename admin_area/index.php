@@ -103,6 +103,21 @@ if (!isset($_SESSION['admin_email'])) {
                     include("insertar_producto.php");
 
                 }
+          
+                }   if(isset($_GET['ver_producto'])){
+                    
+                    include("ver_producto.php");
+                    
+                }   if(isset($_GET['borrar_producto'])){
+                    
+                    include("borrar_producto.php");
+                    
+                }   if(isset($_GET['editar_producto'])){
+                    
+                    include("editar_producto.php");
+                    
+                }   
+    
             
                 ?>
 

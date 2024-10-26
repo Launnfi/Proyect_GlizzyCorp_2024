@@ -44,7 +44,7 @@
                 </li><!-- li finish -->
                 
                 <li><!-- li begin -->
-                    <a href="index.php?view_products"><!-- a href begin -->
+                    <a href="index.php?ver_productos"><!-- a href begin -->
                         
                         <i class="fa fa-fw fa-envelope"></i> Productos
                         
