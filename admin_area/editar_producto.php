@@ -33,6 +33,7 @@
                     $row_p_cat = mysqli_fetch_array($run_p_cat);
                     $p_cat_titulo = isset($row_p_cat['p_cat_titulo']) ? $row_p_cat['p_cat_titulo'] : 'Categoría no encontrada';
 
+
                     // Obtener el título de la categoría general
                     $get_cat = "SELECT * FROM categorias WHERE cat_id='$cat'";
                     $run_cat = mysqli_query($con, $get_cat);
@@ -43,6 +44,55 @@
                     exit();
                 }
             ?>
+<?php
+    if(isset($_GET['edit_product'])){
+        
+        $edit_id = $_GET['edit_product'];
+        
+        $get_p = "select * from productos where producto_id='$edit_id'";
+        
+        $run_edit = mysqli_query($con,$get_p);
+        
+        $row_edit = mysqli_fetch_array($run_edit);
+        
+        $p_id = $row_edit['producto_id'];
+        
+        $p_title = $row_edit['producto_titulo'];
+        
+        $p_cat = $row_edit['p_cat_id'];
+        
+        $cat = $row_edit['cat_id'];
+        
+        $p_image1 = $row_edit['producto_img1'];
+        
+        $p_image2 = $row_edit['producto_img2'];
+        
+        $p_image3 = $row_edit['producto_img3'];
+        
+        $p_price = $row_edit['producto_precio'];
+        
+        $p_keywords = $row_edit['producto_keywords'];
+        
+        $p_desc = $row_edit['producto_desc'];
+        
+    }
+        
+        $get_p_cat = "select * from productos_categorias where p_cat_id='$p_cat'";
+        
+        $run_p_cat = mysqli_query($con,$get_p_cat);
+        
+        $row_p_cat = mysqli_fetch_array($run_p_cat);
+        
+        $p_cat_titulo = $row_p_cat['p_cat_titulo'];
+        
+        $get_cat = "select * from categorias where cat_id='$cat'";
+        
+        $run_cat = mysqli_query($con,$get_cat);
+        
+        $row_cat = mysqli_fetch_array($run_cat);
+        
+        $cat_titulo = $row_cat['cat_titulo'];
+        ?>
 
             <!DOCTYPE html>
             <html lang="en">
@@ -85,9 +135,17 @@
                    
                    <div class="form-group">
                       <label class="col-md-3 control-label"> Producto Categoria </label> 
+
                       <div class="col-md-6">
                           <select name="product_cat" class="form-control">
                               <option value="<?php echo $p_cat; ?>"> <?php echo $p_cat_titulo; ?> </option>
+                      
+                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                          
+                          <select name="product_cat" class="form-control"><!-- form-control Begin -->
+                              
+                              <option value="<?php echo $p_cat; ?>"> <?php echo $p_cat_titulo; ?> </option>
+                              
                               <?php 
                               $get_p_cats = "SELECT * FROM productos_categorias";
                               $run_p_cats = mysqli_query($con, $get_p_cats);
@@ -96,6 +154,14 @@
                                   $p_cat_id = $row_p_cats['p_cat_id'];
                                   $p_cat_titulo = $row_p_cats['p_cat_titulo'];
                                   echo "<option value='$p_cat_id'> $p_cat_titulo </option>";
+
+                                  
+                                  echo "
+                                  
+                                  <option value='$p_cat_id'> $p_cat_titulo </option>
+                                  
+                                  ";
+                                  
                               }
                               ?>
                           </select>
@@ -108,6 +174,14 @@
                       <div class="col-md-6">
                           <select name="cat" class="form-control">
                               <option value="<?php echo $cat; ?>"> <?php echo $cat_titulo; ?> </option>
+
+                      
+                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                          
+                          <select name="cat" class="form-control"><!-- form-control Begin -->
+                              
+                              <option value="<?php echo $cat; ?>"> <?php echo $cat_titulo; ?> </option>
+                              
                               <?php 
                               $get_cat = "SELECT * FROM categorias";
                               $run_cat = mysqli_query($con, $get_cat);
@@ -116,6 +190,13 @@
                                   $cat_id = $row_cat['cat_id'];
                                   $cat_titulo = $row_cat['cat_titulo'];
                                   echo "<option value='$cat_id'> $cat_titulo </option>";
+                                  
+                                  echo "
+                                  
+                                  <option value='$cat_id'> $cat_titulo </option>
+                                  
+                                  ";
+                                  
                               }
                               ?>
                           </select>
