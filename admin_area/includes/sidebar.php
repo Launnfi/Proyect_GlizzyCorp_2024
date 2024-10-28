@@ -64,7 +64,7 @@
                 </li><!-- li finish -->
                 
                 <li><!-- li begin -->
-                    <a href="index.php?view_cats"><!-- a href begin -->
+                    <a href="index.php?ver_cat"><!-- a href begin -->
                         
                         <i class="fa fa-fw fa-gear"></i> Producto Categorias 
                         
@@ -148,10 +148,10 @@
                 
                 <ul id="cat" class="collapse"><!-- collapse begin -->
                     <li><!-- li begin -->
-                        <a href="index.php?insert_cat"> Insertar Categoria </a>
+                        <a href="index.php?insertar_cat"> Insertar Categoria </a>
                     </li><!-- li finish -->
                     <li><!-- li begin -->
-                        <a href="index.php?view_cats"> ver Categoria </a>
+                        <a href="index.php?ver_cat"> ver Categoria </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 
@@ -167,10 +167,10 @@
                 
                 <ul id="slides" class="collapse"><!-- collapse begin -->
                     <li><!-- li begin -->
-                        <a href="index.php?insert_slide"> Insertar imagen al Carrucel </a>
+                        <a href="index.php?insertar_slide"> Insertar imagen al Carrucel </a>
                     </li><!-- li finish -->
                     <li><!-- li begin -->
-                        <a href="index.php?view_slides"> Ver amgenes del carrucel </a>
+                        <a href="index.php?ver_slides"> Ver imagenes del carrucel </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 

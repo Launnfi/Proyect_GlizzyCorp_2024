@@ -130,11 +130,45 @@ if (!isset($_SESSION['admin_email'])) {
                         
                     include("eliminar_p_cat.php");
                     
-            }  if(isset($_GET['editar_p_cat'])){
+                }  if(isset($_GET['editar_p_cat'])){
+                            
+                    include("editar_p_cat.php");
                         
-                include("editar_p_cat.php");
-                
-        } 
+                } if(isset($_GET['insertar_cat'])){
+                                
+                    include("insertar_cat.php");
+
+                } if(isset($_GET['ver_cat'])){
+                        
+                    include("ver_cat.php");
+
+                } if(isset($_GET['editar_cat'])){
+                                    
+                    include("editar_cat.php");
+                    
+                }  if(isset($_GET['borrar_cat'])){
+                                        
+                        include("borrar_cat.php");
+                    
+                } if(isset($_GET['insertar_slide'])){
+                                        
+                    include("insertar_slide.php");
+                                
+                }if(isset($_GET['ver_slides'])){
+                                            
+                    include("ver_slides.php");
+                }
+                if(isset($_GET['borrar_slide'])){
+                                            
+                    include("borrar_slide.php");
+
+                    
+                }if(isset($_GET['editar_slide'])){
+                                            
+                    include("editar_slide.php");
+
+                    
+                }
     
             
                 ?>

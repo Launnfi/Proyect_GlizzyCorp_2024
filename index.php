@@ -21,7 +21,7 @@
                
                <div class="carousel-inner"><!-- carousel-inner empieza -->
                    
-                   <div class="item active">
+                  <!-- <div class="item active">
                        
                        <img src="admin_area/slides_images/slide-1.jpg" alt="Slider Image 1">
                        
@@ -44,9 +44,9 @@
                        <img src="admin_area/slides_images/slide-4.jpg" alt="Slider Image 4">
                        
                    </div>
+-->
 
-<!--
-                   
+                   <?php 
                    $get_slides = "select * from slider LIMIT 0,1";
                    
                    $run_slides = mysqli_query($con,$get_slides);
@@ -88,8 +88,8 @@
                        ";
                        
                    }
-                   
-?>  //ESTO SE USA DESPUES DE PONER LAS IMAGENES DEL CARRUCEL EN DA BASE DE DATOS, LA TABLA SE LLAMA SLIDER-->
+                   ?>
+<!-- //ESTO SE USA DESPUES DE PONER LAS IMAGENES DEL CARRUCEL EN DA BASE DE DATOS, LA TABLA SE LLAMA SLIDER -->
                    
                    
                </div><!-- carousel-inner termino -->

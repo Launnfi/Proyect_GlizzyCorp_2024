@@ -22,7 +22,7 @@
             
             echo "<script>alert('Se ha borrado uno de los productos')</script>";
             
-            echo "<script>window.open('index.php?ver_productos','_self')</script>";
+            echo "<script>window.open('index.php?ver_producto','_self')</script>";
             
         }
         
