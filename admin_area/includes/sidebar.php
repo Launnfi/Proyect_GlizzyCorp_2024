@@ -113,7 +113,7 @@
                         <a href="index.php?insertar_productos"> Insertar Productos  </a>
                     </li><!-- li finish -->
                     <li><!-- li begin -->
-                        <a href="index.php?view_products"> Ver productos  </a>
+                        <a href="index.php?ver_producto"> Ver productos  </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 
@@ -129,10 +129,10 @@
                 
                 <ul id="p_cat" class="collapse"><!-- collapse begin -->
                     <li><!-- li begin -->
-                        <a href="index.php?insert_p_cat"> Insertar Producto categoria </a>
+                        <a href="index.php?insertar_p_cat"> Insertar Producto categoria </a>
                     </li><!-- li finish -->
                     <li><!-- li begin -->
-                        <a href="index.php?view_p_cats"> ver  Producto categoria </a>
+                        <a href="index.php?ver_p_cats"> ver  Producto categoria </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 

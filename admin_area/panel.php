@@ -44,7 +44,7 @@ include("includes/db.php");
                 </div><!-- panel-heading row finish -->
             </div><!-- panel-heading finish -->
             
-            <a href="index.php?view_products"><!-- a href begin -->
+            <a href="index.php?ver_producto"><!-- a href begin -->
                 <div class="panel-footer"><!-- panel-footer begin -->
                    
                     <span class="pull-left"><!-- pull-left begin -->
@@ -124,7 +124,7 @@ include("includes/db.php");
                 </div><!-- panel-heading row finish -->
             </div><!-- panel-heading finish -->
             
-            <a href="index.php?view_p_cats"><!-- a href begin -->
+            <a href="index.php?ver_p_cats"><!-- a href begin -->
                 <div class="panel-footer"><!-- panel-footer begin -->
                    
                     <span class="pull-left"><!-- pull-left begin -->

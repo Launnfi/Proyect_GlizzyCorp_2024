@@ -55,7 +55,7 @@
           
                                 $i=0;
                             
-                                $get_pro = "select * from products";
+                                $get_pro = "select * from productos";
                                 
                                 $run_pro = mysqli_query($con,$get_pro);
           

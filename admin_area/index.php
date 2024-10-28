@@ -116,7 +116,25 @@ if (!isset($_SESSION['admin_email'])) {
                     
                     include("editar_producto.php");
                     
-                }   
+                }     
+                  if(isset($_GET['ver_p_cats'])){
+                    
+                    include("ver_p_cats.php");
+                    
+                }    if(isset($_GET['insertar_p_cat'])){
+                    
+                    include("insertar_p_cat.php");
+                    
+                }  
+                if(isset($_GET['eliminar_p_cat'])){
+                        
+                    include("eliminar_p_cat.php");
+                    
+            }  if(isset($_GET['editar_p_cat'])){
+                        
+                include("editar_p_cat.php");
+                
+        } 
     
             
                 ?>
@@ -129,4 +147,4 @@ if (!isset($_SESSION['admin_email'])) {
 <script src="js/bootstrap-337.min.js"></script>
 </body>
 </html>}
-<?php }?>
+<?php ?>
