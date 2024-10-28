@@ -134,74 +134,42 @@
                    
                    
                    <div class="form-group">
-                      <label class="col-md-3 control-label"> Producto Categoria </label> 
-
-                      <div class="col-md-6">
-                          <select name="product_cat" class="form-control">
-                              <option value="<?php echo $p_cat; ?>"> <?php echo $p_cat_titulo; ?> </option>
-                      
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
-                          
-                          <select name="product_cat" class="form-control"><!-- form-control Begin -->
-                              
-                              <option value="<?php echo $p_cat; ?>"> <?php echo $p_cat_titulo; ?> </option>
-                              
-                              <?php 
-                              $get_p_cats = "SELECT * FROM productos_categorias";
-                              $run_p_cats = mysqli_query($con, $get_p_cats);
-                              
-                              while ($row_p_cats = mysqli_fetch_array($run_p_cats)){
-                                  $p_cat_id = $row_p_cats['p_cat_id'];
-                                  $p_cat_titulo = $row_p_cats['p_cat_titulo'];
-                                  echo "<option value='$p_cat_id'> $p_cat_titulo </option>";
-
-                                  
-                                  echo "
-                                  
-                                  <option value='$p_cat_id'> $p_cat_titulo </option>
-                                  
-                                  ";
-                                  
-                              }
-                              ?>
+                        <label class="col-md-3 control-label">Producto Categoria</label>
+                        <div class="col-md-6">
+                            <select name="product_cat" class="form-control">
+                                <option value="<?php echo $p_cat; ?>"><?php echo $p_cat_titulo; ?></option>
+                                <?php 
+                                $get_p_cats = "SELECT * FROM productos_categorias";
+                                $run_p_cats = mysqli_query($con, $get_p_cats);
+                                while ($row_p_cats = mysqli_fetch_array($run_p_cats)){
+                                    $p_cat_id = $row_p_cats['p_cat_id'];
+                                    $p_cat_titulo = $row_p_cats['p_cat_titulo'];
+                                    echo "<option value='$p_cat_id'> $p_cat_titulo </option>";
+                                }
+                                ?>
                           </select>
                       </div>
                    </div>
                    
-                   
-                   <div class="form-group">
-                      <label class="col-md-3 control-label"> Categoria </label> 
-                      <div class="col-md-6">
-                          <select name="cat" class="form-control">
-                              <option value="<?php echo $cat; ?>"> <?php echo $cat_titulo; ?> </option>
-
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
-                          
-                          <select name="cat" class="form-control"><!-- form-control Begin -->
-                              
-                              <option value="<?php echo $cat; ?>"> <?php echo $cat_titulo; ?> </option>
-                              
-                              <?php 
-                              $get_cat = "SELECT * FROM categorias";
-                              $run_cat = mysqli_query($con, $get_cat);
-                              
-                              while ($row_cat = mysqli_fetch_array($run_cat)){
-                                  $cat_id = $row_cat['cat_id'];
-                                  $cat_titulo = $row_cat['cat_titulo'];
-                                  echo "<option value='$cat_id'> $cat_titulo </option>";
-                                  
-                                  echo "
-                                  
-                                  <option value='$cat_id'> $cat_titulo </option>
-                                  
-                                  ";
-                                  
-                              }
-                              ?>
-                          </select>
-                      </div>
-                   </div>
+                                        <div class="form-group">
+                        <label class="col-md-3 control-label"> Categoria </label> 
+                        <div class="col-md-6">
+                            <select name="cat" class="form-control">
+                                <option value="<?php echo $cat; ?>"> <?php echo $cat_titulo; ?> </option>
+                                <?php 
+                                $get_cat = "SELECT * FROM categorias";
+                                $run_cat = mysqli_query($con, $get_cat);
+                                while ($row_cat = mysqli_fetch_array($run_cat)){
+                                    $cat_id = $row_cat['cat_id'];
+                                    $cat_titulo = $row_cat['cat_titulo'];
+                                    echo "<option value='$cat_id'> $cat_titulo </option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+
                    
                    <div class="form-group">
                        

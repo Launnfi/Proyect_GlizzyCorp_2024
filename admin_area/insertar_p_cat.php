@@ -8,9 +8,9 @@
 
 ?>
 
-<div class="row"><!-- row 1 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <ol class="breadcrumb"><!-- breadcrumb begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
             <li>
                 
                 <i class="fa fa-dashboard"></i> Panel / Insertar Producto Categoria

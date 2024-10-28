@@ -85,7 +85,7 @@ if (!isset($_SESSION['admin_email'])) {
 </head>
 <body>
     
-    <div id="wrapper"><!-- wrapper e -->
+    <div id="wrapper">
 
     <?php include ("includes/sidebar.php"); ?>
 
@@ -141,7 +141,7 @@ if (!isset($_SESSION['admin_email'])) {
 
             </div>
         </div>
-    </div><!-- wrapper t -->
+    </div>
 
 <script src="js/jquery-331.min.js"></script>
 <script src="js/bootstrap-337.min.js"></script>
