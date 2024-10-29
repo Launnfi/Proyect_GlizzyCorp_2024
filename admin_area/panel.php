@@ -60,149 +60,148 @@ include("includes/db.php");
                 </div><!-- panel-footer finish -->
             </a><!-- a href finish -->
             
-        </div><!-- panel panel-primary finish -->
-    </div><!-- col-lg-3 col-md-6 finish -->
-   
-    <div class="col-lg-3 col-md-6"><!-- col-lg-3 col-md-6 begin -->
-        <div class="panel panel-green"><!-- panel panel-green begin -->
-            
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <div class="row"><!-- panel-heading row begin -->
-                    <div class="col-xs-3"><!-- col-xs-3 begin -->
+            </div>
+        </div>
+       <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+        
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
                        
                         <i class="fa fa-users fa-5x"></i>
                         
-                    </div><!-- col-xs-3 finish -->
+                    </div>
                     
-                    <div class="col-xs-9 text-right"><!-- col-xs-9 text-right begin -->
+                    <div class="col-xs-9 text-right">
                         <div class="huge"> <?php echo $cont_customers; ?> </div>
                            
                         <div> Clientes </div>
                         
-                    </div><!-- col-xs-9 text-right finish -->
+                    </div>
                     
-                </div><!-- panel-heading row finish -->
-            </div><!-- panel-heading finish -->
+                </div>
+            </div>
             
-            <a href="index.php?view_customers"><!-- a href begin -->
-                <div class="panel-footer"><!-- panel-footer begin -->
+            <a href="index.php?view_customers">
+                <div class="panel-footer">
                    
-                    <span class="pull-left"><!-- pull-left begin -->
+                    <span class="pull-left">
                         Ver detalles 
-                    </span><!-- pull-left finish -->
+                    </span>
                     
-                    <span class="pull-right"><!-- pull-right begin --> 
+                    <span class="pull-right">
                         <i class="fa fa-arrow-circle-right"></i> 
-                    </span><!-- pull-right finish --> 
+                    </span>
                     
                     <div class="clearfix"></div>
                     
-                </div><!-- panel-footer finish -->
-            </a><!-- a href finish -->
+                </div>
+            </a>
             
-        </div><!-- panel panel-green finish -->
-    </div><!-- col-lg-3 col-md-6 finish -->
+        </div>
+    </div>
    
-    <div class="col-lg-3 col-md-6"><!-- col-lg-3 col-md-6 begin -->
-        <div class="panel panel-orange"><!-- panel panel-yellow begin -->
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-orange">
             
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <div class="row"><!-- panel-heading row begin -->
-                    <div class="col-xs-3"><!-- col-xs-3 begin -->
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
                        
                         <i class="fa fa-tags fa-5x"></i>
                         
-                    </div><!-- col-xs-3 finish -->
+                    </div>
                     
-                    <div class="col-xs-9 text-right"><!-- col-xs-9 text-right begin -->
+                    <div class="col-xs-9 text-right">
                         <div class="huge"> <?php echo $cont_p_cat; ?> </div>
                            
                         <div> Categoria de productos </div>
                         
-                    </div><!-- col-xs-9 text-right finish -->
+                    </div>
                     
-                </div><!-- panel-heading row finish -->
-            </div><!-- panel-heading finish -->
+                </div>
+            </div>
             
-            <a href="index.php?ver_p_cats"><!-- a href begin -->
-                <div class="panel-footer"><!-- panel-footer begin -->
+            <a href="index.php?ver_p_cats">
+                <div class="panel-footer">
                    
-                    <span class="pull-left"><!-- pull-left begin -->
+                    <span class="pull-left">
                         Ver detalles
-                    </span><!-- pull-left finish -->
+                    </span>
                     
-                    <span class="pull-right"><!-- pull-right begin --> 
+                    <span class="pull-right"> 
                         <i class="fa fa-arrow-circle-right"></i> 
-                    </span><!-- pull-right finish --> 
+                    </span>
                     
                     <div class="clearfix"></div>
                     
-                </div><!-- panel-footer finish -->
-            </a><!-- a href finish -->
+                </div>
+            </a>
             
-        </div><!-- panel panel-yellow finish -->
-    </div><!-- col-lg-3 col-md-6 finish -->
+        </div>
+    </div>
    
-    <div class="col-lg-3 col-md-6"><!-- col-lg-3 col-md-6 begin -->
-        <div class="panel panel-red"><!-- panel panel-red begin -->
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
             
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <div class="row"><!-- panel-heading row begin -->
-                    <div class="col-xs-3"><!-- col-xs-3 begin -->
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
                        
                         <i class="fa fa-shopping-cart fa-5x"></i>
                         
-                    </div><!-- col-xs-3 finish -->
+                    </div>
                     
-                    <div class="col-xs-9 text-right"><!-- col-xs-9 text-right begin -->
+                    <div class="col-xs-9 text-right">
                         <div class="huge"> <?php echo $cont_pend_ord; ?> </div>
                            
                         <div> Ordenes </div>
                         
-                    </div><!-- col-xs-9 text-right finish -->
+                    </div>
                     
-                </div><!-- panel-heading row finish -->
-            </div><!-- panel-heading finish -->
+                </div>
+            </div>
             
-            <a href="index.php?view_orders"><!-- a href begin -->
-                <div class="panel-footer"><!-- panel-footer begin -->
+            <a href="index.php?view_orders">
+                <div class="panel-footer">
                    
-                    <span class="pull-left"><!-- pull-left begin -->
+                    <span class="pull-left">
                         Ver detalles 
-                    </span><!-- pull-left finish -->
+                    </span>
                     
-                    <span class="pull-right"><!-- pull-right begin --> 
+                    <span class="pull-right">
                         <i class="fa fa-arrow-circle-right"></i> 
-                    </span><!-- pull-right finish --> 
+                    </span>
                     
                     <div class="clearfix"></div>
                     
-                </div><!-- panel-footer finish -->
-            </a><!-- a href finish -->
+                </div>
+            </a>
             
-        </div><!-- panel panel-red finish -->
-    </div><!-- col-lg-3 col-md-6 finish -->
+        </div>
+    </div>
     
-</div><!-- row no: 2 finish -->
+</div>
 
-<div class="row"><!-- row no: 3 begin -->
-    <div class="col-lg-8"><!-- col-lg-8 begin -->
-        <div class="panel panel-primary"><!-- panel panel-primary begin -->
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <h3 class="panel-title"><!-- panel-title begin -->
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
                     
                     <i class="fa fa-money fa-fw"></i> Nuevas ordenes
                     
-                </h3><!-- panel-title finish -->
-            </div><!-- panel-heading finish -->
+                </h3>
+            </div>
             
-            <div class="panel-body"><!-- panel-body begin -->
-                <div class="table-responsive"><!-- table-responsive begin -->
-                    <table class="table table-hover table-striped table-bordered"><!-- table table-hover table-striped table-bordered begin -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered"><
                         
-                        <thead><!-- thead begin -->
+                        <thead>
                           
-                        <tr><!-- th begin -->
+                        <tr>
                             <th>Número de orden:</th>
                             <th>Email del cliente:</th>
                             <th>Número de factura:</th>
@@ -210,11 +209,11 @@ include("includes/db.php");
                             <th>Cantidad de productos:</th>
                             <th>Tamaño del producto:</th>
                             <th>Status:</th>
-                        </tr><!-- th finish -->
+                        </tr>
 
-                        </thead><!-- thead finish -->
+                        </thead>
 
-                        <tbody><!-- tbody begin -->
+                        <tbody>
                         <?php 
                         $get_orden = "SELECT * FROM ordenes_pendientes ORDER BY 1 DESC LIMIT 0,4"; // Consulta SQL
                         $run_orden = mysqli_query($con, $get_orden);
@@ -233,7 +232,7 @@ include("includes/db.php");
                             $tamaño = $row_orden['tamaño'];
                             $orden_estado = $row_orden['status'];
                         ?>
-                        <tr><!-- tr begin -->
+                        <tr>
                             <td><?php echo $orden_id; ?></td>
                             <td>
                                 <?php 
@@ -259,72 +258,69 @@ include("includes/db.php");
                                 echo ($orden_estado == "Pendiente") ? "Pendiente" : "Completada"; // Simplificación de la salida
                                 ?>
                             </td>
-                        </tr><!-- tr finish -->
+                        </tr>
                         <?php 
                         } 
                         ?>
 
-                        </tbody><!-- tbody finish -->
-
+                        </tbody>
                         
-                    </table><!-- table table-hover table-striped table-bordered finish -->
-                </div><!-- table-responsive finish -->
+                    </table>
+                </div>
                 
-                <div class="text-right"><!-- text-right begin -->
+                <div class="text-right">
                     
-                    <a href="index.php?view_orders"><!-- a href begin -->
+                    <a href="index.php?view_orders">
                         
                         Ver todas las ordenes <i class="fa fa-arrow-circle-right"></i>
                         
-                    </a><!-- a href finish -->
-                    
-                </div><!-- text-right finish -->
+                    </a>
+                </div>
                 
-            </div><!-- panel-body finish -->
+            </div>
             
-        </div><!-- panel panel-primary finish -->
-    </div><!-- col-lg-8 finish -->
+        </div>
+    </div>
     
-    <div class="col-md-4"><!-- col-md-4 begin -->
-        <div class="panel"><!-- panel begin -->
-            <div class="panel-body"><!-- panel-body begin -->
-                <div class="mb-md thumb-info"><!-- mb-md thumb-info begin -->
+    <div class="col-md-4">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="mb-md thumb-info">
 
                     <img src="admin_imagen/<?php echo $admin_img; ?>" alt="admin-thumb-info" class="rounded img-responsive">
                     
-                    <div class="thumb-info-title"><!-- thumb-info-title begin -->
+                    <div class="thumb-info-title">
                        
                         <span class="thumb-info-inner"> <?php echo $admin_nombre; ?></span>
                         <span class="thumb-info-type"> <?php echo $admin_trabajo; ?> </span>
                         
-                    </div><!-- thumb-info-title finish -->
+                    </div>
 
-                </div><!-- mb-md thumb-info finish -->
+                </div>
                 
-                <div class="mb-md"><!-- mb-md begin -->
-                    <div class="widget-content-expanded"><!-- widget-content-expanded begin -->
+                <div class="mb-md">
+                    <div class="widget-content-expanded">
                         <i class="fa fa-user"></i> <span> Email: </span> <?php echo $admin_email; ?><br/>
                         <i class="fa fa-flag"></i> <span> Ciudad: </span> <?php echo $admin_ciudad; ?> <br/>
                         <i class="fa fa-envelope"></i> <span> Contacto: </span> <?php echo $admin_contacto; ?><br/>
-                    </div><!-- widget-content-expanded finish -->
+                    </div>
                     
                     <hr class="dotted short">
                     
                     <h5 class="text-muted"> Sobre nosotros </h5>
                     
-                    <p><!-- p begin -->
+                    <p>
                         
                         Esta aplicacion fue creada por Glizzycorp. <br/>
                         <a href="#"> Glizzycorp </a> <br/>
                         <?php echo $admin_sobre; ?>
                         
-                    </p><!-- p finish -->
+                    </p>
                     
-                </div><!-- mb-md finish -->
-                
-            </div><!-- panel-body finish -->
-        </div><!-- panel finish -->
-    </div><!-- col-md-4 finish -->
+                </div>
+            </div>
+        </div>
+    </div>
     
-</div><!-- row no: 3 finish -->
+</div>
 <?php }?>

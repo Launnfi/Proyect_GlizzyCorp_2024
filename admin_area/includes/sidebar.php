@@ -7,8 +7,8 @@
         }else{
 
 ?>
-<nav class="navbar navbar-inverse navbar-fixed-top"><!-- navbar navbar-inverse navbar-fixed-top begin -->
-    <div class="navbar-header"><!-- navbar-header begin -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
         
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><!-- navbar-toggle begin -->
             
@@ -18,212 +18,211 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             
-        </button><!-- navbar-toggle finish -->
+        </button>
         
         <a href="index.php?panel" class="navbar-brand">Admin Area</a>
         
-    </div><!-- navbar-header finish -->
+    </div>
     
-    <ul class="nav navbar-right top-nav"><!-- nav navbar-right top-nav begin -->
+    <ul class="nav navbar-right top-nav">
         
-        <li class="dropdown"><!-- dropdown begin -->
+        <li class="dropdown">
             
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><!-- dropdown-toggle begin -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 
                 <i class="fa fa-user"></i> <?php echo $admin_nombre; ?> <b class="caret"></b>
                 
-            </a><!-- dropdown-toggle finish -->
+            </a>
             
-            <ul class="dropdown-menu"><!-- dropdown-menu begin -->
+            <ul class="dropdown-menu">
                 <li><!-- li begin -->
-                    <a href="index.php?user_perf=<?php echo $admin_id;  ?>"><!-- a href begin -->
+                    <a href="index.php?user_perf=<?php echo $admin_id;  ?>">
                         
                         <i class="fa fa-fw fa-user"></i> Perfil
                         
-                    </a><!-- a href finish -->
-                </li><!-- li finish -->
+                    </a>
+                </li>
                 
-                <li><!-- li begin -->
-                    <a href="index.php?ver_productos"><!-- a href begin -->
+                <li>
+                    <a href="index.php?ver_productos">
                         
                         <i class="fa fa-fw fa-envelope"></i> Productos
                         
                         <span class="badge"><?php echo $cont_productos ?></span>
                         
-                    </a><!-- a href finish -->
-                </li><!-- li finish -->
+                    </a>
+                </li>
                 
-                <li><!-- li begin -->
-                    <a href="index.php?view_customers"><!-- a href begin -->
+                <li>
+                    <a href="index.php?view_customers">
                         
                         <i class="fa fa-fw fa-users"></i> Clientes
                         
                         <span class="badge"><?php echo $cont_customers ?></span>
                         
-                    </a><!-- a href finish -->
-                </li><!-- li finish -->
+                    </a>
+                </li>
                 
-                <li><!-- li begin -->
-                    <a href="index.php?ver_cat"><!-- a href begin -->
+                <li>
+                    <a href="index.php?ver_cat">
                         
                         <i class="fa fa-fw fa-gear"></i> Producto Categorias 
                         
                         <span class="badge"><?php echo  $cont_p_cat ?></span>
                         
-                    </a><!-- a href finish -->
-                </li><!-- li finish -->
+                    </a>
+                </li>
                 
                 <li class="divider"></li>
                 
-                <li><!-- li begin -->
-                    <a href="logout.php"><!-- a href begin -->
+                <li>
+                    <a href="logout.php">
                         
                         <i class="fa fa-fw fa-power-off"></i> Salir
                         
-                    </a><!-- a href finish -->
-                </li><!-- li finish -->
+                    </a>
+                </li>
                 
-            </ul><!-- dropdown-menu finish -->
+            </ul>
             
-        </li><!-- dropdown finish -->
+        </li>
         
-    </ul><!-- nav navbar-right top-nav finish -->
+    </ul>
     
-    <div class="collapse navbar-collapse navbar-ex1-collapse"><!-- collapse navbar-collapse navbar-ex1-collapse begin -->
-        <ul class="nav navbar-nav side-nav"><!-- nav navbar-nav side-nav begin -->
-            <li><!-- li begin -->
-                <a href="index.php?panel"><!-- a href begin -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <li>
+                <a href="index.php?panel">
                         
                         <i class="fa fa-fw fa-dashboard"></i> Panel
                         
-                </a><!-- a href finish -->
+                </a>
                 
-            </li><!-- li finish -->
+            </li>
             
-            <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#products"><!-- a href begin -->
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#products">
                         
                         <i class="fa fa-fw fa-tag"></i> Productos
                         <i class="fa fa-fw fa-caret-down"></i>
                         
-                </a><!-- a href finish -->
+                </a>
                 
-                <ul id="products" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
+                <ul id="products" class="collapse">
+                    <li>
                         <a href="index.php?insertar_productos"> Insertar Productos  </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
+                    </li>
+                    <li>
                         <a href="index.php?ver_producto"> Ver productos  </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
+                    </li>
+                </ul>
                 
-            </li><!-- li finish -->
+            </li>
             
-            <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#p_cat"><!-- a href begin -->
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#p_cat">
                         
                         <i class="fa fa-fw fa-edit"></i> Productos Categorias
                         <i class="fa fa-fw fa-caret-down"></i>
                         
-                </a><!-- a href finish -->
+                </a>
                 
-                <ul id="p_cat" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
+                <ul id="p_cat" class="collapse">
+                    <li>
                         <a href="index.php?insertar_p_cat"> Insertar Producto categoria </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
+                    </li>
+                    <li>
                         <a href="index.php?ver_p_cats"> ver  Producto categoria </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
-                
-            </li><!-- li finish -->
+                    </li>
+                </ul>
+
+            </li>
             
-            <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#cat"><!-- a href begin -->
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#cat">
                         
                         <i class="fa fa-fw fa-book"></i> Categorias
                         <i class="fa fa-fw fa-caret-down"></i>
                         
-                </a><!-- a href finish -->
+                </a>
                 
-                <ul id="cat" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
+                <ul id="cat" class="collapse">
+                    <li>
                         <a href="index.php?insertar_cat"> Insertar Categoria </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
+                    </li>
+                    <li>
                         <a href="index.php?ver_cat"> ver Categoria </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
+                    </li>
+                </ul>
                 
-            </li><!-- li finish -->
+            </li>
             
-            <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#slides"><!-- a href begin -->
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#slides">
                         
                         <i class="fa fa-fw fa-gear"></i> Carrucel
                         <i class="fa fa-fw fa-caret-down"></i>
                         
-                </a><!-- a href finish -->
+                </a>
                 
-                <ul id="slides" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
+                <ul id="slides" class="collapse">
+                    <li>
                         <a href="index.php?insertar_slide"> Insertar imagen al Carrucel </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
+                    </li>
+                    <li>
                         <a href="index.php?ver_slides"> Ver imagenes del carrucel </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
+                    </li>
+                </ul>
                 
-            </li><!-- li finish -->
+            </li>
             
-            <li><!-- li begin -->
-                <a href="index.php?view_customers"><!-- a href begin -->
+            <li>
+                <a href="index.php?view_customers">
                     <i class="fa fa-fw fa-users"></i> Ver Clentes
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
+                </a>
+            </li>
             
-            <li><!-- li begin -->
-                <a href="index.php?view_orders"><!-- a href begin -->
+            <li>
+                <a href="index.php?view_orders">
                     <i class="fa fa-fw fa-book"></i> Ver Ordenes 
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
+                </a>
+            </li>
             
-            <li><!-- li begin -->
-                <a href="index.php?view_payments"><!-- a href begin -->
+            <li>
+                <a href="index.php?view_payments">
                     <i class="fa fa-fw fa-money"></i> Ver Pagos 
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
+                </a>
+            </li>
             
-            <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#users"><!-- a href begin -->
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#users">
                         
                         <i class="fa fa-fw fa-users"></i> Usuarios
                         <i class="fa fa-fw fa-caret-down"></i>
                         
-                </a><!-- a href finish -->
-                
-                <ul id="users" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
+                </a>
+                <ul id="users" class="collapse">
+                    <li>
                         <a href="index.php?insert_user"> Insertar usuario </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
+                    </li>
+                    <li>
                         <a href="index.php?view_users"> Ver Usuario </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
+                    </li>
+                    <li>
                         <a href="index.php?user_profile=<?php echo $admin_id ?>"> Editar Perfil del usuario  </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
+                    </li>
+                </ul>
                 
-            </li><!-- li finish -->
+            </li>
             
-            <li><!-- li begin -->
-                <a href="logout.php"><!-- a href begin -->
+            <li>
+                <a href="logout.php">
                     <i class="fa fa-fw fa-power-off"></i> Salir
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
+                </a>
+            </li>
             
-        </ul><!-- nav navbar-nav side-nav finish -->
-    </div><!-- collapse navbar-collapse navbar-ex1-collapse finish -->
+        </ul>
+    </div>
     
-</nav><!-- navbar navbar-inverse navbar-fixed-top finish -->
+</nav>
 <?php }?>
