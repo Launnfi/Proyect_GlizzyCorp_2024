@@ -169,6 +169,23 @@ if (!isset($_SESSION['admin_email'])) {
 
                     
                 }
+                if(isset($_GET['ver_clientes'])){
+                        
+                     include("ver_clientes.php");
+                    
+                 }   if(isset($_GET['borrar_clientes'])){
+                    
+                    include("borrar_clientes.php");
+                    
+                 }   if(isset($_GET['ver_ordenes'])){
+                    
+                    include("ver_ordenes.php");
+                    
+                    }   if(isset($_GET['borrar_ordenes'])){
+                    
+                    include("borrar_ordenes.php");
+                    
+                    }
     
             
                 ?>

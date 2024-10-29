@@ -54,7 +54,7 @@
                 </li>
                 
                 <li>
-                    <a href="index.php?view_customers">
+                    <a href="index.php?ver_clientes">
                         
                         <i class="fa fa-fw fa-users"></i> Clientes
                         
@@ -177,13 +177,13 @@
             </li>
             
             <li>
-                <a href="index.php?view_customers">
+                <a href="index.php?ver_clientes">
                     <i class="fa fa-fw fa-users"></i> Ver Clentes
                 </a>
             </li>
             
             <li>
-                <a href="index.php?view_orders">
+                <a href="index.php?ver_ordenes">
                     <i class="fa fa-fw fa-book"></i> Ver Ordenes 
                 </a>
             </li>
