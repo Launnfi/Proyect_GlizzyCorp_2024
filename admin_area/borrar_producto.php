@@ -10,11 +10,11 @@
 
 <?php 
 
-    if(isset($_GET['delete_product'])){
+    if(isset($_GET['borrar_producto'])){
         
-        $delete_id = $_GET['delete_product'];
+        $delete_id = $_GET['borrar_producto'];
         
-        $delete_pro = "delete from productos where producto_id='$delete_id'";
+        $delete_pro = "DELETE from productos where producto_id='$delete_id'";
         
         $run_delete = mysqli_query($con,$delete_pro);
         
@@ -23,7 +23,7 @@
             echo "<script>alert('Se ha borrado uno de los productos')</script>";
             
             echo "<script>window.open('index.php?ver_producto','_self')</script>";
-            
+    
         }
         
     }

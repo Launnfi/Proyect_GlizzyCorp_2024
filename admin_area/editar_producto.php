@@ -77,7 +77,7 @@
         
     }
         
-        $get_p_cat = "select * from productos_categorias where p_cat_id='$p_cat'";
+        $get_p_cat = "SELECT * from productos_categorias where p_cat_id='$p_cat'";
         
         $run_p_cat = mysqli_query($con,$get_p_cat);
         
@@ -307,7 +307,7 @@
                     
                     if($run_product){
                     echo "<script>alert('Producto actualizado con exito')</script>"; 
-                    echo "<script>window.open('index.php?ver_producto','_self')</script>"; 
+                    echo "<script>window.open('index.php?ver_producto','_self')</script>";
                     }
                 }
 

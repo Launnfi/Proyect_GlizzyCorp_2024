@@ -187,7 +187,9 @@ include("includes/header.php");
              
                      <?php
                      
-                      getPCatpro(); ?>  
+                      getPCatpro(); 
+                      getcatpro();
+                      ?>  
                      
               
     
