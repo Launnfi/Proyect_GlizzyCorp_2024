@@ -5,19 +5,14 @@ $active = "Mi cuenta";
 session_start();
 
 if(!isset($_SESSION['cliente_email'])){
-
     echo "<script>window.open('../cerrar_sesion.php', '_self')</script>";
+} else {
+    include("../db.php");
+    include("../functions/functions.php");
 
-}else{
-
-include("../db.php");
-include("../functions/functions.php");
-
-if(isset($_GET['orden_id'])){
-
-    $orden_id = $_GET['orden_id'];
-}
-
+    if(isset($_GET['orden_id'])){
+        $orden_id = $_GET['orden_id'];
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,8 +122,8 @@ if(isset($_GET['orden_id'])){
             <div class="box">
                 <h1 align="center">Por favor confirmar su pago</h1>
 
-                <form action="confirmar.php?update_id=<?php echo $orden_id ?>" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
+                <form action="confirmar.php?orden_id=<?php echo $orden_id; ?>" method="post" enctype="multipart/form-data">
+                <div class="form-group">
                         <label>N° de orden:</label>
                         <input type="text" class="form-control" name="Num_orden" required>
                     </div>
@@ -157,15 +152,21 @@ if(isset($_GET['orden_id'])){
                         <input type="text" class="form-control" name="date" required>
                     </div>
 
+                  
                     <div class="text-center">
                         <button type="submit" name="confirm_payment" class="btn btn-primary btn-lg">
                             <i class="fa fa-user-md"></i> Confirmar pago
                         </button>
                     </div>
+                    </a>
                 </form>
+                
 
                 <?php 
-                if(isset($_POST['confirm_payment'])){
+
+                       
+                if(isset($_POST['confirm_payment'])){                       
+                    $orden_id = $_GET['orden_id'];
                     $numero_fact = $_POST['Num_orden'];
                     $cantidad = $_POST['cantidadEnv'];
                     $metodo_pago = $_POST['modoPago'];
@@ -174,19 +175,29 @@ if(isset($_GET['orden_id'])){
                     $complete = "Completado";
                     
                     $insert_payment = "INSERT INTO pagos (numero_factura, cantidad, metodo_pago, num_ref, fecha_pago) VALUES ('$numero_fact', '$cantidad', '$metodo_pago', '$ref_no', '$fecha_pago')";
-                    $run_payment = mysqli_query($con, $insert_payment);
-
-                    $update_customer_order = "UPDATE ordenes_cliente SET estado='$complete' WHERE orden_id='$orden_id'";
-                    $run_customer_order = mysqli_query($con, $update_customer_order);
-
-                    $update_pending_order = "UPDATE ordenes_pendientes SET estado='$complete' WHERE orden_id='$orden_id'";
-                    $run_pending_order = mysqli_query($con, $update_pending_order);
                     
-                    if($run_pending_order){
-                        echo "<script>alert('Gracias por tu compra, tiempo estimado de llegada 1-3 días. O si seleccionó la opción de pago express, puede ir a retirar su pedido.')</script>";
-                        echo "<script>window.open('my_account.php?misOrdenes', '_self')</script>";
+                    $run_payment = mysqli_query($con, $insert_payment);
+                    if (!$run_payment) {
+                        die('Error en el pago: ' . mysqli_error($con));
                     }
+
+                    $update_customer_order = "UPDATE ordenes_cliente SET status='$complete' WHERE orden_id='$orden_id'";
+                    $run_customer_order = mysqli_query($con, $update_customer_order);
+                    if (!$run_customer_order) {
+                        die('Error al actualizar la orden del cliente: ' . mysqli_error($con));
+                    }
+
+                    $update_pending_order = "UPDATE ordenes_pendientes SET status='$complete' WHERE orden_id='$orden_id'";
+                    $run_pending_order = mysqli_query($con, $update_pending_order);
+                    if (!$run_pending_order) {
+                        die('Error al actualizar la orden pendiente: ' . mysqli_error($con));
+                    }
+                    
+                    echo "<script>alert('Gracias por tu compra, su pedido llegara en 3-4 dias habiles')</script>";
+                    echo "<script>window.open('my_account.php?misOrdenes','_self')</script>";
                 }
+
+                   
                 ?>
             </div>
         </div>

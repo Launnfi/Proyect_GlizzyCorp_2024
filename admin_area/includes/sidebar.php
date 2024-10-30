@@ -189,7 +189,7 @@
             </li>
             
             <li>
-                <a href="index.php?view_payments">
+                <a href="index.php?ver_pagos">
                     <i class="fa fa-fw fa-money"></i> Ver Pagos 
                 </a>
             </li>

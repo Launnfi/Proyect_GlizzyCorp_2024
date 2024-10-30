@@ -85,7 +85,7 @@
                 <td><?php echo $fecha_orden; ?></td>
                 <td><?php echo $estado; ?></td>
                 <td>
-                    <a href="confirmar.php?orden_id = '<?php echo $orden_id ?>" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
+                <a href="confirmar.php?orden_id=<?php echo $orden_id; ?>" target="_blank" class="btn btn-primary btn-sm">Confirmar pago</a>
                 </td>
             </tr>   
 <?php } ?>

@@ -63,14 +63,14 @@ include("includes/header.php");
                <div class="form-group"><!-- form-group empieza -->
 
                 <label>Departamento</label>
-                <input type="text" class="form-control" name="c_pais" required>  <!-- cambar nombre de bariables en lo posible -->
+                <input type="text" class="form-control" name="c_ciudad" required>  <!-- cambar nombre de bariables en lo posible -->
                 
                 
               </div><!-- form-group termina -->   
                <div class="form-group"><!-- form-group empieza -->
 
                 <label>Direccion</label>
-                <input type="text" class="form-control" name="c_ciudad" required> 
+                <input type="text" class="form-control" name="c_direccion" required> 
                 
               </div><!-- form-group termina -->
               
