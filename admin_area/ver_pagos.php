@@ -39,7 +39,7 @@
                             <tr><!-- tr begin -->
                                 <th> No: </th>
                                 <th> Numero de orden: </th>
-                                <th> Cantidad : </th>
+                                <th> Cantidad a pagar : </th>
                                 <th> Metodo de pago: </th>
                                 <th> numero de referencia: </th>
                                 <th> Fecha de pago: </th>
@@ -68,7 +68,7 @@
                                     
                                     $metodo_pago = $row_pagos['metodo_pago'];
                                     
-                                    $ref_no = $row_pagos['ref_no'];
+                                    $num_ref = $row_pagos['num_ref'];
                                     
                                     $fecha_pago = $row_pagos['fecha_pago'];
                                     
@@ -78,32 +78,15 @@
                                                     
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
-                                <td> <?php echo $pago_id; ?> </td>
-                                <td> <?php echo $num_fac; ?></td>
-                                <td> <?php echo $cantidad; ?> </td>
-                                <td> <?php echo $metodo_pago; ?></td>
-                                <td> <?php echo $ref_no; ?> </td>
+                                <td> <?php echo $num_fac;?> </td>
+                                <td> <?php echo $cantidad; ?></td>
+                                <td> <?php echo $metodo_pago; ?> </td>
+                                <td> <?php echo $num_ref; ?></td>
                                 <td> <?php echo $fecha_pago; ?> </td>
-                                <td>
-                                    
-                                    <?php 
-                                    
-                                        if($order_status=='pendiente'){
-                                            
-                                            echo $order_status='pendiente';
-                                            
-                                        }else{
-                                            
-                                            echo $order_status='completada';
-                                            
-                                        }
-                                    
-                                    ?>
-                                    
-                                </td>
+                                
                                 <td> 
                                      
-                                     <a href="index.php?borrar_pago=<?php echo $pago_id; ?>">
+                                     <a href="index.php?borrar_pagos=<?php echo $pago_id; ?>">
                                      
                                         <i class="fa fa-trash-o"></i> Borrar
                                     

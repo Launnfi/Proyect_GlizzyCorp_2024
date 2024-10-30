@@ -14,7 +14,7 @@
             <thead><!--thead empieza -->
                 <tr>
                     <th>En</th>
-                    <th>Due Amount</th>
+                    <th>Monto adeudado</th>
                     <th>N° de orden</th>
                     <th>Cantidad:</th>
                     <th>Talla</th>

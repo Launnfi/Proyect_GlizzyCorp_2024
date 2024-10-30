@@ -20,7 +20,7 @@
         
         if($run_borrar){
             
-            echo "<script>alert('La imagen del carrito se elimino correctamente')</script>";
+            echo "<script>alert('La imagen del Carucel se elimino correctamente')</script>";
             
             echo "<script>window.open('index.php?ver_slides','_self')</script>";
             

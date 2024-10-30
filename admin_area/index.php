@@ -189,7 +189,11 @@ if (!isset($_SESSION['admin_email'])) {
                     
                         include("ver_pagos.php");
                         
-                        }
+                        }if(isset($_GET['borrar_pagos'])){
+                    
+                            include("borrar_pagos.php");
+                            
+                            }
     
             
                 ?>

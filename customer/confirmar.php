@@ -129,7 +129,7 @@ if(!isset($_SESSION['cliente_email'])){
                     </div>
                           
                     <div class="form-group">
-                        <label>Cantidad enviada:</label>
+                        <label>Cantidad a pagar:</label>
                         <input type="text" class="form-control" name="cantidadEnv" required>
                     </div>
                     
