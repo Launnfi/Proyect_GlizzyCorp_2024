@@ -13,7 +13,7 @@ if (!isset($_SESSION['admin_email'])) {
             
             <li class="active">
                 
-                <i class="fa fa-dashboard"></i> Cuestionario / Insertar Categoria
+                <i class="fa fa-dashboard"></i> Panel / Insertar Categoria
                 
             </li>
             

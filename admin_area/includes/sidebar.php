@@ -36,7 +36,7 @@
             
             <ul class="dropdown-menu">
                 <li><!-- li begin -->
-                    <a href="index.php?user_perf=<?php echo $admin_id;  ?>">
+                    <a href="index.php?perfil_admin=<?php echo $admin_id;  ?>">
                         
                         <i class="fa fa-fw fa-user"></i> Perfil
                         
@@ -203,13 +203,13 @@
                 </a>
                 <ul id="users" class="collapse">
                     <li>
-                        <a href="index.php?insert_user"> Insertar usuario </a>
+                        <a href="index.php?insertar_user"> Insertar usuario </a>
                     </li>
                     <li>
-                        <a href="index.php?view_users"> Ver Usuario </a>
+                        <a href="index.php?ver_user"> Ver Usuario </a>
                     </li>
                     <li>
-                        <a href="index.php?user_profile=<?php echo $admin_id ?>"> Editar Perfil del usuario  </a>
+                        <a href="index.php?perfil_user=<?php echo $admin_id ?>"> Editar Perfil del usuario  </a>
                     </li>
                 </ul>
                 

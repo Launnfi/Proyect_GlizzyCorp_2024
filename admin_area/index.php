@@ -193,8 +193,26 @@ if (!isset($_SESSION['admin_email'])) {
                     
                             include("borrar_pagos.php");
                             
-                            }
-    
+                            }if(isset($_GET['ver_user'])){
+                    
+                                include("ver_user.php");
+                                
+                                }
+                                if(isset($_GET['borrar_user'])){
+                    
+                                    include("borrar_user.php");
+                                    
+                                    }
+                                    if(isset($_GET['insertar_user'])){
+                    
+                                        include("insertar_user.php");
+                                        
+                                        }
+                                        if(isset($_GET['perfil_admin'])){
+                    
+                                            include("perfil_admin.php");
+                                            
+                                            }
             
                 ?>
 
