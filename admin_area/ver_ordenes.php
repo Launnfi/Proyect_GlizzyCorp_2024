@@ -52,60 +52,50 @@
                         
                         <tbody><!-- tbody begin -->
                             
-                            <?php 
-          
-                                $i=0;
-                            
-                                $get_orders = "select * from ordenes_pendientes";
-                                
-                                $run_orders = mysqli_query($con,$get_orders);
-          
-                                while($row_order=mysqli_fetch_array($run_orders)){
-                                    
-                                    $order_id = $row_order['orden_id'];
-                                    
-                                    $c_id = $row_order['cliente_id'];
-                                    
-                                    $invoice_no = $row_order['numero_orden'];
-                                    
-                                    $product_id = $row_order['producto_id'];
-                                    
-                                    $qty = $row_order['cant'];
-                                    
-                                    $size = $row_order['tamaño'];
-                                    
-                                    $order_status = $row_order['status'];
-                                    
-                                    $get_products = "select * from productos where producto_id='$product_id'";
-                                    
-                                    $run_products = mysqli_query($con,$get_products);
-                                    
-                                    $row_products = mysqli_fetch_array($run_products);
-                                    
-                                    $product_title = $row_products['producto_titulo'];
-                                    
-                                    $get_customer = "select * from customer where cliente_id='$c_id'";
-                                    
-                                    $run_customer = mysqli_query($con,$get_customer);
-                                    
-                                    $row_customer = mysqli_fetch_array($run_customer);
-                                    
-                                    $customer_email = $row_customer['cliente_email'];
-                                    
-                                    $get_c_order = "select * from ordenes_cliente where orden_id='$order_id'";
-                                    
-                                    $run_c_order = mysqli_query($con,$get_c_order);
-                                    
-                                    $row_c_order = mysqli_fetch_array($run_c_order);
-                                    
-                                    $order_date = $row_c_order['fecha_orden'];
-                                    
-                                    $order_amount = $row_c_order['monto'];
-                                    
-                                    $i++;
-                            
-                            ?>
-                            
+                        <?php 
+                            $i = 0;
+
+                            $get_orders = "
+                                SELECT 
+                                    op.orden_id,
+                                    op.cliente_id,
+                                    op.numero_orden,
+                                    op.producto_id,
+                                    op.cant,
+                                    op.tamaño,
+                                    op.status,
+                                    p.producto_titulo,
+                                    c.cliente_email,
+                                    oc.fecha_orden,
+                                    oc.monto
+                                FROM 
+                                    ordenes_pendientes op
+                                JOIN 
+                                    productos p ON op.producto_id = p.producto_id
+                                JOIN 
+                                    customer c ON op.cliente_id = c.cliente_id
+                                JOIN 
+                                    ordenes_cliente oc ON op.orden_id = oc.orden_id
+                            ";
+
+                            $run_orders = mysqli_query($con, $get_orders);
+
+                            while($row_order = mysqli_fetch_array($run_orders)){
+                                $order_id = $row_order['orden_id'];
+                                $c_id = $row_order['cliente_id'];
+                                $invoice_no = $row_order['numero_orden'];
+                                $product_id = $row_order['producto_id'];
+                                $qty = $row_order['cant'];
+                                $size = $row_order['tamaño'];
+                                $order_status = $row_order['status'];
+                                $product_title = $row_order['producto_titulo'];
+                                $customer_email = $row_order['cliente_email'];
+                                $order_date = $row_order['fecha_orden'];
+                                $order_amount = $row_order['monto'];
+
+                                $i++;
+                        ?>
+                                                    
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $customer_email; ?> </td>

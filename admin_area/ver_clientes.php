@@ -54,7 +54,7 @@
           
                                 $i=0;
                             
-                                $get_c = "select * from customers";
+                                $get_c = "select * from customer";
                                 
                                 $run_c = mysqli_query($con,$get_c);
           

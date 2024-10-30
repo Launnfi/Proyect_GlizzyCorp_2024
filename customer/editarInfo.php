@@ -25,41 +25,41 @@ $cliente_img = $row_customer['cliente_img'];
 
 ?>
 
-<form action="" method="post" enctype="multipart/form-data"><!--form empieza -->
+<form action="" method="post" enctype="multipart/form-data">
 
-    <div class="form-group"><!--form-group empieza -->
+    <div class="form-group">
     <label>Nombre</label>
     <input type="text" name="c_name" class="form-control" value="<?php echo $cliente_nombre; ?>" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="form-group"><!--form-group empieza -->
+    <div class="form-group">
     <label>Mail</label>
     <input type="text" name="c_email" class="form-control" value="<?php echo $cliente_email; ?>" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="form-group"><!--form-group empieza -->
+    <div class="form-group">
     <label>departamento</label>
     <input type="text" name="c_departamento" class="form-control" value="<?php echo $cliente_ciudad; ?>" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="form-group"><!--form-group empieza -->
+    <div class="form-group">
     <label>Direccion</label>
     <input type="text" name="c_direccion" class="form-control" value="<?php echo $cliente_direccion; ?>" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="form-group "><!--form-group empieza -->
+    <div class="form-group ">
     <label>Contacto</label>
     <input type="text" name="c_contacto" class="form-control" value="<?php echo $cliente_contacto; ?>" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="form-group form-height-custom"><!--form-group empieza -->
+    <div class="form-group form-height-custom">
     <label>Foto de perfil</label>
     <input type="file" name="c_image" class="form-control form-height-custom" required>
 
     <img class="img-responsive" src="customer_images/<?php echo $cliente_img; ?>" alt="Costumer Image">
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="text-center"><!--text-center termina -->
+    <div class="text-center">
 
         <button name="update" class="btn btn-primary">
 
@@ -67,12 +67,12 @@ $cliente_img = $row_customer['cliente_img'];
 
         </button>
     
-    </div><!--text-center termina -->
+    </div>
 
         
     
 
-</form><!--form termina -->
+</form>
 
 <?php 
 
