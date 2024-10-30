@@ -185,7 +185,31 @@ if (!isset($_SESSION['admin_email'])) {
                     
                     include("borrar_ordenes.php");
                     
-                    }
+                    } if(isset($_GET['ver_pagos'])){
+                        
+                        include("ver_pagos.php");
+                        
+                }   if(isset($_GET['borrar_pago'])){
+                        
+                        include("borrar_pago.php");
+                        
+                }   if(isset($_GET['ver_usuarios'])){
+                        
+                        include("ver_usuarios.php");
+                        
+                }   if(isset($_GET['borrar_usuario'])){
+                        
+                        include("borrar_usuario.php");
+                        
+                }   if(isset($_GET['insertar_usuario'])){
+                        
+                        include("insertar_usuario.php");
+                        
+                }   if(isset($_GET['perfil_de_usuario'])){
+                        
+                        include("perfil_de_usuario.php");
+                        
+                }
     
             
                 ?>
