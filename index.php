@@ -55,17 +55,12 @@
                        
                        $slide_name = $row_slides['slide_name'];
                        $slide_image = $row_slides['slide_image'];
-                       $slider_url = $row_slides['slider_url'];
                        
                        echo "
                        
                        <div class='item active'>
                        
-                           <a href='$slider_url'>
-
-                                <img src='admin_area/slides_images/$slide_image'>
-
-                           </a>
+                       <img src='admin_area/slides_images/$slide_image'>
                        
                        </div>
                        
@@ -81,17 +76,12 @@
                        
                        $slide_name = $row_slides['slide_name'];
                        $slide_image = $row_slides['slide_image'];
-                       $slider_url = $row_slides['slider_url'];
                        
                        echo "
                        
                        <div class='item'>
                        
-                           <a href='$slider_url'>
-
-                                <img src='admin_area/slides_images/$slide_image'>
-
-                           </a>
+                       <img src='admin_area/slides_images/$slide_image'>
                        
                        </div>
                        

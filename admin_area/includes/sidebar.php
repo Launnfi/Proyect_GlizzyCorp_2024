@@ -189,7 +189,7 @@
             </li>
             
             <li>
-                <a href="index.php?ver_pagos">
+                <a href="index.php?view_payments">
                     <i class="fa fa-fw fa-money"></i> Ver Pagos 
                 </a>
             </li>
@@ -203,22 +203,15 @@
                 </a>
                 <ul id="users" class="collapse">
                     <li>
+
                         <a href="index.php?insertar_user"> Insertar usuario </a>
                     </li>
                     <li>
                         <a href="index.php?ver_user"> Ver Usuario </a>
                     </li>
                     <li>
-                        <a href="index.php?perfil_user=<?php echo $admin_id ?>"> Editar Perfil del usuario  </a>
-                        <a href="index.php?insertar_usuario"> Insertar usuario </a>
-                    </li>
-                    <li>
-                        <a href="index.php?ver_usuarios"> Ver Usuario </a>
-                    </li>
-                    <li>
-                        <a href="index.php?perfil_de_usuario=<?php echo $admin_id ?>"> Editar Perfil del usuario  </a>
-                    </li>
-                </ul>
+                        <a href="index.php?perfil_admin=<?php echo $admin_id ?>"> Editar Perfil del usuario  </a>
+
                 
             </li>
             
