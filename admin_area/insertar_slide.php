@@ -13,7 +13,7 @@
         <ol class="breadcrumb"><!-- breadcrumb begin -->
             <li>
                 
-                <i class="fa fa-dashboard"></i> Panel / Insertar Carrucel
+                <i class="fa fa-dashboard"></i> Panel / Insertar carrucel
                 
             </li>
         </ol><!-- breadcrumb finish -->
@@ -26,33 +26,48 @@
             <div class="panel-heading"><!-- panel-heading begin -->
                 <h3 class="panel-title"><!-- panel-title begin -->
                 
-                    <i class="fa fa-money fa-fw"></i> Insertar Carrucel
+                    <i class="fa fa-money fa-fw"></i> Insertar carrucel
                 
                 </h3><!-- panel-title finish -->
             </div><!-- panel-heading finish -->
             
             <div class="panel-body"><!-- panel-body begin -->
                 <form action="" class="form-horizontal" method="post" enctype="multipart/form-data"><!-- form-horizontal begin -->
-                    <div class="form-group"><!-- form-group begin -->
+                    <div class="form-group"><!-- form-group 1 begin -->
                     
                         <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
                         
-                        Nombre Carrcuel 
+                            Nombre del carrucel
                         
                         </label><!-- control-label col-md-3 finish --> 
                         
                         <div class="col-md-6"><!-- col-md-6 begin -->
                         
-                            <input name="slide_nombre" type="text" class="form-control">
+                            <input name="slide_name" type="text" class="form-control">
                         
                         </div><!-- col-md-6 finish -->
                     
-                    </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
+                    </div><!-- form-group 1 finish -->
+                    <div class="form-group"><!-- form-group 2 begin -->
                     
                         <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
                         
-                        Imagen Carrcuel 
+                            Url del carrucel
+                        
+                        </label><!-- control-label col-md-3 finish --> 
+                        
+                        <div class="col-md-6"><!-- col-md-6 begin -->
+                        
+                            <input name="slider_url" type="text" class="form-control">
+                        
+                        </div><!-- col-md-6 finish -->
+                    
+                    </div><!-- form-group 2 finish -->
+                    <div class="form-group"><!-- form-group 3 begin -->
+                    
+                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
+                        
+                            Imagen del carrucel
                         
                         </label><!-- control-label col-md-3 finish --> 
                         
@@ -62,8 +77,8 @@
                         
                         </div><!-- col-md-6 finish -->
                     
-                    </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
+                    </div><!-- form-group 3 finish -->
+                    <div class="form-group"><!-- form-group 4 begin -->
                     
                         <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --></label><!-- control-label col-md-3 finish --> 
                         
@@ -73,7 +88,7 @@
                         
                         </div><!-- col-md-6 finish -->
                     
-                    </div><!-- form-group finish -->
+                    </div><!-- form-group 4 finish -->
                 </form><!-- form-horizontal finish -->
             </div><!-- panel-body finish -->
             
@@ -85,13 +100,15 @@
 
     if(isset($_POST['submit'])){
         
-        $slide_nombre = $_POST['slide_nombre'];
+        $slide_name = $_POST['slide_name'];
+        
+        $slider_url = $_POST['slider_url'];
         
         $slide_image = $_FILES['slide_image']['name'];
         
         $temp_name = $_FILES['slide_image']['tmp_name'];
         
-        $view_slides = "SELECT * from slider";
+        $view_slides = "select * from slider";
         
         $view_run_slide = mysqli_query($con,$view_slides);
         
@@ -101,17 +118,17 @@
             
             move_uploaded_file($temp_name,"slides_images/$slide_image");
             
-            $insert_slide = "INSERT into slider (slide_name,slide_image) values ('$slide_nombre','$slide_image')";
+            $insert_slide = "insert into slider (slide_name,slider_url,slide_image) values ('$slide_name','$slider_url','$slide_image')";
             
             $run_slide = mysqli_query($con,$insert_slide);
             
-            echo "<script>alert('Imagen al carrucel insertada')</script>";
+            echo "<script>alert('Tu nuevo carrucel de imagenes ha sido insertado')</script>";
             
             echo "<script>window.open('index.php?ver_slides','_self')</script>";
             
         }else{
             
-           echo "<script>alert('Ya tienes 4 imagenes en el carrucel insertadas')</script>"; 
+           echo "<script>alert('Ya tienes 4 carruceles')</script>"; 
             
         }
         

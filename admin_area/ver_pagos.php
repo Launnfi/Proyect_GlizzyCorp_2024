@@ -71,8 +71,43 @@
                                     $num_ref = $row_pagos['num_ref'];
                                     
                                     $fecha_pago = $row_pagos['fecha_pago'];
+                                }
+                                    ?>
+                                <th> numero de factura: </th>
+                                <th> cantidad pagada: </th>
+                                <th> metodo: </th>
+                                <th> numero de referencia: </th>
+                                <th> fecha de pago: </th>
+                                <th> Borrar pago: </th>
+                            </tr><!-- tr finish -->
+                        </thead><!-- thead finish -->
+                        
+                        <tbody><!-- tbody begin -->
+                            
+                            <?php 
+          
+                                $i=0;
+                            
+                                $get_payments = "select * from pagos";
+                                
+                                $run_payments = mysqli_query($con,$get_payments);
+          
+                                while($row_payments=mysqli_fetch_array($run_payments)){
+                                    
+                                    $payment_id = $row_payments['pago_id'];
+                                    
+                                    $invoice_no = $row_payments['numero_factura'];
+                                    
+                                    $amount = $row_payments['cantidad'];
+                                    
+                                    $payment_mode = $row_payments['metodo_pago'];
+                                    
+                                    $ref_no = $row_payments['num_ref'];
+                                    
+                                    $payment_date = $row_payments['fecha_pago'];
                                     
                                     $i++;
+                                
                             
                             ?>
                                                     
@@ -106,5 +141,8 @@
         </div><!-- panel panel-default finish -->
     </div>
 </div>
+
+    </div><!-- col-lg-12 finish -->
+</div><!-- row 2 finish -->
 
 <?php } ?>
