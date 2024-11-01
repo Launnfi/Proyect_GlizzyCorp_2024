@@ -119,6 +119,19 @@
        <div class="container"><!-- container empieza -->
            
            <div class="same-height-row"><!-- same-height-row empieza -->
+
+           <?php 
+           
+           $get_boxes = "select * from cajas_texto";
+           $run_boxes = mysqli_query($con,$get_boxes);
+
+           while($run_boxes_section=mysqli_fetch_array($run_boxes)){
+
+            $box_id = $run_boxes_section['caja_id'];
+            $box_title = $run_boxes_section['caja_titulo'];
+            $box_desc = $run_boxes_section['caja_desc'];
+           
+           ?>
                
                <div class="col-sm-4"><!-- col-sm-4 empieza -->
                    
@@ -130,49 +143,15 @@
                            
                        </div><!-- icon termino -->
                        
-                       <h3><p>Mejores ofertas</p></h3>
+                       <h3><a href="#"><?php echo $caja_titulo; ?></a></h3>
                        
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                       
-                   </div><!-- box same-height termino -->
-                   
-               </div><!-- col-sm-4 termino -->
-               
-               <div class="col-sm-4"><!-- col-sm-4 empieza -->
-                   
-                   <div class="box same-height"><!-- box same-height empieza -->
-                       
-                       <div class="icon"><!-- icon empieza -->
-                           
-                           <i class="fa fa-tag"></i>
-                           
-                       </div><!-- icon termino -->
-                       
-                       <h3><p>Mejores precios</p></h3>
-                       
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                       <p> <?php echo $caja_desc; ?> </p>
                        
                    </div><!-- box same-height termino -->
                    
                </div><!-- col-sm-4 termino -->
-               
-               <div class="col-sm-4"><!-- col-sm-4 empieza -->
-                   
-                   <div class="box same-height"><!-- box same-height empieza -->
-                       
-                       <div class="icon"><!-- icon empieza -->
-                           
-                           <i class="fa fa-thumbs-up"></i>
-                           
-                       </div><!-- icon termino -->
-                       
-                       <h3><p>100% Original</p></h3>
-                       
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                       
-                   </div><!-- box same-height termino -->
-                   
-               </div><!-- col-sm-4 termino -->
+
+               <?php    } ?>
                
            </div><!-- same-height-row termino -->
            

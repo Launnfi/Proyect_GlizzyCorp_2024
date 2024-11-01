@@ -213,6 +213,23 @@ if (!isset($_SESSION['admin_email'])) {
                                 include("perfil_admin.php");
                                 
                                 }
+
+                          if(isset($_GET['insertar_caja'])){
+                        
+                                include("insertar_caja.php");
+                                
+                        }   if(isset($_GET['ver_cajas'])){
+                                
+                                include("ver_caja.php");
+                                
+                        }   if(isset($_GET['borrar_caja'])){
+                                
+                                include("borrar_caja.php");
+                                
+                        }   if(isset($_GET['editar_caja'])){
+                                
+                                include("editar_caja.php");
+                                
                     
     
             

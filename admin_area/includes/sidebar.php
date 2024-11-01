@@ -176,6 +176,26 @@
                 
             </li>
             
+            
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#boxes">
+                        
+                        <i class="fa fa-fw fa-dropbox"></i> Cajas
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
+                </a>
+                
+                <ul id="boxes" class="collapse">
+                    <li>
+                        <a href="index.php?insert_box"> Insertar cajas de texto </a>
+                    </li>
+                    <li>
+                        <a href="index.php?view_boxes"> Ver Cajas </a>
+                    </li>
+                </ul>
+                
+            </li>
+            
             <li>
                 <a href="index.php?ver_clientes">
                     <i class="fa fa-fw fa-users"></i> Ver Clentes
