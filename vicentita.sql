@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2024 a las 23:54:32
+-- Tiempo de generación: 03-11-2024 a las 18:38:58
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -37,6 +37,18 @@ CREATE TABLE `admin` (
   `admin_sobre` text NOT NULL,
   `admin_contacto` varchar(255) NOT NULL,
   `admin_trabajo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cajas_texto`
+--
+
+CREATE TABLE `cajas_texto` (
+  `caja_id` int(11) NOT NULL,
+  `caja_titulo` varchar(255) NOT NULL,
+  `Caja_desc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -246,15 +258,16 @@ INSERT INTO `productos_categorias` (`p_cat_id`, `p_cat_titulo`, `p_cat_desc`) VA
 CREATE TABLE `slider` (
   `slide_id` int(10) NOT NULL,
   `slide_name` varchar(255) NOT NULL,
-  `slide_image` text NOT NULL
+  `slide_image` text NOT NULL,
+  `slider_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `slider`
 --
 
-INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`) VALUES
-(1, 'slide number 1', '*pegar imagen del slide 1 y sucesivamente*');
+INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`, `slider_url`) VALUES
+(1, 'slide number 1', '*pegar imagen del slide 1 y sucesivamente*', '');
 
 --
 -- Índices para tablas volcadas
@@ -265,6 +278,12 @@ INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`) VALUES
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indices de la tabla `cajas_texto`
+--
+ALTER TABLE `cajas_texto`
+  ADD PRIMARY KEY (`caja_id`);
 
 --
 -- Indices de la tabla `categorias`
@@ -335,6 +354,12 @@ ALTER TABLE `slider`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cajas_texto`
+--
+ALTER TABLE `cajas_texto`
+  MODIFY `caja_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
