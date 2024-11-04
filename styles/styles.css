@@ -835,3 +835,68 @@ body{
 #copyright .pull-right a:hover {
     color: #ff6699; 
 }
+.nav, .category-menu{
+    margin-top: -26px ;
+}
+.scroll-menu{
+    height: 250px;
+    overflow-y: scroll;
+}
+.cheeckbox span{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 5px;
+
+}
+.cheeckbox span::before{
+content: "";
+display: inline-block;
+position: absolute;
+width: 17px;
+height: 17px;
+left: 0;
+margin-left: -20px;
+border: 2px solid #ccc;
+border-radius: 4px;
+transition: border 0.2 ease-in-out, color 0,2 ease-in-out ;
+background:#fff ;
+
+}
+.cheeckbox span::after{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #3f3939;
+}
+.cheeckbox input[type= 'cheeckbox']{
+    opacity: 0;
+    z-index: 1 ;
+    cursor:pointer;
+}
+.cheeckbox input[type= 'cheeckbox']:focus + span::before{
+    outline: thin dotted;
+    outline: 5px auto ;
+    outline-offset: -2px;
+
+}
+.cheeckbox input[type= 'cheeckbox']:checked + span::after{
+  font-family: "FontAwesome";
+  content: "\f00c"
+}
+.cheeckbox-primary input[type= 'cheeckbox']:checked + span::before{
+ background-color: #333ab7;
+ border-color:#333ab7;
+}
+.cheeckbox-primary input[type= 'cheeckbox']:checked + span::before{
+    color: #fff;
+   }
+   

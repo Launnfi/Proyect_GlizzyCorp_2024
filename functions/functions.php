@@ -151,7 +151,7 @@ function getPro(){
     
 }
 //Funcion que obtiene y muestra las categorias del producto
-function getPCats(){
+/*function getPCats(){
 
     global $db;
     //Consulta que obtiene todas las categorias de producto
@@ -174,9 +174,9 @@ function getPCats(){
             </li>
             ";
     }
-}
+}*/
 //Funcion que obtiene y muestra las categorias
-function getCats(){
+/*function getCats(){
 
     global $db;
 
@@ -199,7 +199,8 @@ function getCats(){
             </li>
             ";
     }
-}
+}*/
+
 // Función para obtener y mostrar los productos de una categoría de productos específica
 function getPCatpro(){
 
