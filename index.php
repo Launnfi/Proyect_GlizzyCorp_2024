@@ -21,7 +21,31 @@
                
                <div class="carousel-inner"><!-- carousel-inner empieza -->
                    
-                
+                  <!-- <div class="item active">
+                       
+                       <img src="admin_area/slides_images/slide-1.jpg" alt="Slider Image 1">
+                       
+                   </div>
+                   
+                   <div class="item">
+                       
+                       <img src="admin_area/slides_images/slide-2.jpg" alt="Slider Image 2">
+                       
+                   </div>
+                   
+                   <div class="item">
+                       
+                       <img src="admin_area/slides_images/slide-3.jpg" alt="Slider Image 3">
+                       
+                   </div>
+                   
+                   <div class="item">
+                       
+                       <img src="admin_area/slides_images/slide-4.jpg" alt="Slider Image 4">
+                       
+                   </div>
+-->
+
                    <?php 
                    $get_slides = "select * from slider LIMIT 0,1";
                    
@@ -177,7 +201,7 @@
     
     <script src="js/jquery-331.min.js"></script>
     <script src="js/bootstrap-337.min.js"></script>
-
+    
     
 </body>
 </html>
