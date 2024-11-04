@@ -57,89 +57,128 @@ include("includes/header.php");
 
                     if(!isset($_GET['cat'])){
 
-                        $per_page = 6;
+                        $per_page=6;
 
                         if(isset($_GET['page'])){
-
+                    
                             $page = $_GET['page'];
-
+                    
                         }else{
-
-                                $page = 1;
-                            
+                            $page=1;
                         }
-                        
+                    
                         $start_from = ($page-1) * $per_page;
-                             
-                        $get_productos = "SELECT * from productos order by 1 DESC LIMIT $start_from,$per_page";
-                         
-                        $run_productos = mysqli_query($con,$get_productos);
-
-                        if (!$run_productos) {
-                            echo "Error en la consulta: " . mysqli_error($con);
-                            exit();
-                        }
-                         
-                        while($row_products=mysqli_fetch_array($run_productos)){
-
-                                $pro_id = $row_products['producto_id'];
-        
-                                $pro_titulo = $row_products['producto_titulo'];
-                                
-                                $pro_precio = $row_products['producto_precio'];
-                                
-                                $pro_img1 = $row_products['producto_img1'];
-
-                                echo"
-                                    <div class= 'col-md-4 col-sm-6 center-responsive'>
-
-                                     <div class= 'product'> 
-                                         <a href= 'details.php?pro_id=$pro_id'> 
-                                        
-                                            <img class = 'img-responsive' src= 'admin_area/product_images/$pro_img1'>
-                                        
-                                         </a>
-                                        <div class= 'text'> 
-                                        
-                                            <h3>
-                                            <a href= 'details.php?pro_id= $pro_id'> $pro_titulo </a>
-
-                                            </h3>
-                                            <p class= 'precio'> 
-                                              $  $pro_precio
-                                            </p>
-
-                                            <p class = 'button'>
-                                            <a class= 'btn btn-default' href= 'details.php?pro_id= $pro_id'>
-                                            Ver detalles
-                                            </a>
-
-                                             <p class = 'button'>
-
-                                            <a class= 'btn btn-primary' href= 'details.php?pro_id= $pro_id'>
-                                            <i class = 'fa fa-shopping-cart' > </i> Añadir al carrito
-
-                                            </a>
-
-
-                                            </p>
-
-                                        
-                                        </div>
-
-
-                                      </div>
-                                        
-                                     </div>
-                                    ";
-                                
-
+                        $sLimit = " order by 1 DESC LIMIT $start_from,$per_page";
+                        
+                        $get_products = "select * from productos ";
+                        $run_products = mysqli_query($db,$get_products);
+                        while($row_products=mysqli_fetch_array($run_products)){
                             
-                        
-
+                            $pro_id = $row_products['producto_id'];
+                            
+                            $pro_title = $row_products['producto_titulo'];
+                            
+                            $pro_price = $row_products['producto_precio'];
+                    
+                            $pro_sale_price = $row_products['producto_oferta'];
+                            
+                            $pro_img1 = $row_products['producto_img1'];
+                            
+                            $pro_label = $row_products['producto_etiqueta'];
+                            
+                    
+                            if($pro_label == "sale"){
+                    
+                                $product_price = " <del> $ $pro_price </del> ";
+                    
+                                $product_sale_price = "/ $ $pro_sale_price ";
+                    
+                            }else{
+                    
+                                $product_price = "  $ $pro_price  ";
+                    
+                                $product_sale_price = "";
+                    
+                            }
+                    
+                            if($pro_label == ""){
+                    
+                            }else{
+                    
+                                $product_label = "
+                                
+                                    <a href='#' class='label $pro_label'>
+                                    
+                                        <div class='theLabel'> $pro_label </div>
+                                        <div class='labelBackground'>  </div>
+                                    
+                                    </a>
+                                
+                                ";
+                    
+                            }
+                            
+                            echo "
+                            
+                            <div class='col-md-4 col-sm-6 center-responsive'>
+                            
+                                <div class='product'>
+                                
+                                    <a href='details.php?pro_id=$pro_id'>
+                                    
+                                        <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                                    
+                                    </a>
+                                    
+                                    <div class='text'>
+                                    
+                                        <h3>
+                                
+                                            <a href='details.php?pro_id=$pro_id'>
+                    
+                                                $pro_title
+                    
+                                            </a>
+                                        
+                                        </h3>
+                                        
+                                        <p class='price'>
+                                        
+                                        $product_price &nbsp;$product_sale_price
+                                        
+                                        </p>
+                                        
+                                        <p class='button'>
+                                        
+                                            <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+                    
+                                                View Details
+                    
+                                            </a>
+                                        
+                                            <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+                    
+                                                <i class='fa fa-shopping-cart'></i> Add to Cart
+                    
+                                            </a>
+                                        
+                                        </p>
+                                    
+                                    </div>
+                    
+                                    $product_label
+                                
+                                </div>
+                            
+                            </div>
+                            
+                            ";
+                            
                         }
-                        
-                        ?>
+                    
+                    }
+                }
+                ?> 
 
                 
             </div><!-- row termino -->
@@ -177,9 +216,7 @@ include("includes/header.php");
                 <a href='tienda.php?page=".$total_pag."'>Última casilla</a>
             </li>
         ";
-         }
-             }    
-
+    
         ?>
    </ul>
     </center>

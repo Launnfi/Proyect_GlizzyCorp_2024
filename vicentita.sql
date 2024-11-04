@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2024 a las 18:38:58
+-- Tiempo de generación: 04-11-2024 a las 22:52:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -215,17 +215,19 @@ CREATE TABLE `productos` (
   `producto_img3` text NOT NULL,
   `producto_precio` int(11) NOT NULL,
   `producto_desc` text NOT NULL,
-  `producto_keywords` text NOT NULL
+  `producto_keywords` text NOT NULL,
+  `producto_etiqueta` text NOT NULL,
+  `producto_oferta` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`producto_id`, `p_cat_id`, `cat_id`, `date`, `producto_titulo`, `producto_img1`, `producto_img2`, `producto_img3`, `producto_precio`, `producto_desc`, `producto_keywords`) VALUES
-(2, 1, 0, '2024-09-17 01:29:49', 'conjunto del paris', 'images.jpeg', 'images.jpeg', 'images.jpeg', 321, 'si', 'nashe'),
-(3, 3, 0, '2024-09-22 21:45:46', 'Vestido ', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_3789a4ad.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_b206d4c8.jpg', 1000, 'Vestido de niña con puntos ', 'vest_niña'),
-(4, 4, 0, '2024-09-24 02:27:08', 'Producto prueba', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_d7e31dd9.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_fd2f8bcc.jpg', 2344, 'Descripción prueba', 'hola');
+INSERT INTO `productos` (`producto_id`, `p_cat_id`, `cat_id`, `date`, `producto_titulo`, `producto_img1`, `producto_img2`, `producto_img3`, `producto_precio`, `producto_desc`, `producto_keywords`, `producto_etiqueta`, `producto_oferta`) VALUES
+(2, 1, 0, '2024-11-04 21:05:02', 'conjunto del paris', 'images.jpeg', 'images.jpeg', 'images.jpeg', 321, 'si', 'nashe', 'sale', 0),
+(3, 3, 0, '2024-11-04 21:05:05', 'Vestido ', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_3789a4ad.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_b206d4c8.jpg', 1000, 'Vestido de niña con puntos ', 'vest_niña', 'sale', 0),
+(4, 4, 0, '2024-11-04 21:05:08', 'Producto prueba', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_d7e31dd9.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_fd2f8bcc.jpg', 2344, 'Descripción prueba', 'hola', 'sale', 0);
 
 -- --------------------------------------------------------
 

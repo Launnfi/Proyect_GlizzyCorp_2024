@@ -4,6 +4,65 @@ $active = "Comprar";
 include("includes/header.php");
 ?>
 
+<?php 
+
+if(isset($_GET['pro_id'])){
+    
+    $product_id = $_GET['pro_id'];
+    
+    $get_product = "select * from productos where producto_id='$product_id'";
+    
+    $run_product = mysqli_query($con,$get_product);
+    
+    $row_products = mysqli_fetch_array($run_product);
+    
+    $p_cat_id = $row_products['p_cat_id'];
+    
+    $pro_title = $row_products['producto_titulo'];
+    
+    $pro_price = $row_products['producto_precio'];
+
+    $pro_sale_price = $row_products['producto_oferta'];
+    
+    $pro_desc = $row_products['producto_desc'];
+    
+    $pro_img1 = $row_products['producto_img1'];
+    
+    $pro_img2 = $row_products['producto_img2'];
+    
+    $pro_img3 = $row_products['producto_img3'];
+        
+    $pro_label = $row_products['producto_etiqueta'];
+
+    if($pro_label == ""){
+
+    }else{
+
+        $product_label = "
+        
+            <a href='#' class='label $pro_label'>
+            
+                <div class='theLabel'> $pro_label </div>
+                <div class='labelBackground'>  </div>
+            
+            </a>
+        
+        ";
+
+    }
+    
+    $get_p_cat = "select * from productos_categorias where p_cat_id='$p_cat_id'";
+    
+    $run_p_cat = mysqli_query($con,$get_p_cat);
+    
+    $row_p_cat = mysqli_fetch_array($run_p_cat);
+    
+    $p_cat_title = $row_p_cat['p_cat_titulo'];
+    
+}
+
+?>
+
    <div id="content"><!-- content empeza -->
     <div class="container"><!-- container empeza -->
         <div class="col-md-12"><!-- col-md-12 empeza -->
@@ -114,6 +173,37 @@ include("includes/header.php");
                                     <!-- col-md-7 termina -->
                                 </div>
                                 <!-- form-group termina -->
+                                <?php 
+
+                                    if($pro_label == "sale"){
+
+                                        echo "
+
+                                            <p class='price'>
+
+                                            Precio: <del> $$pro_price</del><br/>
+
+                                            Oferta: $    $pro_sale_price
+
+                                            </p>
+
+                                        ";
+
+                                    }else{
+
+                                        echo "
+
+                                            <p class='price'>
+
+                                            Precio: $ $pro_price
+
+                                            </p>
+
+                                        ";
+
+                                    }
+
+                                    ?>
                                    
                                 <p class="price"><?php echo "$ $pro_price" ?></p>
                                 <p class="text-center buttons">
@@ -184,42 +274,114 @@ include("includes/header.php");
                     </div><!-- col-md-3 col-sm-6 termina -->
 
                     <?php 
-                    //Selecciona productos aleatoriamente
-                    $get_productos = "SELECT * FROM productos order by RAND() LIMIT 0,3";
-
-                    $run_productos = mysqli_query($con, $get_productos);
-
-                    while($row_productos=mysqli_fetch_array($run_productos)){
-
-                        $pro_id = $row_productos['producto_id'];
-
-                        $pro_titulo = $row_productos['producto_titulo'];
-
-                        $pro_img1 = $row_productos['producto_img1'];
-
-                        $pro_price = $row_productos['producto_precio'];
-
-                        echo "
-                        <div class = 'col-md-4 col-sm-6 center-responsive'>
-
-                            <div class ='product same-height' >
-                            
-                                <a href= 'details.php?pro_id= $pro_id '>
-                                <img class= 'img-responsive' src='admin_area/product_images/$pro_img1'>
-                                </a>
-
-                                <div class= 'text'>
-                                <h3><a href='details.php?pro_id=$pro_id'> $pro_titulo </a></h3>
-
-                                <p class ='price'> <p class='price'> "; echo "$"; echo" $pro_price </p>
-                                </div>
-
-                            </div>
-                        </div>
-                        ";
-
-
-                    }
+                   
+                   $get_products = "select * from productos order by rand() LIMIT 0,3";
+                  
+                   $run_products = mysqli_query($con,$get_products);
+                  
+                  while($row_products=mysqli_fetch_array($run_products)){
+                      
+                   $pro_id = $row_products['producto_id'];
+       
+                   $pro_title = $row_products['producto_titulo'];
+                   
+                   $pro_price = $row_products['producto_precio'];
+           
+                   $pro_sale_price = $row_products['producto_oferta'];
+                   
+                   $pro_img1 = $row_products['producto_img1'];
+                   
+                   $pro_label = $row_products['producto_etiqueta'];
+                   
+                   if($pro_label == "sale"){
+           
+                       $product_price = " <del> $ $pro_price </del> ";
+           
+                       $product_sale_price = "/ $ $pro_sale_price ";
+           
+                   }else{
+           
+                       $product_price = "  $ $pro_price  ";
+           
+                       $product_sale_price = "";
+           
+                   }
+           
+                   if($pro_label == ""){
+           
+                   }else{
+           
+                       $product_label = "
+                       
+                           <a href='#' class='label $pro_label'>
+                           
+                               <div class='theLabel'> $pro_label </div>
+                               <div class='labelBackground'>  </div>
+                           
+                           </a>
+                       
+                       ";
+           
+                   }
+                   
+                   echo "
+                   
+                   <div class='col-md-3 col-sm-6 center-responsive'>
+                   
+                       <div class='product'>
+                       
+                           <a href='details.php?pro_id=$pro_id'>
+                           
+                               <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                           
+                           </a>
+                           
+                           <div class='text'>
+                           
+                               <h3>
+                       
+                                   <a href='details.php?pro_id=$pro_id'>
+           
+                                       $pro_title
+           
+                                   </a>
+                               
+                               </h3>
+                               
+                               <p class='price'>
+                               
+                               $product_price &nbsp;$product_sale_price
+                               
+                               </p>
+                               
+                               <p class='button'>
+                               
+                                   <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+           
+                                       View Details
+           
+                                   </a>
+                               
+                                   <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+           
+                                       <i class='fa fa-shopping-cart'></i> Add to Cart
+           
+                                   </a>
+                               
+                               </p>
+                           
+                           </div>
+           
+                           $product_label
+                       
+                       </div>
+                   
+                   </div>
+                   
+                   ";
+                      
+                  }
+                  
                     
                     ?>
                    

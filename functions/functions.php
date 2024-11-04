@@ -89,10 +89,46 @@ function getPro(){
         $pro_titulo = $row_products['producto_titulo'];
         
         $pro_precio = $row_products['producto_precio'];
+
+        $pro_sale_price = $row_products['producto_oferta'];
         
         $pro_img1 = $row_products['producto_img1'];
+
+        $pro_label = $row_products['producto_etiqueta'];
+        
         
         //imprime el html para mostrar los productos en la pagina
+        if($pro_label == "sale"){
+
+            $product_price = " <del> $ $pro_precio </del> ";
+
+            $product_sale_price = "/ $ $pro_sale_price ";
+
+        }else{
+
+            $product_price = "  $ $pro_precio  ";
+
+            $product_sale_price = "";
+
+        }
+
+        if($pro_label == ""){
+
+        }else{
+
+            $product_label = "
+            
+                <a href='#' class='label $pro_label'>
+                
+                    <div class='theLabel'> $pro_label </div>
+                    <div class='labelBackground'>  </div>
+                
+                </a>
+            
+            ";
+
+        }
+        
         echo "
         
         <div class='col-md-4 col-sm-6 single'>
@@ -106,6 +142,8 @@ function getPro(){
                 </a>
                 
                 <div class='text'>
+
+
                 
                     <h3>
             
@@ -119,7 +157,7 @@ function getPro(){
                     
                     <p class='price'>
                     
-                        $ $pro_precio
+                    $product_price &nbsp;$product_sale_price
                     
                     </p>
                     
@@ -127,19 +165,21 @@ function getPro(){
                     
                         <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
 
-                            Ver detalles
+                            View Details
 
                         </a>
                     
                         <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
 
-                            <i class='fa fa-shopping-cart'></i> Añadir al carrito
+                            <i class='fa fa-shopping-cart'></i> Add to Cart
 
                         </a>
                     
                     </p>
                 
                 </div>
+
+                $product_label
             
             </div>
         
