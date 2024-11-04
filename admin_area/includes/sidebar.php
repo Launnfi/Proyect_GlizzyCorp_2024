@@ -7,9 +7,6 @@
         }else{
 
 ?>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
         
@@ -212,7 +209,7 @@
             </li>
             
             <li>
-                <a href="index.php?ver_pagos">
+                <a href="index.php?view_payments">
                     <i class="fa fa-fw fa-money"></i> Ver Pagos 
                 </a>
             </li>
