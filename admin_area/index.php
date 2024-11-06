@@ -104,7 +104,7 @@ if (!isset($_SESSION['admin_email'])) {
 
                 }
           
-                }   if(isset($_GET['ver_producto'])){
+                   if(isset($_GET['ver_producto'])){
                     
                     include("ver_producto.php");
                     
@@ -230,6 +230,24 @@ if (!isset($_SESSION['admin_email'])) {
                                 
                                 include("editar_caja.php");
                                 
+                     }
+                       if(isset($_GET['insertar_cupon'])){
+                        
+                        include("insertar_cupon.php");
+                        
+                }   if(isset($_GET['ver_cupones'])){
+                        
+                        include("ver_cupones.php");
+                        
+                }   if(isset($_GET['borrar_cupon'])){
+                        
+                        include("borrar_cupon.php");
+                        
+                }   if(isset($_GET['editar_cupon'])){
+                        
+                        include("editar_cupon.php");
+                        
+                }
                     
     
             
