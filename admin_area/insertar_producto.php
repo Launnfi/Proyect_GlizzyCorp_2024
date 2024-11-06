@@ -190,6 +190,18 @@ if(!isset($_SESSION['admin_email'])){
                       </div>
                        
                    </div>
+
+                   <div class="form-group">
+                       
+                       <label class="col-md-3 control-label"> Precio de oferta</label> 
+                       
+                       <div class="col-md-6">
+                           
+                           <input name="product_sale" type="text" class="form-control" required>
+                           
+                       </div>
+                        
+                    </div>
                    
                    <div class="form-group">
                        
@@ -214,7 +226,17 @@ if(!isset($_SESSION['admin_email'])){
                       </div>
                        
                    </div>
-                   
+                   <div class="form-group">
+                       
+                      <label class="col-md-3 control-label"> Producto etiqueta </label> 
+                      
+                      <div class="col-md-6">
+                          
+                          <input name="product_label" type="text" class="form-control">
+                          
+                      </div>
+                       
+                   </div>
                    <div class="form-group">
                        
                       <label class="col-md-3 control-label"></label> 
@@ -251,6 +273,9 @@ if(isset($_POST['submit'])){
     $producto_precio = $_POST['producto_precio'];
     $producto_keywords = $_POST['producto_keywords'];
     $producto_desc = $_POST['producto_desc'];
+    $product_sale = $_POST['product_sale'];
+    $product_label = $_POST['product_label'];
+    
     
     $producto_img1 = $_FILES['producto_img1']['name'];
     $producto_img2 = $_FILES['producto_img2']['name'];
@@ -264,7 +289,7 @@ if(isset($_POST['submit'])){
     move_uploaded_file($temp_name2,"product_images/$producto_img2");
     move_uploaded_file($temp_name3,"product_images/$producto_img3");
     
-    $insert_product = "insert into productos (p_cat_id,cat_id,date,producto_titulo,producto_img1,producto_img2,producto_img3,producto_precio,producto_keywords,producto_desc) values ('$product_cat','$cat',NOW(),'$producto_titulo','$producto_img1','$producto_img2','$producto_img3','$producto_precio','$producto_keywords','$producto_desc')";
+    $insert_product = "insert into productos (p_cat_id,cat_id,date,producto_titulo,producto_img1,producto_img2,producto_img3,producto_precio,producto_keywords,producto_desc,producto_etiqueta,producto_oferta) values ('$product_cat','$cat',NOW(),'$producto_titulo','$producto_img1','$producto_img2','$producto_img3','$producto_precio','$producto_keywords','$producto_desc','$product_label','$product_sale')";
     
     $run_product = mysqli_query($con,$insert_product);
     
