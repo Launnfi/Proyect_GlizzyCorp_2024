@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2024 a las 22:52:50
+-- Tiempo de generación: 07-11-2024 a las 00:38:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `admin_nombre` varchar(255) NOT NULL,
   `admin_email` varchar(255) NOT NULL,
-  `admin_pass` varchar(255) NOT NULL, 
+  `admin_pass` varchar(255) NOT NULL,
   `admin_img` text NOT NULL,
   `admin_ciudad` text NOT NULL,
   `admin_sobre` text NOT NULL,
@@ -61,8 +61,16 @@ CREATE TABLE `cart` (
   `p_id` int(10) NOT NULL,
   `ip_add` int(255) NOT NULL,
   `cant` int(10) NOT NULL,
-  `talle` int(100) NOT NULL
+  `p_precio` int(255) NOT NULL,
+  `talle` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `cart`
+--
+
+INSERT INTO `cart` (`p_id`, `ip_add`, `cant`, `p_precio`, `talle`) VALUES
+(4, 0, 4, 2344, 'M');
 
 -- --------------------------------------------------------
 
