@@ -37,6 +37,7 @@ if(!isset($_SESSION['admin_email'])){
                                 <th> Cat ID </th>
                                 <th> Titulo Categoria </th>
                                 <th> Desc Categoria </th>
+                                <th> Estado </th>
                                 <th> Edit Categoria </th>
                                 <th> Eliminar Categoria </th>
                             </tr><!-- tr finish -->
@@ -46,21 +47,31 @@ if(!isset($_SESSION['admin_email'])){
                             
                             <?php 
                             
-                                $i=0;
-          
+                              
+                                $i = 0;
+
                                 $get_cats = "SELECT * FROM categorias";
-          
-                                $run_cats = mysqli_query($con,$get_cats);
-          
-                                while($row_cats=mysqli_fetch_array($run_cats)){
+
+                                $run_cats = mysqli_query($con, $get_cats);
+
+                                while($row_cats = mysqli_fetch_array($run_cats)){
                                     
                                     $cat_id = $row_cats['cat_id'];
                                     
                                     $cat_titulo = $row_cats['cat_titulo'];
                                     
                                     $cat_desc = $row_cats['cat_desc'];
+
+                                    $cat_act = $row_cats['activo']; // Esta es la variable correcta
+
+                                    if($cat_act == 0){
+                                        $estado = "inactiva";
+                                    } else {
+                                        $estado = "activa";
+                                    }
                                     
                                     $i++;
+                               
                             
                             ?>
                             
@@ -68,6 +79,7 @@ if(!isset($_SESSION['admin_email'])){
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $cat_titulo; ?> </td>
                                 <td width="300"> <?php echo $cat_desc; ?> </td>
+                                <td> <?php echo $estado; ?> </td>
                                 <td> 
                                     <a href="index.php?editar_cat= <?php echo $cat_id; ?> ">
                                         <i class="fa fa-pencil"></i> Editar
