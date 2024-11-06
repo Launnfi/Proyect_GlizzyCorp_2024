@@ -1,0 +1,18 @@
+{
+    "name": "lauta/proyect_glizzy-corp_2024",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lauta\\ProyectGlizzyCorp2024\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "GlizzyCorp"
+        }
+    ],
+    "require": {
+        "mercadopago/dx-php": "^3.0"
+    }
+}

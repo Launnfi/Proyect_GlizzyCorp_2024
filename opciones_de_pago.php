@@ -29,7 +29,7 @@ include("db.php");
          
         <p class="lead"><!-- lead empieza -->
             
-            <a href="#">
+            <a href="PagoLinea.php">
                 
                 Pago por Mercado pago
                 
