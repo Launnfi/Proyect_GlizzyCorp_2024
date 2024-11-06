@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
     $user_asun = $_POST['subject'];
     $user_msg = $_POST['message'];
 
-    $res_email = "lautacamejo6@gmail.com";  // Cambia esto al email real
+    $res_email = "lautacamejo6@gmail.com";  // Cambiar esto al email real de la empresa
 
     # Cabeceras para el email a admin
     $headers = "From: " . $user_email . "\r\n" .
@@ -109,7 +109,7 @@ if (isset($_POST['submit'])) {
     $msg = "Gracias por enviarnos su mensaje, responderemos lo más pronto posible.";
 
     # Cabeceras para el email de respuesta
-    $de = "From: lautacamejo6@gmail.com ";  // Cambia esto al email real
+    $de = "From: lautacamejo6@gmail.com ";  // Cambiar esto al email real de la empresa
 
     mail($user_email, $asunto, $msg, $de);
 

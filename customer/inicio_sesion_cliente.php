@@ -64,7 +64,7 @@ if (isset($_POST['login'])) {
     $cliente_pass = $_POST['c_pass'];
     
     // Usar una consulta preparada para evitar inyección SQL
-    $stmt = $con->prepare("SELECT cliente_pass FROM customer WHERE cliente_email = ?");
+    $stmt = $con->prepare("SELECT cliente_email, activo, cliente_pass FROM customer WHERE cliente_email = ?");
     $stmt->bind_param("s", $cliente_email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -89,7 +89,10 @@ if (isset($_POST['login'])) {
     if ($check_customer == 1) {
         $row = $result->fetch_assoc();
         $hashed_pass = $row['cliente_pass'];
-        
+        if($row['is_active'] == 0){
+            echo "<script>alert('Tu cuenta está desactivada. No puedes iniciar sesión.')</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
+        } else {
         // Verificar la contraseña
         if (password_verify($cliente_pass, $hashed_pass)) {
             $_SESSION['cliente_email'] = $cliente_email;
@@ -106,6 +109,7 @@ if (isset($_POST['login'])) {
             echo "<script>alert('El correo o la contraseña son incorrectos')</script>";
             exit();
         }
+    }
     }
     
     // Cerrar las declaraciones

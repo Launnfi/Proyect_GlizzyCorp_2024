@@ -123,61 +123,6 @@ include("includes/header.php");
 
 <?php 
 
-/*if(isset($_POST['register'])){
-    
-    $c_nombre = $_POST['c_nombre'];
-    
-    $c_email = $_POST['c_email'];
-    
-    $c_pass = md5($_POST['c_pass']); #md5 encripta la contraseña
-    
-    $c_ciudad = $_POST['c_ciudad'];
-    
-    $c_contacto = $_POST['c_contacto'];
-    
-    $c_direccion = $_POST['c_direccion'];
-    
-    $c_img = $_FILES['c_img']['name'];
-    
-    $c_img_tmp = $_FILES['c_img']['tmp_name'];
-    
-    $c_ip = getRealIpUser();
-    
-    move_uploaded_file($c_img_tmp,"customer/customer_images/$c_img");
-    
-    $insert_customer = "insert into customer (cliente_nombre,cliente_email,cliente_pass,cliente_ciudad,cliente_contacto,cliente_direccion,cliente_img,cliente_ip) values ('$c_nombre','$c_email','$c_pass','$c_ciudad','$c_contacto','$c_direccion','$c_img','$c_ip')";
-    
-    $run_customer = mysqli_query($con,$insert_customer);
-    
-    $sel_cart = "select * from cart where ip_add='$c_ip'";
-    
-    $run_cart = mysqli_query($con,$sel_cart);
-    
-    $check_cart = mysqli_num_rows($run_cart);
-    
-    if($check_cart>0){
-        
-        /// registra con items en el carrito ///
-        
-        $_SESSION['cliente_email']=$c_email;
-        
-        echo "<script>alert('Has sido registrado correctamente')</script>";
-        
-        echo "<script>window.open('index.php','_self')</script>";
-        
-    }else{
-        
-        /// Registrar sin items en el carrito ///
-        
-        $_SESSION['cliente_email']=$c_email;
-        
-        echo "<script>alert('Has sido registrado correctamente')</script>";
-        
-        echo "<script>window.open('index.php','_self')</script>";
-        
-    }
-    
-}*/
 if (isset($_POST['register'])) {
     
     $c_nombre = $_POST['c_nombre'];
@@ -196,30 +141,62 @@ if (isset($_POST['register'])) {
     // Hashear la contraseña
     $hashed_pass = password_hash($c_pass, PASSWORD_DEFAULT);
 
-    // Usar una consulta preparada para evitar inyección SQL
-    $stmt = $con->prepare("INSERT INTO customer (cliente_nombre, cliente_email, cliente_pass, cliente_ciudad, cliente_contacto, cliente_direccion, cliente_img, cliente_ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $c_nombre, $c_email, $hashed_pass, $c_ciudad, $c_contacto, $c_direccion, $c_img, $c_ip);
-    
-    // Ejecutar la consulta
-    if ($stmt->execute()) {
-        // Verificar si hay artículos en el carrito
-        $sel_cart = "SELECT * FROM cart WHERE ip_add = ?";
-        $stmt_cart = $con->prepare($sel_cart);
-        $stmt_cart->bind_param("s", $c_ip);
-        $stmt_cart->execute();
-        $run_cart = $stmt_cart->get_result();
-        $check_cart = $run_cart->num_rows;
+    // Verificar si el correo electrónico ya está registrado
+    $check_email_query = "SELECT * FROM customer WHERE cliente_email = ?";
+    $stmt_check_email = $con->prepare($check_email_query);
+    $stmt_check_email->bind_param("s", $c_email);
+    $stmt_check_email->execute();
+    $result_check_email = $stmt_check_email->get_result();
 
-        $_SESSION['cliente_email'] = $c_email;
-        echo "<script>alert('Has sido registrado correctamente')</script>";
-        echo "<script>window.open('index.php','_self')</script>";
+    if ($result_check_email->num_rows > 0) {
+        // Si el usuario ya existe y está inactivo, reactivar la cuenta
+        $row = $result_check_email->fetch_assoc();
+
+        if ($row['activo'] == 0) {
+            // La cuenta está inactiva, así que la reactivamos
+            $update_status_query = "UPDATE customer SET activo = 1, cliente_pass = ? WHERE cliente_email = ?";
+            $stmt_update = $con->prepare($update_status_query);
+            $stmt_update->bind_param("ss", $hashed_pass, $c_email);
+
+            if ($stmt_update->execute()) {
+                $_SESSION['cliente_email'] = $c_email;
+                echo "<script>alert('Tu cuenta ha sido reactivada. Ahora puedes iniciar sesión.')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            } else {
+                echo "<script>alert('Hubo un error al reactivar tu cuenta.')</script>";
+            }
+            $stmt_update->close();
+        } else {
+            // Si la cuenta ya está activa
+            echo "<script>alert('El correo electrónico ya está registrado y activo. Por favor, inicia sesión.')</script>";
+            echo "<script>window.open('login.php','_self')</script>";
+        }
     } else {
-        echo "<script>alert('Error en el registro. Intenta nuevamente.')</script>";
+        // Si el usuario no existe, se registra uno nuevo
+        $stmt = $con->prepare("INSERT INTO customer (cliente_nombre, cliente_email, cliente_pass, cliente_ciudad, cliente_contacto, cliente_direccion, cliente_img, cliente_ip, activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)");
+        $stmt->bind_param("ssssssss", $c_nombre, $c_email, $hashed_pass, $c_ciudad, $c_contacto, $c_direccion, $c_img, $c_ip);
+        
+        if ($stmt->execute()) {
+            // Verificar si hay artículos en el carrito
+            $sel_cart = "SELECT * FROM cart WHERE ip_add = ?";
+            $stmt_cart = $con->prepare($sel_cart);
+            $stmt_cart->bind_param("s", $c_ip);
+            $stmt_cart->execute();
+            $run_cart = $stmt_cart->get_result();
+            $check_cart = $run_cart->num_rows;
+
+            $_SESSION['cliente_email'] = $c_email;
+            echo "<script>alert('Has sido registrado correctamente. Tu cuenta está activa.')</script>";
+            echo "<script>window.open('index.php','_self')</script>";
+        } else {
+            echo "<script>alert('Error en el registro. Intenta nuevamente.')</script>";
+        }
+
+        // Cerrar las declaraciones
+        $stmt->close();
+        $stmt_cart->close();
     }
 
-    // Cerrar las declaraciones
-    $stmt->close();
-    $stmt_cart->close();
+    $stmt_check_email->close();
 }
-
 ?>
