@@ -89,7 +89,7 @@ if (isset($_POST['login'])) {
     if ($check_customer == 1) {
         $row = $result->fetch_assoc();
         $hashed_pass = $row['cliente_pass'];
-        if($row['is_active'] == 0){
+        if($row['activo'] == 0){
             echo "<script>alert('Tu cuenta está desactivada. No puedes iniciar sesión.')</script>";
             echo "<script>window.open('index.php', '_self')</script>";
         } else {
