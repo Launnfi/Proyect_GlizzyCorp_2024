@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `admin_nombre` varchar(255) NOT NULL,
   `admin_email` varchar(255) NOT NULL,
-  `admin_pass` varchar(255) NOT NULL,
+  `admin_pass` varchar(255) NOT NULL, 
   `admin_img` text NOT NULL,
   `admin_ciudad` text NOT NULL,
   `admin_sobre` text NOT NULL,
@@ -63,15 +63,6 @@ CREATE TABLE `cart` (
   `cant` int(10) NOT NULL,
   `talle` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `cart`
---
-
-INSERT INTO `cart` (`p_id`, `ip_add`, `cant`, `talle`) VALUES
-(3, 0, 1, 0),
-(4, 0, 1, 0),
-(2, 0, 1, 0);
 
 -- --------------------------------------------------------
 

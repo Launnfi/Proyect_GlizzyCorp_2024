@@ -31,9 +31,9 @@ include("db.php");
             
             <a href="#">
                 
-                Pago por paypall
+                Pago por Mercado pago
                 
-                <img class="img-responsive" src="images/GlizzyLogoglizzy_logo.png" alt="img-paypall">
+                <img class="img-responsive" src="images/mercadopago.png" alt="img-paypall">
                 
             </a>
             

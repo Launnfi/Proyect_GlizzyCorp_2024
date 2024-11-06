@@ -123,7 +123,7 @@ include("includes/header.php");
 
 <?php 
 
-if(isset($_POST['register'])){
+/*if(isset($_POST['register'])){
     
     $c_nombre = $_POST['c_nombre'];
     
@@ -177,6 +177,49 @@ if(isset($_POST['register'])){
         
     }
     
+}*/
+if (isset($_POST['register'])) {
+    
+    $c_nombre = $_POST['c_nombre'];
+    $c_email = $_POST['c_email'];
+    $c_pass = $_POST['c_pass'];
+    $c_ciudad = $_POST['c_ciudad'];
+    $c_contacto = $_POST['c_contacto'];
+    $c_direccion = $_POST['c_direccion'];
+    $c_img = $_FILES['c_img']['name'];
+    $c_img_tmp = $_FILES['c_img']['tmp_name'];
+    $c_ip = getRealIpUser();
+    
+    // Mover la imagen a la carpeta deseada
+    move_uploaded_file($c_img_tmp, "customer/customer_images/$c_img");
+
+    // Hashear la contraseña
+    $hashed_pass = password_hash($c_pass, PASSWORD_DEFAULT);
+
+    // Usar una consulta preparada para evitar inyección SQL
+    $stmt = $con->prepare("INSERT INTO customer (cliente_nombre, cliente_email, cliente_pass, cliente_ciudad, cliente_contacto, cliente_direccion, cliente_img, cliente_ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $c_nombre, $c_email, $hashed_pass, $c_ciudad, $c_contacto, $c_direccion, $c_img, $c_ip);
+    
+    // Ejecutar la consulta
+    if ($stmt->execute()) {
+        // Verificar si hay artículos en el carrito
+        $sel_cart = "SELECT * FROM cart WHERE ip_add = ?";
+        $stmt_cart = $con->prepare($sel_cart);
+        $stmt_cart->bind_param("s", $c_ip);
+        $stmt_cart->execute();
+        $run_cart = $stmt_cart->get_result();
+        $check_cart = $run_cart->num_rows;
+
+        $_SESSION['cliente_email'] = $c_email;
+        echo "<script>alert('Has sido registrado correctamente')</script>";
+        echo "<script>window.open('index.php','_self')</script>";
+    } else {
+        echo "<script>alert('Error en el registro. Intenta nuevamente.')</script>";
+    }
+
+    // Cerrar las declaraciones
+    $stmt->close();
+    $stmt_cart->close();
 }
 
 ?>

@@ -117,7 +117,44 @@ if(!isset($_SESSION['cliente_email'])){
         <div class="col-md-3">
             <?php include("includes/sidebar.php"); ?>
         </div>
+<?php 
+ 
+ $clente_sesion = $_SESSION['cliente_email'];
 
+ $get_cliente = "SELECT * FROM customer WHERE cliente_email = '$clente_sesion'";
+
+ $run_cliente = mysqli_query($con, $get_cliente);
+
+ $row_cliente = mysqli_fetch_array($run_cliente);
+
+ $cliente_id = $row_cliente['cliente_id'];
+
+ $get_orden = "SELECT * from ordenes_cliente WHERE cliente_id = '$cliente_id'";
+
+ $run_orden = mysqli_query($con, $get_orden);
+
+ $i = 0;
+
+ while($row_orden = mysqli_fetch_array($run_orden)){
+
+     $orden_id = $row_orden['orden_id'];
+
+     $monto = $row_orden['monto'];
+
+     $numero_orden = $row_orden['numero_orden'];
+
+     $cant = $row_orden['cant'];
+
+     $talla = $row_orden['tamaño'];
+
+     $estado = $row_orden['status'];
+
+     $fecha_orden = substr($row_orden['fecha_orden'],0,11);
+
+     $i++;
+ }
+
+?>
         <div class="col-md-9">
             <div class="box">
                 <h1 align="center">Por favor confirmar su pago</h1>
@@ -125,12 +162,12 @@ if(!isset($_SESSION['cliente_email'])){
                 <form action="confirmar.php?orden_id=<?php echo $orden_id; ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                         <label>N° de orden:</label>
-                        <input type="text" class="form-control" name="Num_orden" required>
+                        <input type="text" class="form-control" name="Num_orden" required placeholder="<?php echo $numero_orden;  ?>">
                     </div>
                           
                     <div class="form-group">
                         <label>Cantidad a pagar:</label>
-                        <input type="text" class="form-control" name="cantidadEnv" required>
+                        <input type="text" class="form-control" name="cantidadEnv" required placeholder="<?php echo $monto;  ?>">
                     </div>
                     
                     <div class="form-group">
@@ -192,13 +229,49 @@ if(!isset($_SESSION['cliente_email'])){
                     if (!$run_pending_order) {
                         die('Error al actualizar la orden pendiente: ' . mysqli_error($con));
                     }
-                    
-                    echo "<script>alert('Gracias por tu compra, su pedido llegara en 3-4 dias habiles')</script>";
-                    echo "<script>window.open('my_account.php?misOrdenes','_self')</script>";
-                }
+                        // Obtener el cliente_id desde la tabla ordenes_cliente
+                        $query_cliente_id = "SELECT cliente_id FROM ordenes_cliente WHERE orden_id = '$orden_id'";
+                        $result_cliente_id = mysqli_query($con, $query_cliente_id);
+                        if ($result_cliente_id) {
+                            $cliente_data_id = mysqli_fetch_assoc($result_cliente_id);
+                            $cliente_id = $cliente_data_id['cliente_id'];
+                        } else {
+                            die('Error al obtener el cliente_id: ' . mysqli_error($con));
+                        }
 
-                   
-                ?>
+                        // Obtener los datos del cliente desde la tabla customers
+                        $query_cliente = "SELECT cliente_nombre, cliente_email FROM customer WHERE cliente_id = '$cliente_id'";
+                        $result_cliente = mysqli_query($con, $query_cliente);
+                        if ($result_cliente) {
+                            $cliente_data = mysqli_fetch_assoc($result_cliente);
+                            $nombre_cliente = $cliente_data['cliente_nombre'];
+                            $email_cliente = $cliente_data['cliente_email'];
+                        } else {
+                            die('Error al obtener los datos del cliente: ' . mysqli_error($con));
+                        }
+
+                        // Enviar correo al cliente
+                        $boleta = "Número de orden: $numero_fact\nCantidad: $cantidad\nMétodo de pago: $metodo_pago\nReferencia: $ref_no\nFecha: $fecha_pago";
+
+                        $asunto_cliente = "Confirmación de compra";
+                        $mensaje_cliente = "Hola $nombre_cliente,\n\nGracias por tu compra. Aquí están los detalles de tu boleta:\n$boleta\n\n Ahora puedes pasar a levantar su compra.Saludos!";
+                        $headers_cliente = "From: no-reply-vicenta@gmail.com\r\n";
+
+                        // Enviar correo al cliente
+                        mail($email_cliente, $asunto_cliente, $mensaje_cliente, $headers_cliente);
+
+                        // Enviar correo al vendedor
+                        $email_vendedor = "vicentita@gmail.com"; // Dirección de correo del vendedor
+                        $asunto_vendedor = "Nueva compra realizada";
+                        $mensaje_vendedor = "Se ha realizado una nueva compra.\n\nDetalles de la compra:\nNúmero de orden: $numero_fact\nCliente: $nombre_cliente\nCantidad: $cantidad\nMétodo de pago: $metodo_pago\nReferencia: $ref_no\nFecha: $fecha_pago";
+
+                        // Enviar correo al vendedor
+                         mail($email_vendedor, $asunto_vendedor, $mensaje_vendedor, $headers_cliente);
+
+                            echo "<script>alert('Gracias por tu compra, su pedido llegará en 3-4 días hábiles.')</script>";
+                            echo "<script>window.open('my_account.php?misOrdenes','_self')</script>";
+                        }
+?>
             </div>
         </div>
     </div>
