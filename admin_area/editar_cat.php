@@ -115,7 +115,7 @@
               
               $cat_desc = $_POST['cat_desc'];
               
-              $update_cat = "UPDATE categorias SET cat_titulo='$cat_titulo',cat_desc='$cat_desc' where cat_id='$cat_id'";
+              $update_cat = "UPDATE categorias SET cat_titulo='$cat_titulo',cat_desc='$cat_desc', activo= 1 where cat_id='$cat_id'";
               
               $run_cat = mysqli_query($con,$update_cat);
               

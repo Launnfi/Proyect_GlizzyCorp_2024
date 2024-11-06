@@ -10,23 +10,23 @@
 
 <?php 
 
-    if(isset($_GET['borrar_cat'])){
+if(isset($_GET['borrar_cat'])){
+    
+    $borrar_cat_id = $_GET['borrar_cat'];
+    
+    // Cambia el estado a inactivo en lugar de eliminar
+    $inactivar_cat = "UPDATE categorias SET activo = 0 WHERE cat_id='$borrar_cat_id'";
+    
+    $run_inactivar = mysqli_query($con, $inactivar_cat);
+    
+    if($run_inactivar){
         
-        $borrar_cat_id = $_GET['borrar_cat'];
+        echo "<script>alert('Categoría marcada como inactiva exitosamente')</script>";
         
-        $borrar_cat = "DELETE FROM categorias WHERE cat_id='$borrar_cat_id'";
-        
-        $run_borrar = mysqli_query($con,$borrar_cat);
-        
-        if($run_borrar){
-            
-            echo "<script>alert('Categoria eliminada con exito')</script>";
-            
-            echo "<script>window.open('index.php?ver_cat','_self')</script>";
-            
-        }
+        echo "<script>window.open('index.php?ver_cat','_self')</script>";
         
     }
+}
 
 ?>
 

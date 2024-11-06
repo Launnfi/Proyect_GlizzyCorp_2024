@@ -88,26 +88,36 @@ if (!isset($_SESSION['admin_email'])) {
     </div>
 </div>
 <?php  
-
-          if(isset($_POST['submit'])){
-              
-              $cat_titulo = $_POST['cat_titulo'];
-              
-              $cat_desc = $_POST['cat_desc'];
-              
-              $insert_cat = "INSERT INTO categorias (cat_titulo,cat_desc) VALUES ('$cat_titulo','$cat_desc')";
-              
-              $run_cat = mysqli_query($con,$insert_cat);
-              
-              if($run_cat){
-                  
-                  echo "<script>alert('Nueva categoria añadiada con exito')</script>";
-                  
-                  echo "<script>window.open('index.php?ver_cat','_self')</script>";
-                  
-              }
-              
-          }
+if(isset($_POST['submit'])){
+    
+    $cat_titulo = $_POST['cat_titulo'];
+    $cat_desc = $_POST['cat_desc'];
+    
+    // Verifica si ya existe una categoría con el mismo título
+    $verificar_cat = "SELECT * FROM categorias WHERE cat_titulo = '$cat_titulo'";
+    $run_verificar = mysqli_query($con, $verificar_cat);
+    
+    if(mysqli_num_rows($run_verificar) > 0) {
+        // Si la categoría ya existe, la reactivamos
+        $reactivar_cat = "UPDATE categorias SET activo = 1 WHERE cat_titulo = '$cat_titulo'";
+        $run_reactivar = mysqli_query($con, $reactivar_cat);
+        
+        if($run_reactivar){
+            echo "<script>alert('Categoría existente reactivada exitosamente')</script>";
+        }
+        
+    } else {
+        // Si no existe, la insertamos como nueva
+        $insert_cat = "INSERT INTO categorias (cat_titulo, cat_desc, activo) VALUES ('$cat_titulo', '$cat_desc', 1)";
+        $run_cat = mysqli_query($con, $insert_cat);
+        
+        if($run_cat){
+            echo "<script>alert('Nueva categoría añadida con éxito')</script>";
+        }
+    }
+    
+    echo "<script>window.open('index.php?ver_cat','_self')</script>";
+}
         }
 
 ?>
