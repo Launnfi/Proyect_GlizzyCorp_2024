@@ -53,21 +53,40 @@ function add_cart(){
             echo "<script>alert('Este producto ya ha sido añadido al carrito');</script>";
             echo "<script>window.open('details.php?pro_id=$p_id','_self');</script>";
         } else {
-            //Si el producto no esta en el carrito se ejecuta la siguiente consulta
-            $query = "INSERT INTO cart (p_id, ip_add, cant, talle) VALUES ('$p_id', '$ip_add', '$cant', '$talle')";
-            // Ejecutamos la consulta de inserción
-            $run_query = mysqli_query($db, $query);
+            $get_price ="select * from productos where producto_id='$p_id'";
 
-            //si la consulta se ejecuta correctamente 
-            if ($run_query) {
-                echo "<script>alert('Producto añadido al carrito');</script>";
-                echo "<script>window.open('details.php?pro_id=$p_id','_self');</script>";
-            } else {
-                echo "Error al añadir el producto: " . mysqli_error($db);
+            $run_price = mysqli_query($db,$get_price);
+
+            $row_price = mysqli_fetch_array($run_price);
+
+            $pro_price = $row_price['producto_precio'];
+
+            $pro_sale = $row_price['producto_oferta'];
+
+            $pro_label = $row_price['product_etiqueta'];
+
+            if($pro_label == "sale"){
+
+                $product_price = $pro_sale;
+
+            }else{
+
+                $product_price = $pro_price;
+
             }
+            
+            $query = "insert into cart (p_id,ip_add,cant,p_precio,talle) values ('$p_id','$ip_add','$cant','$product_price','$talle')";
+            
+            $run_query = mysqli_query($db,$query);
+            
+            echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
+            
         }
+        
     }
+    
 }
+
 //Funcion que obtiene y muestra los productos en la tabla "productos"
 function getPro(){
     
