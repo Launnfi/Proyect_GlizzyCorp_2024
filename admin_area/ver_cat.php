@@ -38,8 +38,8 @@ if(!isset($_SESSION['admin_email'])){
                                 <th> Titulo Categoria </th>
                                 <th> Desc Categoria </th>
                                 <th> Estado </th>
-                                <th> Edit Categoria </th>
-                                <th> Eliminar Categoria </th>
+                                <th> Editar Categoria </th>
+                                <th> Activar/Desactivar</th>
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         
@@ -87,7 +87,7 @@ if(!isset($_SESSION['admin_email'])){
                                 </td>
                                 <td> 
                                     <a href="index.php?borrar_cat= <?php echo $cat_id; ?> ">
-                                        <i class="fa fa-trash"></i> Eliminar
+                                        <i class="fa fa-trash"></i> Activar/Desactivar
                                     </a>
                                 </td>
                             </tr><!-- tr finish -->

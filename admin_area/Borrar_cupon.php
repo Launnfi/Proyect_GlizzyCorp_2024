@@ -10,25 +10,40 @@
 
 <?php 
 
-    if(isset($_GET['delete_coupon'])){
+    if(isset($_GET['borrar_cupon'])){
         
-        $delete_coupon_id = $_GET['delete_coupon'];
-        
-        $delete_coupon = "delete from cupon where cupon_id='$delete_coupon_id'";
-        
-        $run_delete = mysqli_query($con,$delete_coupon);
-        
-        if($run_delete){
-            
-            echo "<script>alert('Uno de los cupones ha sido borrado')</script>";
-            
-            echo "<script>window.open('index.php?ver_cupones','_self')</script>";
-            
+        $cupon_id = $_GET['borrar_cupon'];
+
+        $check_status = "SELECT activo FROM cupon WHERE cupon_id = '$cupon_id'";
+        $run_check = mysqli_query($con, $check_status);
+        $row_check = mysqli_fetch_array($run_check);
+
+        if($row_check['activo'] == 1){
+            $update_status = "UPDATE cupon SET activo = 0 WHERE cupon_id = '$cupon_id'";
+            $run_update = mysqli_query($con, $update_status);
+
+            if($run_update){
+                echo "<script>alert('Cupón desactivado correctamente')</script>";
+            } else {
+                echo "<script>alert('Error al desactivar el cupón')</script>";
+            }
+        } else {
+            $update_status = "UPDATE cupon SET activo = 1 WHERE cupon_id = '$cupon_id'";
+            $run_update = mysqli_query($con, $update_status);
+
+            if($run_update){
+                echo "<script>alert('Cupón activado correctamente')</script>";
+            } else {
+                echo "<script>alert('Error al activar el cupón')</script>";
+            }
         }
-        
+
+        // Redirigir de nuevo a la lista de cupones
+        echo "<script>window.open('index.php?ver_cupones','_self')</script>";
     }
 
 ?>
+
 
 
 

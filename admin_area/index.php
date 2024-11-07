@@ -220,7 +220,7 @@ if (!isset($_SESSION['admin_email'])) {
                                 
                         }   if(isset($_GET['ver_cajas'])){
                                 
-                                include("ver_caja.php");
+                                include("ver_cajas.php");
                                 
                         }   if(isset($_GET['borrar_caja'])){
                                 

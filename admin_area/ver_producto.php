@@ -44,6 +44,7 @@
                                 <th> Producto vendido: </th>
                                 <th> Producto palabras clave: </th>
                                 <th> Producto fecha: </th>
+                                <th> Producto estado: </th>
                                 <th> Producto borrar: </th>
                                 <th> Producto Editar: </th>
                             </tr><!-- tr finish -->
@@ -72,6 +73,15 @@
                                     $pro_keywords = $row_pro['producto_keywords'];
                                     
                                     $pro_date = $row_pro['date'];
+
+                                    $pro_est = $row_pro['activo'];
+
+                                    if($pro_est == 0){
+                                        $estado = "inactivo";
+
+                                    }else{
+                                        $estado = "activo";
+                                    }
                                     
                                     $i++;
                             
@@ -96,11 +106,12 @@
                                 </td>
                                 <td> <?php echo $pro_keywords; ?> </td>
                                 <td> <?php echo $pro_date ?> </td>
+                                <td> <?php echo $estado ?> </td>
                                 <td> 
                                      
                                      <a href="index.php?borrar_producto=<?php echo $pro_id; ?>">
                                      
-                                        <i class="fa fa-trash-o"></i> Borrar
+                                        <i class="fa fa-trash-o"></i> Borrar/activar
                                     
                                      </a> 
                                      

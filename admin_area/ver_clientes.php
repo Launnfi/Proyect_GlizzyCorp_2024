@@ -74,6 +74,15 @@
                                     
                                     $c_contact = $row_c['cliente_contacto'];
                                     
+                                    $c_estado = $row_c['activo'];
+
+                                    if($c_estado == 0){
+                                        $estado = "Inactivo";
+
+                                    }else{
+                                        $estado = "Activo";
+                                    }
+                                    
                                     $i++;
                             
                             ?>
@@ -86,6 +95,7 @@
                                 <td> <?php echo $c_city; ?> </td>
                                 <td> <?php echo $c_address ?> </td>
                                 <td> <?php echo $c_contact ?> </td>
+                                <td> <?php echo $estado ?> </td>
                                 <td> 
                                      
                                      <a href="index.php?borrar_cliente=<?php echo $c_id; ?>">

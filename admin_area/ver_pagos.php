@@ -73,12 +73,7 @@
                                     $fecha_pago = $row_pagos['fecha_pago'];
                                 }
                                     ?>
-                                <th> numero de factura: </th>
-                                <th> cantidad pagada: </th>
-                                <th> metodo: </th>
-                                <th> numero de referencia: </th>
-                                <th> fecha de pago: </th>
-                                <th> Borrar pago: </th>
+                    
                             </tr><!-- tr finish -->
                         </thead><!-- thead finish -->
                         

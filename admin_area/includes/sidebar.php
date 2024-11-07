@@ -189,10 +189,28 @@
                 
                 <ul id="boxes" class="collapse">
                     <li>
-                        <a href="index.php?insert_box"> Insertar cajas de texto </a>
+                        <a href="index.php?insertar_caja"> Insertar cajas de texto </a>
                     </li>
                     <li>
-                        <a href="index.php?view_boxes"> Ver Cajas </a>
+                        <a href="index.php?ver_cajas"> Ver Cajas </a>
+                    </li>
+                </ul>
+                
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#cupones">
+                        
+                <i class="fa fa-tags" aria-hidden="true"></i> cupones
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
+                </a>
+                
+                <ul id="cupones" class="collapse">
+                    <li>
+                        <a href="index.php?insertar_cupon"> Insertar cupones </a>
+                    </li>
+                    <li>
+                        <a href="index.php?ver_cupones"> Ver cupones </a>
                     </li>
                 </ul>
                 

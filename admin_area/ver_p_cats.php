@@ -31,9 +31,10 @@ if(!isset($_SESSION['admin_email'])){
                             <tr>
                                 <th> Producto Categoría ID </th>
                                 <th> Título Producto Categoría </th>
-                                <th> Descripción Producto Categoría </th>
+                                <th> Descripción  </th>
+                                <th> Estado</th>
                                 <th> Editar Producto Categoría </th>
-                                <th> Eliminar Producto Categoría </th>
+                                <th> desactivar/activar  </th>
                             </tr>
                         </thead>
                         
@@ -46,12 +47,21 @@ if(!isset($_SESSION['admin_email'])){
                                     $p_cat_id = $row_p_cats['p_cat_id'];
                                     $p_cat_title = $row_p_cats['p_cat_titulo'];
                                     $p_cat_desc = $row_p_cats['p_cat_desc'];
+                                    $p_cat_est = $row_p_cats['activo'];
+                                    if($p_cat_est == 0){
+                                        $estado = "inactiva";
+
+                                    }else{
+                                        $estado="activa";
+
+                                    }
                                     $i++;
                             ?>
                             <tr>
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $p_cat_title; ?> </td>
                                 <td width="300"> <?php echo $p_cat_desc; ?> </td>
+                                <td width="300"> <?php echo $estado; ?> </td>
                                 <td> 
                                     <a href="index.php?editar_p_cat=<?php echo $p_cat_id; ?>">
                                         <i class="fa fa-pencil"></i> Editar
@@ -59,7 +69,7 @@ if(!isset($_SESSION['admin_email'])){
                                 </td>
                                 <td> 
                                     <a href="index.php?eliminar_p_cat=<?php echo $p_cat_id; ?>">
-                                        <i class="fa fa-trash"></i> Eliminar
+                                        <i class="fa fa-trash"></i> Activar/Desactivar
                                     </a>                   
                                 </td>
                             </tr>
