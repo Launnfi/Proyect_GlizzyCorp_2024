@@ -200,7 +200,7 @@
             <li>
                 <a href="#" data-toggle="collapse" data-target="#cupones">
                         
-                        <i class="fa fa-fw fa-dropbox"></i> cupones
+                <i class="fa fa-tags" aria-hidden="true"></i> cupones
                         <i class="fa fa-fw fa-caret-down"></i>
                         
                 </a>

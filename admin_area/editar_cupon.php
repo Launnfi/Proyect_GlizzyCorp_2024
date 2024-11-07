@@ -10,14 +10,14 @@
 
 <?php 
 
-if(isset($_GET['edit_coupon'])){
+if(isset($_GET['editar_cupon'])){
 
-    $edit_id = $_GET['edit_coupon'];
-    $edit_coupon = "select * from coupons where coupon_id='$edit_id'";
+    $edit_id = $_GET['editar_cupon'];
+    $edit_coupon = "select * from cupon where cupon_id='$edit_id'";
     $run_edit_coupon = mysqli_query($con,$edit_coupon);
     $row_edit_coupon = mysqli_fetch_array($run_edit_coupon);
 
-    $coup_id = $row_edit_coupon['coupon_id'];
+    $coup_id = $row_edit_coupon['cupon_id'];
     $coup_title = $row_edit_coupon['cupon_titulo'];
     $coup_price = $row_edit_coupon['cupon_precio'];
     $coup_code = $row_edit_coupon['cupon_codigo'];
@@ -25,7 +25,7 @@ if(isset($_GET['edit_coupon'])){
     $coup_used = $row_edit_coupon['cupon_usado'];
     $prod_id = $row_edit_coupon['producto_id'];
 
-    $get_products = "select * from products where producto_id='$prod_id'";
+    $get_products = "select * from productos where producto_id='$prod_id'";
     $run_products = mysqli_query($con,$get_products);
     $row_products = mysqli_fetch_array($run_products);
 

@@ -63,7 +63,7 @@ function add_cart(){
 
             $pro_sale = $row_price['producto_oferta'];
 
-            $pro_label = $row_price['product_etiqueta'];
+            $pro_label = $row_price['producto_etiqueta'];
 
             if($pro_label == "sale"){
 

@@ -18,7 +18,6 @@
             $activo = $row['activo'];
             
             if($activo == 0) {
-                // Si está desactivado, lo activamos
                 $update_status = "UPDATE productos SET activo = 1 WHERE producto_id = '$delete_id'";
                 $run_update = mysqli_query($con, $update_status);
 
@@ -28,7 +27,6 @@
                     echo "<script>alert('Error al activar el producto')</script>";
                 }
             } else {
-                // Si ya está activo, lo desactivamos
                 $inactivar_pro = "UPDATE productos SET activo = 0 WHERE producto_id = '$delete_id'";
                 $run_inactivar = mysqli_query($con, $inactivar_pro);
                 
@@ -40,7 +38,6 @@
             }
         }
         
-        // Redirigimos después de la operación
         echo "<script>window.open('index.php?ver_producto','_self')</script>";
     }
 ?>

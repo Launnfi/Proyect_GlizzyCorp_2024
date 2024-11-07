@@ -44,6 +44,7 @@
                                 <th> Codigo: </th>
                                 <th> Limite: </th>
                                 <th> Usado: </th>
+                                <th> Estado: </th>
                                 <th> Editar: </th>
                                 <th> Borrar: </th>
                             </tr><!-- tr finish -->
@@ -66,13 +67,20 @@
                             $cupon_codigo = $row_coupons['cupon_codigo'];
                             $cupon_limite = $row_coupons['cupon_limite'];
                             $cupon_usado = $row_coupons['cupon_usado'];
+                            $cupon_estado = $row_coupons['activo'];
+
+                            if($cupon_estado == 0){
+                                $estado = "Inactivo";
+                            }else {
+                                $estado = "activo";
+                            }
 
                             $get_products = "select * from productos where producto_id='$coupon_pro_id'";
 
                             $run_products = mysqli_query($con,$get_products);
                             $row_products = mysqli_fetch_array($run_products);
 
-                            $product_title = $row_products['product_title'];
+                            $product_title = $row_products['producto_titulo'];
 
                             $i++;
 
@@ -87,6 +95,7 @@
                             <td><?php echo $cupon_codigo; ?></td>
                             <td><?php echo $cupon_limite; ?></td>
                             <td><?php echo $cupon_usado; ?></td>
+                            <td><?php echo $estado; ?></td>
                             <td>
                             
                                 <a href="index.php?editar_cupon=<?php echo $coupon_id ?>">

@@ -61,7 +61,7 @@
                       
                       <div class="col-md-6"><!-- col-md-6 Begin -->
                           
-                          <input name="cupón_titulo" type="text" class="form-control" required>
+                          <input name="cupon_titulo" type="text" class="form-control" required>
                           
                       </div><!-- col-md-6 Finish -->
                        
@@ -161,7 +161,7 @@
 
 if(isset($_POST['submit'])){
 
-    $cupón_titulo = $_POST['cupón_titulo'];
+    $cupon_titulo = $_POST['cupon_titulo'];
     $cupon_precio = $_POST['cupon_precio'];
     $cupon_codigo = $_POST['cupon_codigo'];
     $cupon_limite = $_POST['cupon_limite'];
@@ -169,7 +169,7 @@ if(isset($_POST['submit'])){
 
     $cupon_usado=0;
 
-    $get_coupons = "select * from coupons where producto_id='$coupon_pro_id' or cupon_codigo='$cupon_codigo'";
+    $get_coupons = "select * from cupon where producto_id='$coupon_pro_id' or cupon_codigo='$cupon_codigo'";
     $run_coupons = mysqli_query($con,$get_coupons);
     $check_coupons = mysqli_num_rows($run_coupons);
 
@@ -179,7 +179,7 @@ if(isset($_POST['submit'])){
 
     }else{
 
-        $insert_coupon = "insert into cupon (producto_id,cupón_titulo,cupon_precio,cupon_codigo,cupon_limite,cupon_usado)values('$coupon_pro_id','$cupón_titulo','$cupon_precio','$cupon_codigo','$cupon_limite','$cupon_usado')";
+        $insert_coupon = "insert into cupon (producto_id,cupon_titulo,cupon_precio,cupon_codigo,cupon_limite,cupon_usado)values('$coupon_pro_id','$cupon_titulo','$cupon_precio','$cupon_codigo','$cupon_limite','$cupon_usado')";
         $run_coupon = mysqli_query($con,$insert_coupon);
 
         if($run_coupon){
