@@ -33,59 +33,54 @@ function add_cart(){
     // Verificamos si el formulario ha enviado un 'pro_id' (el ID del producto)
     if(isset($_POST['pro_id'])){
 
-        //obtenemos la ip real del usuario mediante la funcion
+        // Obtenemos la IP real del usuario mediante la función
         $ip_add = getRealIpUser();
 
-        //guardamos en variables los datos enviados por el formulario
+        // Guardamos en variables los datos enviados por el formulario
         $p_id = $_POST['pro_id'];
         $cant = $_POST['cant']; 
         $talle = $_POST['talle'];
     
-        //Consulta que verifica si el prodcto ya se encuentra en el carrito
-        $check_product = "SELECT * FROM cart WHERE ip_add='$ip_add' AND p_id='$p_id'";
-        #echo "SELECT * FROM cart WHERE ip_add='$ip_add' AND p_id='$p_id'";
-        //Ejecta la consulta
+        // Consulta que verifica si el producto con el mismo ID, talle y IP ya está en el carrito
+        $check_product = "SELECT * FROM cart WHERE ip_add='$ip_add' AND p_id='$p_id' AND talle='$talle'";
         $run_check = mysqli_query($db, $check_product);
         
-        //Si ya existe una fila en la base de datos con este carrito
+        // Si ya existe una fila en la base de datos con este carrito y el mismo talle
         if(mysqli_num_rows($run_check) > 0){
-            //Muestra un mensaje si el producto ya esta en el carrito y redirije a la pagina de detalles
-            echo "<script>alert('Este producto ya ha sido añadido al carrito');</script>";
+            // Si el producto con el mismo talle ya está en el carrito, actualizamos la cantidad
+            $row = mysqli_fetch_array($run_check);
+            $new_cant = $row['cant'] + $cant; // Sumamos la cantidad
+            $update_query = "UPDATE cart SET cant='$new_cant' WHERE p_id='$p_id' AND talle='$talle'";
+            $run_update = mysqli_query($db, $update_query);
+
+            echo "<script>alert('La cantidad del producto ha sido actualizada en el carrito');</script>";
             echo "<script>window.open('details.php?pro_id=$p_id','_self');</script>";
         } else {
-            $get_price ="select * from productos where producto_id='$p_id'";
-
-            $run_price = mysqli_query($db,$get_price);
-
+            // Si no existe el producto con ese talle en el carrito, lo insertamos como una nueva fila
+            $get_price = "SELECT * FROM productos WHERE producto_id='$p_id'";
+            $run_price = mysqli_query($db, $get_price);
             $row_price = mysqli_fetch_array($run_price);
 
             $pro_price = $row_price['producto_precio'];
-
             $pro_sale = $row_price['producto_oferta'];
-
             $pro_label = $row_price['producto_etiqueta'];
 
+            // Determinar el precio final del producto (considerando oferta)
             if($pro_label == "sale"){
-
                 $product_price = $pro_sale;
-
-            }else{
-
+            } else {
                 $product_price = $pro_price;
-
             }
             
-            $query = "insert into cart (p_id,ip_add,cant,p_precio,talle) values ('$p_id','$ip_add','$cant','$product_price','$talle')";
+            // Insertamos el nuevo producto con el talle en el carrito
+            $query = "INSERT INTO cart (p_id, ip_add, cant, p_precio, talle) VALUES ('$p_id', '$ip_add', '$cant', '$product_price', '$talle')";
+            $run_query = mysqli_query($db, $query);
             
-            $run_query = mysqli_query($db,$query);
-            
-            echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
-            
+            echo "<script>window.open('details.php?pro_id=$p_id','_self');</script>";
         }
-        
     }
-    
 }
+
 
 //Funcion que obtiene y muestra los productos en la tabla "productos"
 function getPro(){

@@ -181,9 +181,9 @@ if (!isset($_SESSION['admin_email'])) {
                     
                     include("ver_ordenes.php");
                     
-                    }   if(isset($_GET['borrar_ordenes'])){
+                    }   if(isset($_GET['borrar_orden'])){
                     
-                    include("borrar_ordenes.php");
+                    include("borrar_orden.php");
                     
                     }  if(isset($_GET['ver_pagos'])){
                         

@@ -10,9 +10,9 @@
 
 <?php 
 
-    if(isset($_GET['delete_order'])){
+    if(isset($_GET['borrar_orden'])){
         
-        $delete_id = $_GET['delete_order'];
+        $delete_id = $_GET['borrar_orden'];
         
         $delete_order = "delete from ordenes_pendientes where orden_id='$delete_id'";
         
