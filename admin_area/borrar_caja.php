@@ -10,11 +10,11 @@
 
 <?php 
 
-    if(isset($_GET['delete_box'])){
+    if(isset($_GET['borrar_caja'])){
         
-        $delete_box_id = $_GET['delete_box'];
+        $delete_box_id = $_GET['borrar_caja'];
         
-        $delete_box = "delete from cajas_texto where box_id='$delete_box_id'";
+        $delete_box = "delete from cajas_texto where caja_id='$delete_box_id'";
         
         $run_delete_box = mysqli_query($con,$delete_box);
         

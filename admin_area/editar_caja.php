@@ -10,11 +10,11 @@
 
 <?php 
 
-    if(isset($_GET['edit_box'])){
+    if(isset($_GET['editar_caja'])){
         
-        $edit_box_id = $_GET['edit_box'];
+        $edit_box_id = $_GET['editar_caja'];
         
-        $edit_box_query = "select * from cajas_texto where box_id='$edit_box_id'";
+        $edit_box_query = "select * from cajas_texto where caja_id='$edit_box_id'";
         
         $run_edit_box = mysqli_query($con,$edit_box_query);
         
@@ -115,7 +115,7 @@
               
               $caja_desc = $_POST['caja_desc'];
               
-              $update_box = "update cajas_texto set caja_titulo='$caja_titulo',caja_desc='$caja_desc' where box_id='$box_id'";
+              $update_box = "update cajas_texto set caja_titulo='$caja_titulo',caja_desc='$caja_desc' where caja_id='$box_id'";
               
               $run_box = mysqli_query($con,$update_box);
               

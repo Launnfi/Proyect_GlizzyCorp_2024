@@ -10,9 +10,9 @@
 
 <?php 
 
-    if(isset($_GET['edit_product'])){
+    if(isset($_GET['editar_producto'])){
         
-        $edit_id = $_GET['edit_product'];
+        $edit_id = $_GET['editar_producto'];
         
         $get_p = "select * from productos where producto_id='$edit_id'";
         
@@ -47,21 +47,25 @@
     }
         
         
-        $get_p_cat = "select * from productos_categorias where p_cat_id='$p_cat'";
-        
-        $run_p_cat = mysqli_query($con,$get_p_cat);
-        
+    $get_p_cat = "SELECT * FROM productos_categorias WHERE p_cat_id='$p_cat'";
+    $run_p_cat = mysqli_query($con, $get_p_cat);
+    
+    if ($run_p_cat && mysqli_num_rows($run_p_cat) > 0) {
         $row_p_cat = mysqli_fetch_array($run_p_cat);
-        
         $p_cat_titulo = $row_p_cat['p_cat_titulo'];
-        
-        $get_cat = "select * from categorias where cat_id='$cat'";
-        
-        $run_cat = mysqli_query($con,$get_cat);
-        
+    } else {
+        $p_cat_titulo = "Categoría no encontrada"; // Valor predeterminado en caso de que no se encuentre la categoría
+    }
+    
+    $get_cat = "SELECT * FROM categorias WHERE cat_id='$cat'";
+    $run_cat = mysqli_query($con, $get_cat);
+    
+    if ($run_cat && mysqli_num_rows($run_cat) > 0) {
         $row_cat = mysqli_fetch_array($run_cat);
-        
         $cat_titulo = $row_cat['cat_titulo'];
+    } else {
+        $cat_titulo = "Categoría no encontrada"; // Valor predeterminado en caso de que no se encuentre la categoría
+    }
 
 ?>
 
