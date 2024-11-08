@@ -133,7 +133,7 @@
     <div class="container"><!-- container empieza -->
         <div class="col-md-6"><!-- col-md-6 empieza -->
             
-            <p class="pull-left">&copy; 2018 Vicenta Todos los derechos reservados</p>
+            <p class="pull-left">&copy; 2024 Vicenta Todos los derechos reservados</p>
             
         </div><!-- col-md-6 termino -->
         <div class="col-md-6"><!-- col-md-6 empieza -->

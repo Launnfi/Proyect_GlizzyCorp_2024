@@ -93,7 +93,19 @@ if(isset($_GET['pro_id'])){
                        <a href="../cart.php">Ir al Carrito</a>
                    </li>
                    <li>
-                       <a href="../cerrar_sesion.php">Login</a>
+                   <?php 
+                           
+                           if(!isset($_SESSION['cliente_email'])){
+                       
+                                echo "<a href='cerrar_sesion.php'> Login </a>";
+
+                               }else{
+
+                                echo " <a href='logout.php'> Salir </a> ";
+
+                               }
+                           
+                           ?>
                    </li>         
                </ul><!-- menu termina -->
                
