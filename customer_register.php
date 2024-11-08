@@ -120,7 +120,6 @@ include("includes/header.php");
 
 </body>
 </html>
-
 <?php 
 
 if (isset($_POST['register'])) {
@@ -133,7 +132,6 @@ if (isset($_POST['register'])) {
     $c_direccion = $_POST['c_direccion'];
     $c_img = $_FILES['c_img']['name'];
     $c_img_tmp = $_FILES['c_img']['tmp_name'];
-    $c_ip = getRealIpUser();
     
     // Mover la imagen a la carpeta deseada
     move_uploaded_file($c_img_tmp, "customer/customer_images/$c_img");
@@ -143,6 +141,7 @@ if (isset($_POST['register'])) {
 
     // Verificar si el correo electrónico ya está registrado
     $check_email_query = "SELECT * FROM customer WHERE cliente_email = ?";
+    
     $stmt_check_email = $con->prepare($check_email_query);
     $stmt_check_email->bind_param("s", $c_email);
     $stmt_check_email->execute();
@@ -173,17 +172,30 @@ if (isset($_POST['register'])) {
         }
     } else {
         // Si el usuario no existe, se registra uno nuevo
-        $stmt = $con->prepare("INSERT INTO customer (cliente_nombre, cliente_email, cliente_pass, cliente_ciudad, cliente_contacto, cliente_direccion, cliente_img, cliente_ip, activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)");
-        $stmt->bind_param("ssssssss", $c_nombre, $c_email, $hashed_pass, $c_ciudad, $c_contacto, $c_direccion, $c_img, $c_ip);
+        $stmt = $con->prepare("INSERT INTO customer (cliente_nombre, cliente_email, cliente_pass, cliente_ciudad, cliente_contacto, cliente_direccion, cliente_img, activo) VALUES (?, ?, ?, ?, ?, ?, ?, 1)");
+        $stmt->bind_param("sssssss", $c_nombre, $c_email, $hashed_pass, $c_ciudad, $c_contacto, $c_direccion, $c_img);
         
         if ($stmt->execute()) {
-            // Verificar si hay artículos en el carrito
-            $sel_cart = "SELECT * FROM cart WHERE ip_add = ?";
+            // Obtener el ID del nuevo cliente
+            $cliente_id = $con->insert_id;
+
+            // Verificar si hay artículos en el carrito usando el cliente_id
+            $sel_cart = "SELECT * FROM cart WHERE cliente_id = ?";
             $stmt_cart = $con->prepare($sel_cart);
-            $stmt_cart->bind_param("s", $c_ip);
+            $stmt_cart->bind_param("i", $cliente_id);
             $stmt_cart->execute();
             $run_cart = $stmt_cart->get_result();
             $check_cart = $run_cart->num_rows;
+
+            if ($check_cart > 0) {
+                // Opcional: Mover los productos del carrito al cliente registrado (si lo deseas)
+                // Aquí puedes hacer una actualización en la tabla 'cart' para asignar el carrito al cliente
+                $update_cart_query = "UPDATE cart SET cliente_id = ? WHERE cliente_id IS NULL";
+                $stmt_update_cart = $con->prepare($update_cart_query);
+                $stmt_update_cart->bind_param("i", $cliente_id);
+                $stmt_update_cart->execute();
+                $stmt_update_cart->close();
+            }
 
             $_SESSION['cliente_email'] = $c_email;
             echo "<script>alert('Has sido registrado correctamente. Tu cuenta está activa.')</script>";

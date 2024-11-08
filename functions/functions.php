@@ -4,7 +4,7 @@ $db = mysqli_connect("localhost","root","","vicentita");
 
 
 //Funcion que obtiene la Ip real del usuario, conisderando que pueda estar detras de un proxy
-function getRealIpUser(){
+/*function getRealIpUser(){
     switch(true){
 
         // Si el índice 'HTTP_X_REAL_IP' de $_SERVER no está vacío, devolvemos esa IP
@@ -23,26 +23,46 @@ function getRealIpUser(){
     }
     
     
-} //esta afuncion está diseñada para obtener la IP real del usuario, 
-//incluso si este está detrás de un proxy, lo que mejora la precisión de la información recolectada.
-
-//Funcion que agrega productos al carrito
+}*/
+   
+//agrega al carrito
 function add_cart(){
     global $db;
 
     // Verificamos si el formulario ha enviado un 'pro_id' (el ID del producto)
     if(isset($_POST['pro_id'])){
 
-        // Obtenemos la IP real del usuario mediante la función
-        $ip_add = getRealIpUser();
+        // Verificamos si la sesión del cliente está iniciada con el email del cliente
+        if(isset($_SESSION['cliente_email'])){
+            // Obtenemos el email del cliente desde la sesión
+            $cliente_email = $_SESSION['cliente_email'];
+
+            // Consulta para obtener el ID del cliente basado en el email
+            $get_cliente_id = "SELECT cliente_id FROM customer WHERE cliente_email='$cliente_email'";
+            $run_cliente = mysqli_query($db, $get_cliente_id);
+            if(mysqli_num_rows($run_cliente) > 0){
+                $row_cliente = mysqli_fetch_array($run_cliente);
+                $cliente_id = $row_cliente['cliente_id']; // Asignamos el cliente_id
+            } else {
+                // Si no se encuentra el cliente, redirigimos a login
+                echo "<script>alert('No se ha encontrado el cliente. Por favor, inicia sesión nuevamente.');</script>";
+                echo "<script>window.open('cerrar_sesion.php','_self');</script>";
+                return; // Detenemos la ejecución si no encontramos el cliente
+            }
+        } else {
+            // Si no está iniciada la sesión, redirigimos a login
+            echo "<script>alert('Debes iniciar sesión para agregar productos al carrito');</script>";
+            echo "<script>window.open('cerrar_sesion.php','_self');</script>";
+            return; // Detener la ejecución si no está autenticado
+        }
 
         // Guardamos en variables los datos enviados por el formulario
         $p_id = $_POST['pro_id'];
         $cant = $_POST['cant']; 
         $talle = $_POST['talle'];
     
-        // Consulta que verifica si el producto con el mismo ID, talle y IP ya está en el carrito
-        $check_product = "SELECT * FROM cart WHERE ip_add='$ip_add' AND p_id='$p_id' AND talle='$talle'";
+        // Consulta que verifica si el producto con el mismo ID, talle y cliente ya está en el carrito
+        $check_product = "SELECT * FROM cart WHERE cliente_id='$cliente_id' AND p_id='$p_id' AND talle='$talle'";
         $run_check = mysqli_query($db, $check_product);
         
         // Si ya existe una fila en la base de datos con este carrito y el mismo talle
@@ -50,7 +70,7 @@ function add_cart(){
             // Si el producto con el mismo talle ya está en el carrito, actualizamos la cantidad
             $row = mysqli_fetch_array($run_check);
             $new_cant = $row['cant'] + $cant; // Sumamos la cantidad
-            $update_query = "UPDATE cart SET cant='$new_cant' WHERE p_id='$p_id' AND talle='$talle'";
+            $update_query = "UPDATE cart SET cant='$new_cant' WHERE p_id='$p_id' AND talle='$talle' AND cliente_id='$cliente_id'";
             $run_update = mysqli_query($db, $update_query);
 
             echo "<script>alert('La cantidad del producto ha sido actualizada en el carrito');</script>";
@@ -73,7 +93,7 @@ function add_cart(){
             }
             
             // Insertamos el nuevo producto con el talle en el carrito
-            $query = "INSERT INTO cart (p_id, ip_add, cant, p_precio, talle) VALUES ('$p_id', '$ip_add', '$cant', '$product_price', '$talle')";
+            $query = "INSERT INTO cart (p_id, cliente_id, cant, p_precio, talle) VALUES ('$p_id', '$cliente_id', '$cant', '$product_price', '$talle')";
             $run_query = mysqli_query($db, $query);
             
             echo "<script>window.open('details.php?pro_id=$p_id','_self');</script>";
@@ -518,63 +538,144 @@ function getcatpro(){
 }
 
 // Función para contar el número de productos en el carrito del usuario actual
-function items(){
+function items() {
     global $db;
 
-    //obtiene la ip real del usuario
-    $ip_add = getRealIpUser();
+    // Verificar si el cliente ha iniciado sesión y obtener su email desde la sesión
+    if (isset($_SESSION['cliente_email'])) {
+        $cliente_email = $_SESSION['cliente_email'];
 
-    // Consulta SQL para obtener los productos en el carrito que coincidan con la IP del usuario
-     $get_items = "SELECT * FROM cart WHERE ip_add = '$ip_add'";
+        // Obtener el cliente_id a partir del cliente_email
+        $get_cliente_id = "SELECT cliente_id FROM customer WHERE cliente_email = ?";
 
-    $run_items = mysqli_query($db, $get_items);
+        // Usamos una sentencia preparada para evitar inyección SQL
+        if ($stmt = mysqli_prepare($db, $get_cliente_id)) {
 
-    $cont_items = mysqli_num_rows($run_items);
-    
-    // Mostramos la cantidad de productos en el carrito
-    echo $cont_items;
+            mysqli_stmt_bind_param($stmt, "s", $cliente_email);
+
+            mysqli_stmt_execute($stmt);
+
+            $result = mysqli_stmt_get_result($stmt);
+
+            if (mysqli_num_rows($result) > 0) {
+                // Obtiene el cliente_id
+                $row = mysqli_fetch_assoc($result);
+                $cliente_id = $row['cliente_id'];
+
+                // Ahora que tenemos el cliente_id, buscamos los productos en el carrito
+                $get_items = "SELECT * FROM cart WHERE cliente_id = ?";
+
+                // Realizamos la consulta para obtener los productos del carrito
+                if ($stmt_items = mysqli_prepare($db, $get_items)) {
+                    // Vincula el parámetro de cliente_id
+                    mysqli_stmt_bind_param($stmt_items, "i", $cliente_id);
+
+                    // Ejecuta la consulta
+                    mysqli_stmt_execute($stmt_items);
+
+                    // Obtiene el resultado de la consulta
+                    $result_items = mysqli_stmt_get_result($stmt_items);
+
+                    // Cuenta los productos en el carrito
+                    $cont_items = mysqli_num_rows($result_items);
+
+                    // Muestra la cantidad de productos en el carrito
+                    echo $cont_items;
+
+                    // Cierra la sentencia preparada
+                    mysqli_stmt_close($stmt_items);
+                } else {
+                    // Si hubo un error al preparar la consulta de los productos
+                    echo "Error al preparar la consulta de productos.";
+                }
+            } else {
+                echo "No se encontró el cliente en la base de datos.";
+            }
+
+            // Cierra la sentencia preparada
+            mysqli_stmt_close($stmt);
+        } else {
+            // Si hubo un error en la preparación de la consulta para obtener el cliente_id
+            echo "Error al preparar la consulta para obtener el cliente_id.";
+        }
+    } else {
+        // Si no hay sesión iniciada, el cliente no está autenticado
+        echo "0";
+    }
 }
-
 // Función para calcular el monto total de los productos en el carrito del usuario
-function mont_total(){
-
+function mont_total() {
     global $db;
 
-    //obtiene la ip real del usuario
-    $ip_add = getRealIpUser();
+    // Verificar si el cliente ha iniciado sesión y obtener su email desde la sesión
+    if (isset($_SESSION['cliente_email'])) {
+        $cliente_email = $_SESSION['cliente_email'];
 
-    $total = 0;
+        // Obtener el cliente_id a partir del cliente_email
+        $get_cliente_id = "SELECT cliente_id FROM customer WHERE cliente_email = ?";
 
-    // Consulta SQL para obtener los productos en el carrito del usuario según su IP
-    $selecc_cart = "SELECT * FROM cart WHERE ip_add = '$ip_add'";
+        // Usamos una sentencia preparada para evitar inyección SQL
+        if ($stmt = mysqli_prepare($db, $get_cliente_id)) {
+            // Vincula el parámetro de cliente_email
+            mysqli_stmt_bind_param($stmt, "s", $cliente_email);
 
-    $run_cart = mysqli_query($db, $selecc_cart);
+            // Ejecuta la consulta
+            mysqli_stmt_execute($stmt);
 
-    // Recorremos los productos del carrito
-    while($rec = mysqli_fetch_array($run_cart)){
+            // Obtiene el resultado de la consulta
+            $result = mysqli_stmt_get_result($stmt);
 
-        // Obtenemos el ID del producto y la cantidad del carrito
-        $pro_id = $rec['p_id'];
+            // Verificamos si el cliente existe
+            if (mysqli_num_rows($result) > 0) {
+                // Obtener el cliente_id
+                $row = mysqli_fetch_assoc($result);
+                $cliente_id = $row['cliente_id'];
 
-        $pro_cant = $rec['cant'];
+                // Inicializamos el total
+                $total = 0;
 
-        // Consulta SQL para obtener los detalles del producto por su ID
-        $get_precio = "SELECT * FROM productos WHERE producto_id = '$pro_id'";
+                // Ahora que tenemos el cliente_id, buscamos los productos en el carrito
+                $selecc_cart = "SELECT * FROM cart WHERE cliente_id = ?";
 
-        $run_precio = mysqli_query($db, $get_precio);
+                // Realizamos la consulta para obtener los productos del carrito
+                if ($stmt_cart = mysqli_prepare($db, $selecc_cart)) {
+                    // Vincula el parámetro de cliente_id
+                    mysqli_stmt_bind_param($stmt_cart, "i", $cliente_id);
 
+                    // Ejecuta la consulta
+                    mysqli_stmt_execute($stmt_cart);
 
-        // Recorremos los resultados de la consulta
-        while($row_precio = mysqli_fetch_array($run_precio)){
+                    // Obtiene el resultado de la consulta
+                    $result_cart = mysqli_stmt_get_result($stmt_cart);
 
-            // Calculamos el subtotal multiplicando el precio del producto por la cantidad
-            $sub_total = $row_precio['producto_precio'] * $pro_cant;
+                    // Recorremos los productos del carrito
+                    while ($rec = mysqli_fetch_array($result_cart)) {
+                        // Obtenemos el ID del producto y la cantidad del carrito
+                        $pro_id = $rec['p_id'];
+                        $pro_cant = $rec['cant'];
 
-            $total += $sub_total; // Suma el subtotal al total general
+                        // Consulta SQL para obtener los detalles del producto por su ID
+                        $get_precio = "SELECT * FROM productos WHERE producto_id = '$pro_id'";
 
+                        $run_precio = mysqli_query($db, $get_precio);
+
+                        // Recorremos los resultados de la consulta
+                        while ($row_precio = mysqli_fetch_array($run_precio)) {
+                            // Calculamos el subtotal multiplicando el precio del producto por la cantidad
+                            $sub_total = $row_precio['producto_precio'] * $pro_cant;
+
+                            // Suma el subtotal al total general
+                            $total += $sub_total;
+                        }
+                    }
+
+                    // Mostrar el total
+                    echo "$" . $total;
+
+                    // Cierra la sentencia preparada
+                    mysqli_stmt_close($stmt_cart);
+                } 
+            }
         }
     }
-
-    // Mostrar el total
-    echo "$" . $total;
 }

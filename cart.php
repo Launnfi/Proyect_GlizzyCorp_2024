@@ -28,15 +28,36 @@ include("includes/header.php");
             <h1>Carrito de compras</h1>
 
             <?php 
-            $ip_add = getRealIpUser();
+           // Verificar si el cliente está autenticado
+           if(isset($_SESSION['cliente_email'])){
+               // Obtener el correo electrónico del cliente desde la sesión
+               $cliente_email = $_SESSION['cliente_email'];
+       
+               // Consultamos la base de datos para obtener el cliente_id
+               $get_cliente_id = "SELECT cliente_id FROM customer WHERE cliente_email='$cliente_email'";
+               $run_cliente = mysqli_query($con, $get_cliente_id);
+       
+               if(mysqli_num_rows($run_cliente) > 0){
+                   $row_cliente = mysqli_fetch_array($run_cliente);
+                   $cliente_id = $row_cliente['cliente_id']; // Asignamos el cliente_id
+               } else {
+                   echo "<script>alert('Cliente no encontrado. Inicia sesión nuevamente.');</script>";
+                   echo "<script>window.open('cerrar_sesion.php','_self');</script>";
+                   exit;
+               }
+           } else {
+               echo "<script>alert('Debes iniciar sesión para ver tu carrito');</script>";
+               echo "<script>window.open('cerrar_sesion.php','_self');</script>";
+               exit;
+           }
+       
 
-            $sel_cart = "SELECT * from cart where ip_add = '$ip_add'";
-
-            $run_cart = mysqli_query($con, $sel_cart);
-
-            $cont= mysqli_num_rows($run_cart);
-
-            ?>
+           $sel_cart = "SELECT * FROM cart WHERE cliente_id = '$cliente_id'";
+           $run_cart = mysqli_query($con, $sel_cart);
+       
+           $cont = mysqli_num_rows($run_cart); 
+       
+           ?>
             <p class="text-muted">Tienes <?php echo $cont; ?> cosas en el carrito</p>
 
             <div class="table-responsive">

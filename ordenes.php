@@ -7,11 +7,11 @@ if(isset($_GET['c_id'])){
     $id_cliente = $_GET['c_id'];
 }
 
-$ip_add = getRealIpUser(); 
+$cliente_id = $_SESSION['cliente_id']; 
 $estado = "Pendiente";
 $num_fac = mt_rand();
 
-$select_cart = "SELECT * FROM cart WHERE ip_add = '$ip_add'"; 
+$select_cart = "SELECT * FROM cart WHERE cliente_id = '$cliente_id'"; 
 
 $run_cart = mysqli_query($con, $select_cart);
 
@@ -40,7 +40,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     }
 }
 
-$elim_cart = "DELETE FROM cart WHERE ip_add = '$ip_add'";
+$elim_cart = "DELETE FROM cart WHERE cliente_id = '$cliente_id'";
 
 if (mysqli_query($con, $elim_cart)) {
     echo "<script>alert('Tus órdenes fueron enviadas. Gracias por su compra ☺️');</script>";
