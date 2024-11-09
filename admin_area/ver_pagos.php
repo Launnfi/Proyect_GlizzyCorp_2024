@@ -43,7 +43,6 @@
                                 <th> Metodo de pago: </th>
                                 <th> numero de referencia: </th>
                                 <th> Fecha de pago: </th>
-                                <th> Eliminar Pago </th>
 
                             </tr>
                         </thead>
@@ -114,15 +113,6 @@
                                 <td> <?php echo $num_ref; ?></td>
                                 <td> <?php echo $fecha_pago; ?> </td>
                                 
-                                <td> 
-                                     
-                                     <a href="index.php?borrar_pagos=<?php echo $pago_id; ?>">
-                                     
-                                        <i class="fa fa-trash-o"></i> Borrar
-                                    
-                                     </a> 
-                                     
-                                </td>
                             </tr><!-- tr finish -->
                             
                             <?php } ?>

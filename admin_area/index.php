@@ -175,7 +175,7 @@ if (!isset($_SESSION['admin_email'])) {
                     
                  }   if(isset($_GET['borrar_clientes'])){
                     
-                    include("borrar_clientes.php");
+                    include("borrar_cliente.php");
                     
                  }   if(isset($_GET['ver_ordenes'])){
                     
@@ -247,10 +247,24 @@ if (!isset($_SESSION['admin_email'])) {
                         
                         include("editar_cupon.php");
                         
+                 }
+                  if(isset($_GET['insertar_var'])){
+                        
+                        include("insertar_var.php");
+                        
                 }
-                    
-    
-            
+                if(isset($_GET['ver_var'])){
+                                
+                        include("ver_var.php");
+                        
+                }   if(isset($_GET['borrar_var'])){
+                        
+                        include("borrar_var.php");
+                        
+                }   if(isset($_GET['editar_variante'])){
+                        
+                        include("editar_variante.php");
+                }
                 ?>
 
             </div>

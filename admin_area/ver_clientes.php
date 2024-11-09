@@ -98,7 +98,7 @@
                                 <td> <?php echo $estado ?> </td>
                                 <td> 
                                      
-                                     <a href="index.php?borrar_cliente=<?php echo $c_id; ?>">
+                                     <a href="index.php?borrar_clientes=<?php echo $c_id; ?>">
                                      
                                         <i class="fa fa-trash-o"></i> Borrar
                                     

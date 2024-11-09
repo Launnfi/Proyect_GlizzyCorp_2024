@@ -215,6 +215,24 @@
                 </ul>
                 
             </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#variantes">
+                        
+                <i class="fa fa-tags" aria-hidden="true"></i> Variantes
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
+                </a>
+                
+                <ul id="variantes" class="collapse">
+                    <li>
+                        <a href="index.php?insertar_var"> Insertar variante </a>
+                    </li>
+                    <li>
+                        <a href="index.php?ver_var"> Ver variantes </a>
+                    </li>
+                </ul>
+                
+            </li>
             
             <li>
                 <a href="index.php?ver_clientes">

@@ -10,9 +10,9 @@
 
 <?php 
 
-    if(isset($_GET['delete_customer'])){
+    if(isset($_GET['borrar_clientes'])){
         
-        $delete_id = $_GET['delete_customer'];
+        $delete_id = $_GET['borrar_clientes'];
         
         $delete_c = "delete from customer where cliente_id='$delete_id'";
         

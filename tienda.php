@@ -85,6 +85,8 @@ include("includes/header.php");
                             $pro_img1 = $row_products['producto_img1'];
                             
                             $pro_label = $row_products['producto_etiqueta'];
+
+                            $pro_activo = $row_products['activo'];
                             
                     
                             if($pro_label == "sale"){
@@ -117,6 +119,10 @@ include("includes/header.php");
                                 ";
                     
                             }
+                            if($pro_activo == 1){
+
+                            
+
                             
                             echo "
                             
@@ -173,11 +179,13 @@ include("includes/header.php");
                             </div>
                             
                             ";
-                            
+                       
                         }
                     
                     }
                 }
+               
+                getcatpro();
                 ?> 
 
                 
@@ -186,47 +194,52 @@ include("includes/header.php");
 
      
 
-    <center>
-        <ul class="pagination">
-        <?php
-        $query = "SELECT * FROM productos";
-        $resultado = mysqli_query($con, $query);
-        $total_rec = mysqli_num_rows($resultado);
-        $total_pag = ceil($total_rec / $per_page);
+                <center>
+                    <ul class="pagination">
+                    <?php
+                    
+            $per_page = 6; // Productos por página
+        
 
-        // Primera página
-        echo "
-            <li>
-                <a href='tienda.php?page=1'>Página Inicio</a>
-            </li>
-        ";
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 1;
+            }
 
-        // Páginas intermedias
-        for ($i = 1; $i <= $total_pag; $i++) {
-            echo "
-                <li>
-                    <a href='tienda.php?page=".$i."'>".$i."</a>
-                </li>
-            ";
-        }
+            $start_from = ($page - 1) * $per_page;
 
-        // Última página
-        echo "
-            <li>
-                <a href='tienda.php?page=".$total_pag."'>Última casilla</a>
-            </li>
-        ";
-    
-        ?>
-   </ul>
-    </center>
-              
-             
-                     <?php
-                     
-                      getPCatpro(); 
-                      getcatpro();
-                      ?>  
+            // Consulta para obtener productos
+            $query = "SELECT * FROM productos";
+            $resultado = mysqli_query($db, $query);
+            $total_rec = mysqli_num_rows($resultado);
+            $total_pag = ceil($total_rec / $per_page);
+            ?>
+
+            <!-- Paginación -->
+            <center>
+                <ul class="pagination">
+                    <?php
+                    // Páginas de la paginación
+                    echo "<li><a href='tienda.php?page=1'>Página Inicio</a></li>";
+
+                    for ($i = 1; $i <= $total_pag; $i++) {
+                        echo "<li><a href='tienda.php?page=$i'>$i</a></li>";
+                    }
+
+                    echo "<li><a href='tienda.php?page=$total_pag'>Última casilla</a></li>";
+                    ?>
+                </ul>
+            </center>
+                        
+                        
+                                <?php
+                                }
+
+                                getPCatpro(); 
+                               
+                            
+                                ?>  
                      
               
     
@@ -235,7 +248,7 @@ include("includes/header.php");
     </div><!-- content termino -->
     
     <?php
-
+  
     include("footer.php")
 
     ?>

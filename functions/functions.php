@@ -1,29 +1,6 @@
 <?php 
 
 $db = mysqli_connect("localhost","root","","vicentita");
-
-
-//Funcion que obtiene la Ip real del usuario, conisderando que pueda estar detras de un proxy
-/*function getRealIpUser(){
-    switch(true){
-
-        // Si el índice 'HTTP_X_REAL_IP' de $_SERVER no está vacío, devolvemos esa IP
-        case(!empty($_SERVER['HTTP_X_REAL_IP']))  : return $_SERVER['HTTP_X_REAL_IP'];
-
-        // Si el índice 'HTTP_X_CLIENT_IP' de $_SERVER no está vacío, devolvemos esa IP
-        case(!empty($_SERVER['HTTP_X_CLIENT_IP']))  : return $_SERVER['HTTP_X_CLIENT_IP'];
-
-        // Si el índice 'HTTP_X_FORWARDED_FOR' de $_SERVER no está vacío, devolvemos esa IP
-        case(!empty($_SERVER['HTTP_X_FORWARDED_FOR']))  : return $_SERVER['HTTP_X_FORWARDED_FOR'];
-
-        // Si ninguna de las opciones anteriores tiene valor, devolvemos la IP en 'REMOTE_ADDR'
-        default : return $_SERVER['REMOTE_ADDR'];
-
-
-    }
-    
-    
-}*/
    
 //agrega al carrito
 function add_cart(){
@@ -129,6 +106,8 @@ function getPro(){
         $pro_img1 = $row_products['producto_img1'];
 
         $pro_label = $row_products['producto_etiqueta'];
+
+        $pro_activo = $row_products['activo'];
         
         
         //imprime el html para mostrar los productos en la pagina
@@ -162,6 +141,11 @@ function getPro(){
             ";
 
         }
+        
+        if($pro_activo == 0){
+        
+        }else{
+
         
         echo "
         
@@ -220,7 +204,7 @@ function getPro(){
         </div>
         
         ";
-        
+    }
     }
     
 }
@@ -241,13 +225,20 @@ function getPCats(){
 
         $p_cat_titulo = $row_p_cats['p_cat_titulo'];
 
-         // Imprimimos el HTML para mostrar las categorías de productos en la página
+        $p_cat_activo = $row_p_cats['activo'];
+
+         if($p_cat_activo == 0){
+
+         }else{
+
+         
         echo "
             <li> 
                 <a href='tienda.php?p_cat=$p_cat_id'> $p_cat_titulo </a> 
             </li>
             ";
     }
+}
 }
 //Funcion que obtiene y muestra las categorias
 function getCats(){
@@ -285,27 +276,22 @@ function getPCatpro(){
          // Obtiene el ID de la categoría de productos desde la URL
         $p_cat_id = $_GET['p_cat'];
 
-        // Consulta SQL para obtener la información de la categoría de productos
         $get_p_cat ="SELECT * from productos_categorias where p_cat_id = '$p_cat_id'";
         
         $run_p_cat = mysqli_query($db,$get_p_cat);
         
         $row_p_cat = mysqli_fetch_array($run_p_cat);
         
-        // Obtenemos el título y la descripción de la categoría de productos
         $p_cat_titulo = $row_p_cat['p_cat_titulo'];
         
         $p_cat_desc = $row_p_cat['p_cat_desc'];
         
-        // Consulta SQL para obtener los productos pertenecientes a la categoría seleccionada
         $get_productos ="SELECT * from productos where p_cat_id='$p_cat_id'";
         
         $run_productos = mysqli_query($db,$get_productos); //Ejecutamos la consulta
         
-        //contamos el numero de productos en la categoria
         $cont = mysqli_num_rows($run_productos);
         
-        //Si no hay productos en la categoria mostrara el proximo mensaje
         if($cont==0){
             
             echo "
@@ -336,72 +322,117 @@ function getPCatpro(){
          // Recorremos todos los productos obtenidos de la consulta
         while($row_products = mysqli_fetch_array($run_productos)){
             
-             // Obtenemos los detalles de cada producto
             $pro_id = $row_products['producto_id'];
         
             $pro_titulo = $row_products['producto_titulo'];
-        
+            
             $pro_precio = $row_products['producto_precio'];
-        
+    
+            $pro_sale_price = $row_products['producto_oferta'];
+            
             $pro_img1 = $row_products['producto_img1'];
-
-            // Genera el HTML para mostrar cada producto con su imagen, título, precio y botones
-            echo " 
-            <div class='col-md-4 col-sm-6 center-responsive'>
-        
-            <div class='product'>
+    
+            $pro_label = $row_products['producto_etiqueta'];
+    
+            $pro_activo = $row_products['activo'];
             
-                <a href='details.php?pro_id=$pro_id'>
-                
-                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                
-                </a>
-                
-                <div class='text'>
-                
-                    <h3>
             
-                        <a href='details.php?pro_id=$pro_id'>
-
-                            $pro_titulo
-
-                        </a>
+            //imprime el html para mostrar los productos en la pagina
+            if($pro_label == "sale"){
+    
+                $product_price = " <del> $ $pro_precio </del> ";
+    
+                $product_sale_price = "/ $ $pro_sale_price ";
+    
+            }else{
+    
+                $product_price = "  $ $pro_precio  ";
+    
+                $product_sale_price = "";
+    
+            }
+    
+            if($pro_label == ""){
+    
+            }else{
+    
+                $product_label = "
+                
+                    <a href='#' class='label $pro_label'>
                     
-                    </h3>
+                        <div class='theLabel'> $pro_label </div>
+                        <div class='labelBackground'>  </div>
                     
-                    <p class='price'>
+                    </a>
+                
+                ";
+    
+            }
+            
+            if($pro_activo == 0){
+            
+            }else{
+    
+            
+            echo "
+            
+            <div class='col-md-4 col-sm-6 single'>
+            
+                <div class='product'>
+                
+                    <a href='details.php?pro_id=$pro_id'>
                     
-                        $ $pro_precio
+                        <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
                     
-                    </p>
+                    </a>
                     
-                    <p class='button'>
+                    <div class='text'>
+    
+    
                     
-                        <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-
-                            Ver detalles
-
-                        </a>
+                        <h3>
+                
+                            <a href='details.php?pro_id=$pro_id'>
+    
+                                $pro_titulo
+    
+                            </a>
+                        
+                        </h3>
+                        
+                        <p class='price'>
+                        
+                        $product_price &nbsp;$product_sale_price
+                        
+                        </p>
+                        
+                        <p class='button'>
+                        
+                            <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+    
+                                View Details
+    
+                            </a>
+                        
+                            <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+    
+                                <i class='fa fa-shopping-cart'></i> Add to Cart
+    
+                            </a>
+                        
+                        </p>
                     
-                        <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
-
-                            <i class='fa fa-shopping-cart'></i> Añadir al carrito
-
-                        </a>
-                    
-                    </p>
+                    </div>
+    
+                    $product_label
                 
                 </div>
             
             </div>
-        
-        </div>
-        
-        ";
-        
-
+            
+            ";
         }
-        
+        }
         
     }
 }
@@ -480,59 +511,66 @@ function getcatpro(){
             
             $pro_img1 = $row_products['producto_img1'];
 
-            //Genera el html para mostrar titulo, precio, descripcion y imagen
-            echo "
+            $pro_activo = $row_products['activo'];
+
+    
+            if($pro_activo == 1){
+
             
+                echo " 
                 <div class='col-md-4 col-sm-6 center-responsive'>
-                                    
-                    <div class='product'>
-                                        
-                        <a href='details.php?pro_id=$pro_id'>
-                                            
-                            <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                                            
-                        </a>
-                                            
-                        <div class='text'>
-                                            
-                            <h3>
-                                                
-                                <a href='details.php?pro_id=$pro_id'> $pro_titulo </a>
-                                                
-                            </h3>
-                                            
+            
+                <div class='product'>
+                
+                    <a href='details.php?pro_id=$pro_id'>
+                    
+                        <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    
+                    </a>
+                    
+                    <div class='text'>
+                    
+                        <h3>
+                
+                            <a href='details.php?pro_id=$pro_id'>
+    
+                                $pro_titulo
+    
+                            </a>
+                        
+                        </h3>
+                        
                         <p class='price'>
-
-                            $$pro_precio
-
+                        
+                            $ $pro_precio
+                        
                         </p>
-
-                            <p class='buttons'>
-
-                                <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-
+                        
+                        <p class='button'>
+                        
+                            <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+    
                                 Ver detalles
-
-                                </a>
-
-                                <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
-
+    
+                            </a>
+                        
+                            <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+    
                                 <i class='fa fa-shopping-cart'></i> Añadir al carrito
-
-                                </a>
-
-                            </p>
-                                            
-                        </div>
-                                        
+    
+                            </a>
+                        
+                        </p>
+                    
                     </div>
-                                    
+                
                 </div>
             
-            ";
+            </div>
             
+            ";
         }
-        
+    }
     }
     
 }

@@ -8,33 +8,14 @@
 
 ?>
 
-<?php 
-
-if(isset($_GET['editar_cupon'])){
-
-    $edit_id = $_GET['editar_cupon'];
-    $edit_coupon = "select * from cupon where cupon_id='$edit_id'";
-    $run_edit_coupon = mysqli_query($con,$edit_coupon);
-    $row_edit_coupon = mysqli_fetch_array($run_edit_coupon);
-
-    $coup_id = $row_edit_coupon['cupon_id'];
-    $coup_title = $row_edit_coupon['cupon_titulo'];
-    $coup_price = $row_edit_coupon['cupon_precio'];
-    $coup_code = $row_edit_coupon['cupon_codigo'];
-    $coup_limit = $row_edit_coupon['cupon_limite'];
-    $coup_used = $row_edit_coupon['cupon_usado'];
-    $prod_id = $row_edit_coupon['producto_id'];
-
-    $get_products = "select * from productos where producto_id='$prod_id'";
-    $run_products = mysqli_query($con,$get_products);
-    $row_products = mysqli_fetch_array($run_products);
-
-    $producto_id = $row_products['producto_id'];
-    $producto_titulo = $row_products['producto_titulo'];
-
-}
-
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> insertar variantes </title>
+</head>
+<body>
     
 <div class="row"><!-- row Begin -->
     
@@ -44,7 +25,7 @@ if(isset($_GET['editar_cupon'])){
             
             <li class="active"><!-- active Begin -->
                 
-                <i class="fa fa-dashboard"></i> Panel / Edit cupones
+                <i class="fa fa-dashboard"></i> Panel / insertar variantes
                 
             </li><!-- active Finish -->
             
@@ -64,7 +45,7 @@ if(isset($_GET['editar_cupon'])){
                
                <h3 class="panel-title"><!-- panel-title Begin -->
                    
-                   <i class="fa fa-money fa-fw"></i> Editar Cupones
+                   <i class="fa fa-money fa-fw"></i> insertar variantes
                    
                </h3><!-- panel-title Finish -->
                
@@ -76,11 +57,27 @@ if(isset($_GET['editar_cupon'])){
                    
                    <div class="form-group"><!-- form-group Begin -->
                        
-                      <label class="col-md-3 control-label"> cupon titulo </label> 
+                      <label class="col-md-3 control-label"> Talle </label> 
                       
                       <div class="col-md-6"><!-- col-md-6 Begin -->
                           
-                          <input value="<?php echo $coup_title; ?>" name="cupon_titulo" type="text" class="form-control" required>
+                          <select name="talle" class="form-control" required>
+                          <option selected disabled>Selecciona una talla</option>
+                          <option>S</option>
+                          <option>M</option>
+                          <option>L</option>
+                          </select>
+                      </div><!-- col-md-6 Finish -->
+                       
+                   </div><!-- form-group Finish -->
+                   
+                   <div class="form-group"><!-- form-group Begin -->
+                       
+                      <label class="col-md-3 control-label"> Cantidad en stock </label> 
+                      
+                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                          
+                          <input name="stock" type="text" class="form-control" required>
                           
                       </div><!-- col-md-6 Finish -->
                        
@@ -88,37 +85,13 @@ if(isset($_GET['editar_cupon'])){
                    
                    <div class="form-group"><!-- form-group Begin -->
                        
-                      <label class="col-md-3 control-label"> Cupon Precio </label> 
-                      
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
-                          
-                          <input value="<?php echo $coup_price; ?>" name="cupon_precio" type="text" class="form-control" required>
-                          
-                      </div><!-- col-md-6 Finish -->
-                       
-                   </div><!-- form-group Finish -->
-                   
-                   <div class="form-group"><!-- form-group Begin -->
-                       
-                      <label class="col-md-3 control-label"> Cupon limitet </label> 
-                      
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
-                          
-                          <input name="cupon_limite" type="number" class="form-control" value="<?php echo $coup_limit; ?>">
-                          
-                      </div><!-- col-md-6 Finish -->
-                       
-                   </div><!-- form-group Finish -->
-                   
-                   <div class="form-group"><!-- form-group Begin -->
-                       
-                      <label class="col-md-3 control-label"> Selecciona producto </label> 
+                      <label class="col-md-3 control-label"> Seleccionar Producto </label> 
                       
                       <div class="col-md-6"><!-- col-md-6 Begin -->
                           
                           <select name="producto_id" class="form-control" required>
                           
-                            <option value="<?php echo $producto_id; ?>"><?php echo $producto_titulo; ?></option>
+                            <option selected disabled>Selecciona un producto para la variante</option>
 
                             <?php 
                             
@@ -144,11 +117,11 @@ if(isset($_GET['editar_cupon'])){
                    
                    <div class="form-group"><!-- form-group Begin -->
                        
-                      <label class="col-md-3 control-label"> Cupon codigo</label> 
+                      <label class="col-md-3 control-label"> variante precio </label> 
                       
                       <div class="col-md-6"><!-- col-md-6 Begin -->
                           
-                          <input value="<?php echo $coup_code; ?>" name="cupon_codigo" type="text" class="form-control" required>
+                          <input name="var_precio" type="text" class="form-control" required>
                           
                       </div><!-- col-md-6 Finish -->
                        
@@ -160,7 +133,7 @@ if(isset($_GET['editar_cupon'])){
                       
                       <div class="col-md-6"><!-- col-md-6 Begin -->
                           
-                          <input name="update" value="Edit Coupon" type="submit" class="btn btn-primary form-control">
+                          <input name="submit" value="Crear variante" type="submit" class="btn btn-primary form-control">
                           
                       </div><!-- col-md-6 Finish -->
                        
@@ -178,27 +151,32 @@ if(isset($_GET['editar_cupon'])){
 
 <?php 
 
-if(isset($_POST['update'])){
+if(isset($_POST['submit'])){
 
-    $cupon_titulo = $_POST['cupon_titulo'];
-    $cupon_precio = $_POST['cupon_precio'];
-    $cupon_codigo = $_POST['cupon_codigo'];
-    $cupon_limite = $_POST['cupon_limite'];
-    $coupon_pro_id = $_POST['producto_id'];
+    $talle = $_POST['talle'];
+    $var_precio = $_POST['var_precio'];
+    $stock = $_POST['stock'];
+    $var_pro_id = $_POST['producto_id'];
 
-    $update_coupon = "update cupon set producto_id='$coupon_pro_id',cupon_titulo='$cupon_titulo',cupon_precio='$cupon_precio',cupon_codigo='$cupon_codigo',cupon_limite='$cupon_limite',cupon_usado='$coup_used' where cupon_id='$coup_id'";
-    $run_update_coupon = mysqli_query($con,$update_coupon);
+    
+    $get_variantes = "SELECT * FROM variantes WHERE producto_id='$var_pro_id' AND talle='$talle'";
+    $run_variantes = mysqli_query($con, $get_variantes);
+    $check_variantes = mysqli_num_rows($run_variantes);
 
-    if($run_update_coupon){
+    if($check_variantes == 1){
+        echo "<script>alert('Variante ya añadida para este producto y talla.')</script>";
+    } else {
+        $insert_variante = "INSERT INTO variantes (producto_id, stock_var, talle, precio_var) VALUES ('$var_pro_id', '$stock', '$talle', '$var_precio')";
+        $run_variante = mysqli_query($con, $insert_variante);
 
-        echo "<script>alert('Tu cupon se ha actualizado')</script>";
-        echo "<script>window.open('index.php?ver_cupones','_self')</script>";
-
+        if($run_variante){
+            echo "<script>alert('La variante se ha creado')</script>";
+            echo "<script>window.open('index.php?ver_var','_self')</script>";
+        }
     }
-
-
 }
 
 ?>
+
 
 <?php } ?>

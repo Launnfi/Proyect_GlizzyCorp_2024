@@ -160,52 +160,49 @@ if(isset($_GET['pro_id'])){
 
                                     <div class="col-md-7">
                                         <!-- col-md-7 empieza -->
-                                        <select name="talle" class="form-control" required oninput="setCustomValidity('')"
-                                            oninvalid="setCustomValidity('Seleccione un talle')">
-                                            <!-- form-control empieza -->
-                                            <option value="" disabled selected>Selecciona un talle</option>
-                                            <option>S</option>
-                                            <option>M</option>
-                                            <option>L</option>
-                                        </select>
-                                        <!-- form-control termina -->
-                                    </div>
-                                    <!-- col-md-7 termina -->
+                                        <select name="talle" class="form-control" required oninput="setCustomValidity('')" oninvalid="setCustomValidity('Seleccione un talle')" onchange="updatePrice(this.value)">
+                                        <option value="" disabled selected>Selecciona un talle</option>
+
+                                        <?php
+                                        $get_variants = "SELECT * FROM variantes WHERE producto_id = '$product_id' AND activo = 1";
+                                        $run_variants = mysqli_query($con, $get_variants);
+
+                                        while ($row_variants = mysqli_fetch_array($run_variants)) {
+                                            $var_id = $row_variants['var_id'];
+                                            $stock = $row_variants['stock_var'];
+                                            $talla = "Talla $var_id";
+
+                                            if ($stock > 0) {
+                                                echo "<option value='$var_id'>$talla - Stock: $stock</option>";
+                                            }
+                                        }
+                                        ?>
+
+                                    </select>
                                 </div>
+                            </div>
                                 <!-- form-group termina -->
                                 <?php 
-
-                                    if($pro_label == "sale"){
-
-                                        echo "
-
-                                            <p class='price'>
-
+                                
+                                if ($pro_label == "sale") {
+                                    // Mostrar precio con oferta y etiqueta de "sale"
+                                    echo "
+                                        <p class='price'>
                                             Precio: <del> $$pro_price</del><br/>
-
-                                            Oferta: $    $pro_sale_price
-
-                                            </p>
-
-                                        ";
-
-                                    }else{
-
-                                        echo "
-
-                                            <p class='price'>
-
-                                            Precio: $ $pro_price
-
-                                            </p>
-
-                                        ";
-
-                                    }
-
+                                            Oferta: $$pro_sale_price
+                                        </p>
+                                        $product_label
+                                    ";
+                                } else {
+                                    // Mostrar solo el precio normal sin etiqueta de "sale"
+                                    echo "
+                                        <p class='price'>
+                                            Precio: $$pro_price
+                                        </p>
+                                    ";
+                                }
                                     ?>
                                    
-                                <p class="price"><?php echo "$ $pro_price" ?></p>
                                 <p class="text-center buttons">
                                     <input type="hidden" name="pro_id" value="<?php echo $producto_id; ?>">
                                     <button type="submit" class="btn btn-primary i fa fa-shopping-cart">Añadir al carrito</button>
@@ -293,6 +290,7 @@ if(isset($_GET['pro_id'])){
                    
                    $pro_label = $row_products['producto_etiqueta'];
                    
+                   $pro_activo = $row_products['activo'];
                    if($pro_label == "sale"){
            
                        $product_price = " <del> $ $pro_price </del> ";
@@ -323,7 +321,11 @@ if(isset($_GET['pro_id'])){
                        ";
            
                    }
-                   
+                   if($pro_activo == 0){
+
+                   }else{
+
+                  
                    echo "
                    
                    <div class='col-md-3 col-sm-6 center-responsive'>
@@ -379,7 +381,7 @@ if(isset($_GET['pro_id'])){
                    </div>
                    
                    ";
-                      
+                }
                   }
                   
                     

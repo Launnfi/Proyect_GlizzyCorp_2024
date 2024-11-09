@@ -170,6 +170,16 @@ include("includes/header.php");
 
             </table>
 
+            <div class="from-inline">
+                <div class="form-group">
+
+                <label>Cupón</label>
+                <input type="text" name="codigo" class="from-control">
+                <input type="submit" class="btn btn-primary" value= "Usar cupón" name="app_cupon">
+
+                </div>
+            </div>
+
             </div>
 
             <div class="box-footer">
@@ -199,6 +209,60 @@ include("includes/header.php");
         </form>
 
         </div>
+        <?php 
+      if (isset($_POST['app_cupon'])) {
+        $codigo = $_POST['codigo'];
+    
+        if ($codigo == "") {
+            // No hacer nada si el código está vacío
+        } else {
+            // Obtener cupones de la base de datos
+            $get_cupones = "SELECT * FROM cupon WHERE cupon_codigo = '$codigo'";
+            $run_cupones = mysqli_query($con, $get_cupones);
+            $check_cupon = mysqli_num_rows($run_cupones);
+    
+            if ($check_cupon == 1) {
+                // Si el cupón existe, obtener los datos
+                $row_cupones = mysqli_fetch_array($run_cupones);
+    
+                $cupon_pro_id = $row_cupones['producto_id'];
+                $cupon_precio = $row_cupones['cupon_precio'];
+                $cupon_limite = $row_cupones['cupon_limite'];
+                $cupon_usado = $row_cupones['cupon_usado'];
+    
+                // Verificar si el cupón ha expirado
+                if ($cupon_limite == $cupon_usado) {
+                    echo "<script>alert('Cupón expirado');</script>";
+                } else {
+                    // Verificar si el producto está en el carrito
+                    $get_cart = "SELECT * FROM cart WHERE p_id = '$cupon_pro_id' AND cliente_id = '$cliente_id'";
+                    $run_cart = mysqli_query($con, $get_cart);
+                    $check_cart = mysqli_num_rows($run_cart);
+    
+                    if ($check_cart == 1) {
+                        // Si el producto está en el carrito, aplicar el cupón
+                        $uso = "UPDATE cupon SET cupon_usado = cupon_usado + 1 WHERE cupon_codigo = '$codigo'"; // Agregar comillas en $codigo
+                        $run_uso = mysqli_query($con, $uso);
+    
+                        $upd_cart = "UPDATE cart SET p_precio = '$cupon_precio' WHERE p_id = '$cupon_pro_id' AND cliente_id = '$cliente_id'";
+                        $run_upf_cart = mysqli_query($con, $upd_cart);
+    
+                        echo "<script>alert('Cupón aplicado');</script>";
+                        echo "<script>window.open('cart.php','_self');</script>";
+                    } else {
+                        // Si el producto no está en el carrito
+                        echo "<script>alert('El producto no existe en tu carrito');</script>";
+                    }
+                }
+            } else {
+                // Si el cupón no existe
+                echo "<script>alert('Cupón ingresado no existe');</script>";
+            }
+        }
+    }
+    
+
+        ?>
         
         <div id="same-height-row">
                     <div class="col-md-3 col-sm-6">
@@ -227,6 +291,8 @@ include("includes/header.php");
                    $pro_img1 = $row_products['producto_img1'];
                    
                    $pro_label = $row_products['producto_etiqueta'];
+
+                   $pro_activo = $row_products['activo'];
                    
                    if($pro_label == "sale"){
            
@@ -258,7 +324,10 @@ include("includes/header.php");
                        ";
            
                    }
-                   
+                   if($pro_activo == 0){
+
+                   }else{
+                    
                    echo "
                    
                    <div class='col-md-3 col-sm-6 center-responsive'>
@@ -314,7 +383,8 @@ include("includes/header.php");
                    </div>
                    
                    ";
-                      
+                     
+                   } 
                   }
                   ?>
         </div>
