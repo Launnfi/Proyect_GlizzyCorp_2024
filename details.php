@@ -168,9 +168,10 @@ if(isset($_GET['pro_id'])){
                                         $run_variants = mysqli_query($con, $get_variants);
 
                                         while ($row_variants = mysqli_fetch_array($run_variants)) {
-                                            $var_id = $row_variants['var_id'];
+                                            $talle = $row_variants['var_id'];
                                             $stock = $row_variants['stock_var'];
-                                            $talla = "Talla $var_id";
+                                            $talle = $row_variants['talle'];
+                                            $talla = "Talla $talle";
 
                                             if ($stock > 0) {
                                                 echo "<option value='$var_id'>$talla - Stock: $stock</option>";

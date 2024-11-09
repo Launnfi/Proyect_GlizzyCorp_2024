@@ -4,7 +4,7 @@ include("includes/db.php");
 
 // Verificar si el administrador ha iniciado sesión
 if (!isset($_SESSION['admin_email'])) {
-    echo "<script>window.open('login.php','_self')</script>";
+    echo "<scrip>window.open('login.php','_self')</script>";
     exit(); // Asegurarse de que el script se detenga después de redirigir
 } else {
     $admin_session = $_SESSION['admin_email'];
@@ -82,6 +82,8 @@ if (!isset($_SESSION['admin_email'])) {
     <link rel="stylesheet" href="css/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 </head>
 <body>
     
@@ -265,6 +267,10 @@ if (!isset($_SESSION['admin_email'])) {
                         
                         include("editar_variante.php");
                 }
+                if(isset($_GET['grafica'])){
+                        
+                    include("grafica.php");
+            }
                 ?>
 
             </div>

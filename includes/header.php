@@ -49,6 +49,8 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    
+    
 </head>
 <body>
    

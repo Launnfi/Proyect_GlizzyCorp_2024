@@ -283,6 +283,7 @@ include("includes/db.php");
     </div>
     
     <div class="col-md-4">
+    
         <div class="panel">
             <div class="panel-body">
                 <div class="mb-md thumb-info">
@@ -316,6 +317,8 @@ include("includes/db.php");
                         <?php echo $admin_sobre; ?>
                         
                     </p>
+                    
+
                     
                 </div>
             </div>

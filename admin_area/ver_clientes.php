@@ -110,12 +110,13 @@
                             <?php } ?>
                             
                         </tbody><!-- tbody finish -->
-                        
+                        <a href="index.php?grafica">Ver grafico de clientes</a>
                     </table><!-- table table-striped table-bordered table-hover finish -->
+                    <div id="barchart_values" style="width: 400px; height: 400px;"></div>
                 </div><!-- table-responsive finish -->
             </div><!-- panel-body finish -->
             
-        </div><!-- panel panel-default finish -->
+            </div><!-- panel panel-default finish -->
     </div><!-- col-lg-12 finish -->
 </div><!-- row 2 finish -->
 
