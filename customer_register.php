@@ -132,6 +132,9 @@ if (isset($_POST['register'])) {
     $c_img = $_FILES['c_img']['name'];
     $c_img_tmp = $_FILES['c_img']['tmp_name'];
     
+    // Encriptar la contraseña
+    $hashed_pass = password_hash($c_pass, PASSWORD_DEFAULT);
+
     // Mover la imagen a la carpeta deseada
     move_uploaded_file($c_img_tmp, "customer/customer_images/$c_img");
 
@@ -151,7 +154,7 @@ if (isset($_POST['register'])) {
             // La cuenta está inactiva, así que la reactivamos
             $update_status_query = "UPDATE customer SET activo = 1, cliente_pass = ? WHERE cliente_email = ?";
             $stmt_update = $con->prepare($update_status_query);
-            $stmt_update->bind_param("ss", $c_pass, $c_email);
+            $stmt_update->bind_param("ss", $hashed_pass, $c_email);
 
             if ($stmt_update->execute()) {
                 $_SESSION['cliente_email'] = $c_email;
@@ -169,7 +172,7 @@ if (isset($_POST['register'])) {
     } else {
         // Si el usuario no existe, se registra uno nuevo
         $stmt = $con->prepare("INSERT INTO customer (cliente_nombre, cliente_email, cliente_pass, cliente_ciudad, cliente_contacto, cliente_direccion, cliente_img, activo) VALUES (?, ?, ?, ?, ?, ?, ?, 1)");
-        $stmt->bind_param("sssssss", $c_nombre, $c_email, $c_pass, $c_ciudad, $c_contacto, $c_direccion, $c_img);
+        $stmt->bind_param("sssssss", $c_nombre, $c_email, $hashed_pass, $c_ciudad, $c_contacto, $c_direccion, $c_img);
         
         if ($stmt->execute()) {
             // Obtener el ID del nuevo cliente
@@ -184,7 +187,6 @@ if (isset($_POST['register'])) {
             $check_cart = $run_cart->num_rows;
 
             if ($check_cart > 0) {
-
                 $update_cart_query = "UPDATE cart SET cliente_id = ? WHERE cliente_id IS NULL";
                 $stmt_update_cart = $con->prepare($update_cart_query);
                 $stmt_update_cart->bind_param("i", $cliente_id);
@@ -207,3 +209,4 @@ if (isset($_POST['register'])) {
 
     $stmt_check_email->close();
 }
+?>

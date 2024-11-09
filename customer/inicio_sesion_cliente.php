@@ -59,7 +59,7 @@
 
 <?php 
 
-/*
+
 if (isset($_POST['login'])) {
     
     $cliente_email = $_POST['c_email'];
@@ -114,7 +114,7 @@ if (isset($_POST['login'])) {
 
 }
 
-  */if (isset($_POST['login'])) {
+  /*if (isset($_POST['login'])) {
     
     $cliente_email = $_POST['c_email'];
     $cliente_pass = $_POST['c_pass'];
@@ -174,5 +174,5 @@ if (isset($_POST['login'])) {
 }
 
    
-
+*/
 ?>
