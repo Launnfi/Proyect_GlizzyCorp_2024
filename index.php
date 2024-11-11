@@ -6,7 +6,7 @@
     
 ?>
 
-   
+
    <div class="container" id="slider"><!-- container empieza -->
        
        <div class="col-md-12"><!-- col-md-12 empieza -->

@@ -49,7 +49,7 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    
+    <script src="js\script.js"></script>
     
 </head>
 <body>
@@ -215,30 +215,40 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
                
                <div class="collapse clearfix" id="search"><!-- collapse clearfix empieza -->
                    
-                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form empieza -->
+                   <form method="get" action="index.php" class="navbar-form"><!-- navbar-form empieza -->
                        
                        <div class="input-group"><!-- input-group empieza -->
                            
-                           <input type="text" class="form-control" placeholder="Search" name="user_query" required>
+                       <input type="search" class="form-control me-2" placeholder="Buscar" name="buscar" onkeyup="consulta_buscador(this.value);" id="buscar" aria-labe = "Search" required>
                            
                            <span class="input-group-btn"><!-- input-group-btn empieza -->
                            
                            <button type="submit" name="search" value="Search" class="btn btn-primary"><!-- btn btn-primary empieza -->
                                
+                           
                                <i class="fa fa-search"></i>
-                               
-                           </button><!-- btn btn-primary termina -->
-                           
+                          
                            </span><!-- input-group-btn termina -->
-                           
+                                
+                           </button><!-- btn btn-primary termina -->
+                        
+
                        </div><!-- input-group termina -->
                        
                    </form><!-- navbar-form termina -->
-                   
+                   <div class="card_busqueda" id="card_busqueda" style="opacity: 0; text-align: left;">
+                            <div class="car shadow-sm p-2">
+                                <div class="container m-0 p-0" id="resultados_busqueda_nav">
+                                     
+                                </div>
+                            </div>
+                           </div>
+                  
                </div><!-- collapse clearfix termina -->
                
+               
            </div><!-- navbar-collapse collapse termina -->
-           
+        
        </div><!-- container termina -->
-       
+      
    </div><!-- navbar navbar-default termina -->
