@@ -838,7 +838,7 @@ body{
 
 /* Style para las etiquetas */
 
-.label{
+/* .label{
     color: #000;
     text-transform: uppercase;
     font-size: 18px;
@@ -886,17 +886,46 @@ body{
     border-width: 5px 10px;
     border-style: solid;
     border-color: #000 #000 transparent transparent;
-}
+} */
 
 /* Ajustes Imagenes */
 
-.img-responsive {
-    max-width: 100%;       
-    max-height: 300px;     
-    width: auto;           
-    height: auto;         
-    display: block;       
-    object-fit: cover;    
-    margin: 0 auto;        
+.product img.img-responsive {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    aspect-ratio: 1; 
+    border-radius: 10px; 
+    margin: 0 auto; 
+    display: block; 
 }
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%; 
+    box-sizing: border-box; 
+}
+
+@media (max-width: 768px) {
+    .product img.img-responsive {
+        width: 100%;
+        max-width: 100%; 
+        height: auto; 
+        aspect-ratio: 1; 
+    }
+}
+
+@media (max-width: 480px) {
+    .product img.img-responsive {
+        max-width: 100%; 
+        height: auto; 
+        aspect-ratio: 1; 
+    }
+}
+
+
+
+
 
