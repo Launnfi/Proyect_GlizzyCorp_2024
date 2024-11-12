@@ -4,7 +4,7 @@ include("includes/db.php");
 
 // Verificar si el administrador ha iniciado sesión
 if (!isset($_SESSION['admin_email'])) {
-    echo "<scrip>window.open('login.php','_self')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
     exit(); // Asegurarse de que el script se detenga después de redirigir
 } else {
     $admin_session = $_SESSION['admin_email'];
@@ -17,7 +17,7 @@ if (!isset($_SESSION['admin_email'])) {
 
     if ($result->num_rows > 0) {
         $row_admin = $result->fetch_assoc();
-        $admin_id = $row_admin['admin_id']; // Corregido: "adimn_id" a "admin_id"
+        $admin_id = $row_admin['admin_id']; 
         $admin_nombre = $row_admin['admin_nombre'];
         $admin_email = $row_admin['admin_email'];
         $admin_img = $row_admin['admin_img'];

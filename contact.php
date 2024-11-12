@@ -53,7 +53,7 @@ include("includes/header.php");
                         </form>
 
                         <?php
-                       if (isset($_POST['submit'])) {
+                     if (isset($_POST['submit'])) {
                         $user_nombre = $_POST['name'];
                         $user_email = $_POST['email'];
                         $user_asun = $_POST['subject'];
@@ -79,12 +79,14 @@ include("includes/header.php");
                     
                                 $mail->isHTML(true);
                                 $mail->Subject = $user_asun;
-                                $mail->Body = nl2br($user_msg);
+                    
+                                // Agregar el correo del remitente al cuerpo del mensaje
+                                $mail->Body = "Mensaje de: $user_nombre ($user_email)<br><br>" . nl2br($user_msg);
                     
                                 $mail->send();
                                 echo "<h2 align='center'>Tu mensaje se envió correctamente</h2>";
                     
-                                // Auto-respuesta
+                                // Auto-respuesta al usuario
                                 $mail->clearAddresses();
                                 $mail->addAddress($user_email);
                                 $mail->Subject = "Bienvenido a nuestro sitio web";

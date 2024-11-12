@@ -171,10 +171,11 @@ if(isset($_GET['pro_id'])){
                                             $talle = $row_variants['var_id'];
                                             $stock = $row_variants['stock_var'];
                                             $talle = $row_variants['talle'];
-                                            $talla = "Talla $talle";
+                                            $talla = "$talle";
 
                                             if ($stock > 0) {
-                                                echo "<option value='$var_id'>$talla - Stock: $stock</option>";
+                                                echo "<option value='$talla'>$talla</option>";
+                                                
                                             }
                                         }
                                         ?>
