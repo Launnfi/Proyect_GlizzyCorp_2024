@@ -36,85 +36,84 @@ if(isset($_GET['editar_cupon'])){
 
 ?>
     
-<div class="row"><!-- row Begin -->
+<div class="row">
     
-    <div class="col-lg-12"><!-- col-lg-12 Begin -->
+    <div class="col-lg-12">
         
-        <ol class="breadcrumb"><!-- breadcrumb Begin -->
-            
-            <li class="active"><!-- active Begin -->
+        <ol class="breadcrumb">
+            <li class="active">
                 
                 <i class="fa fa-dashboard"></i> Panel / Edit cupones
                 
-            </li><!-- active Finish -->
+            </li>
             
-        </ol><!-- breadcrumb Finish -->
-        
-    </div><!-- col-lg-12 Finish -->
+        </ol>
     
-</div><!-- row Finish -->
+    </div>
+    
+</div>
        
-<div class="row"><!-- row Begin -->
+<div class="row">
     
-    <div class="col-lg-12"><!-- col-lg-12 Begin -->
+    <div class="col-lg-12">
         
-        <div class="panel panel-default"><!-- panel panel-default Begin -->
+        <div class="panel panel-default">
             
-           <div class="panel-heading"><!-- panel-heading Begin -->
+           <div class="panel-heading">
                
-               <h3 class="panel-title"><!-- panel-title Begin -->
+               <h3 class="panel-title">
                    
                    <i class="fa fa-money fa-fw"></i> Editar Cupones
                    
-               </h3><!-- panel-title Finish -->
+               </h3>
                
-           </div> <!-- panel-heading Finish -->
+           </div>
            
-           <div class="panel-body"><!-- panel-body Begin -->
+           <div class="panel-body">
                
-               <form method="post" class="form-horizontal"><!-- form-horizontal Begin -->
+               <form method="post" class="form-horizontal">
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> cupon titulo </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input value="<?php echo $coup_title; ?>" name="cupon_titulo" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Cupon Precio </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input value="<?php echo $coup_price; ?>" name="cupon_precio" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Cupon limitet </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="cupon_limite" type="number" class="form-control" value="<?php echo $coup_limit; ?>">
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Selecciona producto </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <select name="producto_id" class="form-control" required>
                           
@@ -138,44 +137,42 @@ if(isset($_GET['editar_cupon'])){
                           
                           </select>
                           
-                      </div><!-- col-md-6 Finish -->
-                       
-                   </div><!-- form-group Finish -->
+                      </div>
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Cupon codigo</label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input value="<?php echo $coup_code; ?>" name="cupon_codigo" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"></label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="update" value="Edit Coupon" type="submit" class="btn btn-primary form-control">
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-               </form><!-- form-horizontal Finish -->
+               </form>
                
-           </div><!-- panel-body Finish -->
+           </div>
             
-        </div><!-- canel panel-default Finish -->
+        </div>
         
-    </div><!-- col-lg-12 Finish -->
+    </div>
     
-</div><!-- row Finish -->
-
+</div>
 <?php 
 
 if(isset($_POST['update'])){

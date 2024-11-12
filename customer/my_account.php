@@ -61,9 +61,7 @@ include("../functions/functions.php");
                     <a href="../customer_register.php">Registrarme</a>
                 </li>
                      <?php endif; ?>
-                   <li>
-                       <a href="my_account.php">Mi cuenta</a>
-                   </li>
+    
                    <li>
                        <a href="../cart.php">Ir al Carrito</a>
                    </li>

@@ -3,29 +3,29 @@ if(!isset($_SESSION['admin_email'])){
     echo "<script>window.open('login.php','_self')</script>";
 } else {
 ?>
-<div class="row"><!-- row 1 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <ol class="breadcrumb"><!-- breadcrumb begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i> Panel / Ver variantes
             </li>
-        </ol><!-- breadcrumb finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 1 finish -->
+        </ol>
+    </div>
+</div>
 
-<div class="row"><!-- row 2 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <div class="panel panel-default"><!-- panel panel-default begin -->
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <h3 class="panel-title"><!-- panel-title begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
                     <i class="fa fa-tags fa-fw"></i> Ver variantes
-                </h3><!-- panel-title finish -->
-            </div><!-- panel-heading finish -->
+                </h3>
+            </div>
             
-            <div class="panel-body"><!-- panel-body begin -->
-                <div class="table-responsive"><!-- table-responsive begin -->
-                    <table class="table table-hover table-striped table-bordered"><!-- table begin -->
-                        <thead><!-- thead begin -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead>
                             <tr>
                                 <th> Variante ID </th>
                                 <th> Producto </th>
@@ -87,11 +87,11 @@ if(!isset($_SESSION['admin_email'])){
                                     </tr>
                                 <?php } ?>
                                 
-                        </tbody><!-- tbody finish -->
-                    </table><!-- table finish -->
-                </div><!-- table-responsive finish -->
-            </div><!-- panel-body finish -->
-        </div><!-- panel panel-default finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 2 finish -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?php } ?>

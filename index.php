@@ -7,22 +7,22 @@
 ?>
 
 
-   <div class="container" id="slider"><!-- container empieza -->
+   <div class="container" id="slider">
        
-       <div class="col-md-12"><!-- col-md-12 empieza -->
+       <div class="col-md-12">
            
-           <div class="carousel slide" id="myCarousel" data-ride="carousel"><!-- carousel slide empieza -->
+           <div class="carousel slide" id="myCarousel" data-ride="carousel">
                
-               <ol class="carousel-indicators"><!-- carousel-indicators empieza -->
+               <ol class="carousel-indicators">
                    
                    <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
                    <li data-target="#myCarousel" data-slide-to="1"></li>
                    <li data-target="#myCarousel" data-slide-to="2"></li>
                    <li data-target="#myCarousel" data-slide-to="3"></li>
                    
-               </ol><!-- carousel-indicators termino -->
+               </ol>
                
-               <div class="carousel-inner"><!-- carousel-inner empieza -->
+               <div class="carousel-inner">
                    
                    <?php 
                    $get_slides = "select * from slider LIMIT 0,1";
@@ -69,33 +69,33 @@
                    ?>
                    
                    
-               </div><!-- carousel-inner termino -->
+               </div>
                
-               <a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control empieza -->
+               <a href="#myCarousel" class="left carousel-control" data-slide="prev">
                    
                    <span class="glyphicon glyphicon-chevron-left"></span>
                    <span class="sr-only">Anterior</span>
                    
-               </a><!-- left carousel-control termino -->
+               </a>
                
-               <a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- left carousel-control empieza -->
+               <a href="#myCarousel" class="right carousel-control" data-slide="next">
                    
                    <span class="glyphicon glyphicon-chevron-right"></span>
                    <span class="sr-only">Siguiente</span>
                    
-               </a><!-- left carousel-control termino -->
+               </a>
                
-           </div><!-- carousel slide termino -->
+           </div>
            
-       </div><!-- col-md-12 termino -->
+       </div>
        
-   </div><!-- container termino -->
+   </div>
    
-   <div id="advantages"><!-- #advantages empieza -->
+   <div id="advantages">
        
-       <div class="container"><!-- container empieza -->
+       <div class="container">
            
-           <div class="same-height-row"><!-- same-height-row empieza -->
+           <div class="same-height-row">
 
            <?php 
            
@@ -110,55 +110,54 @@
            
            ?>
                
-               <div class="col-sm-4"><!-- col-sm-4 empieza -->
+               <div class="col-sm-4">
                    
-                   <div class="box same-height"><!-- box same-height empieza -->
+                   <div class="box same-height">
                        
-                       <div class="icon"><!-- icon empieza -->
+                       <div class="icon">
                            
                            <i class="fa fa-heart"></i>
                            
-                       </div><!-- icon termino -->
+                       </div>
                        
                        <h3> <strong> <p><?php echo $caja_titulo; ?></p></strong></h3>
                        
                        <p> <?php echo $caja_desc; ?> </p>
                        
-                   </div><!-- box same-height termino -->
+                   </div>
                    
-               </div><!-- col-sm-4 termino -->
+               </div>
 
                <?php    } ?>
                
-           </div><!-- same-height-row termino -->
+           </div>
            
-       </div><!-- container termino -->
+       </div>
        
-   </div><!-- #advantages termino -->
+   </div>
    
-   <div id="hot"><!-- #hot empieza -->
-       
-       <div class="box"><!-- box empieza -->
+   <div id="hot">
+       <div class="box">
            
-           <div class="container"><!-- container empieza -->
+           <div class="container">
                
-               <div class="col-md-12"><!-- col-md-12 empieza -->
+               <div class="col-md-12">
                    
                    <h2>
                        Nuestros Ultimos Productos
                    </h2>
                    
-               </div><!-- col-md-12 termino -->
+               </div>
                
-           </div><!-- container termino -->
+           </div>
            
-       </div><!-- box termino -->
+       </div>
        
-   </div><!-- #hot termino -->
+   </div>
    
-   <div id="content" class="container"><!-- container empieza -->
+   <div id="content" class="container">
        
-       <div class="row"><!-- row empieza -->
+       <div class="row">
 
         <?php 
            
@@ -166,9 +165,9 @@
            
         ?>
            
-       </div><!-- row termino -->
+       </div>
        
-   </div><!-- container termino -->
+   </div>
 
    <?php
 

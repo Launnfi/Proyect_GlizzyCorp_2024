@@ -12,7 +12,7 @@ function updatePrice(talle) {
 
     // Hacer la llamada AJAX a get_variant_price.php
     $.ajax({
-        url: 'includes/obtener_var_p.php', // Archivo PHP que obtiene el precio de la variante
+        url: 'includes/obtener_var_p.php', 
         type: 'POST',
         dataType: 'json',
         data: { talle: talle, product_id: productId },

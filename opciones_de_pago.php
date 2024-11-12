@@ -19,28 +19,22 @@ include("db.php");
     
     <h1 class="text-center">Opciones de pago</h1>  
     
-     <p class="lead text-center"><!-- lead text-center empieza -->
+     <p class="lead text-center">
          
          <a class="" href="ordenes.php?c_id=<?php echo $id_cliente ?>"> Pagos sin conexion </a>
          
-     </p><!-- lead text-center termino -->
+     </p>
      
-     <center><!-- center empieza -->
+     <center>
          
-        <p class="lead"><!-- lead empieza -->
-        <a href="https://wa.me/59892787479" target="_blank">
+        <p class="lead">
+        <a href="https://wa.me/59896354036" target="_blank">
             <button>Contactar por WhatsApp</button>
         </a>
-            <a href="PagoLinea.php">
-                
-                Pago por Mercado pago
-                
-                <img class="img-responsive" src="images/mercadopago.png" alt="img-paypall">
-                
-            </a>
+       
             
-        </p> <!-- lead termino -->
+        </p> 
          
-     </center><!-- center termino -->
+     </center>
     
-</div><!-- box termino -->
+</div>

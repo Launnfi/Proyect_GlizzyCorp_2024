@@ -97,14 +97,12 @@
                     No te pierdas nuestros productos
                 </p>
                 
-                <form action="" method="post"><!-- form empieza -->
+               
                     <div class="input-group"><!-- input-group empieza -->
-                        
-                        <input type="text" class="form-control" name="email">
                         
                         <span class="input-group-btn"><!-- input-group-btn empieza -->
                             
-                            <input type="submit" value="subscribe" class="btn btn-default">
+                            <button type="submit" value="Blog" class="btn btn-default"> <a href="../blog.php">Blog</a></button>
                             
                         </span><!-- input-group-btn termino -->
                         
@@ -113,14 +111,12 @@
                 
                 <hr>
                 
-                <h4>Mantente en contacto</h4>
+                <h4>Visita nuestras Redes</h4>
                 
                 <p class="social">
-                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="https://www.facebook.com/vicenta.saltouy/?locale=es_LA" class="fa fa-facebook"></a>
                     <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                    <a href="#" class="fa fa-envelope"></a>
+                    <a href="https://www.instagram.com/vicenta_salto/" class="fa fa-instagram"></a>
                 </p>
                 
             </div>

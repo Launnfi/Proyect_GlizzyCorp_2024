@@ -289,7 +289,8 @@ if(isset($_GET['pro_id'])){
                 $pro_img1 = $row_products['producto_img1'];
                 $pro_label = $row_products['producto_etiqueta'];
                 $pro_activo = $row_products['activo'];
-            
+                
+              
                 if ($pro_label == "sale") {
                     $product_price = "<del> $ $pro_price </del>";
                     $product_sale_price = "/ $ $pro_sale_price ";
@@ -318,7 +319,7 @@ if(isset($_GET['pro_id'])){
                    <div class='col-md-3 col-sm-6 center-responsive'>
                    
                        <div class='product'>
-                       
+                    
                            <a href='details.php?pro_id=$pro_id'>
                            
                                <img class='img-responsive' src='admin_area/product_images/$pro_img1'>

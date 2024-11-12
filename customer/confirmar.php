@@ -194,19 +194,14 @@ if(!isset($_SESSION['cliente_email'])){
                         <label>Cantidad a pagar:</label>
                         <input type="text" class="form-control" name="cantidadEnv" required value="<?php echo $monto;  ?>">
                     </div>
-                    
                     <div class="form-group">
-                        <label>Metodo de pago</label>
-                        <select name="modoPago" class="form-control">
-                            <option>Seleccione metodo de pago</option>
-                            <option>Pago expres</option>
-                        </select>
-                    </div>
+                    <label>Metodo de pago</label>
+                    <select name="modoPago" class="form-control" required>
+                        <option value="" disabled selected>Seleccione metodo de pago</option>
+                        <option value="Pago expres">Pago expres</option>
+                    </select>
+                     </div>
                     
-                    <div class="form-group">
-                        <label>Id de la Orden</label>
-                        <input type="text" class="form-control" name="ref_no" value ="<?php echo $orden_id;  ?>" required>
-                    </div>
                     <div class="form-group">
                     <label>Fecha con la que se realizará el pago</label>
                     <input type="date" class="form-control" name="date" min="<?php echo date('Y-m-d'); ?>" required>
@@ -227,15 +222,14 @@ if(!isset($_SESSION['cliente_email'])){
   
 
 if(isset($_POST['confirm_payment'])){                       
-    $orden_id = $_GET['orden_id'];
+    $num_orden = $_GET['orden_id'];
     $numero_fact = $_POST['Num_orden'];
     $cantidad = $_POST['cantidadEnv'];
     $metodo_pago = $_POST['modoPago'];
-    $ref_no = $_POST['ref_no'];
     $fecha_pago = $_POST['date'];
     $complete = "Completado";
     
-    $insert_payment = "INSERT INTO pagos (numero_factura, cantidad, metodo_pago, num_ref, fecha_pago) VALUES ('$numero_fact', '$cantidad', '$metodo_pago', '$ref_no', '$fecha_pago')";
+    $insert_payment = "INSERT INTO pagos (numero_factura, cantidad, metodo_pago, fecha_pago) VALUES ('$numero_fact', '$cantidad', '$metodo_pago', '$fecha_pago')";
     
     $run_payment = mysqli_query($con, $insert_payment);
     if (!$run_payment) {
@@ -276,7 +270,7 @@ if(isset($_POST['confirm_payment'])){
     }
 
     // Detalles de la boleta
-    $boleta = "Número de orden: $numero_fact\nCantidad: $cantidad\nMétodo de pago: $metodo_pago\nReferencia: $ref_no\nFecha: $fecha_pago";
+    $boleta = "Número de orden: $numero_fact\nCantidad: $cantidad\nMétodo de pago: $metodo_pago\n ID de la orden: $orden_id\nFecha: $fecha_pago";
 
             // Crear el objeto PHPMailer para el cliente
             $mail_cliente = new PHPMailer(true);

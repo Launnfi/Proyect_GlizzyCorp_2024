@@ -88,10 +88,6 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
                 </li>
                      <?php endif; ?>
                    <li>
-                   <li>
-                       <a href="customer/my_account.php">Mi cuenta</a>
-                   </li>
-                   <li>
                        <a href="cart.php">Ir al Carrito</a>
                    </li>
                    <li>

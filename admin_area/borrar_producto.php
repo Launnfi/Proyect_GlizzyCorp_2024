@@ -9,7 +9,6 @@
         
         $delete_id = $_GET['borrar_producto'];
 
-        // Verificamos el estado actual del producto
         $check_status = "SELECT activo FROM productos WHERE producto_id = '$delete_id'";
         $run_check = mysqli_query($con, $check_status);
         

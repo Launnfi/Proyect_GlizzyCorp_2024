@@ -30,82 +30,81 @@
 
 ?>
 
-<div class="row"><!-- row 1 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <ol class="breadcrumb"><!-- breadcrumb begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
             <li>
                 
                 <i class="fa fa-dashboard"></i> Panel / editar caja
                 
             </li>
-        </ol><!-- breadcrumb finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 1 finish -->
+        </ol>
+    </div>
+</div>
 
-<div class="row"><!-- row 2 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <div class="panel panel-default"><!-- panel panel-default begin -->
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <h3 class="panel-title"><!-- panel-title begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
                 
                     <i class="fa fa-pencil fa-fw"></i> Editar caja
                 
-                </h3><!-- panel-title finish -->
-            </div><!-- panel-heading finish -->
+                </h3>
+            </div>
             
-            <div class="panel-body"><!-- panel-body begin -->
-                <form action="" class="form-horizontal" method="post"><!-- form-horizontal begin -->
-                    <div class="form-group"><!-- form-group begin -->
+            <div class="panel-body">
+                <form action="" class="form-horizontal" method="post">
+                    <div class="form-group">
                     
-                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
+                        <label for="" class="control-label col-md-3">
                         
                             Titulo de la caja
                         
-                        </label><!-- control-label col-md-3 finish --> 
+                        </label>
                         
-                        <div class="col-md-6"><!-- col-md-6 begin -->
+                        <div class="col-md-6">
                         
                             <input value=" <?php echo $caja_titulo; ?> " name="caja_titulo" type="text" class="form-control">
                         
-                        </div><!-- col-md-6 finish -->
+                        </div>
                     
-                    </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
+                    </div>
+                    <div class="form-group">
                     
-                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
+                        <label for="" class="control-label col-md-3">
                         
                             Descripcion de la caja
                         
-                        </label><!-- control-label col-md-3 finish --> 
+                        </label>
                         
-                        <div class="col-md-6"><!-- col-md-6 begin -->
+                        <div class="col-md-6">
                         
                             <textarea type='text' name="caja_desc" class="form-control"><?php echo $caja_desc; ?></textarea>
                         
-                        </div><!-- col-md-6 finish -->
+                        </div>
+                    </div>
+                    <div class="form-group">
                     
-                    </div><!-- form-group finish -->
-                    <div class="form-group"><!-- form-group begin -->
-                    
-                        <label for="" class="control-label col-md-3"><!-- control-label col-md-3 begin --> 
+                        <label for="" class="control-label col-md-3"><
                         
                              
                         
-                        </label><!-- control-label col-md-3 finish --> 
+                        </label>
                         
-                        <div class="col-md-6"><!-- col-md-6 begin -->
+                        <div class="col-md-6">
                         
                             <input value="Update Box" name="update_box" type="submit" class="form-control btn btn-primary">
                         
-                        </div><!-- col-md-6 finish -->
+                        </div>
                     
-                    </div><!-- form-group finish -->
-                </form><!-- form-horizontal finish -->
-            </div><!-- panel-body finish -->
+                    </div>
+                </form>
+            </div>
             
-        </div><!-- panel panel-default finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 2 finish -->
+        </div>
+    </div>
+</div>
 
 <?php  
 

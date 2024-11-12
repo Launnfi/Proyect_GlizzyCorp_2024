@@ -8,7 +8,7 @@ if (isset($_POST['talle']) && isset($_POST['product_id'])) {
     // Consulta para obtener los precios de la variante seleccionada
     $query = "SELECT precio_var AS price, var_precio_of AS sale_price 
               FROM variantes 
-              WHERE producto_id = '$product_id' AND variante_talle = '$talle'";
+              WHERE producto_id = '$product_id' AND talle  = '$talle'";
     
     $result = mysqli_query($con, $query);
     $data = mysqli_fetch_assoc($result);
