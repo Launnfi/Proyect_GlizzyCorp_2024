@@ -104,9 +104,9 @@
 
            while($run_boxes_section=mysqli_fetch_array($run_boxes)){
 
-            $box_id = $run_boxes_section['caja_id'];
-            $box_title = $run_boxes_section['caja_titulo'];
-            $box_desc = $run_boxes_section['caja_desc'];
+            $caja_id = $run_boxes_section['caja_id'];
+            $caja_titulo = $run_boxes_section['caja_titulo'];
+            $caja_desc = $run_boxes_section['caja_desc'];
            
            ?>
                
@@ -120,7 +120,7 @@
                            
                        </div><!-- icon termino -->
                        
-                       <h3><a href="#"><?php echo $caja_titulo; ?></a></h3>
+                       <h3> <strong> <p><?php echo $caja_titulo; ?></p></strong></h3>
                        
                        <p> <?php echo $caja_desc; ?> </p>
                        

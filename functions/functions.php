@@ -81,132 +81,66 @@ function add_cart(){
 
 //Funcion que obtiene y muestra los productos en la tabla "productos"
 function getPro(){
-    
     global $db;
 
-    // Consulta SQL para obtener todos los productos ordenados de manera descendente (los más recientes primero)
-    // Limitando el resultado a los primeros 8 productos
+    // Consulta SQL para obtener todos los productos, ordenados de manera descendente y limitados a los primeros 8 productos
     $get_productos = "SELECT * from productos order by 1 DESC LIMIT 0,8"; 
+    $run_productos = mysqli_query($db, $get_productos);
     
-    //Ejecuta la consulta
-    $run_productos = mysqli_query($db,$get_productos);
-    
-    //recorre los resultados de la consulta
-    while($row_products=mysqli_fetch_array($run_productos)){
-        
-        // Asignamos los valores de cada producto a variables locales
+    // Recorre los resultados de la consulta
+    while($row_products = mysqli_fetch_array($run_productos)){
         $pro_id = $row_products['producto_id'];
-        
         $pro_titulo = $row_products['producto_titulo'];
-        
-        $pro_precio = $row_products['producto_precio'];
-
-        $pro_sale_price = $row_products['producto_oferta'];
-        
         $pro_img1 = $row_products['producto_img1'];
-
         $pro_label = $row_products['producto_etiqueta'];
-
         $pro_activo = $row_products['activo'];
         
-        
-        //imprime el html para mostrar los productos en la pagina
-        if($pro_label == "sale"){
+        // Obtener el precio de la variante y el precio de oferta desde la tabla 'variantes'
+        $get_variante = "SELECT * FROM variantes WHERE producto_id = '$pro_id' LIMIT 1"; // Obtiene la primera variante
+        $run_variante = mysqli_query($db, $get_variante);
+        $row_variante = mysqli_fetch_array($run_variante);
 
-            $product_price = " <del> $ $pro_precio </del> ";
+        $pro_precio_var = isset($row_variante['precio_var']) ? $row_variante['precio_var'] : "Precio no disponible";
+        $pro_sale_price = isset($row_variante['var_precio_of']) ? $row_variante['var_precio_of'] : null;
 
-            $product_sale_price = "/ $ $pro_sale_price ";
-
-        }else{
-
-            $product_price = "  $ $pro_precio  ";
-
+        // Formatear el precio y el precio de oferta
+        if($pro_sale_price) {
+            $product_price = "<del> $ $pro_precio_var </del>";
+            $product_sale_price = "/ $ $pro_sale_price";
+        } else {
+            $product_price = "$ $pro_precio_var";
             $product_sale_price = "";
-
         }
 
-        if($pro_label == ""){
+        // Etiqueta del producto si existe
+        $product_label = $pro_label ? "
+            <a href='#' class='label $pro_label'>
+                <div class='theLabel'> $pro_label </div>
+                <div class='labelBackground'></div>
+            </a>" : '';
 
-        }else{
-
-            $product_label = "
-            
-                <a href='#' class='label $pro_label'>
-                
-                    <div class='theLabel'> $pro_label </div>
-                    <div class='labelBackground'>  </div>
-                
-                </a>
-            
-            ";
-
-        }
-        
-        if($pro_activo == 0){
-        
-        }else{
-
-        
-        echo "
-        
-        <div class='col-md-4 col-sm-6 single'>
-        
-            <div class='product'>
-            
-                <a href='details.php?pro_id=$pro_id'>
-                
-                    <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                
-                </a>
-                
-                <div class='text'>
-
-
-                
-                    <h3>
-            
-                        <a href='details.php?pro_id=$pro_id'>
-
-                            $pro_titulo
-
-                        </a>
-                    
-                    </h3>
-                    
-                    <p class='price'>
-                    
-                    $product_price &nbsp;$product_sale_price
-                    
-                    </p>
-                    
-                    <p class='button'>
-                    
-                        <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-
-                            View Details
-
-                        </a>
-                    
-                        <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
-
-                            <i class='fa fa-shopping-cart'></i> Add to Cart
-
-                        </a>
-                    
-                    </p>
-                
+        // Verificar si el producto está activo antes de mostrarlo
+        if($pro_activo == 1){
+            echo "
+            <div class='col-md-4 col-sm-6 single'>
+                <div class='product'>
+                    <a href='details.php?pro_id=$pro_id'>
+                        <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                    </a>
+                    <div class='text'>
+                        <h3><a href='details.php?pro_id=$pro_id'>$pro_titulo</a></h3>
+                        <p class='price'>$product_price $product_sale_price</p>
+                        <p class='button'>
+                            <a class='btn btn-default' href='details.php?pro_id=$pro_id'>View Details</a>
+                            <a class='btn btn-primary' href='details.php?pro_id=$pro_id'><i class='fa fa-shopping-cart'></i> Add to Cart</a>
+                        </p>
+                    </div>
+                    $product_label
                 </div>
-
-                $product_label
-            
             </div>
-        
-        </div>
-        
-        ";
+            ";
+        }
     }
-    }
-    
 }
 //Funcion que obtiene y muestra las categorias del producto
 function getPCats(){
@@ -267,313 +201,186 @@ function getCats(){
 }
 // Función para obtener y mostrar los productos de una categoría de productos específica
 function getPCatpro(){
-
     global $db;
 
-    // Verifica si en la URL está presente el parámetro 'p_cat' (categoría de productos)
     if(isset($_GET['p_cat'])){
-        
-         // Obtiene el ID de la categoría de productos desde la URL
         $p_cat_id = $_GET['p_cat'];
 
-        $get_p_cat ="SELECT * from productos_categorias where p_cat_id = '$p_cat_id'";
-        
-        $run_p_cat = mysqli_query($db,$get_p_cat);
-        
+        // Obtener los datos de la categoría de productos
+        $get_p_cat = "SELECT * from productos_categorias where p_cat_id = '$p_cat_id'";
+        $run_p_cat = mysqli_query($db, $get_p_cat);
         $row_p_cat = mysqli_fetch_array($run_p_cat);
-        
+
         $p_cat_titulo = $row_p_cat['p_cat_titulo'];
-        
         $p_cat_desc = $row_p_cat['p_cat_desc'];
         
-        $get_productos ="SELECT * from productos where p_cat_id='$p_cat_id'";
-        
-        $run_productos = mysqli_query($db,$get_productos); //Ejecutamos la consulta
-        
+        // Obtener los productos en la categoría
+        $get_productos = "SELECT * from productos where p_cat_id='$p_cat_id'";
+        $run_productos = mysqli_query($db, $get_productos);
         $cont = mysqli_num_rows($run_productos);
-        
-        if($cont==0){
-            
+
+        if($cont == 0){
             echo "
-            
                 <div class='box'>
-                
                     <h1> No hay productos en esta categoria aun </h1>
-                
                 </div>
-            
             ";
-            
-        }else{
-            //Si hay productos en la categoria mostrara lo siguiente
+        } else {
             echo "
-            
                 <div class='box'>
-                
                     <h1> $p_cat_titulo </h1>
-                    
                     <p> $p_cat_desc </p>
-                
                 </div>
-            
             ";
-            
         }
-         // Recorremos todos los productos obtenidos de la consulta
+
         while($row_products = mysqli_fetch_array($run_productos)){
-            
             $pro_id = $row_products['producto_id'];
-        
             $pro_titulo = $row_products['producto_titulo'];
-            
-            $pro_precio = $row_products['producto_precio'];
-    
-            $pro_sale_price = $row_products['producto_oferta'];
-            
             $pro_img1 = $row_products['producto_img1'];
-    
             $pro_label = $row_products['producto_etiqueta'];
-    
             $pro_activo = $row_products['activo'];
-            
-            
-            //imprime el html para mostrar los productos en la pagina
-            if($pro_label == "sale"){
-    
-                $product_price = " <del> $ $pro_precio </del> ";
-    
-                $product_sale_price = "/ $ $pro_sale_price ";
-    
-            }else{
-    
-                $product_price = "  $ $pro_precio  ";
-    
+
+            // Obtener el precio de la variante desde la tabla 'variantes'
+            $get_variante = "SELECT * FROM variantes WHERE producto_id = '$pro_id' LIMIT 1"; // Obtener la primera variante
+            $run_variante = mysqli_query($db, $get_variante);
+            $row_variante = mysqli_fetch_array($run_variante);
+
+            // Obtener el precio de la variante 'precio_var'
+            $pro_precio_var = isset($row_variante['precio_var']) ? $row_variante['precio_var'] : null;
+
+            // Si no existe 'precio_var', mostrar un mensaje o un precio predeterminado
+            if($pro_precio_var === null) {
+                $pro_precio_var = "Precio no disponible";
+            }
+
+            // Si existe una oferta (campo 'var_precio_of'), lo mostramos
+            $pro_sale_price = isset($row_variante['var_precio_of']) ? $row_variante['var_precio_of'] : null;
+
+            // Formato para el precio de oferta si existe
+            if($pro_sale_price) {
+                $product_price = "<del> $ $pro_precio_var </del>";
+                $product_sale_price = "/ $ $pro_sale_price";
+            } else {
+                $product_price = "$ $pro_precio_var";
                 $product_sale_price = "";
-    
             }
-    
-            if($pro_label == ""){
-    
-            }else{
-    
-                $product_label = "
-                
-                    <a href='#' class='label $pro_label'>
-                    
-                        <div class='theLabel'> $pro_label </div>
-                        <div class='labelBackground'>  </div>
-                    
-                    </a>
-                
-                ";
-    
-            }
-            
-            if($pro_activo == 0){
-            
-            }else{
-    
-            
-            echo "
-            
-            <div class='col-md-4 col-sm-6 single'>
-            
-                <div class='product'>
-                
-                    <a href='details.php?pro_id=$pro_id'>
-                    
-                        <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                    
-                    </a>
-                    
-                    <div class='text'>
-    
-    
-                    
-                        <h3>
-                
-                            <a href='details.php?pro_id=$pro_id'>
-    
-                                $pro_titulo
-    
-                            </a>
-                        
-                        </h3>
-                        
-                        <p class='price'>
-                        
-                        $product_price &nbsp;$product_sale_price
-                        
-                        </p>
-                        
-                        <p class='button'>
-                        
-                            <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-    
-                                View Details
-    
-                            </a>
-                        
-                            <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
-    
-                                <i class='fa fa-shopping-cart'></i> Add to Cart
-    
-                            </a>
-                        
-                        </p>
-                    
+
+            // Etiqueta de oferta si existe
+            $product_label = $pro_label ? "
+                <a href='#' class='label $pro_label'>
+                    <div class='theLabel'> $pro_label </div>
+                    <div class='labelBackground'></div>
+                </a>" : '';
+
+            if($pro_activo == 1){
+                echo "
+                <div class='col-md-4 col-sm-6 single'>
+                    <div class='product'>
+                        <a href='details.php?pro_id=$pro_id'>
+                            <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
+                        </a>
+                        <div class='text'>
+                            <h3><a href='details.php?pro_id=$pro_id'>$pro_titulo</a></h3>
+                            <p class='price'>$product_price $product_sale_price</p>
+                            <p class='button'>
+                                <a class='btn btn-default' href='details.php?pro_id=$pro_id'>Ver detalles</a>
+                                <a class='btn btn-primary' href='details.php?pro_id=$pro_id'><i class='fa fa-shopping-cart'></i> Añadir al carrito</a>
+                            </p>
+                        </div>
+                        $product_label
                     </div>
-    
-                    $product_label
-                
                 </div>
-            
-            </div>
-            
-            ";
+                ";
+            }
         }
-        }
-        
     }
 }
+
+
 
 // Función para obtener los productos de una categoría general específica
 function getcatpro(){
-    
     global $db;
 
-    // Verificamos si la URL tiene el parámetro 'cat', que es el ID de la categoría general
     if(isset($_GET['cat'])){
-        
-        // Guardamos el ID de la categoría general en una variable
         $cat_id = $_GET['cat'];
         
-        // Consulta SQL para obtener los detalles de la categoría por su ID
         $get_cat = "SELECT * from categorias where cat_id='$cat_id'";
-        
-        $run_cat = mysqli_query($db,$get_cat);
-        
-        // Guardamos los resultados de la consulta en un array
+        $run_cat = mysqli_query($db, $get_cat);
         $row_cat = mysqli_fetch_array($run_cat);
         
         $cat_titulo = $row_cat['cat_titulo'];
-        
         $cat_desc = $row_cat['cat_desc'];
 
-        // Consulta SQL para obtener los productos pertenecientes a la categoría seleccionada (limitando a los primeros 6)
-        $get_cat = "SELECT * from productos where cat_id='$cat_id' LIMIT 0,6";
+        $get_cat_products = "SELECT * from productos where cat_id='$cat_id' LIMIT 0,6";
+        $run_products = mysqli_query($db, $get_cat_products);
         
-        $run_products = mysqli_query($db,$get_cat);
-        
-         // Contamos el número de productos en la categoría
         $count = mysqli_num_rows($run_products);
         
-        //Si no hay productos mostrara el siguiente mensaje
-        if($count==0){
-            
-            
+        if($count == 0){
             echo "
-            
                 <div class='box'>
-                
                     <h1> Aun no hay productos en esta categoria </h1>
-                
                 </div>
-            
             ";
-            
-        }else{
-            // Si hay productos, mostramos el título y la descripción de la categoría
+        } else {
             echo "
-            
                 <div class='box'>
-                
                     <h1> $cat_titulo </h1>
-                    
                     <p> $cat_desc </p>
-                
                 </div>
-            
             ";
-            
         }
-         // Recorremos todos los productos obtenidos de la consulta
-        while($row_products=mysqli_fetch_array($run_products)){
-            
-            // Obtenemos los detalles de cada producto
-            $pro_id = $row_products['producto_id'];
-            
-            $pro_titulo = $row_products['producto_titulo'];
-            
-            $pro_precio = $row_products['producto_precio'];
-            
-            $pro_desc = $row_products['producto_desc'];
-            
-            $pro_img1 = $row_products['producto_img1'];
 
+        while($row_products = mysqli_fetch_array($run_products)){
+            $pro_id = $row_products['producto_id'];
+            $pro_titulo = $row_products['producto_titulo'];
+            $pro_desc = $row_products['producto_desc'];
+            $pro_img1 = $row_products['producto_img1'];
             $pro_activo = $row_products['activo'];
 
-    
             if($pro_activo == 1){
+                // Consulta para obtener el precio mínimo de las variantes
+                $get_precio_var = "SELECT MIN(precio_var) as precio_minimo FROM variantes WHERE producto_id = '$pro_id'";
+                $run_precio_var = mysqli_query($db, $get_precio_var);
+                $row_precio_var = mysqli_fetch_array($run_precio_var);
+                
+                // Usamos el precio mínimo de la variante
+                $pro_precio = $row_precio_var['precio_minimo'];
 
-            
                 echo " 
-                <div class='col-md-4 col-sm-6 center-responsive'>
-            
-                <div class='product'>
-                
-                    <a href='details.php?pro_id=$pro_id'>
-                    
-                        <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                    
-                    </a>
-                    
-                    <div class='text'>
-                    
-                        <h3>
-                
+                    <div class='col-md-4 col-sm-6 center-responsive'>
+                        <div class='product'>
                             <a href='details.php?pro_id=$pro_id'>
-    
-                                $pro_titulo
-    
+                                <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
                             </a>
-                        
-                        </h3>
-                        
-                        <p class='price'>
-                        
-                            $ $pro_precio
-                        
-                        </p>
-                        
-                        <p class='button'>
-                        
-                            <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-    
-                                Ver detalles
-    
-                            </a>
-                        
-                            <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
-    
-                                <i class='fa fa-shopping-cart'></i> Añadir al carrito
-    
-                            </a>
-                        
-                        </p>
-                    
+                            <div class='text'>
+                                <h3>
+                                    <a href='details.php?pro_id=$pro_id'>
+                                        $pro_titulo
+                                    </a>
+                                </h3>
+                                <p class='price'>
+                                    $ $pro_precio
+                                </p>
+                                <p class='button'>
+                                    <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
+                                        Ver detalles
+                                    </a>
+                                    <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
+                                        <i class='fa fa-shopping-cart'></i> Añadir al carrito
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                
-                </div>
-            
-            </div>
-            
-            ";
+                ";
+            }
         }
     }
-    }
-    
 }
+
 
 // Función para contar el número de productos en el carrito del usuario actual
 function items() {
@@ -651,68 +458,50 @@ function mont_total() {
 
         // Obtener el cliente_id a partir del cliente_email
         $get_cliente_id = "SELECT cliente_id FROM customer WHERE cliente_email = ?";
-
-        // Usamos una sentencia preparada para evitar inyección SQL
         if ($stmt = mysqli_prepare($db, $get_cliente_id)) {
-            // Vincula el parámetro de cliente_email
             mysqli_stmt_bind_param($stmt, "s", $cliente_email);
-
-            // Ejecuta la consulta
             mysqli_stmt_execute($stmt);
-
-            // Obtiene el resultado de la consulta
             $result = mysqli_stmt_get_result($stmt);
 
-            // Verificamos si el cliente existe
             if (mysqli_num_rows($result) > 0) {
-                // Obtener el cliente_id
                 $row = mysqli_fetch_assoc($result);
                 $cliente_id = $row['cliente_id'];
 
-                // Inicializamos el total
                 $total = 0;
 
-                // Ahora que tenemos el cliente_id, buscamos los productos en el carrito
+                // Obtener los productos en el carrito
                 $selecc_cart = "SELECT * FROM cart WHERE cliente_id = ?";
-
-                // Realizamos la consulta para obtener los productos del carrito
                 if ($stmt_cart = mysqli_prepare($db, $selecc_cart)) {
-                    // Vincula el parámetro de cliente_id
                     mysqli_stmt_bind_param($stmt_cart, "i", $cliente_id);
-
-                    // Ejecuta la consulta
                     mysqli_stmt_execute($stmt_cart);
-
-                    // Obtiene el resultado de la consulta
                     $result_cart = mysqli_stmt_get_result($stmt_cart);
 
-                    // Recorremos los productos del carrito
                     while ($rec = mysqli_fetch_array($result_cart)) {
-                        // Obtenemos el ID del producto y la cantidad del carrito
                         $pro_id = $rec['p_id'];
                         $pro_cant = $rec['cant'];
+                        $pro_talle = $rec['talle']; // Asumimos que tienes la talla en el carrito
 
-                        // Consulta SQL para obtener los detalles del producto por su ID
-                        $get_precio = "SELECT * FROM productos WHERE producto_id = '$pro_id'";
+                        // Obtener el precio de la variante desde la tabla 'variantes'
+                        $get_precio_var = "SELECT precio_var FROM variantes WHERE producto_id = ? AND talle = ? LIMIT 1";
+                        if ($stmt_precio_var = mysqli_prepare($db, $get_precio_var)) {
+                            mysqli_stmt_bind_param($stmt_precio_var, "is", $pro_id, $pro_talle);
+                            mysqli_stmt_execute($stmt_precio_var);
+                            $result_precio_var = mysqli_stmt_get_result($stmt_precio_var);
 
-                        $run_precio = mysqli_query($db, $get_precio);
-
-                        // Recorremos los resultados de la consulta
-                        while ($row_precio = mysqli_fetch_array($run_precio)) {
-                            // Calculamos el subtotal multiplicando el precio del producto por la cantidad
-                            $sub_total = $row_precio['producto_precio'] * $pro_cant;
-
-                            // Suma el subtotal al total general
-                            $total += $sub_total;
+                            if ($row_precio_var = mysqli_fetch_assoc($result_precio_var)) {
+                                // Usar el precio de la variante
+                                $precio_var = $row_precio_var['precio_var'];
+                                $sub_total = $precio_var * $pro_cant;
+                                $total += $sub_total;
+                            }
+                            mysqli_stmt_close($stmt_precio_var);
                         }
                     }
 
                     // Mostrar el total
                     echo "$" . $total;
-
-                    // Cierra la sentencia preparada
                     mysqli_stmt_close($stmt_cart);
-                } 
+                }
             }
         }
     }

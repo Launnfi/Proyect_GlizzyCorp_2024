@@ -126,6 +126,18 @@
                       </div><!-- col-md-6 Finish -->
                        
                    </div><!-- form-group Finish -->
+                    
+                   <div class="form-group"><!-- form-group Begin -->
+                       
+                      <label class="col-md-3 control-label"> variante precio de oferta </label> 
+                      
+                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                          
+                          <input name="var_precio_oferta" type="text" class="form-control" >
+                          
+                      </div><!-- col-md-6 Finish -->
+                       
+                   </div><!-- form-group Finish -->
                    
                    <div class="form-group"><!-- form-group Begin -->
                        
@@ -156,6 +168,7 @@ if(isset($_POST['submit'])){
     $talle = $_POST['talle'];
     $var_precio = $_POST['var_precio'];
     $stock = $_POST['stock'];
+    $stock = $_POST['var_precio_of'];
     $var_pro_id = $_POST['producto_id'];
 
     
@@ -166,7 +179,7 @@ if(isset($_POST['submit'])){
     if($check_variantes == 1){
         echo "<script>alert('Variante ya añadida para este producto y talla.')</script>";
     } else {
-        $insert_variante = "INSERT INTO variantes (producto_id, stock_var, talle, precio_var) VALUES ('$var_pro_id', '$stock', '$talle', '$var_precio')";
+        $insert_variante = "INSERT INTO variantes (producto_id, stock_var, talle, precio_var, var_precio_of) VALUES ('$var_pro_id', '$stock', '$talle', '$var_precio', '$var_precio_of')";
         $run_variante = mysqli_query($con, $insert_variante);
 
         if($run_variante){

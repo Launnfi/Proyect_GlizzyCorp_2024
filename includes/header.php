@@ -17,7 +17,6 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
         // Obtener cada detalle del producto
         $p_cat_id = $row_product['p_cat_id'];
         $pro_titulo = $row_product['producto_titulo'];
-        $pro_price = $row_product['producto_precio'];
         $pro_desc = $row_product['producto_desc'];
         $pro_img1 = $row_product['producto_img1'];
         $pro_img2 = $row_product['producto_img2'];
@@ -34,6 +33,7 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
             echo "Categoría de producto no encontrada.";
     
 }
+ 
     }
 }
 ?>

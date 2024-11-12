@@ -3,25 +3,30 @@ include("../db.php");
 
 if($_POST['dato'] == 'busca' && $_POST['busqueda'] != '') {
     $key = explode(" ", $_POST['busqueda']);
-    $sql = "SELECT * FROM productos WHERE producto_titulo LIKE '%".$_POST['busqueda']."%' ";
+    
+    // Preparar la consulta inicial
+    $sql = "SELECT * FROM productos WHERE producto_titulo LIKE ?";
+    $params = array('%' . $_POST['busqueda'] . '%'); // Parametros iniciales
 
-    for ($i=0; $i < count($key); $i++) { 
-        if(!empty($key[$i])) { 
-            $sql .= " OR producto_titulo LIKE '%".$key[$i]."%'";
+    for ($i = 0; $i < count($key); $i++) { 
+        if (!empty($key[$i])) { 
+            $sql .= " OR producto_titulo LIKE ?";
+            $params[] = '%' . $key[$i] . '%'; // Añadir cada término de búsqueda
         }
     }
 
-    $row_sql = mysqli_query($con, $sql);
+    // Preparar la consulta
+    $stmt = mysqli_prepare($con, $sql);
+    // Vincular parámetros
+    mysqli_stmt_bind_param($stmt, str_repeat("s", count($params)), ...$params);
 
-    // Verificación de la consulta SQL y resultados
-    if (!$row_sql) {
-        echo "Error en la consulta: " . mysqli_error($con);
-        exit;
-    }
+    // Ejecutar consulta
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
-    if (mysqli_num_rows($row_sql) > 0) {
+    if ($result && mysqli_num_rows($result) > 0) {
         echo "<table class='col-12 m-0 p-0'><tbody>";
-        while ($row = mysqli_fetch_assoc($row_sql)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>
                 <th style='width: 60px;'>
                     <img src='images/".$row['producto_img1']."' width='50' height='65' alt='Producto'>
@@ -35,4 +40,7 @@ if($_POST['dato'] == 'busca' && $_POST['busqueda'] != '') {
     } else {
         echo "No se encontraron resultados para la búsqueda.";
     }
+
+    mysqli_stmt_close($stmt);
 }
+?>

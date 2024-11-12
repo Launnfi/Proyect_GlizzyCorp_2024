@@ -52,46 +52,34 @@
                         
                         <tbody><!-- tbody begin -->
                             
-                            <?php 
-          
-                                $i=0;
-                            
-                                $get_pro = "select * from productos";
-                                
-                                $run_pro = mysqli_query($con,$get_pro);
-          
-                                while($row_pro=mysqli_fetch_array($run_pro)){
-                                    
-                                    $pro_id = $row_pro['producto_id'];
-                                    
-                                    $pro_title = $row_pro['producto_titulo'];
-                                    
-                                    $pro_img1 = $row_pro['producto_img1'];
-                                    
-                                    $pro_price = $row_pro['producto_precio'];
-                                    
-                                    $pro_keywords = $row_pro['producto_keywords'];
-                                    
-                                    $pro_date = $row_pro['date'];
+                        <?php 
+                        $i = 0;
+                        $get_pro = "SELECT * FROM productos";
+                        $run_pro = mysqli_query($con, $get_pro);
 
-                                    $pro_est = $row_pro['activo'];
+                        while ($row_pro = mysqli_fetch_array($run_pro)) {
+                            $pro_id = $row_pro['producto_id'];
+                            $pro_title = $row_pro['producto_titulo'];
+                            $pro_img1 = $row_pro['producto_img1'];
+                            $pro_keywords = $row_pro['producto_keywords'];
+                            $pro_date = $row_pro['date'];
+                            $pro_est = $row_pro['activo'];
+                            $estado = ($pro_est == 0) ? "inactivo" : "activo";
+                            $i++;
 
-                                    if($pro_est == 0){
-                                        $estado = "inactivo";
+                            // Consulta para obtener el precio mínimo de la variante
+                            $get_min_price = "SELECT MIN(precio_var) AS min_precio FROM variantes WHERE producto_id = '$pro_id'";
+                            $run_min_price = mysqli_query($con, $get_min_price);
+                            $row_min_price = mysqli_fetch_array($run_min_price);
+                            $min_precio = $row_min_price['min_precio'];
 
-                                    }else{
-                                        $estado = "activo";
-                                    }
-                                    
-                                    $i++;
-                            
                             ?>
                             
                             <tr><!-- tr begin -->
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $pro_title; ?> </td>
                                 <td> <img src="product_images/<?php echo $pro_img1; ?>" width="60" height="60"></td>
-                                <td> $ <?php echo $pro_price; ?> </td>
+                                <td> $ <?php echo $min_precio; ?> </td>
                                 <td> <?php 
                                     
                                         $get_sold = "select * from ordenes_pendientes where producto_id='$pro_id'";

@@ -34,10 +34,6 @@
         
         $p_image3 = $row_edit['producto_img3'];
         
-        $p_price = $row_edit['producto_precio'];
-        
-        $p_sale = $row_edit['producto_oferta'];
-        
         $p_keywords = $row_edit['producto_keywords'];
         
         $p_desc = $row_edit['producto_desc'];
@@ -255,30 +251,6 @@
                    
                    <div class="form-group"><!-- form-group Begin -->
                        
-                      <label class="col-md-3 control-label"> Producto Precio </label> 
-                      
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
-                          
-                          <input name="producto_precio" type="text" class="form-control" required value="<?php echo $p_price; ?>">
-                          
-                      </div><!-- col-md-6 Finish -->
-                       
-                   </div><!-- form-group Finish -->
-                   
-                   <div class="form-group"><!-- form-group Begin -->
-                       
-                      <label class="col-md-3 control-label"> Precio de oferta </label> 
-                      
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
-                          
-                          <input name="producto_oferta" type="text" class="form-control" required value="<?php echo $p_sale; ?>">
-                          
-                      </div><!-- col-md-6 Finish -->
-                       
-                   </div><!-- form-group Finish -->
-                   
-                   <div class="form-group"><!-- form-group Begin -->
-                       
                       <label class="col-md-3 control-label"> Producto keywords </label> 
                       
                       <div class="col-md-6"><!-- col-md-6 Begin -->
@@ -352,8 +324,6 @@ if(isset($_POST['update'])){
     $producto_titulo = $_POST['producto_titulo'];
     $product_cat = $_POST['product_cat'];
     $cat = $_POST['cat'];
-    $producto_precio = $_POST['producto_precio'];
-    $producto_oferta = $_POST['producto_oferta'];
     $producto_keywords = $_POST['producto_keywords'];
     $producto_desc = $_POST['producto_desc'];
     $producto_etiqueta = $_POST['producto_etiqueta'];
@@ -374,7 +344,7 @@ if(isset($_POST['update'])){
         move_uploaded_file($temp_name2,"product_images/$product_img2");
         move_uploaded_file($temp_name3,"product_images/$product_img3");
         
-        $update_product = "update productos set p_cat_id='$product_cat',cat_id='$cat',date=NOW(),producto_titulo='$producto_titulo',producto_img1='$product_img1',producto_img2='$product_img2',producto_img3='$product_img3',producto_precio='$producto_precio',producto_keywords='$producto_keywords',producto_desc='$producto_desc',producto_oferta='$producto_oferta',producto_etiqueta='$producto_etiqueta' where producto_id='$p_id'";
+        $update_product = "update productos set p_cat_id='$product_cat',cat_id='$cat',date=NOW(),producto_titulo='$producto_titulo',producto_img1='$product_img1',producto_img2='$product_img2',producto_img3='$product_img3',producto_keywords='$producto_keywords',producto_desc='$producto_desc',producto_etiqueta='$producto_etiqueta' where producto_id='$p_id'";
         
         $run_product = mysqli_query($con,$update_product);
         
@@ -390,13 +360,13 @@ if(isset($_POST['update'])){
 
         // work when no update image
         
-        $update_product = "update productos set p_cat_id='$product_cat',cat_id='$cat',date=NOW(),producto_titulo='$producto_titulo',producto_precio='$producto_precio',producto_keywords='$producto_keywords',producto_desc='$producto_desc',producto_oferta='$producto_oferta',producto_etiqueta='$producto_etiqueta' where producto_id='$p_id'";
+        $update_product = "update productos set p_cat_id='$product_cat',cat_id='$cat',date=NOW(),producto_titulo='$producto_titulo',producto_keywords='$producto_keywords',producto_desc='$producto_desc',producto_etiqueta='$producto_etiqueta' where producto_id='$p_id'";
         
         $run_product = mysqli_query($con,$update_product);
         
         if($run_product){
             
-        echo "<script>alert('tu prosucto se ha actualizado con exitoy')</script>"; 
+        echo "<script>alert('tu producto se ha actualizado con exito')</script>"; 
             
         echo "<script>window.open('index.php?ver_producto','_self')</script>"; 
             

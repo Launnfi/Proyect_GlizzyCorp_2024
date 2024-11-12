@@ -81,61 +81,58 @@ include("includes/header.php");
 
             <tbody>
 
-            <?php  
-            $total = 0;
+                        <?php  
+                $total = 0;
 
-            while($row_cart = mysqli_fetch_array($run_cart)){
+                while($row_cart = mysqli_fetch_array($run_cart)){
 
-                $pro_id = $row_cart['p_id']; 
+                    $pro_id = $row_cart['p_id']; 
+                    $pro_talle = $row_cart['talle']; 
+                    $pro_cant = $row_cart['cant'];
+                    
+                    // Consulta para obtener los datos del producto
+                    $get_productos = "SELECT * FROM productos WHERE producto_id = '$pro_id'";
+                    $run_productos = mysqli_query($con, $get_productos);
 
-                $pro_talle = $row_cart['talle']; 
+                    while($row_productos = mysqli_fetch_array($run_productos)){
 
-                $pro_cant = $row_cart['cant'];
-                
-                $pro_sale = $row_cart['p_precio'];
-            
-                $get_productos = "SELECT * from productos where producto_id = '$pro_id'";
+                        $producto_titulo = $row_productos['producto_titulo'];
+                        $producto_img = $row_productos['producto_img1'];
 
-                $run_productos = mysqli_query($con, $get_productos);
+                        // Consulta para obtener el precio de la variante
+                        $get_precio_var = "SELECT precio_var FROM variantes WHERE producto_id = '$pro_id' AND talle = '$pro_talle' LIMIT 1";
+                        $run_precio_var = mysqli_query($con, $get_precio_var);
+                        $row_precio_var = mysqli_fetch_array($run_precio_var);
 
-                while($row_productos = mysqli_fetch_array($run_productos)){
+                        // Obtener el precio de la variante
+                        $pro_precio = $row_precio_var['precio_var'];
+                        
+                        // Calcular subtotal
+                        $sub_total = $pro_precio * $pro_cant;
 
-                    $producto_titulo = $row_productos['producto_titulo'];
-
-                    $producto_img = $row_productos['producto_img1'];
-
-                    $pro_precio = $row_productos['producto_precio'];
-
-                    $sub_total = $pro_sale * $pro_cant;
-
-                    $_SESSION['pro_cant'] = $pro_cant;
-
-                    $total += $sub_total;
-
+                        $_SESSION['pro_cant'] = $pro_cant;
+                        $total += $sub_total;
             ?>
 
             <tr>
                 <td>
-                  <img class="img-responisve" src="admin_area/product_images/<?php echo $producto_img;?>" alt="Producto 3a">
+                    <img class="img-responsive" src="admin_area/product_images/<?php echo $producto_img; ?>" alt="Producto">
                 </td>
 
                 <td>
-
-                <a href="details.php?pro_id=<?php echo $pro_id;?> "><?php echo $producto_titulo;?></a>
-
+                    <a href="details.php?pro_id=<?php echo $pro_id; ?>"><?php echo $producto_titulo; ?></a>
                 </td>
 
                 <td>
-                <?php echo $pro_cant;?>
-                </td>
-                <td>
-
-                <?php echo $pro_precio;?>
-
+                    <?php echo $pro_cant; ?>
                 </td>
 
                 <td>
-                <?php echo $pro_talle;?>
+                    <?php echo $pro_precio; ?>
+                </td>
+
+                <td>
+                    <?php echo $pro_talle; ?>
                 </td>
 
                 <td>
@@ -143,16 +140,15 @@ include("includes/header.php");
                         Eliminar
                     </button>
                 </td>
+
                 <td>
-
-                <?php echo $sub_total;?>
-
+                    <?php echo $sub_total; ?>
                 </td>
             </tr>
 
             <?php 
-                }
-        } ?>
+                    } 
+                } ?>
 
 
             </tbody>
@@ -273,55 +269,40 @@ include("includes/header.php");
                         </div>
                     </div>
                     <?php 
-                   
-                   $get_products = "select * from productos order by rand() LIMIT 0,3";
-                  
-                   $run_products = mysqli_query($con,$get_products);
-                  
-                  while($row_products=mysqli_fetch_array($run_products)){
-                      
-                   $pro_id = $row_products['producto_id'];
-       
-                   $pro_title = $row_products['producto_titulo'];
-                   
-                   $pro_price = $row_products['producto_precio'];
-           
-                   $pro_sale_price = $row_products['producto_oferta'];
-                   
-                   $pro_img1 = $row_products['producto_img1'];
-                   
-                   $pro_label = $row_products['producto_etiqueta'];
 
-                   $pro_activo = $row_products['activo'];
-                   
-                   if($pro_label == "sale"){
-           
-                       $product_price = " <del> $ $pro_price </del> ";
-           
-                       $product_sale_price = "/ $ $pro_sale_price ";
-           
-                   }else{
-           
-                       $product_price = "  $ $pro_price  ";
-           
-                       $product_sale_price = "";
-           
-                   }
-           
-                   if($pro_label == ""){
-           
-                   }else{
-           
-                       $product_label = "
-                       
-                           <a href='#' class='label $pro_label'>
-                           
-                               <div class='theLabel'> $pro_label </div>
-                               <div class='labelBackground'>  </div>
-                           
-                           </a>
-                       
-                       ";
+    $get_products = "SELECT * FROM productos ORDER BY RAND() LIMIT 0,3";
+    $run_products = mysqli_query($con, $get_products);
+
+    while ($row_products = mysqli_fetch_array($run_products)) {
+        $pro_id = $row_products['producto_id'];
+        $pro_title = $row_products['producto_titulo'];
+        $pro_img1 = $row_products['producto_img1'];
+        $pro_label = $row_products['producto_etiqueta'];
+        $pro_activo = $row_products['activo'];
+
+        // Obtener el precio y el precio de oferta desde la tabla variantes
+        $get_variant = "SELECT MIN(precio_var) AS producto_precio, MIN(var_precio_of) AS var_precio_off 
+                        FROM variantes WHERE producto_id='$pro_id'";
+        $run_variant = mysqli_query($con, $get_variant);
+        $row_variant = mysqli_fetch_array($run_variant);
+        $pro_price = $row_variant['producto_precio'];
+        $pro_sale_price = $row_variant['var_precio_off'];
+
+        if ($pro_label == "sale" && !empty($pro_sale_price)) {
+            $product_price = "<del> $ $pro_price </del>";
+            $product_sale_price = "/ $ $pro_sale_price";
+        } else {
+            $product_price = " $ $pro_price";
+            $product_sale_price = "";
+        }
+
+        if (!empty($pro_label)) {
+            $product_label = "
+                <a href='#' class='label $pro_label'>
+                    <div class='theLabel'> $pro_label </div>
+                    <div class='labelBackground'></div>
+                </a>
+            ";
            
                    }
                    if($pro_activo == 0){

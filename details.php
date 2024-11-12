@@ -1,4 +1,3 @@
-
 <?php
 $active = "Comprar";
 include("includes/header.php");
@@ -19,36 +18,22 @@ if(isset($_GET['pro_id'])){
     $p_cat_id = $row_products['p_cat_id'];
     
     $pro_title = $row_products['producto_titulo'];
-    
-    $pro_price = $row_products['producto_precio'];
-
-    $pro_sale_price = $row_products['producto_oferta'];
-    
     $pro_desc = $row_products['producto_desc'];
-    
     $pro_img1 = $row_products['producto_img1'];
-    
     $pro_img2 = $row_products['producto_img2'];
-    
     $pro_img3 = $row_products['producto_img3'];
         
     $pro_label = $row_products['producto_etiqueta'];
 
     if($pro_label == ""){
-
+        $product_label = "";
     }else{
-
         $product_label = "
-        
             <a href='#' class='label $pro_label'>
-            
                 <div class='theLabel'> $pro_label </div>
                 <div class='labelBackground'>  </div>
-            
             </a>
-        
         ";
-
     }
     
     $get_p_cat = "select * from productos_categorias where p_cat_id='$p_cat_id'";
@@ -58,11 +43,17 @@ if(isset($_GET['pro_id'])){
     $row_p_cat = mysqli_fetch_array($run_p_cat);
     
     $p_cat_title = $row_p_cat['p_cat_titulo'];
-    
+    $get_variants = "SELECT * FROM variantes WHERE producto_id = '$product_id' AND activo = 1";
+    $run_variants = mysqli_query($con, $get_variants);
+    $first_variant = mysqli_fetch_array($run_variants); 
+
+    // Asignar precio y oferta de la primera variante
+    $pro_price = $first_variant['precio_var']; 
+    $pro_sale_price = $first_variant['var_precio_of']; 
 }
 
 ?>
-
+<script src="js/ajax_details.js"></script>
    <div id="content"><!-- content empeza -->
     <div class="container"><!-- container empeza -->
         <div class="col-md-12"><!-- col-md-12 empeza -->
@@ -278,56 +269,45 @@ if(isset($_GET['pro_id'])){
                     </div><!-- col-md-3 col-sm-6 termina -->
 
                     <?php 
-                   
-                   $get_products = "select * from productos order by rand() LIMIT 0,3";
-                  
-                   $run_products = mysqli_query($con,$get_products);
-                  
-                  while($row_products=mysqli_fetch_array($run_products)){
-                      
-                   $pro_id = $row_products['producto_id'];
-       
-                   $pro_title = $row_products['producto_titulo'];
-                   
-                   $pro_price = $row_products['producto_precio'];
-           
-                   $pro_sale_price = $row_products['producto_oferta'];
-                   
-                   $pro_img1 = $row_products['producto_img1'];
-                   
-                   $pro_label = $row_products['producto_etiqueta'];
-                   
-                   $pro_activo = $row_products['activo'];
-                   if($pro_label == "sale"){
-           
-                       $product_price = " <del> $ $pro_price </del> ";
-           
-                       $product_sale_price = "/ $ $pro_sale_price ";
-           
-                   }else{
-           
-                       $product_price = "  $ $pro_price  ";
-           
-                       $product_sale_price = "";
-           
-                   }
-           
-                   if($pro_label == ""){
-           
-                   }else{
-           
-                       $product_label = "
-                       
-                           <a href='#' class='label $pro_label'>
-                           
-                               <div class='theLabel'> $pro_label </div>
-                               <div class='labelBackground'>  </div>
-                           
-                           </a>
-                       
-                       ";
-           
-                   }
+                $get_products = "
+                SELECT p.*, 
+                       v.precio_var AS producto_precio, 
+                       v.var_precio_of AS producto_oferta
+                FROM productos p
+                JOIN variantes v ON p.producto_id = v.producto_id
+                ORDER BY RAND() 
+                LIMIT 0,3
+            ";
+            
+            $run_products = mysqli_query($con, $get_products);
+            
+            while ($row_products = mysqli_fetch_array($run_products)) {
+                $pro_id = $row_products['producto_id'];
+                $pro_title = $row_products['producto_titulo'];
+                $pro_price = $row_products['producto_precio']; // Precio desde variantes
+                $pro_sale_price = $row_products['producto_oferta']; // Oferta desde variantes
+                $pro_img1 = $row_products['producto_img1'];
+                $pro_label = $row_products['producto_etiqueta'];
+                $pro_activo = $row_products['activo'];
+            
+                if ($pro_label == "sale") {
+                    $product_price = "<del> $ $pro_price </del>";
+                    $product_sale_price = "/ $ $pro_sale_price ";
+                } else {
+                    $product_price = "$ $pro_price";
+                    $product_sale_price = "";
+                }
+            
+                if ($pro_label == "") {
+                    $product_label = "";
+                } else {
+                    $product_label = "
+                        <a href='#' class='label $pro_label'>
+                            <div class='theLabel'>$pro_label</div>
+                            <div class='labelBackground'></div>
+                        </a>
+                    ";
+                }
                    if($pro_activo == 0){
 
                    }else{

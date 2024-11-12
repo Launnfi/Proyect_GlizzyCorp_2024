@@ -17,6 +17,7 @@ if(isset($_GET['editar_variante'])){
 
     $variante_id = $row_edit_variant['var_id'];
     $variante_precio = $row_edit_variant['precio_var'];
+    $variante_precio_of = $row_edit_variant['var_precio_of'];
     $variante_talla = $row_edit_variant['talle'];
     $variante_stock = $row_edit_variant['stock_var'];
     $producto_id = $row_edit_variant['producto_id'];
@@ -55,6 +56,12 @@ if(isset($_GET['editar_variante'])){
                         <label class="col-md-3 control-label"> Precio </label> 
                         <div class="col-md-6">
                             <input value="<?php echo $variante_precio; ?>" name="precio" type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> Precio oferta </label> 
+                        <div class="col-md-6">
+                            <input value="<?php echo $variante_precio_of; ?>" name="precio_off" type="text" class="form-control" required>
                         </div>
                     </div>
 
@@ -113,11 +120,12 @@ if(isset($_GET['editar_variante'])){
 if(isset($_POST['update'])){
 
     $precio = $_POST['precio'];
+    $precio_off = $_POST['precio_off'];
     $talle = $_POST['talle'];
     $stock = $_POST['stock'];
     $producto_id = $_POST['producto_id'];
 
-    $update_variant = "UPDATE variantes SET producto_id='$producto_id', precio_var='$precio', talle='$talle', stock_var='$stock' WHERE var_id='$variante_id'";
+    $update_variant = "UPDATE variantes SET producto_id='$producto_id', precio_var='$precio', var_precio_of='$precio_off', talle='$talle', stock_var='$stock' WHERE var_id='$variante_id'";
     $run_update_variant = mysqli_query($con, $update_variant);
 
     if($run_update_variant){

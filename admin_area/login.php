@@ -22,7 +22,12 @@
            
            <input type="text" class="form-control" placeholder="Email" name="admin_email" required>
            
-           <input type="password" class="form-control" placeholder="Tu contraseña" name="admin_pass" required>
+           <div class="input-group">
+               <input type="password" class="form-control" placeholder="Tu contraseña" name="admin_pass" id="admin_pass" required>
+               <div class="input-group-append">
+                   <button type="button" class="btn btn-secondary" onclick="togglePassword()">Mostrar</button>
+               </div>
+           </div>
            
            <button type="submit" class="btn btn-lg btn-primary btn-block" name="admin_login">
                
@@ -31,8 +36,19 @@
            </button>
            
        </form>
-   </div
-    
+</div>
+    <script>  function togglePassword() {
+           const passwordField = document.getElementById("admin_pass");
+           const toggleButton = passwordField.nextElementSibling.querySelector("button");
+           
+           if (passwordField.type === "password") {
+               passwordField.type = "text";
+               toggleButton.textContent = "Ocultar";
+           } else {
+               passwordField.type = "password";
+               toggleButton.textContent = "Mostrar";
+           }
+       }</script>
 </body>
 </html>
 

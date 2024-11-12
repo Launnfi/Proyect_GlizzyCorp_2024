@@ -32,6 +32,7 @@ if(!isset($_SESSION['admin_email'])){
                                 <th> Talla </th>
                                 <th> Stock </th>
                                 <th> Precio </th>
+                                <th> Precio oferta </th>
                                 <th> Estado </th>
                                 <th> Editar Variante </th>
                                 <th> Activar/Desactivar </th>
@@ -50,6 +51,7 @@ if(!isset($_SESSION['admin_email'])){
                                     $talla = $row_var['talle'] ?? null;
                                     $stock = $row_var['stock_var'] ?? null;
                                     $precio = $row_var['precio_var'] ?? null;
+                                    $precio_off = $row_var['var_precio_of'] ?? null;
                                     $activo = $row_var['activo'] ?? null;
                                 
                                     // Verificación del nombre del producto
@@ -70,6 +72,7 @@ if(!isset($_SESSION['admin_email'])){
                                         <td> <?php echo $talla; ?> </td>
                                         <td> <?php echo $stock; ?> </td>
                                         <td> <?php echo $precio; ?> </td>
+                                        <td> <?php echo $precio_off; ?> </td>
                                         <td> <?php echo $estado; ?> </td>
                                         <td> 
                                             <a href="index.php?editar_variante=<?php echo $variante_id; ?>">

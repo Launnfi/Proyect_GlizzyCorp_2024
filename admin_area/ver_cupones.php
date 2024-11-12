@@ -76,12 +76,14 @@
                             }
 
                             $get_products = "select * from productos where producto_id='$coupon_pro_id'";
-
-                            $run_products = mysqli_query($con,$get_products);
-                            $row_products = mysqli_fetch_array($run_products);
-
-                            $product_title = $row_products['producto_titulo'];
-
+                            $run_products = mysqli_query($con, $get_products);
+                            
+                            // Verifica si se obtuvo algún resultado
+                            if ($row_products = mysqli_fetch_array($run_products)) {
+                                $product_title = $row_products['producto_titulo'];
+                            } else {
+                                $product_title = "Producto no encontrado"; // Valor por defecto si no hay producto
+                            }
                             $i++;
 
                         ?>

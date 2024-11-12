@@ -187,12 +187,12 @@ if(!isset($_SESSION['cliente_email'])){
                 <form action="confirmar.php?orden_id=<?php echo $orden_id; ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                         <label>N° de orden:</label>
-                        <input type="text" class="form-control" name="Num_orden" required placeholder="<?php echo $numero_orden;  ?>">
+                        <input type="text" class="form-control" name="Num_orden" required value="<?php echo $numero_orden;  ?>">
                     </div>
                           
                     <div class="form-group">
                         <label>Cantidad a pagar:</label>
-                        <input type="text" class="form-control" name="cantidadEnv" required placeholder="<?php echo $monto;  ?>">
+                        <input type="text" class="form-control" name="cantidadEnv" required value="<?php echo $monto;  ?>">
                     </div>
                     
                     <div class="form-group">
@@ -204,13 +204,13 @@ if(!isset($_SESSION['cliente_email'])){
                     </div>
                     
                     <div class="form-group">
-                        <label>Transaccion / id Referencia</label>
-                        <input type="text" class="form-control" name="ref_no" required>
+                        <label>Id de la Orden</label>
+                        <input type="text" class="form-control" name="ref_no" value ="<?php echo $orden_id;  ?>" required>
                     </div>
                     <div class="form-group">
-                        <label>Fecha con la que se realizara el pago</label>
-                        <input type="text" class="form-control" name="date" required>
-                    </div>
+                    <label>Fecha con la que se realizará el pago</label>
+                    <input type="date" class="form-control" name="date" min="<?php echo date('Y-m-d'); ?>" required>
+                   </div>
 
                   
                     <div class="text-center">
