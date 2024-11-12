@@ -102,14 +102,19 @@ if(isset($_GET['pro_id'])){
                                <div class="carousel-inner">
                                    <div class="item active">
                                        <center><img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img1; ?>" alt="Product 3-a"></center>
-                                   </div>
-                                   <div class="item">
-                                       <center><img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img2; ?>" alt="Product 3-b"></center>
-                                   </div>
-                                   <div class="item">
-                                       <center><img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img3; ?>" alt="Product 3-c"></center>
-                                   </div>
-                               </div>
+                                   </div>  
+                                <?php if (!empty($pro_img2)): ?>
+                                    <div class="item">
+                                        <center><img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img2; ?>" alt=""></center>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($pro_img3)): ?>
+                                    <div class="item">
+                                        <center><img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img3; ?>" alt=""></center>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                                
                                <a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control empeza -->
                                    <span class="glyphicon glyphicon-chevron-left"></span>
@@ -219,19 +224,19 @@ if(isset($_GET['pro_id'])){
 
                     <div class="col-xs-4"><!-- "col-xs-4 empeza -->
                         <a data-target="#myCarousel" data-slide-to="0" href="#" class="thumb"><!-- "thumb empeza -->
-                            <img src="admin_area/product_images/<?php echo $pro_img1; ?>" alt="producto 1" class="img-responsive">
+                            <img src="admin_area/product_images/<?php echo $pro_img1; ?>" alt="" class="img-responsive">
                         </a><!-- "thumb termina -->
                     </div><!-- "col-xs-4 termina -->
                     
                     <div class="col-xs-4"><!-- "col-xs-4 empeza -->
                         <a data-target="#myCarousel" data-slide-to="1" href="#" class="thumb"><!-- "thumb empeza -->
-                            <img src="admin_area/product_images/<?php echo $pro_img2; ?>" alt="producto 2" class="img-responsive">
+                            <img src="admin_area/product_images/<?php echo $pro_img2; ?>" alt="" class="img-responsive">
                         </a><!-- "thumb termina -->
                     </div><!-- "col-xs-4 termina -->
                     
                     <div class="col-xs-4"><!-- "col-xs-4 empeza -->
                         <a data-target="#myCarousel" data-slide-to="2" href="#" class="thumb"><!-- "thumb empeza -->
-                            <img src="admin_area/product_images/<?php echo $pro_img3; ?>" alt="producto 3" class="img-responsive">
+                            <img src="admin_area/product_images/<?php echo $pro_img3; ?>" alt="" class="img-responsive">
                         </a><!-- "thumb termina -->
                     </div><!-- "col-xs-4 termina -->
 

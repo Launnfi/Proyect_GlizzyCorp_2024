@@ -161,7 +161,7 @@ if(!isset($_SESSION['admin_email'])){
                       
                       <div class="col-md-6">
                           
-                          <input name="producto_img2" type="file" class="form-control" required>
+                          <input name="producto_img2" type="file" class="form-control" >
                           
                       </div>
                        
@@ -173,7 +173,7 @@ if(!isset($_SESSION['admin_email'])){
                       
                       <div class="col-md-6">
                           
-                          <input name="producto_img3" type="file" class="form-control form-height-custom" required>
+                          <input name="producto_img3" type="file" class="form-control form-height-custom">
                           
                       </div>
                        
@@ -263,10 +263,9 @@ if(!isset($_SESSION['admin_email'])){
 </body>
 </html>
 
-<?php 
+<?php     
+  if(isset($_POST['submit'])){
 
-if(isset($_POST['submit'])){
-    
     $producto_titulo = $_POST['producto_titulo'];
     $product_cat = $_POST['product_cat'];
     $cat = $_POST['cat'];
@@ -276,7 +275,6 @@ if(isset($_POST['submit'])){
     $product_sale = $_POST['product_sale'];
     $product_label = $_POST['product_label'];
     
-    
     $producto_img1 = $_FILES['producto_img1']['name'];
     $producto_img2 = $_FILES['producto_img2']['name'];
     $producto_img3 = $_FILES['producto_img3']['name'];
@@ -285,21 +283,53 @@ if(isset($_POST['submit'])){
     $temp_name2 = $_FILES['producto_img2']['tmp_name'];
     $temp_name3 = $_FILES['producto_img3']['tmp_name'];
     
-    move_uploaded_file($temp_name1,"product_images/$producto_img1");
-    move_uploaded_file($temp_name2,"product_images/$producto_img2");
-    move_uploaded_file($temp_name3,"product_images/$producto_img3");
+    // Tipos de imagen permitidos
+    $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
     
-    $insert_product = "insert into productos (p_cat_id,cat_id,date,producto_titulo,producto_img1,producto_img2,producto_img3,producto_precio,producto_keywords,producto_desc,producto_etiqueta,producto_oferta) values ('$product_cat','$cat',NOW(),'$producto_titulo','$producto_img1','$producto_img2','$producto_img3','$producto_precio','$producto_keywords','$producto_desc','$product_label','$product_sale')";
-    
-    $run_product = mysqli_query($con,$insert_product);
-    
-    if($run_product){
-        
-        echo "<script>alert('El producto se añadio correctamente')</script>";
-        echo "<script>window.open('index.php?ver_producto','_self')</script>";
-        
+    // Validación para la imagen 1
+    if(in_array($_FILES['producto_img1']['type'], $allowed_types) && $_FILES['producto_img1']['size'] < 10000000) { // 10MB de tamaño máximo
+        move_uploaded_file($temp_name1, "product_images/$producto_img1");
+    } else {
+        echo "<script>alert('La imagen 1 no es válida. Solo se permiten imágenes JPG, PNG o GIF con un tamaño máximo de 10MB.')</script>";
+        exit();
     }
     
+    // Validación para la imagen 2 (si se sube)
+    if (!empty($producto_img2)) {
+        if(in_array($_FILES['producto_img2']['type'], $allowed_types) && $_FILES['producto_img2']['size'] < 10000000) {
+            move_uploaded_file($temp_name2, "product_images/$producto_img2");
+        } else {
+            echo "<script>alert('La imagen 2 no es válida. Solo se permiten imágenes JPG, PNG o GIF con un tamaño máximo de 10MB.')</script>";
+            exit();
+        }
+    } else {
+        $producto_img2 = NULL;  // Asignar NULL si no se sube imagen 2
+    }
+
+    // Validación para la imagen 3 (si se sube)
+    if (!empty($producto_img3)) {
+        if(in_array($_FILES['producto_img3']['type'], $allowed_types) && $_FILES['producto_img3']['size'] < 10000000) {
+            move_uploaded_file($temp_name3, "product_images/$producto_img3");
+        } else {
+            echo "<script>alert('La imagen 3 no es válida. Solo se permiten imágenes JPG, PNG o GIF con un tamaño máximo de 10MB.')</script>";
+            exit();
+        }
+    } else {
+        $producto_img3 = NULL;  // Asignar NULL si no se sube imagen 3
+    }
+
+    // Insertar el producto en la base de datos
+    $insert_product = "insert into productos (p_cat_id,cat_id,date,producto_titulo,producto_img1,producto_img2,producto_img3,producto_precio,producto_keywords,producto_desc,producto_etiqueta,producto_oferta) 
+                       values ('$product_cat','$cat',NOW(),'$producto_titulo','$producto_img1','$producto_img2','$producto_img3','$producto_precio','$producto_keywords','$producto_desc','$product_label','$product_sale')";
+    
+    $run_product = mysqli_query($con, $insert_product);
+    
+    if($run_product){
+        echo "<script>alert('El producto se añadió correctamente')</script>";
+        echo "<script>window.open('index.php?ver_producto','_self')</script>";
+    }
 }
+
+
     }
 ?>

@@ -32,6 +32,9 @@
             </div><!-- panel-heading finish -->
             
             <div class="panel-body"><!-- panel-body begin -->
+            <a href="pdfPagos.php" target="_blank" class="btn btn-primary">
+                Descargar PDF de Pagos
+            </a>
                 <div class="table-responsive"><!-- table-responsive begin -->
                     <table class="table table-striped table-bordered table-hover"><!-- table table-striped table-bordered table-hover begin -->
                         

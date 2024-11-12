@@ -48,7 +48,19 @@ if(!isset($_SESSION['cliente_email'])){
                    <li><a href="../customer_register.php">Registrarme</a></li>
                    <li><a href="my_account.php">Mi cuenta</a></li>
                    <li><a href="../cart.php">Ir al Carrito</a></li>
-                   <li><a href="../cerrar_sesion.php">Login</a></li>
+                   <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
+                             
+                             echo"<a href='cerrar_sesion.php'>Mi cuenta</a>";
+                             
+                          }else{
+                             
+                            echo"<a href='my_account.php?my_orders'>Mi cuenta</a>"; 
+                             
+                           }
+                         
+                         ?>
                </ul>
            </div>
        </div>
@@ -79,7 +91,15 @@ if(!isset($_SESSION['cliente_email'])){
                        <li class="<?= $active == 'Mi cuenta' ? 'active' : '' ?>"><a href="my_account.php">Mi cuenta</a></li>
                        <li class="<?= $active == 'Carrito' ? 'active' : '' ?>"><a href="../cart.php">Carrito</a></li>
                        <li class="<?= $active == 'Contactanos' ? 'active' : '' ?>"><a href="../contact.php">Contactanos</a></li>
-                   </ul>
+                       <li class="<?= $active == 'Blog' ? 'active' : '' ?>">
+                           <a href="../blog.php">Blog</a>
+                       </li>
+                       <li class="<?= $active == 'FAQ' ? 'active' : '' ?>">
+                           <a href="../faq.php">Preguntas Frecuentes</a>
+                       </li>
+                       
+                   
+                    </ul>
                </div>
                
                <a href="../cart.php" class="btn navbar-btn btn-primary right">
@@ -203,8 +223,10 @@ if(!isset($_SESSION['cliente_email'])){
                 
 
                 <?php 
- if(isset($_POST['confirm_payment'])){
 
+  
+
+if(isset($_POST['confirm_payment'])){                       
     $orden_id = $_GET['orden_id'];
     $numero_fact = $_POST['Num_orden'];
     $cantidad = $_POST['cantidadEnv'];
@@ -222,66 +244,99 @@ if(!isset($_SESSION['cliente_email'])){
 
     $update_customer_order = "UPDATE ordenes_cliente SET status='$complete' WHERE orden_id='$orden_id'";
     $run_customer_order = mysqli_query($con, $update_customer_order);
-
     if (!$run_customer_order) {
-        die('Error al actualizar el estado de la orden: ' . mysqli_error($con));
+        die('Error al actualizar la orden del cliente: ' . mysqli_error($con));
     }
 
-    // Verifica si el pago está completo y redirige al cliente a "Mis órdenes"
-    if($complete == "Completado"){
-        echo "<script>alert('Pago realizado con éxito.')</script>";
-        echo "<script>window.open('my_account.php?misOrdenes', '_self')</script>";
+    $update_pending_order = "UPDATE ordenes_pendientes SET status='$complete' WHERE orden_id='$orden_id'";
+    $run_pending_order = mysqli_query($con, $update_pending_order);
+    if (!$run_pending_order) {
+        die('Error al actualizar la orden pendiente: ' . mysqli_error($con));
     }
 
-    // Enviar correo de confirmación al cliente
-    try {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; 
-        $mail->SMTPAuth = true;
-        $mail->Username = 'lautacamejo@gmail.com'; 
-        $mail->Password = 'jynqgpcsbphvkifs'; 
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-
-        $mail->setFrom('no-reply@tu_dominio.com', 'Vicenta');
-        $mail->addAddress($_SESSION['cliente_email'], 'Cliente');
-        $mail->addReplyTo('no-reply@tu_dominio.com', 'Vicenta');
-        $mail->isHTML(true);
-        $mail->Subject = 'Confirmación de pago - Vicenta';
-        $mail->Body = "Gracias por tu pago. Hemos recibido tu pago de $monto para la orden $numero_orden. Tu pedido será procesado pronto.";
-
-        $mail->send();
-    } catch (Exception $e) {
-        echo "Error al enviar el correo de confirmación: {$mail->ErrorInfo}";
+    // Obtener el cliente_id desde la tabla ordenes_cliente
+    $query_cliente_id = "SELECT cliente_id FROM ordenes_cliente WHERE orden_id = '$orden_id'";
+    $result_cliente_id = mysqli_query($con, $query_cliente_id);
+    if ($result_cliente_id) {
+        $cliente_data_id = mysqli_fetch_assoc($result_cliente_id);
+        $cliente_id = $cliente_data_id['cliente_id'];
+    } else {
+        die('Error al obtener el cliente_id: ' . mysqli_error($con));
     }
 
-    // Notificar al vendedor
-    try {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'lautacamejo@gmail.com';
-        $mail->Password = 'jynqgpcsbphvkifs';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-
-        $mail->setFrom('no-reply@tu_dominio.com', 'Vicenta');
-        $mail->addAddress('vendedor@tu_dominio.com', 'Vendedor');
-        $mail->addReplyTo('no-reply@tu_dominio.com', 'Vicenta');
-        $mail->isHTML(true);
-        $mail->Subject = 'Nuevo pago confirmado';
-        $mail->Body = "Se ha confirmado un pago de $monto por la orden $numero_orden. Por favor, procesalo lo antes posible.";
-
-        $mail->send();
-    } catch (Exception $e) {
-        echo "Error al notificar al vendedor: {$mail->ErrorInfo}";
+    // Obtener los datos del cliente desde la tabla customers
+    $query_cliente = "SELECT cliente_nombre, cliente_email FROM customer WHERE cliente_id = '$cliente_id'";
+    $result_cliente = mysqli_query($con, $query_cliente);
+    if ($result_cliente) {
+        $cliente_data = mysqli_fetch_assoc($result_cliente);
+        $nombre_cliente = $cliente_data['cliente_nombre'];
+        $email_cliente = $cliente_data['cliente_email'];
+    } else {
+        die('Error al obtener los datos del cliente: ' . mysqli_error($con));
     }
-}
 
-?>
+    // Detalles de la boleta
+    $boleta = "Número de orden: $numero_fact\nCantidad: $cantidad\nMétodo de pago: $metodo_pago\nReferencia: $ref_no\nFecha: $fecha_pago";
+
+            // Crear el objeto PHPMailer para el cliente
+            $mail_cliente = new PHPMailer(true);
+
+            try {
+                // Configuración del servidor de correo
+                $mail_cliente->isSMTP();
+                $mail_cliente->Host = 'smtp.gmail.com'; // Usa el servidor SMTP de tu elección
+                $mail_cliente->SMTPAuth = true;
+                $mail_cliente->Username = 'lautacamejo6@gmail.com'; // Tu correo
+                $mail_cliente->Password = 'jynqgpcsbphvkifs'; // La contraseña de tu correo
+                $mail_cliente->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail_cliente->Port = 587;
+
+                // Destinatarios
+                $mail_cliente->setFrom('no-reply-vicenta@gmail.com', 'Vicenta');
+                $mail_cliente->addAddress($email_cliente, $nombre_cliente); // El correo y nombre del cliente
+
+                // Contenido del correo
+                $mail_cliente->isHTML(true);
+                $mail_cliente->Subject = 'Confirmación de compra';
+                $mail_cliente->Body    = "Hola $nombre_cliente,<br><br>Gracias por tu compra. Aquí están los detalles de tu boleta:<br><b>$boleta</b><br><br> Ahora puedes pasar a levantar su compra. ¡Saludos!";
+
+                // Enviar el correo
+                $mail_cliente->send();
+
+                // Enviar correo al vendedor
+                $mail_vendedor = new PHPMailer(true);
+
+                // Configuración del servidor de correo para el vendedor
+                $mail_vendedor->isSMTP();
+                $mail_vendedor->Host = 'smtp.gmail.com';
+                $mail_vendedor->SMTPAuth = true;
+                $mail_vendedor->Username = 'lautacamejo6@gmail.com';
+                $mail_vendedor->Password = 'jynqgpcsbphvkifs';
+                $mail_vendedor->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail_vendedor->Port = 587;
+
+                // Destinatarios
+                $mail_vendedor->setFrom('no-reply-vicenta@gmail.com', 'Vicenta');
+                $mail_vendedor->addAddress('vicentita@gmail.com', 'Vendedor'); // El correo del vendedor
+
+                // Contenido del correo
+                $mail_vendedor->isHTML(true);
+                $mail_vendedor->Subject = 'Nueva compra realizada';
+                $mail_vendedor->Body    = "Se ha realizado una nueva compra.<br><br><b>$boleta</b><br><br>";
+
+                // Enviar el correo
+                $mail_vendedor->send();
+
+                echo "<script>alert('Gracias por tu compra, su pedido llegará en 3-4 días hábiles.')</script>";
+                echo "<script>window.open('my_account.php?misOrdenes','_self')</script>";
+            } catch (Exception $e) {
+                echo "Hubo un error al enviar el correo: {$mail_cliente->ErrorInfo}";
+            }
+        }
     
+
+
+        ?>
                     </div>
                 </div>
             </div>

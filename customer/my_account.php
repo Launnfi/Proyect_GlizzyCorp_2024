@@ -55,10 +55,12 @@ include("../functions/functions.php");
            <div class="col-md-6"><!-- col-md-6 empieza -->
                
                <ul class="menu"><!-- cmenu empieza -->
-                   
-                   <li>
-                       <a href="../customer_register.php">Registrarme</a>
-                   </li>
+                        
+                    <?php if (!isset($_SESSION['cliente_email'])): ?>
+                <li>
+                    <a href="../customer_register.php">Registrarme</a>
+                </li>
+                     <?php endif; ?>
                    <li>
                        <a href="my_account.php">Mi cuenta</a>
                    </li>
@@ -66,12 +68,20 @@ include("../functions/functions.php");
                        <a href="../cart.php">Ir al Carrito</a>
                    </li>
                    <li>
-                    <?php if (isset($_SESSION['user_id'])): ?>
-                        <a href="logout.php">Cerrar sesión</a>
-                    <?php else: ?>
-                        <a href="login.php">Login</a>
-                    <?php endif; ?>
-                </li>
+                   <?php 
+                           
+                             if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='../cerrar_sesion.php'>Mi cuenta</a>";
+                               
+                            }else{
+                               
+                              echo"<a href='my_account.php?my_orders'>Mi cuenta</a>"; 
+                               
+                             }
+                           
+                           ?>
+                   </li>
                    
                </ul><!-- menu termina -->
                
@@ -83,16 +93,15 @@ include("../functions/functions.php");
    
    <div id="navbar" class="navbar navbar-default"><!-- navbar navbar-default empieza -->
        
-       <div class="container"><!-- container empieza -->
-           
-           <div class="navbar-header"><!-- navbar-header empieza -->
+       <div class="container">
+           <div class="navbar-header">
                
-               <a href="../index.php" class="navbar-brand home"><!-- navbar-brand home empieza -->
+               <a href="../index.php" class="navbar-brand home">
                    
                <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="hidden-xs" width=150px height=50px>
                <img src="images\VicentaLogoAjustado.png" alt="VicentaLogo" class="visible-xs" width=150px height=50px>
                    
-               </a><!-- navbar-brand home termina -->
+               </a>
                
                <button class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                    
@@ -110,13 +119,13 @@ include("../functions/functions.php");
                    
                </button>
                
-           </div><!-- navbar-header termina -->
+           </div>
            
-           <div class="navbar-collapse collapse" id="navigation"><!-- navbar-collapse collapse empieza -->
+           <div class="navbar-collapse collapse" id="navigation">
                
-               <div class="padding-nav"><!-- padding-nav empieza -->
+               <div class="padding-nav">
                    
-                   <ul class="nav navbar-nav left"><!-- nav navbar-nav left empieza -->
+                   <ul class="nav navbar-nav left">
                        
                        <li class="<?= $active == 'Inicio' ? 'active' : '' ?>" >
                            <a href="../index.php">Home</a>
@@ -133,68 +142,74 @@ include("../functions/functions.php");
                        <li class="<?= $active == 'Contactanos' ? 'active' : '' ?>">
                            <a href="../contact.php">Contactanos</a>
                        </li>
+                       <li class="<?= $active == 'Blog' ? 'active' : '' ?>">
+                           <a href="../blog.php">Blog</a>
+                       </li>
+                       <li class="<?= $active == 'FAQ' ? 'active' : '' ?>">
+                           <a href="../faq.php">Preguntas Frecuentes</a>
+                       </li>
                        
-                   </ul><!-- nav navbar-nav left termina -->
+                   </ul>
                    
-               </div><!-- padding-nav termina -->
+               </div>
                
-               <a href="../cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary empieza -->
+               <a href="../cart.php" class="btn navbar-btn btn-primary right">
                    
                    <i class="fa fa-shopping-cart"></i>
                    
                    <span><?php items(); ?>  Productos en tu carrito</span>
                    
-               </a><!-- btn navbar-btn btn-primary termina -->
+               </a>
                
-               <div class="navbar-collapse collapse right"><!-- navbar-collapse collapse right empieza -->
+               <div class="navbar-collapse collapse right">
                    
-                   <button class="btn btn-primary navbar-btn" type="button" data-toggle="collapse" data-target="#search"><!-- btn btn-primary navbar-btn empieza -->
+                   <button class="btn btn-primary navbar-btn" type="button" data-toggle="collapse" data-target="#search">
                        
                        <span class="sr-only">Buscar</span>
                        
                        <i class="fa fa-search"></i>
                        
-                   </button><!-- btn btn-primary navbar-btn termina -->
+                   </button>
                    
-               </div><!-- navbar-collapse collapse right termina -->
+               </div>
                
-               <div class="collapse clearfix" id="search"><!-- collapse clearfix empieza -->
+               <div class="collapse clearfix" id="search">
                    
-                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form empieza -->
+                   <form method="get" action="results.php" class="navbar-form">
                        
-                       <div class="input-group"><!-- input-group empieza -->
+                       <div class="input-group">
                            
                            <input type="text" class="form-control" placeholder="Search" name="user_query" required>
                            
-                           <span class="input-group-btn"><!-- input-group-btn empieza -->
+                           <span class="input-group-btn">
                            
-                           <button type="submit" name="search" value="Search" class="btn btn-primary"><!-- btn btn-primary empieza -->
+                           <button type="submit" name="search" value="Search" class="btn btn-primary"><
                                
                                <i class="fa fa-search"></i>
                                
-                           </button><!-- btn btn-primary termina -->
+                           </button>
                            
-                           </span><!-- input-group-btn termina -->
+                           </span>
                            
-                       </div><!-- input-group termina -->
+                       </div>
                        
-                   </form><!-- navbar-form termina -->
+                   </form>
                    
-               </div><!-- collapse clearfix termina -->
+               </div>
                
-           </div><!-- navbar-collapse collapse termina -->
+           </div>
            
-       </div><!-- container termina -->
+       </div>
        
-   </div><!-- navbar navbar-default termina -->
+   </div>
 
        
-   </div><!-- navbar navbar-default termina -->
-   <div id="content"><!-- content empieza -->
-    <div class="container"><!-- container empieza -->
-        <div class="col-md-12"><!-- col-md-12 empieza -->
+   </div>
+   <div id="content">
+    <div class="container">
+        <div class="col-md-12">
 
-        <ul class="breadcrumb"><!-- breadcrumb empieza-->
+        <ul class="breadcrumb">
             <li>
                 <a href="index.php">Inicio</a>
             </li>

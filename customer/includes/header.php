@@ -83,9 +83,12 @@ if(isset($_GET['pro_id'])){
                
                <ul class="menu"><!-- cmenu empieza -->
                    
+               <?php if (!isset($_SESSION['cliente_email'])): ?>
+                <li>
+                    <a href="../customer_register.php">Registrarme</a>
+                </li>
+                     <?php endif; ?>
                    <li>
-                       <a href="../customer_register.php">Registrarme</a>
-                   </li>
                    <li>
                        <a href="my_account.php">Mi cuenta</a>
                    </li>

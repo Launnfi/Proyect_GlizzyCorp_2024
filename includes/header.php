@@ -82,9 +82,12 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
                
                <ul class="menu"><!-- cmenu empieza -->
                    
+               <?php if (!isset($_SESSION['cliente_email'])): ?>
+                <li>
+                    <a href="../customer_register.php">Registrarme</a>
+                </li>
+                     <?php endif; ?>
                    <li>
-                       <a href="customer_register.php">Registrarme</a>
-                   </li>
                    <li>
                        <a href="customer/my_account.php">Mi cuenta</a>
                    </li>
@@ -94,15 +97,15 @@ if(isset($_GET['pro_id']) && !empty($_GET['pro_id'])){
                    <li>
                    <?php 
                            
-                           if(!isset($_SESSION['cliente_email'])){
-                       
-                                echo "<a href='cerrar_sesion.php'> Login </a>";
-
-                               }else{
-
-                                echo " <a href='logout.php'> Salir </a> ";
-
-                               }
+                             if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='cerrar_sesion.php'>Mi cuenta</a>";
+                               
+                            }else{
+                               
+                              echo"<a href='my_account.php?my_orders'>Mi cuenta</a>"; 
+                               
+                             }
                            
                            ?>
                    </li>
