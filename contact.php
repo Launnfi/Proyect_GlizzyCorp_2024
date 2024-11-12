@@ -1,144 +1,115 @@
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-  <?php
+require 'vendor/autoload.php';  // Asegúrate de que este archivo esté en la raíz del proyecto
+
 $active = "Contactanos";
 include("includes/header.php");
 ?>
 
-   <div id="content"><!-- content empieza -->
-    <div class="container"><!-- container empieza -->
-        <div class="col-md-12"><!-- col-md-12 empieza -->
+<div id="content">
+    <div class="container">
+        <div class="col-md-12">
+            <ul class="breadcrumb">
+                <li><a href="index.php">Inicio</a></li>
+                <li>Contactanos</li>
+            </ul>
 
-        <ul class="breadcrumb"><!-- breadcrumb empieza-->
-            <li>
-                <a href="index.php">Inicio</a>
-            </li>
-            <li>
-                Contactanos
-            </li>
-        </ul>
+            <div class="col-md-3">
+                <?php include("includes/sidebar.php"); ?>
+            </div>
 
-        <div class="col-md-3"><!-- col-md-3 empieza -->
-        <?php
+            <div class="col-md-9">
+                <div class="box">
+                    <div class="box-header">
+                        <center>
+                            <h2>Sientete seguro de contactarnos</h2>
+                            <p class="text-muted">Por cualquier pregunta, eres libre de contactarnos.</p>
+                        </center>
 
-             include("includes/sidebar.php");
+                        <form action="contact.php" method="post">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>e-mail</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Asunto</label>
+                                <input type="text" class="form-control" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mensaje</label>
+                                <textarea name="message" class="form-control"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" name="submit" class="btn btn-primary">
+                                    <i class="fa fa-user-md"></i> Enviar mensaje
+                                </button>
+                            </div>
+                        </form>
 
-        ?>
-        </div><!-- col-md-3 termina -->
-        <div class="col-md-9"><!-- col-md-9 empieza -->
-            
-            <div class="box"><!-- box empieza -->
+                        <?php
+                       if (isset($_POST['submit'])) {
+                        $user_nombre = $_POST['name'];
+                        $user_email = $_POST['email'];
+                        $user_asun = $_POST['subject'];
+                        $user_msg = $_POST['message'];
+                        $res_email = "lautacamejo6@gmail.com";
+                    
+                        // Validar el correo electrónico ingresado por el usuario
+                        if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+                            echo "<h2 align='center'>Correo electrónico inválido. Por favor, verifica tu dirección de correo.</h2>";
+                        } else {
+                            $mail = new PHPMailer(true);
+                            try {
+                                $mail->isSMTP();
+                                $mail->Host = 'smtp.gmail.com';
+                                $mail->SMTPAuth = true;
+                                $mail->Username = 'lautacamejo6@gmail.com';
+                                $mail->Password = 'jynqgpcsbphvkifs'; // Contraseña de aplicación
+                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                                $mail->Port = 465;
+                    
+                                $mail->setFrom($user_email, $user_nombre);
+                                $mail->addAddress($res_email);
+                    
+                                $mail->isHTML(true);
+                                $mail->Subject = $user_asun;
+                                $mail->Body = nl2br($user_msg);
+                    
+                                $mail->send();
+                                echo "<h2 align='center'>Tu mensaje se envió correctamente</h2>";
+                    
+                                // Auto-respuesta
+                                $mail->clearAddresses();
+                                $mail->addAddress($user_email);
+                                $mail->Subject = "Bienvenido a nuestro sitio web";
+                                $mail->Body = "Gracias por enviarnos su mensaje, responderemos lo más pronto posible.";
+                                $mail->send();
+                    
+                            } catch (Exception $e) {
+                                echo "<h2 align='center'>Hubo un error al enviar tu mensaje. Error: {$mail->ErrorInfo}</h2>";
+                            }
+                        }
+                    }
+                    
+                        ?>
 
-            <div class="box-header"><!-- box-header empieza -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <center>
+<?php include("footer.php"); ?>
 
-                <h2>Sientete seguro de contactarnos</h2>
-
-                <p class="text-muted">
-                Por cualquier pregunta, eres libre de contactrarnos. Estamos dispuestos en solucionar cualquier duda que tengas 😊 
-
-
-                </p>
-
-            </center>
-
-            <form action="contact.php" method="post"><!-- form empieza -->
-
-            <div class="form-group"><!-- form-group empieza -->
-
-            <label>Nombre</label>
-            <input type="text" class="form-control" name="name" required>
-
-
-
-            </div><!-- form-group termina -->
-            <div class="form-group"><!-- form-group empieza -->
-
-                <label>e-mail</label>
-                <input type="text" class="form-control" name="email" required>
-
-
-
-                </div><!-- form-group termina --> 
-              </div><!-- form-group termina -->
-                <div class="form-group"><!-- form-group empieza -->
-
-                <label>Asunto</label>
-                <input type="text" class="form-control" name="subject" required> 
-                
-              </div><!-- form-group termina -->
-                <div class="form-group"><!-- form-group empieza -->
-
-                <label>Mensaje</label>
-                <textarea name="message" class="form-control"></textarea>
-
-                </div><!-- form-group termina -->
-
-                <div class="text-center"><!-- text-center empieza -->
-                    <button type="submit" name="submit" class="btn btn-primary">
-
-                    <i class="fa fa-user-md"></i>Enviar mensaje
-                    </button>
-
-                </div><!-- text-center termina -->
-
-
-
-            </form><!-- form termina -->
-
-            <?php 
-if (isset($_POST['submit'])) {
-
-    # Admin recibe el mensaje con esto
-    $user_nombre = $_POST['name'];
-    $user_email = $_POST['email'];
-    $user_asun = $_POST['subject'];
-    $user_msg = $_POST['message'];
-
-    $res_email = "lautacamejo6@gmail.com";  // Cambiar esto al email real de la empresa
-
-    # Cabeceras para el email a admin
-    $headers = "From: " . $user_email . "\r\n" .
-               "Reply-To: " . $user_email . "\r\n" .
-               "X-Mailer: PHP/" . phpversion();
-
-    mail($res_email, $user_asun, $user_msg, $headers);
-
-    # Auto respuesta al usuario
-    $asunto = "Bienvenido a nuestro sitio web";
-    $msg = "Gracias por enviarnos su mensaje, responderemos lo más pronto posible.";
-
-    # Cabeceras para el email de respuesta
-    $de = "From: lautacamejo6@gmail.com ";  // Cambiar esto al email real de la empresa
-
-    mail($user_email, $asunto, $msg, $de);
-
-    echo "<h2 align='center'>Tu mensaje se envió correctamente</h2>";
-}
-?>
-
-
-            </div><!-- box-header termina -->
-
-
-            </div><!-- box termina -->
-
-
-            </div><!-- col-md-3 termina -->
-
-        
-        </div><!-- container termina -->
-    </div><!-- content termina -->
-    
-    <?php
-
-    include("footer.php")
-
-    ?>
-
-    <script src="js/jquery-331.min.js"></script>
-    <script src="js/bootstrap-337.min.js"></script>
-
+<script src="js/jquery-331.min.js"></script>
+<script src="js/bootstrap-337.min.js"></script>
 
 </body>
 </html>
