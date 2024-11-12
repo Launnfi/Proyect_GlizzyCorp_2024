@@ -28,7 +28,9 @@ include("db.php");
      <center><!-- center empieza -->
          
         <p class="lead"><!-- lead empieza -->
-            
+        <a href="https://wa.me/59892787479" target="_blank">
+            <button>Contactar por WhatsApp</button>
+        </a>
             <a href="PagoLinea.php">
                 
                 Pago por Mercado pago
