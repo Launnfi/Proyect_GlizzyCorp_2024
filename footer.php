@@ -19,7 +19,7 @@
                 <h4>Seccion de usuarios</h4>
                 
                 <ul>
-                    <li><a href="Micuenta.php">Login</a></li>
+                    <li><a href="customer/my_account.php?misOrdenes">Login</a></li>
                     <li><a href="customer_register.php">registarme</a></li>
                 </ul>
                 

@@ -44,7 +44,6 @@
                                 <th> Numero de orden: </th>
                                 <th> Cantidad a pagar : </th>
                                 <th> Metodo de pago: </th>
-                                <th> numero de referencia: </th>
                                 <th> Fecha de pago: </th>
 
                             </tr>
@@ -69,8 +68,6 @@
                                     $cantidad = $row_pagos['cantidad'];
                                     
                                     $metodo_pago = $row_pagos['metodo_pago'];
-                                    
-                                    $num_ref = $row_pagos['num_ref'];
                                     
                                     $fecha_pago = $row_pagos['fecha_pago'];
                                 }
@@ -99,7 +96,6 @@
                                     
                                     $payment_mode = $row_payments['metodo_pago'];
                                     
-                                    $ref_no = $row_payments['num_ref'];
                                     
                                     $payment_date = $row_payments['fecha_pago'];
                                     
@@ -113,7 +109,6 @@
                                 <td> <?php echo $num_fac;?> </td>
                                 <td> <?php echo $cantidad; ?></td>
                                 <td> <?php echo $metodo_pago; ?> </td>
-                                <td> <?php echo $num_ref; ?></td>
                                 <td> <?php echo $fecha_pago; ?> </td>
                                 
                             </tr>

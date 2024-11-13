@@ -11,9 +11,10 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Producto</th>
                 <th>Monto adeudado</th>
                 <th>N° de orden</th>
-                <th>Cantidad:</th>
+                <th>Cantidad</th>
                 <th>Talla</th>
                 <th>Fecha de orden</th>
                 <th>Pago / No Pago</th>
@@ -44,6 +45,16 @@
                 $estado = $row_orden['status'];
                 $fecha_orden = substr($row_orden['fecha_orden'], 0, 11);
 
+                // Obtener el título del producto
+                $var_id = $row_orden['var_id'];
+                $get_product_title = "SELECT p.producto_titulo 
+                                      FROM productos AS p 
+                                      JOIN variantes AS v ON p.producto_id = v.producto_id 
+                                      WHERE v.var_id = '$var_id'";
+                $run_product_title = mysqli_query($con, $get_product_title);
+                $row_product_title = mysqli_fetch_array($run_product_title);
+                $pro_titulo = $row_product_title['producto_titulo'];
+
                 // Corregir la asignación del estado
                 if($estado == 'Pendiente'){
                     $estado = 'No pago';
@@ -54,10 +65,11 @@
             ?>
                 <tr>
                     <th><?php echo $i; ?></th>
+                    <td><?php echo $pro_titulo; ?></td>
                     <td><?php echo $monto; ?></td>
                     <td><?php echo $numero_orden; ?></td>
                     <td><?php echo $cant; ?> </td>
-                    <td> <?php echo $talla; ?></td>
+                    <td><?php echo $talla; ?></td>
                     <td><?php echo $fecha_orden; ?></td>
                     <td><?php echo $estado; ?></td>
                     <td><?php if($estado == "Pago"){echo "confirmado";}else{?>

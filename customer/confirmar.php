@@ -181,40 +181,42 @@ if(!isset($_SESSION['cliente_email'])){
 
 ?>
         <div class="col-md-9">
-            <div class="box">
-                <h1 align="center">Por favor confirmar su pago</h1>
+           <div class="box">
+    <h1 align="center">Por favor confirmar su pago</h1>
 
-                <form action="confirmar.php?orden_id=<?php echo $orden_id; ?>" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                        <label>N° de orden:</label>
-                        <input type="text" class="form-control" name="Num_orden" required value="<?php echo $numero_orden;  ?>">
-                    </div>
-                          
-                    <div class="form-group">
-                        <label>Cantidad a pagar:</label>
-                        <input type="text" class="form-control" name="cantidadEnv" required value="<?php echo $monto;  ?>">
-                    </div>
-                    <div class="form-group">
-                    <label>Metodo de pago</label>
-                    <select name="modoPago" class="form-control" required>
-                        <option value="" disabled selected>Seleccione metodo de pago</option>
-                        <option value="Pago expres">Pago expres</option>
-                    </select>
-                     </div>
-                    
-                    <div class="form-group">
-                    <label>Fecha con la que se realizará el pago</label>
-                    <input type="date" class="form-control" name="date" min="<?php echo date('Y-m-d'); ?>" required>
-                   </div>
+    <form action="confirmar.php?orden_id=<?php echo $orden_id; ?>" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>N° de orden:</label>
+            <input type="text" class="form-control" name="Num_orden" required value="<?php echo $numero_orden;  ?>">
+        </div>
+        <div class="form-group">
+            <label>Cantidad a pagar:</label>
+            <input type="text" class="form-control" name="cantidadEnv" required value="<?php echo $monto; ?>">
+        </div>
+        <div class="form-group">
+            <label>Metodo de pago</label>
+            <select name="modoPago" class="form-control" required>
+                <option value="" disabled selected>Seleccione metodo de pago</option>
+                <option value="Pago expres">Pago expres</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Fecha con la que se realizará el pago</label>
+            <input type="date" class="form-control" name="date" min="<?php echo date('Y-m-d'); ?>" required>
+        </div>
 
-                  
-                    <div class="text-center">
-                        <button type="submit" name="confirm_payment" class="btn btn-primary btn-lg">
-                            <i class="fa fa-user-md"></i> Confirmar pago
-                        </button>
-                    </div>
-                    </a>
-                </form>
+        <!-- Inputs ocultos para cliente_id y orden_id -->
+        <input type="hidden" name="cliente_id" value="<?php echo $cliente_id; ?>">
+        <input type="hidden" name="orden_id" value="<?php echo $orden_id; ?>">
+
+        <div class="text-center">
+            <button type="submit" name="confirm_payment" class="btn btn-primary btn-lg">
+                <i class="fa fa-user-md"></i> Confirmar pago
+            </button>
+        </div>
+    </form>
+</div>
+
                 
 
                 <?php 

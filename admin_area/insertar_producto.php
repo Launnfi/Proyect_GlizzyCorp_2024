@@ -179,29 +179,6 @@ if(!isset($_SESSION['admin_email'])){
                        
                    </div>
                    
-                   <div class="form-group">
-                       
-                      <label class="col-md-3 control-label"> Producto precio </label> 
-                      
-                      <div class="col-md-6">
-                          
-                          <input name="producto_precio" type="text" class="form-control" required>
-                          
-                      </div>
-                       
-                   </div>
-
-                   <div class="form-group">
-                       
-                       <label class="col-md-3 control-label"> Precio de oferta</label> 
-                       
-                       <div class="col-md-6">
-                           
-                           <input name="product_sale" type="text" class="form-control" required>
-                           
-                       </div>
-                        
-                    </div>
                    
                    <div class="form-group">
                        
@@ -319,9 +296,8 @@ if(!isset($_SESSION['admin_email'])){
     }
 
     // Insertar el producto en la base de datos
-    $insert_product = "insert into productos (p_cat_id,cat_id,date,producto_titulo,producto_img1,producto_img2,producto_img3,producto_precio,producto_keywords,producto_desc,producto_etiqueta,producto_oferta) 
-                       values ('$product_cat','$cat',NOW(),'$producto_titulo','$producto_img1','$producto_img2','$producto_img3','$producto_precio','$producto_keywords','$producto_desc','$product_label','$product_sale')";
-    
+    $insert_product = $insert_product = "INSERT INTO productos (p_cat_id, cat_id, date, producto_titulo, producto_img1, producto_img2, producto_img3, producto_keywords, producto_desc) 
+                   VALUES ('$product_cat', '$cat', NOW(), '$producto_titulo', '$producto_img1', '$producto_img2', '$producto_img3', '$producto_keywords', '$producto_desc')";
     $run_product = mysqli_query($con, $insert_product);
     
     if($run_product){

@@ -104,7 +104,7 @@ if(isset($_POST['update'])){
         
         echo "<script>alert('Tu cuenta se ha actualizado, por favor reinicie la sesion')</script>";
         
-        echo "<script>window.open('../cerrar_sesion.php','_self')</script>";
+        echo "<script>window.open('../logout.php','_self')</script>";
         
     }
     
