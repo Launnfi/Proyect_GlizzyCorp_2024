@@ -55,32 +55,29 @@
 
 <?php 
 
-    if(isset($_POST['admin_login'])){
-        
-        $admin_email = mysqli_real_escape_string($con,$_POST['admin_email']);
-        
-        $admin_pass = mysqli_real_escape_string($con,$_POST['admin_pass']);
-        
-        $get_admin = "SELECT * FROM admin WHERE admin_email='$admin_email' AND admin_pass='$admin_pass'";
-        
-        $run_admin = mysqli_query($con,$get_admin);
-        
-        $count = mysqli_num_rows($run_admin);
-        
-        if($count==1){
-            
-            $_SESSION['admin_email']=$admin_email;
-            
-            echo "<script>alert('Sesion Iniciada')</script>";
-            
-            header("location:index.php?panel");      
-            exit();      
-        }else{
-            
-            echo "<script>alert('Email o Contraseña incorrecta !')</script>";
-            
-        }
-        
-    }
+if(isset($_POST['admin_login'])){
+    $admin_email = mysqli_real_escape_string($con, $_POST['admin_email']);
+    $admin_pass = $_POST['admin_pass'];
 
+    // Primero, obtén el registro del administrador con el email proporcionado
+    $get_admin = "SELECT * FROM admin WHERE admin_email='$admin_email'";
+    $run_admin = mysqli_query($con, $get_admin);
+
+    if($row_admin = mysqli_fetch_array($run_admin)){
+        // Recupera la contraseña encriptada de la base de datos
+        $hashed_password = $row_admin['admin_pass'];
+
+        // Verifica la contraseña ingresada contra la almacenada
+        if(password_verify($admin_pass, $hashed_password)){
+            $_SESSION['admin_email'] = $admin_email;
+            echo "<script>alert('Sesión Iniciada')</script>";
+            header("location:index.php?panel");      
+            exit(); 
+        } else {
+            echo "<script>alert('Email o Contraseña incorrecta!')</script>";
+        }
+    } else {
+        echo "<script>alert('Email o Contraseña incorrecta!')</script>";
+    }
+}
 ?>
