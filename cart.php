@@ -230,14 +230,14 @@ include("includes/header.php");
                 if ($cupon_limite == $cupon_usado) {
                     echo "<script>alert('Cupón expirado');</script>";
                 } else {
-                    // Verificar si el producto está en el carrito
+                    // Verificar si el producto está en el carrito (sin variantes)
                     $get_cart = "SELECT * FROM cart WHERE p_id = '$cupon_pro_id' AND cliente_id = '$cliente_id'";
                     $run_cart = mysqli_query($con, $get_cart);
                     $check_cart = mysqli_num_rows($run_cart);
     
                     if ($check_cart == 1) {
                         // Si el producto está en el carrito, aplicar el cupón
-                        $uso = "UPDATE cupon SET cupon_usado = cupon_usado + 1 WHERE cupon_codigo = '$codigo'"; // Agregar comillas en $codigo
+                        $uso = "UPDATE cupon SET cupon_usado = cupon_usado + 1 WHERE cupon_codigo = '$codigo'";
                         $run_uso = mysqli_query($con, $uso);
     
                         $upd_cart = "UPDATE cart SET p_precio = '$cupon_precio' WHERE p_id = '$cupon_pro_id' AND cliente_id = '$cliente_id'";
@@ -256,6 +256,8 @@ include("includes/header.php");
             }
         }
     }
+    
+    
     
 
         ?>
