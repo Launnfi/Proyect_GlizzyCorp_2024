@@ -122,3 +122,9 @@ include("includes/header.php");
         </div>
     </section>
 </div>
+
+<?php
+
+    include("footer.php")
+
+    ?>

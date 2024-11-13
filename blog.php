@@ -124,5 +124,11 @@
     <script async src="//www.instagram.com/embed.js"></script>
 </div>
 
+<?php
+
+    include("footer.php")
+
+    ?>
+
 </body>
 </html>
