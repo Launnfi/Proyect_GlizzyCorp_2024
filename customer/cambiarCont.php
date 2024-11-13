@@ -1,23 +1,23 @@
 <h1 aling="center">Cambiar contraseña</h1>
 
-<form action="" method="post"><!--form empieza -->
+<form action="" method="post">
 
-    <div class="form-group"><!--form-group empieza -->
+    <div class="form-group">
     <label>Contraseña anterior</label>
     <input type="text" name="old_pass" class="form-control" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="form-group"><!--form-group empieza -->
+    <div class="form-group">
     <label>Nueva contraseña</label>
     <input type="text" name="new_pass" class="form-control" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="form-group"><!--form-group empieza -->
+    <div class="form-group">
     <label>Confirmar contraseña</label>
     <input type="text" name="new_pass_again" class="form-control" required>
-    </div><!--form-group termina -->
+    </div>
 
-    <div class="text-center"><!--text-center empieza -->
+    <div class="text-center">
 
         <button type="submit" name="submit" class="btn btn-primary">
 
@@ -25,12 +25,12 @@
 
         </button>
     
-    </div><!--text-center termina -->
+    </div>
 
         
     
 
-</form><!--form termina -->
+</form>
 
 <?php 
 

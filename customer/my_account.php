@@ -28,11 +28,11 @@ include("../functions/functions.php");
 </head>
 <body>
    
-   <div id="top"><!-- Top empieza -->
-       
-       <div class="container"><!-- container empieza -->
-           
-           <div class="col-md-6 offer"><!-- col-md-6 offer empieza -->
+   <div id="top">
+
+       <div class="container">
+
+           <div class="col-md-6 offer">
                
            <?php 
                    
@@ -50,11 +50,11 @@ include("../functions/functions.php");
                 
                <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total:  <?php echo mont_total(); ?> </a>
                
-           </div><!-- col-md-6 offer termina -->
-           
-           <div class="col-md-6"><!-- col-md-6 empieza -->
+           </div>
+
+           <div class="col-md-6">
                
-               <ul class="menu"><!-- cmenu empieza -->
+               <ul class="menu">
                         
                     <?php if (!isset($_SESSION['cliente_email'])): ?>
                 <li>
@@ -81,15 +81,15 @@ include("../functions/functions.php");
                            ?>
                    </li>
                    
-               </ul><!-- menu termina -->
+               </ul>
                
-           </div><!-- col-md-6 termina -->
-           
-       </div><!-- container termina -->
-       
-   </div><!-- Top termina -->
+           </div>
+
+       </div>
+
+   </div>
    
-   <div id="navbar" class="navbar navbar-default"><!-- navbar navbar-default empieza -->
+   <div id="navbar" class="navbar navbar-default">
        
        <div class="container">
            <div class="navbar-header">
@@ -216,16 +216,16 @@ include("../functions/functions.php");
             </li>
         </ul>
 
-        <div class="col-md-3"><!-- col-md-3 empieza -->
+        <div class="col-md-3">
         <?php
 
              include("includes/sidebar.php");
 
         ?>
-        </div><!-- col-md-3 termina -->
-        <div class="col-md-9"><!-- col-md-9 empieza -->
+        </div>
+        <div class="col-md-9">
 
-            <div class="box"><!-- box empieza -->
+            <div class="box">
 
 
             <?php 
@@ -256,14 +256,14 @@ include("../functions/functions.php");
 
 
 
-            </div><!-- box empieza -->
+            </div>
 
 
-        </div><!-- col-md-9 termina -->
+        </div>
 
 
-        </div><!-- container termina -->
-    </div><!-- content termina -->
+        </div>
+    </div>
     
     <?php
 

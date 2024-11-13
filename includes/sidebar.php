@@ -1,12 +1,12 @@
-<div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu empieza -->
-    <div class="panel-heading"><!-- panel-title empieza -->
+<div class="panel panel-default sidebar-menu">
+    <div class="panel-heading">
         
         <h3 class="panel-title">Categorias</h3>
 
-    </div><!-- panel-title termina -->
+    </div>
 
-    <div class="panel-body"><!-- panel-body empieza -->
-        <ul class="nav nav-pills nav-stacked category-menu"> <!-- nav nav-pills nav-stacked category-menu empieza -->
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked category-menu"> 
         
         <?php
        
@@ -16,18 +16,18 @@
         ?>
 
         </ul>
-    </div><!-- panel-body termina -->
-</div><!-- panel panel-default sidebar-menu termina -->
+    </div>
+</div>
 
-<div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar-menu empieza -->
-    <div class="panel-heading"><!-- panel-title empieza -->
+<div class="panel panel-default sidebar-menu">
+    <div class="panel-heading">
         
         <h3 class="panel-title">Genero</h3>
 
-    </div><!-- panel-title termina -->
+    </div>
 
-    <div class="panel-body"><!-- panel-body empieza -->
-        <ul class="nav nav-pills nav-stacked category-menu"> <!-- nav nav-pills nav-stacked category-menu empieza -->
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked category-menu"> 
 
         <?php
 
@@ -36,5 +36,5 @@
         ?>
 
         </ul>
-    </div><!-- panel-body termina -->
-</div><!-- panel panel-default sidebar-menu termina -->
+    </div>
+</div>

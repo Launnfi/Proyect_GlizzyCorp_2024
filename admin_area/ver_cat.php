@@ -5,45 +5,44 @@ if(!isset($_SESSION['admin_email'])){
 
 } else {
 ?>
-<div class="row"><!-- row 1 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <ol class="breadcrumb"><!-- breadcrumb begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
             <li>
                 
                 <i class="fa fa-dashboard"></i> Panel / ver Categorias
                 
             </li>
-        </ol><!-- breadcrumb finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 1 finish -->
+        </ol>
+    </div>
+</div>
 
-<div class="row"><!-- row 2 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <div class="panel panel-default"><!-- panel panel-default begin -->
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <h3 class="panel-title"><!-- panel-title begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
                 
                     <i class="fa fa-tags fa-fw"></i> Ver Categorias
                 
-                </h3><!-- panel-title finish -->
-            </div><!-- panel-heading finish -->
+                </h3>
+            </div>
             
-            <div class="panel-body"><!-- panel-body begin -->
-                <div class="table-responsive"><!-- table-responsive begin -->
-                    <table class="table table-hover table-striped table-bordered"><!-- tabel tabel-hover table-striped table-bordered begin -->
-                        
-                        <thead><!-- thead begin -->
-                            <tr><!-- tr begin -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
                                 <th> Cat ID </th>
                                 <th> Titulo Categoria </th>
                                 <th> Desc Categoria </th>
                                 <th> Estado </th>
                                 <th> Editar Categoria </th>
                                 <th> Activar/Desactivar</th>
-                            </tr><!-- tr finish -->
-                        </thead><!-- thead finish -->
+                            </tr>
+                        </thead>
                         
-                        <tbody><!-- tbody begin -->
+                        <tbody>
                             
                             <?php 
                             
@@ -62,7 +61,7 @@ if(!isset($_SESSION['admin_email'])){
                                     
                                     $cat_desc = $row_cats['cat_desc'];
 
-                                    $cat_act = $row_cats['activo']; // Esta es la variable correcta
+                                    $cat_act = $row_cats['activo']; 
 
                                     if($cat_act == 0){
                                         $estado = "inactiva";
@@ -75,7 +74,7 @@ if(!isset($_SESSION['admin_email'])){
                             
                             ?>
                             
-                            <tr><!-- tr begin -->
+                            <tr>
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $cat_titulo; ?> </td>
                                 <td width="300"> <?php echo $cat_desc; ?> </td>
@@ -90,19 +89,19 @@ if(!isset($_SESSION['admin_email'])){
                                         <i class="fa fa-trash"></i> Activar/Desactivar
                                     </a>
                                 </td>
-                            </tr><!-- tr finish -->
+                            </tr>
                             
                             <?php } ?>
                         
-                        </tbody><!-- tbody finish -->
+                        </tbody>
                         
-                    </table><!-- tabel tabel-hover table-striped table-bordered finish -->
-                </div><!-- table-responsive finish -->
-            </div><!-- panel-body finish -->
+                    </table>
+                </div>
+            </div>
             
-        </div><!-- panel panel-default finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 2 finish -->
+        </div>
+    </div>
+</div>
 
 
 

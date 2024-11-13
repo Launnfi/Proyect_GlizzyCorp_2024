@@ -241,7 +241,7 @@ include("includes/db.php");
                                 
                                 // Verifica si la consulta se ejecutó correctamente
                                 if (!$run_cliente) {
-                                    die("Error en la consulta del cliente: " . mysqli_error($con)); // Muestra el error si la consulta falla
+                                    die("Error en la consulta del cliente: " . mysqli_error($con)); 
                                 }
 
                                 $row_cliente = mysqli_fetch_array($run_cliente);
@@ -255,7 +255,7 @@ include("includes/db.php");
                             <td><?php echo $tamaño; ?></td>
                             <td>
                                 <?php 
-                                echo ($orden_estado == "Pendiente") ? "Pendiente" : "Completada"; // Simplificación de la salida
+                                echo ($orden_estado == "Pendiente") ? "Pendiente" : "Completada";
                                 ?>
                             </td>
                         </tr>

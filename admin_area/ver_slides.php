@@ -68,13 +68,13 @@
                         <div class="panel-footer">
                             <center>
                                 
-                                <a href="index.php?borrar_slide=<?php echo $slide_id; ?>" class="pull-right"><!-- pull-right begin -->
+                                <a href="index.php?borrar_slide=<?php echo $slide_id; ?>" class="pull-right">
                                 
                                  <i class="fa fa-trash"></i> Eliminar
                                 
                                 </a>
                                 
-                                <a href="index.php?editar_slide=<?php echo $slide_id; ?>" class="pull-left"><!-- pull-left begin -->
+                                <a href="index.php?editar_slide=<?php echo $slide_id; ?>" class="pull-left">
                                 
                                  <i class="fa fa-pencil"></i> Editar
                                 

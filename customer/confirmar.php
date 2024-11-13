@@ -276,12 +276,12 @@ if(isset($_POST['confirm_payment'])){
             $mail_cliente = new PHPMailer(true);
 
             try {
-                // Configuración del servidor de correo
+                
                 $mail_cliente->isSMTP();
-                $mail_cliente->Host = 'smtp.gmail.com'; // Usa el servidor SMTP de tu elección
+                $mail_cliente->Host = 'smtp.gmail.com'; 
                 $mail_cliente->SMTPAuth = true;
-                $mail_cliente->Username = 'lautacamejo6@gmail.com'; // Tu correo
-                $mail_cliente->Password = 'jynqgpcsbphvkifs'; // La contraseña de tu correo
+                $mail_cliente->Username = 'lautacamejo6@gmail.com'; 
+                $mail_cliente->Password = 'jynqgpcsbphvkifs'; 
                 $mail_cliente->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail_cliente->Port = 587;
 
@@ -318,7 +318,7 @@ if(isset($_POST['confirm_payment'])){
                 $mail_vendedor->Subject = 'Nueva compra realizada';
                 $mail_vendedor->Body    = "Se ha realizado una nueva compra.<br><br><b>$boleta</b><br><br>";
 
-                // Enviar el correo
+               
                 $mail_vendedor->send();
 
                 echo "<script>alert('Gracias por tu compra, su pedido llegará en 3-4 días hábiles.')</script>";

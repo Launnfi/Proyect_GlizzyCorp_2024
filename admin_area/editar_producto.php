@@ -109,7 +109,7 @@
            </div> 
            <div class="panel-body">
                
-               <form method="post" class="form-horizontal" enctype="multipart/form-data"><!-- form-horizontal Begin -->
+               <form method="post" class="form-horizontal" enctype="multipart/form-data">
                    
                    <div class="form-group">
                        

@@ -1,8 +1,8 @@
-<div class="box"><!-- box empieza -->
+<div class="box">
     
-  <div class="box-header"><!-- box-header empieza -->
+  <div class="box-header">
       
-      <center><!-- center empieza -->
+      <center>
           
           <h1> Login </h1>
           
@@ -10,29 +10,29 @@
           
           <p class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, maxime. Laudantium omnis, ullam, fuga officia provident error corporis consectetur aliquid corrupti recusandae minus ipsam quasi. Perspiciatis nemo, nostrum magni odit! </p>
           
-      </center><!-- center termina -->
-      
-  </div><!-- box-header termina -->
+      </center>
+
+  </div>
    
-  <form method="post" action="cerrar_sesion.php"><!-- form empieza -->
+  <form method="post" action="cerrar_sesion.php">
       
-      <div class="form-group"><!-- form-group empieza -->
+      <div class="form-group">
           
           <label> Email </label>
           
           <input name="c_email" type="text" class="form-control" required>
           
-      </div><!-- form-group termina -->
+      </div>
       
-       <div class="form-group"><!-- form-group empieza -->
+       <div class="form-group">
           
           <label> contraseña </label>
           
           <input name="c_pass" type="password" class="form-control" required>
           
-      </div><!-- form-group termina -->
+      </div>
       
-      <div class="text-center"><!-- text-center empieza -->
+      <div class="text-center">
           
           <button name="login" value="Login" class="btn btn-primary">
               
@@ -40,11 +40,11 @@
               
           </button>
           
-      </div><!-- text-center termina -->     
+      </div>   
       
-  </form><!-- form termina -->
-   
-  <center><!-- center empieza -->
+  </form>
+
+  <center>
       
      <a href="customer_register.php">
          
@@ -52,9 +52,9 @@
          
      </a> 
       
-  </center><!-- center termina -->
+  </center>
     
-</div><!-- box termina -->
+</div>
 
 
 <?php 
@@ -108,7 +108,6 @@ if (isset($_POST['login'])) {
             }
        }
     } 
-    // Cerrar las declaraciones
     $stmt->close();
     $stmt_cart->close();
 

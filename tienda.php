@@ -22,7 +22,7 @@ include("includes/header.php");
                 echo "
                 <div class='box'>
                     <h1>Tienda</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti cupiditate eum necessitatibus, consequatur ab et, doloribus beatae illo, quod explicabo incidunt! Nobis rem recusandae mollitia aliquid cum nihil assumenda deserunt.</p>
+                    <p>En este apartado encontraras todo tipo de articulos para nenas, varónes y recien nacidos.</p>
                 </div>
                 ";
             }

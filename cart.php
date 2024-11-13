@@ -427,21 +427,20 @@ include("includes/header.php");
             <br><br><br><br>
 
 
-            </div><!-- table-responsive termina -->
-            </div><!-- box termina -->
+            </div>
+            </div>
 
 
+            </div>
 
-            </div><!-- col-md-3 termina -->
-
-                    <div class="col-md-3"><!-- col-md-3 empieza -->
+                    <div class="col-md-3">
                     <?php
 
                         include("includes/sidebar.php");
 
                     ?>
-                    </div><!-- container termina -->
-                </div><!-- content termina -->
+                    </div>
+                </div>
                 
                 <?php
 

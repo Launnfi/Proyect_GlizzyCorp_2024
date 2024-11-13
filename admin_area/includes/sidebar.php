@@ -12,7 +12,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
         
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><!-- navbar-toggle begin -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             
             <span class="sr-only">Alternar navegacion</span>
             
@@ -37,7 +37,7 @@
             </a>
             
             <ul class="dropdown-menu">
-                <li><!-- li begin -->
+                <li>
                     <a href="index.php?perfil_admin=<?php echo $admin_id;  ?>">
                         
                         <i class="fa fa-fw fa-user"></i> Perfil

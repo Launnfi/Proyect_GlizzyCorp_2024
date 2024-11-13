@@ -17,49 +17,47 @@
 </head>
 <body>
     
-<div class="row"><!-- row Begin -->
-    
-    <div class="col-lg-12"><!-- col-lg-12 Begin -->
-        
-        <ol class="breadcrumb"><!-- breadcrumb Begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
             
-            <li class="active"><!-- active Begin -->
+            <li class="active">
                 
                 <i class="fa fa-dashboard"></i> Panel / insertar variantes
                 
-            </li><!-- active Finish -->
-            
-        </ol><!-- breadcrumb Finish -->
+            </li>
+
+        </ol>
         
-    </div><!-- col-lg-12 Finish -->
+    </div>
     
-</div><!-- row Finish -->
+</div>
        
-<div class="row"><!-- row Begin -->
+<div class="row">
     
-    <div class="col-lg-12"><!-- col-lg-12 Begin -->
+    <div class="col-lg-12">
         
-        <div class="panel panel-default"><!-- panel panel-default Begin -->
+        <div class="panel panel-default">
             
-           <div class="panel-heading"><!-- panel-heading Begin -->
+           <div class="panel-heading">
                
-               <h3 class="panel-title"><!-- panel-title Begin -->
+               <h3 class="panel-title">
                    
                    <i class="fa fa-money fa-fw"></i> insertar variantes
                    
-               </h3><!-- panel-title Finish -->
+               </h3>
                
-           </div> <!-- panel-heading Finish -->
+           </div> 
            
-           <div class="panel-body"><!-- panel-body Begin -->
-               
-               <form method="post" class="form-horizontal"><!-- form-horizontal Begin -->
+           <div class="panel-body">
+
+               <form method="post" class="form-horizontal">
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Talle </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <select name="talle" class="form-control" required>
                           <option selected disabled>Selecciona una talla</option>
@@ -67,27 +65,27 @@
                           <option>M</option>
                           <option>L</option>
                           </select>
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Cantidad en stock </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="stock" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Seleccionar Producto </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <select name="producto_id" class="form-control" required>
                           
@@ -111,56 +109,55 @@
                           
                           </select>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> variante precio </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="var_precio" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
-                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   </div>
+
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> variante precio de oferta </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="var_precio_oferta" type="text" class="form-control" >
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"></label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="submit" value="Crear variante" type="submit" class="btn btn-primary form-control">
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-               </form><!-- form-horizontal Finish -->
-               
-           </div><!-- panel-body Finish -->
-            
-        </div><!-- canel panel-default Finish -->
-        
-    </div><!-- col-lg-12 Finish -->
-    
-</div><!-- row Finish -->
+               </form>
 
+           </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
 <?php 
 
 if(isset($_POST['submit'])){

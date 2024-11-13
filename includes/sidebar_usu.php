@@ -1,6 +1,6 @@
-<div class="panel panel-default sidebar-menu"><!-- panel panel-default slidebar-menu empieza -->
-    <div class="panel-heading"><!-- panel-heading empieza -->
-        
+<div class="panel panel-default sidebar-menu">
+    <div class="panel-heading">
+
         <?php 
         if(!isset($_SESSION['cliente_email'])) {
             
@@ -40,11 +40,11 @@
         }
         ?>
 
-        </div><!-- panel-heading termina -->
+        </div>
 
-        <div class="panel-body"><!-- panel-body empieza -->
+        <div class="panel-body">
 
-        <ul class="nav-pills nav-stacked nav"><!-- nav-pills nav-stacked-nav empieza -->
+        <ul class="nav-pills nav-stacked nav">
 
         <li class="<?php if(isset($_GET['misOrdenes'])){echo"active";} ?>">
             <a href="customer/my_account.php?misOrdenes">
@@ -94,9 +94,8 @@
 
         </li>
 
-        </ul><!-- nav-pills nav-stacked-nav termina -->
+        </ul>
+        </div>
 
-        </div><!-- panel-body termina -->
 
-
-</div><!-- panel panel-default slidebar-menu termina -->
+</div>

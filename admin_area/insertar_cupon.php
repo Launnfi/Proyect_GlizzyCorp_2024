@@ -17,85 +17,85 @@
 </head>
 <body>
     
-<div class="row"><!-- row Begin -->
+<div class="row">
     
-    <div class="col-lg-12"><!-- col-lg-12 Begin -->
+    <div class="col-lg-12">
         
-        <ol class="breadcrumb"><!-- breadcrumb Begin -->
-            
-            <li class="active"><!-- active Begin -->
+        <ol class="breadcrumb">
+
+            <li class="active">
                 
                 <i class="fa fa-dashboard"></i> Panel / insertar cupones
                 
-            </li><!-- active Finish -->
+            </li>
             
-        </ol><!-- breadcrumb Finish -->
+        </ol>
         
-    </div><!-- col-lg-12 Finish -->
+    </div>
     
-</div><!-- row Finish -->
+</div>
        
-<div class="row"><!-- row Begin -->
+<div class="row">
     
-    <div class="col-lg-12"><!-- col-lg-12 Begin -->
+    <div class="col-lg-12">
         
-        <div class="panel panel-default"><!-- panel panel-default Begin -->
+        <div class="panel panel-default">
             
-           <div class="panel-heading"><!-- panel-heading Begin -->
+           <div class="panel-heading">
                
-               <h3 class="panel-title"><!-- panel-title Begin -->
+               <h3 class="panel-title">
                    
                    <i class="fa fa-money fa-fw"></i> insertar cupones
                    
-               </h3><!-- panel-title Finish -->
-               
-           </div> <!-- panel-heading Finish -->
+               </h3>
+
+           </div>
            
-           <div class="panel-body"><!-- panel-body Begin -->
+           <div class="panel-body">
                
-               <form method="post" class="form-horizontal"><!-- form-horizontal Begin -->
+               <form method="post" class="form-horizontal">
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Cupon Nombre </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="cupon_titulo" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
-                       
-                   </div><!-- form-group Finish -->
+                      </div>
+                      
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Cupon Precio </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="cupon_precio" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
-                       
+                   <div class="form-group">
+                    
                       <label class="col-md-3 control-label"> Copon Limite </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="cupon_limite" type="number" class="form-control" value="1">
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Seleccionar Producto </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <select name="producto_id" class="form-control" required>
                           
@@ -119,43 +119,43 @@
                           
                           </select>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"> Copon Codigo </label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="cupon_codigo" type="text" class="form-control" required>
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-                   <div class="form-group"><!-- form-group Begin -->
+                   <div class="form-group">
                        
                       <label class="col-md-3 control-label"></label> 
                       
-                      <div class="col-md-6"><!-- col-md-6 Begin -->
+                      <div class="col-md-6">
                           
                           <input name="submit" value="Create Coupon" type="submit" class="btn btn-primary form-control">
                           
-                      </div><!-- col-md-6 Finish -->
+                      </div>
                        
-                   </div><!-- form-group Finish -->
+                   </div>
                    
-               </form><!-- form-horizontal Finish -->
+               </form>
                
-           </div><!-- panel-body Finish -->
+           </div>
             
-        </div><!-- canel panel-default Finish -->
+        </div>
         
-    </div><!-- col-lg-12 Finish -->
+    </div>
     
-</div><!-- row Finish -->
+</div>
 
 <?php 
 

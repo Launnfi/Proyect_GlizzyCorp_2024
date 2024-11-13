@@ -8,30 +8,30 @@
 
 ?>
 
-<div class="row"><!-- row 1 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <ol class="breadcrumb"><!-- breadcrumb begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
             <li>
                 
                 <i class="fa fa-dashboard"></i> panel / Ver cajas
                 
             </li>
-        </ol><!-- breadcrumb finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 1 finish -->
+        </ol>
+    </div>
+</div>
 
-<div class="row"><!-- row 2 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <div class="panel panel-default"><!-- panel panel-default begin -->
-            <div class="panel-heading"><!-- panel-heading begin -->
-                <h3 class="panel-title"><!-- panel-title begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
                 
                     <i class="fa fa-tags fa-fw"></i> Ver cajas
                 
-                </h3><!-- panel-title finish -->
-            </div><!-- panel-heading finish -->
+                </h3>
+            </div>
             
-            <div class="panel-body"><!-- panel-body begin -->
+            <div class="panel-body">
             
                 <?php 
                 
@@ -49,52 +49,52 @@
                 
                 ?>
                 
-                <div class="col-lg-4 col-md-4"><!-- col-lg-3 col-md-3 begin -->
-                    <div class="panel panel-primary"><!-- panel panel-primary begin -->
-                        <div class="panel-heading"><!-- panel-heading begin -->
-                            <h3 class="panel-title" align="center"><!-- panel-title begin -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" align="center">
                             
                                 <?php echo $caja_titulo; ?>
                                 
-                            </h3><!-- panel-title finish -->
-                        </div><!-- panel-heading finish -->
+                            </h3>
+                        </div>
                         
-                        <div class="panel-body"><!-- panel-body begin -->
+                        <div class="panel-body">
                             
                         <?php echo $caja_desc; ?>
                             
-                        </div><!-- panel-body finish -->
+                        </div>
                         
-                        <div class="panel-footer"><!-- panel-footer begin -->
-                            <center><!-- center begin -->
+                        <div class="panel-footer">
+                            <center>
                                 
-                                <a href="index.php?borrar_caja=<?php echo $caja_id; ?>" class="pull-right"><!-- pull-right begin -->
+                                <a href="index.php?borrar_caja=<?php echo $caja_id; ?>" class="pull-right">
                                 
                                  <i class="fa fa-trash"></i> Borrar
                                 
-                                </a><!-- pull-right finish -->
+                                </a>
                                 
-                                <a href="index.php?editar_caja=<?php echo $caja_id; ?>" class="pull-left"><!-- pull-left begin -->
+                                <a href="index.php?editar_caja=<?php echo $caja_id; ?>" class="pull-left">
                                 
                                  <i class="fa fa-pencil"></i> Editar
                                 
-                                </a><!-- pull-left finish -->
+                                </a>
                                 
                                 <div class="clearfix"></div>
                                 
-                            </center><!-- center finish -->
-                        </div><!-- panel-footer finish -->
+                            </center>
+                        </div>
                         
-                    </div><!-- panel panel-primary finish -->
-                </div><!-- col-lg-4 col-md-4 finish -->
+                    </div>
+                </div>
                 
                 <?php } ?>
             
-            </div><!-- panel-body finish -->
+            </div>
             
-        </div><!-- panel panel-default finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 2 finish -->
+        </div>
+    </div>
+</div>
 
 
 <?php } ?>

@@ -7,11 +7,11 @@
 </center>
 
 <hr>
-    <div class="table-responsive"><!-- table-responsive empieza -->
+    <div class="table-responsive">
 
-        <table class="table table-bordered table-hover table-striped"><!-- table table-bordered table-hover empieza -->
+        <table class="table table-bordered table-hover table-striped">
 
-            <thead><!--thead empieza -->
+            <thead>
                 <tr>
                     <th>Info</th>
                     <th>Mas Info</th>
@@ -19,7 +19,7 @@
 
                 </tr>
 
-            </thead><!--thead termina -->
+            </thead>
             
             <tbody>
                 <td>Añade productos a tu carrito y dale a pagar, si seleccionas pago expres te mandara a un apartado donde este la confirmacion de la compra</td>
@@ -29,6 +29,6 @@
         
             </tbody>
 
-        </table><!-- table table-bordered table-hover termina -->
+        </table>
 
-    </div><!-- table-responsive termina -->
+    </div>

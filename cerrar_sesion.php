@@ -6,22 +6,21 @@
 
 ?>
    <link rel="stylesheet" href="customer/styles/style.css">
-   <div id="content"><!-- #content empieza -->
-       <div class="container"><!-- container empieza -->
-           <div class="col-md-12"><!-- col-md-12 empieza -->
-               
-               <ul class="breadcrumb"><!-- breadcrumb empieza -->
+   <div id="content">
+       <div class="container">
+           <div class="col-md-12">
+               <ul class="breadcrumb">
                    <li>
                        <a href="index.php">Inicio</a>
                    </li>
                    <li>
                        Registrarme
                    </li>
-               </ul><!-- breadcrumb termina -->
+               </ul>
                
-           </div><!-- col-md-12 termina -->
+           </div>
            
-           <div class="col-md-3"><!-- col-md-3 empieza -->
+           <div class="col-md-3">
    
    <?php 
     
@@ -29,9 +28,9 @@
     
     ?>
                
-           </div><!-- col-md-3 termina -->
+           </div>
            
-           <div class="col-md-9"><!-- col-md-9 empieza -->
+           <div class="col-md-9">
            
            <?php 
            
@@ -48,10 +47,10 @@
            
            ?>
            
-           </div><!-- col-md-9 termina -->
+           </div>
            
-       </div><!-- container termina -->
-   </div><!-- #content termina -->
+       </div>
+   </div>
    
    <?php 
     

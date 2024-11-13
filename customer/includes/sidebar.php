@@ -39,11 +39,9 @@
         }
         ?>
 
-    </div><!-- panel-heading termina -->
-
-    <div class="panel-body"><!-- panel-body empieza -->
-
-        <ul class="nav-pills nav-stacked nav"><!-- nav-pills nav-stacked-nav empieza -->
+    </div>
+    <div class="panel-body">
+        <ul class="nav-pills nav-stacked nav">
 
             <li class="<?php if(isset($_GET['misOrdenes'])){echo'active';} ?>">
                 <a href="my_account.php?misOrdenes">
@@ -81,8 +79,8 @@
                 </a>
             </li>
 
-        </ul><!-- nav-pills nav-stacked-nav termina -->
+        </ul>
 
-    </div><!-- panel-body termina -->
+    </div>
 
-</div><!-- panel panel-default slidebar-menu termina -->
+</div>

@@ -55,11 +55,11 @@ if(isset($_GET['pro_id'])){
 </head>
 <body>
    
-   <div id="top"><!-- Top empieza -->
+   <div id="top">
        
-       <div class="container"><!-- container empieza -->
+       <div class="container">
            
-           <div class="col-md-6 offer"><!-- col-md-6 offer empieza -->
+           <div class="col-md-6 offer">
                
            <?php 
                    
@@ -77,11 +77,11 @@ if(isset($_GET['pro_id'])){
                 
                <a href="checkout.php"><?php items(); ?> Productos en tu carrito | Total:  <?php echo mont_total(); ?> </a>
                
-           </div><!-- col-md-6 offer termina -->
-           
-           <div class="col-md-6"><!-- col-md-6 empieza -->
+           </div>
+
+           <div class="col-md-6">
                
-               <ul class="menu"><!-- cmenu empieza -->
+               <ul class="menu">
                    
                <?php if (!isset($_SESSION['cliente_email'])): ?>
                 <li>
@@ -108,7 +108,7 @@ if(isset($_GET['pro_id'])){
                            
                            ?>
                    </li>         
-               </ul><!-- menu termina -->
+               </ul>
                
            </div><!-- col-md-6 termina -->
            

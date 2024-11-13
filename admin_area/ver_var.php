@@ -37,9 +37,9 @@ if(!isset($_SESSION['admin_email'])){
                                 <th> Editar Variante </th>
                                 <th> Activar/Desactivar </th>
                             </tr>
-                        </thead><!-- thead finish -->
+                        </thead>
                         
-                        <tbody><!-- tbody begin -->
+                        <tbody>
                             <?php 
                                 $i = 0;
                                 $get_var = "SELECT * FROM variantes";

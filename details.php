@@ -54,11 +54,11 @@ if(isset($_GET['pro_id'])){
 
 ?>
 <script src="js/ajax_details.js"></script>
-   <div id="content"><!-- content empeza -->
-    <div class="container"><!-- container empeza -->
-        <div class="col-md-12"><!-- col-md-12 empeza -->
+   <div id="content">
+    <div class="container">
+        <div class="col-md-12">
 
-        <ul class="breadcrumb"><!-- breadcrumb empeza-->
+        <ul class="breadcrumb">
             <li>
                 <a href="index.php">Inicio</a>
             </li>
@@ -72,23 +72,23 @@ if(isset($_GET['pro_id'])){
         </ul>
         </div>
 
-        <div class="col-md-3"><!-- col-md-3 empeza -->
+        <div class="col-md-3">
         <?php
 
              include("includes/sidebar.php");
 
         ?>
-        </div><!-- col-md-3 termina -->
-        <div class="col-md-9"><!-- col-md-9 empeza -->
-               <div id="productMain" class="row"><!-- row empeza -->
-                   <div class="col-sm-6"><!-- col-sm-6 empeza -->
-                       <div id="mainImage"><!-- #mainImage empeza -->
-                           <div id="myCarousel" class="carousel slide" data-ride="carousel"><!-- carousel slide empeza -->
-                               <ol class="carousel-indicators"><!-- carousel-indicators empeza -->
+        </div>
+        <div class="col-md-9">
+               <div id="productMain" class="row">
+                   <div class="col-sm-6">
+                       <div id="mainImage">
+                           <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                               <ol class="carousel-indicators">
                                    <li data-target="#myCarousel" data-slide-to="0" class="active" ></li>
                                    <li data-target="#myCarousel" data-slide-to="1"></li>
                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                               </ol><!-- carousel-indicators termina -->
+                               </ol>
                                
                                <div class="carousel-inner">
                                    <div class="item active">
@@ -107,55 +107,55 @@ if(isset($_GET['pro_id'])){
                                 <?php endif; ?>
                             </div>
                                
-                               <a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control empeza -->
+                               <a href="#myCarousel" class="left carousel-control" data-slide="prev">
                                    <span class="glyphicon glyphicon-chevron-left"></span>
                                    <span class="sr-only">Anterior</span>
-                               </a><!-- left carousel-control termina -->
+                               </a>
                                
-                               <a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- right carousel-control empeza -->
+                               <a href="#myCarousel" class="right carousel-control" data-slide="next">
                                    <span class="glyphicon glyphicon-chevron-right"></span>
                                    <span class="sr-only">Siguiente</span>
-                               </a><!-- right carousel-control termina -->
+                               </a>
                                
-                           </div><!-- carousel slide termina -->
-                       </div><!-- mainImage termina -->
-                   </div><!-- col-sm-6 termina -->
+                           </div>
+                       </div>
+                   </div>
                    
-                   <div class="col-sm-6"><!-- col-sm-6 empeza -->
-                       <div class="box"><!-- box empeza -->
+                   <div class="col-sm-6">
+                       <div class="box">
                            <h1 class="text-center"><?php echo $pro_titulo; ?></h1>
                            
                            <?php add_cart(); ?>
 
                         
                            <form action="details.php?pro_id=<?php echo $producto_id; ?>" method="POST" class="form-horizontal">
-                                <!-- form-horizontal empieza -->
+                               
                                 <div class="form-group">
-                                    <!-- form-group empieza -->
+                                   
                                     <label for="" class="col-md-5 control-label">Cantidad</label>
 
                                     <div class="col-md-7">
-                                        <!-- col-md-7 empieza -->
+                                       
                                         <select name="cant" id="" class="form-control" required>
-                                            <!-- select empieza -->
+                                            
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                             <option>5</option>
                                         </select>
-                                        <!-- select termina -->
+                                     
                                     </div>
-                                    <!-- col-md-7 termina -->
+                                  
                                 </div>
-                                <!-- form-group termina -->
+                             
 
                                 <div class="form-group">
-                                    <!-- form-group empieza -->
+                                    
                                     <label class="col-md-5 control-label">Tallas</label>
 
                                     <div class="col-md-7">
-                                        <!-- col-md-7 empieza -->
+                                        
                                         <select name="talle" class="form-control" required oninput="setCustomValidity('')" oninvalid="setCustomValidity('Seleccione un talle')" onchange="updatePrice(this.value)">
                                         <option value="" disabled selected>Selecciona un talle</option>
 
@@ -179,7 +179,7 @@ if(isset($_GET['pro_id'])){
                                     </select>
                                 </div>
                             </div>
-                                <!-- form-group termina -->
+                             
                                 <?php 
                                 
                                 if ($pro_label == "sale") {
@@ -208,38 +208,38 @@ if(isset($_GET['pro_id'])){
                                 
                             </form>
                             
-                            <!-- form-horizontal termina -->
-                        </div><!-- boxtermina -->
+                           
+                        </div>
                  
-                    <div class="row" id="thumbs"><!-- row empeza -->
+                    <div class="row" id="thumbs">
 
-                    <div class="col-xs-4"><!-- "col-xs-4 empeza -->
-                        <a data-target="#myCarousel" data-slide-to="0" href="#" class="thumb"><!-- "thumb empeza -->
+                    <div class="col-xs-4">
+                        <a data-target="#myCarousel" data-slide-to="0" href="#" class="thumb">
                             <img src="admin_area/product_images/<?php echo $pro_img1; ?>" alt="" class="img-responsive">
-                        </a><!-- "thumb termina -->
-                    </div><!-- "col-xs-4 termina -->
+                        </a>
+                    </div>
                     
-                    <div class="col-xs-4"><!-- "col-xs-4 empeza -->
-                        <a data-target="#myCarousel" data-slide-to="1" href="#" class="thumb"><!-- "thumb empeza -->
+                    <div class="col-xs-4">
+                        <a data-target="#myCarousel" data-slide-to="1" href="#" class="thumb">
                             <img src="admin_area/product_images/<?php echo $pro_img2; ?>" alt="" class="img-responsive">
-                        </a><!-- "thumb termina -->
-                    </div><!-- "col-xs-4 termina -->
+                        </a>
+                    </div>
                     
-                    <div class="col-xs-4"><!-- "col-xs-4 empeza -->
-                        <a data-target="#myCarousel" data-slide-to="2" href="#" class="thumb"><!-- "thumb empeza -->
+                    <div class="col-xs-4">
+                        <a data-target="#myCarousel" data-slide-to="2" href="#" class="thumb">
                             <img src="admin_area/product_images/<?php echo $pro_img3; ?>" alt="" class="img-responsive">
-                        </a><!-- "thumb termina -->
-                    </div><!-- "col-xs-4 termina -->
+                        </a>
+                    </div>
 
-                    </div><!-- row termina -->
-                  </div><!-- col-sm-6 termina -->
+                    </div>
+                  </div>
 
                   <br>
                   <br>
-                    </div><!-- row termina -->
+                    </div>
                
                     
-                <div class="box" id="details"><!-- box empeza -->
+                <div class="box" id="details">
                 
                 <h4>Detalles del producto</h4>
 
@@ -259,14 +259,14 @@ if(isset($_GET['pro_id'])){
 
             </div><!-- box termina -->
 
-                <div id="row same-height-row"><!-- same-height-row empeza -->
-                    <div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 empeza -->
-                        <div class="box same-height headline"><!--box same-height headline empeza -->
+                <div id="row same-height-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box same-height headline">
 
                             <h3 class="text-center">Te podria interesar</h3>
                             
-                        </div><!--box same-height headline termina -->
-                    </div><!-- col-md-3 col-sm-6 termina -->
+                        </div>
+                    </div>
 
                     <?php 
                 $get_products = "
@@ -375,17 +375,16 @@ if(isset($_GET['pro_id'])){
                     
                     ?>
                    
-                </div><!-- same-height-row termina -->
-        
+                </div>
              
              
-                     </div><!-- productMain termina -->
+                     </div>
     
-                      </div><!-- col-md-9 termina -->
+                      </div>
 
 
-            </div><!-- container termina -->
-    </div><!-- content termina -->
+            </div>
+    </div>
     
     <?php
 

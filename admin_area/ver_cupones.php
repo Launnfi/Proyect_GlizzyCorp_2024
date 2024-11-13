@@ -8,35 +8,34 @@
 
 ?>
 
-<div class="row"><!-- row 1 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <ol class="breadcrumb"><!-- breadcrumb begin -->
-            <li class="active"><!-- active begin -->
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li class="active">
                 
                 <i class="fa fa-dashboard"></i> Panel / Ver Cupones
                 
-            </li><!-- active finish -->
-        </ol><!-- breadcrumb finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 1 finish -->
+            </li>
+        </ol>
+    </div>
+</div>
 
-<div class="row"><!-- row 2 begin -->
-    <div class="col-lg-12"><!-- col-lg-12 begin -->
-        <div class="panel panel-default"><!-- panel panel-default begin -->
-            <div class="panel-heading"><!-- panel-heading begin -->
-               <h3 class="panel-title"><!-- panel-title begin -->
-               
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               <h3 class="panel-title">              
                    <i class="fa fa-tags"></i>  Ver Cupones
                 
-               </h3><!-- panel-title finish --> 
-            </div><!-- panel-heading finish -->
+               </h3> 
+            </div>
             
-            <div class="panel-body"><!-- panel-body begin -->
-                <div class="table-responsive"><!-- table-responsive begin -->
-                    <table class="table table-striped table-bordered table-hover"><!-- table table-striped table-bordered table-hover begin -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
                         
-                        <thead><!-- thead begin -->
-                            <tr><!-- tr begin -->
+                        <thead>
+                            <tr>
                                 <th> Cupon ID: </th>
                                 <th> Cupon Nombre: </th>
                                 <th> Producto Nombre: </th>
@@ -47,10 +46,10 @@
                                 <th> Estado: </th>
                                 <th> Editar: </th>
                                 <th> Borrar: </th>
-                            </tr><!-- tr finish -->
-                        </thead><!-- thead finish -->
+                            </tr>
+                        </thead>
                         
-                        <tbody><!-- tbody begin -->
+                        <tbody>
 
                         <?php 
                         
@@ -121,14 +120,14 @@
 
                         <?php } ?>
                             
-                        </tbody><!-- tbody finish -->
+                        </tbody>
                         
-                    </table><!-- table table-striped table-bordered table-hover finish -->
-                </div><!-- table-responsive finish -->
-            </div><!-- panel-body finish -->
+                    </table>
+                </div>
+            </div>
             
-        </div><!-- panel panel-default finish -->
-    </div><!-- col-lg-12 finish -->
-</div><!-- row 2 finish -->
+        </div>
+    </div>
+</div>
 
 <?php } ?>

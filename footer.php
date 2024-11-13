@@ -1,37 +1,37 @@
 <?php 
 ?>
-<div id="footer"><!-- #footer empieza -->
-    <div class="container"><!-- container empieza -->
-        <div class="row"><!-- row empieza -->
-            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 empieza -->
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
                
                <h4>Paginas</h4>
                 
-                <ul><!-- ul empieza -->
+                <ul>
                     <li><a href="cart.php">Carrito</a></li>
                     <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="tienda.php">Shop</a></li>
                     <li><a href="customer/my_account.php">My Account</a></li>
-                </ul><!-- ul termino -->
-                
+                </ul>
+
                 <hr>
                 
                 <h4>Seccion de usuarios</h4>
                 
-                <ul><!-- ul empieza -->
+                <ul>
                     <li><a href="Micuenta.php">Login</a></li>
                     <li><a href="customer_register.php">registarme</a></li>
-                </ul><!-- ul termino -->
+                </ul>
                 
                 <hr class="hidden-md hidden-lg hidden-sm">
                 
-            </div><!-- col-sm-6 col-md-3 termino -->
+            </div>
             
-            <div class="com-sm-6 col-md-3"><!-- col-sm-6 col-md-3 empieza -->
+            <div class="com-sm-6 col-md-3">
                 
                 <h4>Categorias de productos</h4>
                 
-                <ul><!-- ul empieza -->
+                <ul>
 
                 <?php 
                     
@@ -62,13 +62,13 @@
                     }
                 
                 ?>
-                </ul><!-- ul termino -->
+                </ul>
                 
                 <hr class="hidden-md hidden-lg">
                 
-            </div><!-- col-sm-6 col-md-3 termino -->
-            
-            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 empieza -->
+            </div>
+
+            <div class="col-sm-6 col-md-3">
                 
                 <h4>Encuentranos</h4>
                 
@@ -81,13 +81,13 @@
                     <br>
                     <br/><Strong>GlizzyCorp</Strong></a>
                     
-                </p><!-- p termino -->
+                </p>
                 
                 <a href="GlizzyUs.php">Mira nuestra pagina de contactos</a>
                 
                 <hr class="hidden-md hidden-lg">
                 
-            </div><!-- col-sm-6 col-md-3 termino -->
+            </div>
             
             <div class="col-sm-6 col-md-3">
                 
@@ -98,16 +98,16 @@
                 </p>
                 
                
-                    <div class="input-group"><!-- input-group empieza -->
+                    <div class="input-group">
                         
-                        <span class="input-group-btn"><!-- input-group-btn empieza -->
+                        <span class="input-group-btn">
                             
                             <button type="submit" value="Blog" class="btn btn-default"> <a href="../blog.php">Blog</a></button>
                             
-                        </span><!-- input-group-btn termino -->
+                        </span>
                         
-                    </div><!-- input-group termino -->
-                </form><!-- form termino -->
+                    </div>
+                </form>
                 
                 <hr>
                 
@@ -120,22 +120,22 @@
                 </p>
                 
             </div>
-        </div><!-- row termino -->
-    </div><!-- container termino -->
-</div><!-- #footer termino -->
+        </div>
+    </div>
+</div>
 
 
-<div id="copyright"><!-- #copyright empieza -->
-    <div class="container"><!-- container empieza -->
-        <div class="col-md-6"><!-- col-md-6 empieza -->
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-6">
             
             <p class="pull-left">&copy; 2024 Vicenta Todos los derechos reservados</p>
             
-        </div><!-- col-md-6 termino -->
-        <div class="col-md-6"><!-- col-md-6 empieza -->
+        </div>
+        <div class="col-md-6">
             
             <p class="pull-right">Hecho por : <a href="#">GlizzyCorp</a></p>
             
-        </div><!-- col-md-6 termino -->
-    </div><!-- container termino -->
-</div><!-- #copyright termino -->
+        </div>
+    </div>
+</div>
