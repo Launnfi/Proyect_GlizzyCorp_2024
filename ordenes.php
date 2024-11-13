@@ -39,7 +39,12 @@ try {
 
         while($row_variante = mysqli_fetch_array($run_variante)){
             // Obtener el precio de la variante (si es necesario)
-            $var_precio = $row_variante['precio_var']; // Asegúrate de que 'precio' es el nombre correcto de la columna
+            $var_precio = $row_variante['precio_var'];
+            $stock_actual = $row_variante['stock_var']; 
+
+            if ($stock_actual < $pro_cant) {
+                throw new Exception("No hay suficiente stock para la variante seleccionada.");
+            }
 
             // Calcular el subtotal basado en el precio de la variante
             $sub_total = $var_precio * $pro_cant;
@@ -54,6 +59,13 @@ try {
             $insertar_pend_ord = "INSERT INTO ordenes_pendientes (cliente_id, numero_orden, producto_id, cant, tamaño, status) VALUES ('$id_cliente', '$num_fac', '$pro_id', '$pro_cant', '$pro_talle', '$estado')";
             if (!mysqli_query($con, $insertar_pend_ord)) {
                 throw new Exception("Error al insertar en ordenes_pendientes: " . mysqli_error($con));
+            }
+
+            // Actualizar el stock de la variante
+            $nuevo_stock = $stock_actual - $pro_cant;
+            $actualizar_stock = "UPDATE variantes SET stock_var = '$nuevo_stock' WHERE var_id = '$var_id'";
+            if (!mysqli_query($con, $actualizar_stock)) {
+                throw new Exception("Error al actualizar el stock de la variante: " . mysqli_error($con));
             }
         }
     }
