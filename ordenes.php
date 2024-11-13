@@ -71,7 +71,7 @@ try {
     echo "<script>window.open('customer/my_account.php?misOrdenes', '_self');</script>";
 
 } catch (Exception $e) {
-    // Si ocurre un error, deshacer la transacción
+
     mysqli_rollBack($con);
     echo "Error: " . $e->getMessage();
 }
