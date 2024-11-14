@@ -98,27 +98,27 @@ include("includes/header.php");
     <section class="faq-content">
         <div class="faq-item">
             <h2 class="faq-pregunta">¿Cómo realizo un pedido?</h2>
-            <p class="faq-respuesta">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec orci vel orci elementum bibendum.</p>
+            <p class="faq-respuesta">Por el momento hay dos maneras de realizar el pedido, una de ellas es por pedido express o pago express que se realiza el edido y vas directamente a pagar al local, y el otro metodo es contactandonos por whatsapp.</p>
         </div>
         
         <div class="faq-item">
             <h2 class="faq-pregunta">¿Cuáles son los métodos de pago?</h2>
-            <p class="faq-respuesta">Aliquam at justo ut orci fermentum vehicula. Cras convallis, augue non auctor interdum, nisi felis interdum erat.</p>
+            <p class="faq-respuesta">Aceptamos todo tipo de tarjetas, pagos en abitab.</p>
         </div>
 
         <div class="faq-item">
             <h2 class="faq-pregunta">¿Cuánto tarda en llegar el envío?</h2>
-            <p class="faq-respuesta">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+            <p class="faq-respuesta">Depende mucho en la cantidad de pedidos que tengamos pero por lo general demoran entre 3 a 4 dias.</p>
         </div>
 
         <div class="faq-item">
             <h2 class="faq-pregunta">¿Cómo puedo rastrear mi pedido?</h2>
-            <p class="faq-respuesta">Donec sit amet metus at odio dictum ultrices et sit amet sapien. Integer eget venenatis elit.</p>
+            <p class="faq-respuesta">Se te enviara un email con un codigo de rastreo para saber todos los detalles de por donde va el pedido.</p>
         </div>
 
         <div class="faq-item">
             <h2 class="faq-pregunta">¿Puedo devolver un producto?</h2>
-            <p class="faq-respuesta">Nulla facilisi. Duis a arcu eget nisi ultricies sagittis id in neque.</p>
+            <p class="faq-respuesta">Si, en el apartado de contactanos puedes enviarnos un email con los detalles de tu incombeniente o el motivo de devolucion.</p>
         </div>
     </section>
 </div>
