@@ -7,8 +7,11 @@
         }else{
 
 ?>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
         
@@ -30,7 +33,7 @@
         
         <li class="dropdown">
             
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="collapse">
                 
                 <i class="fa fa-user"></i> <?php echo $admin_nombre; ?> <b class="caret"></b>
                 

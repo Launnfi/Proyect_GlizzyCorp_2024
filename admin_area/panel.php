@@ -270,7 +270,7 @@ include("includes/db.php");
                 
                 <div class="text-right">
                     
-                    <a href="index.php?view_orders">
+                    <a href="index.php?ver_ordenes">
                         
                         Ver todas las ordenes <i class="fa fa-arrow-circle-right"></i>
                         
