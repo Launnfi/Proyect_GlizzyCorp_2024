@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2024 a las 02:44:07
+-- Tiempo de generación: 13-11-2024 a las 21:35:22
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `admin_id` int(6) NOT NULL,
   `admin_nombre` varchar(60) NOT NULL,
   `admin_email` varchar(100) NOT NULL,
-  `admin_pass` varchar(30) NOT NULL,
+  `admin_pass` varchar(70) NOT NULL,
   `admin_img` text NOT NULL,
   `admin_ciudad` text NOT NULL,
   `admin_sobre` text NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_nombre`, `admin_email`, `admin_pass`, `admin_img`, `admin_ciudad`, `admin_sobre`, `admin_contacto`, `admin_trabajo`) VALUES
-(1, 'Vicenta', 'vicenta@gmail.com', 'Admin2024', '', 'Salto', 'Ejemplo', '091221341', 'Admin');
+(2, 'VicentaAdmin', 'VicentaAdmin@gmail.com', 'Admin2024', 'Imagen de WhatsApp 2024-06-07 a las 11.48.56_1150adfc.jpg', 'Salto', 'Administrador de los productos', '09282828', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -55,8 +55,15 @@ INSERT INTO `admin` (`admin_id`, `admin_nombre`, `admin_email`, `admin_pass`, `a
 CREATE TABLE `cajas_texto` (
   `caja_id` int(3) NOT NULL,
   `caja_titulo` varchar(60) NOT NULL,
-  `Caja_desc` text NOT NULL
+  `caja_desc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `cajas_texto`
+--
+
+INSERT INTO `cajas_texto` (`caja_id`, `caja_titulo`, `caja_desc`) VALUES
+(1, 'Hola', 'Probando caja');
 
 -- --------------------------------------------------------
 
@@ -67,10 +74,18 @@ CREATE TABLE `cajas_texto` (
 CREATE TABLE `cart` (
   `p_id` int(5) NOT NULL,
   `cant` int(3) NOT NULL,
-  `talle` varchar(3) NOT NULL,
+  `talle` varchar(20) NOT NULL,
   `p_precio` int(6) DEFAULT NULL,
-  `cliente_id` int(5) NOT NULL
+  `cliente_id` int(5) NOT NULL,
+  `var_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `cart`
+--
+
+INSERT INTO `cart` (`p_id`, `cant`, `talle`, `p_precio`, `cliente_id`, `var_id`) VALUES
+(2, 1, 'L', 500, 9, NULL);
 
 -- --------------------------------------------------------
 
@@ -90,10 +105,9 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`cat_id`, `cat_titulo`, `cat_desc`, `activo`) VALUES
-(1, '   queseso   ', 'queseso', 1),
-(2, 'anachuchu', 'anachuchu', 1),
-(3, 'Niñas', 'Aqui encontraras todo tipo de ropa para niñas', 1),
-(4, 'Niños', 'Aqui encontraras todo tipo de ropa para niños', 1);
+(3, 'Nena', 'Aqui encontraras todo tipo de ropa para niñas', 1),
+(4, ' Varón ', 'Aqui encontraras todo tipo de ropa para Barones', 1),
+(5, 'Recien nacidos', 'Ropita para recién nacidos', 1);
 
 -- --------------------------------------------------------
 
@@ -112,14 +126,6 @@ CREATE TABLE `cupon` (
   `activo` int(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `cupon`
---
-
-INSERT INTO `cupon` (`cupon_id`, `producto_id`, `cupon_titulo`, `cupon_precio`, `cupon_codigo`, `cupon_limite`, `cupon_usado`, `activo`) VALUES
-(1, 2, 'hola', '500', 'HACAS', -1, 0, 0),
-(2, 3, 'sas', '500', 'HACAS4', 1, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -130,7 +136,7 @@ CREATE TABLE `customer` (
   `cliente_id` int(5) NOT NULL,
   `cliente_nombre` varchar(50) NOT NULL,
   `cliente_email` varchar(70) NOT NULL,
-  `cliente_pass` varchar(30) NOT NULL,
+  `cliente_pass` varchar(255) NOT NULL,
   `cliente_ciudad` text NOT NULL,
   `cliente_contacto` varchar(40) NOT NULL,
   `cliente_direccion` text NOT NULL,
@@ -143,26 +149,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cliente_id`, `cliente_nombre`, `cliente_email`, `cliente_pass`, `cliente_ciudad`, `cliente_contacto`, `cliente_direccion`, `cliente_img`, `activo`) VALUES
-(1, 'prueba', 'prueba@mail.com', 'prueba', 'cielo', '21343214241', '', '1-TpRZz7_400x400.jpg', 1),
-(2, 'prueba', 'prueba@mail.com', '1234', 'cielo', '21343214241', '', '1f379f720243a065247e03e70cdacf6c.jpg', 1),
-(3, 'lauta', 'lau@gmail.com', '81dc9bdb52d04dc20036dbd8313ed0', 'Salto', '213213', '20', 'FeOm9aUaMAIKm8H.jpeg', 1),
-(5, 'homero', 'uno@gmail.com', '$2y$10$cR.TZyC6RRALR./dEjrdeun', 'Salto', '213213', '20', 'homero.jpg', 1),
-(6, 'lauta', '1@gmail.com', '$2y$10$cDqAdGsn5/7sdOEP3M2yk.U', 'Salto', '1234', '20', 'homero.jpg', 1),
-(7, 'anashe', 'nashe@gmail.com', '$2y$10$9q6ni6MOD4qJUz/uVHVMUeZ', 'Salto', '1234', '20', 'bg.jpg', 1),
-(8, 'lauta', 'vicenta@gmail.com', '$2y$10$Yia.D2/LWBtBahF7uIk2Fuo', 'Salto', '123451', '20', 'Imagen de WhatsApp 2024-06-07 a las 11.48.56_1150adfc.jpg', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `manufacturerias`
---
-
-CREATE TABLE `manufacturerias` (
-  `manufactureria_id` int(11) NOT NULL,
-  `manufactureria_titulo` text NOT NULL,
-  `manufactureria_top` text NOT NULL,
-  `manufactureria_img` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(15, 'lauta', 'lau@gmail.com', '1234', 'Salto', '21314', '20', 'FeOm9aUaMAIKm8H.jpeg', 1),
+(16, 'lauta', 'unox@gmail.com', '$2y$10$ia/2x18Fb7MNMs1C9hY4Ou6VlhKKsOORBaslWx4hKZWzd77Xvri9y', 'Salto', '213123', '20', 'FeOm9aUaMAIKm8H.jpeg', 1),
+(17, 'lauta', 'dos@gmail.com', '$2y$10$/o4czc7GIcXTkAwkAStLk.gNiUcyjlscKCCpoZ3agAfYKmIbbvK1y', 'Rocha', '12312', '20', 'bg.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -178,20 +167,20 @@ CREATE TABLE `ordenes_cliente` (
   `cant` int(10) NOT NULL,
   `tamaño` text NOT NULL,
   `fecha_orden` date NOT NULL,
-  `status` text NOT NULL
+  `status` text NOT NULL,
+  `var_id` int(11) DEFAULT NULL,
+  `producto_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `ordenes_cliente`
 --
 
-INSERT INTO `ordenes_cliente` (`orden_id`, `cliente_id`, `monto`, `numero_orden`, `cant`, `tamaño`, `fecha_orden`, `status`) VALUES
-(1, 3, 321, 1540108262, 1, '0', '2024-11-05', 'Completado'),
-(2, 3, 2344, 1322230063, 1, 'M', '2024-11-05', 'Pendiente'),
-(3, 5, 2344, 712475282, 1, 'S', '2024-11-06', 'Pendiente'),
-(4, 5, 1000, 712475282, 1, 'M', '2024-11-06', 'Pendiente'),
-(5, 5, 1000, 284251098, 1, 'M', '2024-11-06', 'Pendiente'),
-(6, 5, 1000, 284251098, 1, 'L', '2024-11-06', 'Completado');
+INSERT INTO `ordenes_cliente` (`orden_id`, `cliente_id`, `monto`, `numero_orden`, `cant`, `tamaño`, `fecha_orden`, `status`, `var_id`, `producto_id`) VALUES
+(10, 16, 3000, 886104624, 2, 'M', '2024-11-12', 'Completado', 3, 0),
+(11, 16, 1500, 1318910926, 1, 'M', '2024-11-12', 'Pendiente', 3, 0),
+(12, 16, 3600, 1318910926, 3, 'S', '2024-11-12', 'Pendiente', 4, 0),
+(13, 16, 1200, 1065938713, 1, 'S', '2024-11-13', 'Completado', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -206,16 +195,22 @@ CREATE TABLE `ordenes_pendientes` (
   `producto_id` text NOT NULL,
   `cant` int(4) NOT NULL,
   `tamaño` text NOT NULL,
-  `status` text NOT NULL
+  `status` text NOT NULL,
+  `var_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `ordenes_pendientes`
 --
 
-INSERT INTO `ordenes_pendientes` (`orden_id`, `cliente_id`, `numero_orden`, `producto_id`, `cant`, `tamaño`, `status`) VALUES
-(2, 3, 1322230063, '4', 1, 'M', 'Pendiente'),
-(3, 5, 712475282, '4', 1, 'S', 'Pendiente');
+INSERT INTO `ordenes_pendientes` (`orden_id`, `cliente_id`, `numero_orden`, `producto_id`, `cant`, `tamaño`, `status`, `var_id`) VALUES
+(7, 16, 983568604, '7', 1, 'S', 'Completado', NULL),
+(8, 16, 1093011547, '7', 1, 'M', 'Pendiente', NULL),
+(9, 16, 581877771, '7', 1, 'S', 'Completado', NULL),
+(10, 16, 886104624, '7', 2, 'M', 'Completado', NULL),
+(11, 16, 1318910926, '7', 1, 'M', 'Pendiente', NULL),
+(12, 16, 1318910926, '8', 3, 'S', 'Pendiente', NULL),
+(13, 16, 1065938713, '8', 1, 'S', 'Completado', NULL);
 
 -- --------------------------------------------------------
 
@@ -225,22 +220,28 @@ INSERT INTO `ordenes_pendientes` (`orden_id`, `cliente_id`, `numero_orden`, `pro
 
 CREATE TABLE `pagos` (
   `pago_id` int(5) NOT NULL,
+  `orden_id` int(5) NOT NULL,
+  `cliente_id` int(5) NOT NULL,
   `numero_factura` int(10) NOT NULL,
   `cantidad` int(4) NOT NULL,
   `metodo_pago` text NOT NULL,
-  `num_ref` int(10) NOT NULL,
-  `fecha_pago` text NOT NULL
+  `fecha_pago` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `pagos`
 --
 
-INSERT INTO `pagos` (`pago_id`, `numero_factura`, `cantidad`, `metodo_pago`, `num_ref`, `fecha_pago`) VALUES
-(1, 1540108262, 321, 'Seleccione metodo de pago', 321, '2024-10-29'),
-(2, 1540108262, 321, 'Visa', 321, '2024-10-29'),
-(3, 1540108262, 321, 'Visa', 321, '2024-10-29'),
-(4, 1756998745, 1, 'Pago expres', 321, '3213');
+INSERT INTO `pagos` (`pago_id`, `orden_id`, `cliente_id`, `numero_factura`, `cantidad`, `metodo_pago`, `fecha_pago`) VALUES
+(10, 0, 0, 983568604, 1200, 'Pago expres', '2024-11-15'),
+(17, 0, 0, 581877771, 1200, 'Pago expres', '2024-11-14'),
+(18, 0, 0, 581877771, 1200, 'Seleccione metodo de pago', '2024-11-14'),
+(19, 0, 0, 581877771, 1200, 'Seleccione metodo de pago', '2024-11-15'),
+(20, 0, 0, 581877771, 1200, 'Seleccione metodo de pago', '2024-11-20'),
+(21, 0, 0, 581877771, 1200, 'Pago expres', '2024-11-15'),
+(22, 0, 0, 581877771, 1200, 'Pago expres', '2024-11-15'),
+(23, 0, 0, 886104624, 3000, 'Pago expres', '2024-11-16'),
+(24, 0, 0, 1065938713, 1200, 'Pago expres', '2024-11-16');
 
 -- --------------------------------------------------------
 
@@ -257,11 +258,9 @@ CREATE TABLE `productos` (
   `producto_img1` text NOT NULL,
   `producto_img2` text NOT NULL,
   `producto_img3` text NOT NULL,
-  `producto_precio` int(5) NOT NULL,
   `producto_desc` text NOT NULL,
   `producto_keywords` text NOT NULL,
   `producto_etiqueta` text NOT NULL,
-  `producto_oferta` int(5) NOT NULL,
   `activo` int(1) DEFAULT 1,
   `stock` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -270,10 +269,12 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`producto_id`, `p_cat_id`, `cat_id`, `date`, `producto_titulo`, `producto_img1`, `producto_img2`, `producto_img3`, `producto_precio`, `producto_desc`, `producto_keywords`, `producto_etiqueta`, `producto_oferta`, `activo`, `stock`) VALUES
-(2, 1, 0, '2024-11-07 00:18:04', 'conjunto del paris', 'images.jpeg', 'images.jpeg', 'images.jpeg', 321, '                              \r\n                                                            \r\n                                                            \r\n                              si                              \r\n                                                        \r\n                                                        \r\n                          ', 'nashe', 'sale', 0, 0, 0),
-(3, 3, 0, '2024-11-04 21:05:05', 'Vestido ', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_3789a4ad.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_b206d4c8.jpg', 1000, 'Vestido de niña con puntos ', 'vest_niña', 'sale', 0, 1, 0),
-(4, 4, 0, '2024-11-04 21:05:08', 'Producto prueba', 'Imagen de WhatsApp 2024-09-19 a las 20.32.46_79c7bb40.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_d7e31dd9.jpg', 'Imagen de WhatsApp 2024-09-19 a las 20.32.45_fd2f8bcc.jpg', 2344, 'Descripción prueba', 'hola', 'sale', 0, 1, 0);
+INSERT INTO `productos` (`producto_id`, `p_cat_id`, `cat_id`, `date`, `producto_titulo`, `producto_img1`, `producto_img2`, `producto_img3`, `producto_desc`, `producto_keywords`, `producto_etiqueta`, `activo`, `stock`) VALUES
+(6, 3, 3, '2024-11-12 19:09:57', 'Vestido de Nena', 'Imagen de WhatsApp 2024-11-08 a las 20.26.31_8e6e92b7.jpg', 'Imagen de WhatsApp 2024-11-08 a las 20.26.31_f60b52bb.jpg', 'Imagen de WhatsApp 2024-11-08 a las 20.26.32_00628ae0.jpg', '                              \r\n                              conjunto de nena con pollera gris y  buso verde                              \r\n                          ', 'vestido nena', 'New', 1, 0),
+(7, 5, 4, '2024-11-12 21:13:16', 'Remera para niño blanca', 'Imagen de WhatsApp 2024-11-08 a las 20.26.30_fb44eb10.jpg', 'Imagen de WhatsApp 2024-11-08 a las 20.40.15_4aab45a6.jpg', 'Imagen de WhatsApp 2024-11-08 a las 20.40.16_eb65b339.jpg', '                              \r\n                                                            \r\n                                                            \r\n                                                            \r\n                                                            \r\n                                                            \r\n                              Remera para nene color blanco                              \r\n                                                        \r\n                                                        \r\n                                                        \r\n                                                        \r\n                                                        \r\n                          ', 'Remera nene blanco', '.sale', 1, 0),
+(8, 5, 5, '2024-11-12 19:53:50', 'Producto prueba', 'Imagen de WhatsApp 2024-11-09 a las 13.17.31_ab889610.jpg', 'Imagen de WhatsApp 2024-11-09 a las 13.17.31_9fed26f7.jpg', '', '                              \r\n                              conjunto marron hermoso para verano                              \r\n                          ', 'hola verano', 'sale', 1, 0),
+(9, 5, 5, '2024-11-12 19:54:27', 'Producto prueba 2', 'Imagen de WhatsApp 2024-11-09 a las 13.17.32_6e0a4f32.jpg', '', '', '                              \r\n                              probando                              \r\n                          ', 'verano si no', 'sale', 1, 0),
+(10, 5, 5, '2024-11-13 00:48:51', 'Mamadera color blanco', 'mam.jpg', 'mam3.jpg', 'mam2.jpg', '                              \r\n                              MMaadera color blanco                              \r\n                          ', 'Mamaderas ', '.', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -293,10 +294,10 @@ CREATE TABLE `productos_categorias` (
 --
 
 INSERT INTO `productos_categorias` (`p_cat_id`, `p_cat_titulo`, `p_cat_desc`, `activo`) VALUES
-(1, 'chuchuua', 'chuchuua', 1),
-(2, 'tumbalacasamami', 'tumbalacasamami', 1),
-(3, 'Conjuntos', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sapiente sunt quae modi, possimus maxime iusto impedit harum incidunt nostrum quibusdam reprehenderit voluptas? Animi quam ullam in exercitationem eius. Iure!', 1),
-(4, 'Vestidos', 'Vestidos para niñas', 1);
+(3, 'Conjuntos', 'Conjuntitos hermosos ', 1),
+(4, 'Vestidos', 'Vestidos para niñas', 1),
+(5, 'Remeras', 'Remeritas todo tipo de talle\r\n', 1),
+(6, 'Mamaderas', 'Todo tipo de colores y diseños de mamaderas', 1);
 
 -- --------------------------------------------------------
 
@@ -316,7 +317,37 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`, `slider_url`) VALUES
-(1, 'slide number 1', '*pegar imagen del slide 1 y sucesivamente*', '');
+(2, 'slide 1', 'Imagen de WhatsApp 2024-11-08 a las 20.26.27_21ce5b06.jpg', ''),
+(3, 'slide 2', 'Imagen de WhatsApp 2024-11-08 a las 20.26.24_ed29222b.jpg', ''),
+(4, 'slide 3', 'Imagen de WhatsApp 2024-11-08 a las 20.26.00_b70f83d4.jpg', ''),
+(5, 'slide 4', 'Imagen de WhatsApp 2024-11-08 a las 20.26.28_b1a6804b.jpg', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `variantes`
+--
+
+CREATE TABLE `variantes` (
+  `var_id` int(5) NOT NULL,
+  `producto_id` int(5) NOT NULL,
+  `stock_var` int(5) NOT NULL,
+  `talle` varchar(3) NOT NULL,
+  `precio_var` int(5) NOT NULL,
+  `var_precio_of` int(5) NOT NULL,
+  `activo` int(1) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `variantes`
+--
+
+INSERT INTO `variantes` (`var_id`, `producto_id`, `stock_var`, `talle`, `precio_var`, `var_precio_of`, `activo`) VALUES
+(2, 7, 20, 'S', 1200, 1100, 1),
+(3, 7, 19, 'M', 1500, 1230, 1),
+(4, 8, 6, 'S', 1200, 1050, 1),
+(5, 9, 0, 'L', 1550, 0, 1),
+(6, 10, 10, 'S', 500, 500, 1);
 
 --
 -- Índices para tablas volcadas
@@ -351,12 +382,6 @@ ALTER TABLE `cupon`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`cliente_id`);
-
---
--- Indices de la tabla `manufacturerias`
---
-ALTER TABLE `manufacturerias`
-  ADD PRIMARY KEY (`manufactureria_id`);
 
 --
 -- Indices de la tabla `ordenes_cliente`
@@ -395,6 +420,12 @@ ALTER TABLE `slider`
   ADD PRIMARY KEY (`slide_id`);
 
 --
+-- Indices de la tabla `variantes`
+--
+ALTER TABLE `variantes`
+  ADD PRIMARY KEY (`var_id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -402,19 +433,19 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT de la tabla `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `admin_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `cajas_texto`
 --
 ALTER TABLE `cajas_texto`
-  MODIFY `caja_id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `caja_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `cat_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cat_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `cupon`
@@ -426,75 +457,50 @@ ALTER TABLE `cupon`
 -- AUTO_INCREMENT de la tabla `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cliente_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT de la tabla `manufacturerias`
---
-ALTER TABLE `manufacturerias`
-  MODIFY `manufactureria_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cliente_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `ordenes_cliente`
 --
 ALTER TABLE `ordenes_cliente`
-  MODIFY `orden_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `orden_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `ordenes_pendientes`
 --
 ALTER TABLE `ordenes_pendientes`
-  MODIFY `orden_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `orden_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `pago_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pago_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `producto_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `producto_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `productos_categorias`
 --
 ALTER TABLE `productos_categorias`
-  MODIFY `p_cat_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `p_cat_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `slide_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `slide_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `variantes`
+--
+ALTER TABLE `variantes`
+  MODIFY `var_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
-
---
--- Creacion de usuarios -- 
---
-
---Usuario Admin --
-CREATE USER 'admin_vicentita'@'localhost' IDENTIFIED BY 'admin_password';
-GRANT ALL PRIVILEGES ON vicentita.* TO 'admin_vicentita'@'localhost';
-FLUSH PRIVILEGES;
-
---Usuario Cliente --
-
-CREATE USER 'cliente_vicentita'@'localhost' IDENTIFIED BY 'cliente_password';
-GRANT SELECT ON vicentita.productos TO 'cliente_vicentita'@'localhost';
-GRANT SELECT ON vicentita.categorias TO 'cliente_vicentita'@'localhost';
-GRANT SELECT ON vicentita.productos_categorias TO 'cliente_vicentita'@'localhost';
-FLUSH PRIVILEGES;
-
---Usuario para gestionar productos (solo lectura y escritura en las tablas relacionadas con productos)--
-
-CREATE USER 'product_manager'@'localhost' IDENTIFIED BY 'product_password';
-GRANT SELECT, INSERT, UPDATE, DELETE ON vicentita.productos TO 'product_manager'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON vicentita.categorias TO 'product_manager'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE ON vicentita.productos_categorias TO 'product_manager'@'localhost';
-FLUSH PRIVILEGES;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

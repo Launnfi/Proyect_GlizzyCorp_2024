@@ -126,7 +126,7 @@ include("../functions/functions.php");
                    <ul class="nav navbar-nav left">
                        
                        <li class="<?= $active == 'Inicio' ? 'active' : '' ?>" >
-                           <a href="../index.php">Home</a>
+                           <a href="../index.php">Inicio</a>
                        </li>
                        <li class= "<?= $active == 'Comprar' ? 'active' : '' ?>" >
                            <a href="../tienda.php">Comprar</a>

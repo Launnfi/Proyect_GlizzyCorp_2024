@@ -81,7 +81,7 @@
                                 <td> <img src="product_images/<?php echo $pro_img1; ?>" width="60" height="60"></td>
                                 <td> $ <?php echo $min_precio; ?> </td>
                                 <td> <?php 
-                                    
+                                         //veces vendido
                                         $get_sold = "select * from ordenes_pendientes where producto_id='$pro_id'";
                                     
                                         $run_sold = mysqli_query($con,$get_sold);

@@ -1,4 +1,5 @@
-
+<?php 
+?>
 <div id="footer">
     <div class="container">
         <div class="row">
@@ -8,18 +9,18 @@
                 
                 <ul>
                     <li><a href="cart.php">Carrito</a></li>
-                    <li><a href="contact.php">Contact Us</a></li>
-                    <li><a href="tienda.php">Shop</a></li>
-                    <li><a href="customer/my_account.php">My Account</a></li>
+                    <li><a href="contact.php">Contactanos</a></li>
+                    <li><a href="tienda.php">Tienda</a></li>
+                    <li><a href="customer/my_account.php">Mi cuenta</a></li>
                 </ul>
-                
+
                 <hr>
                 
                 <h4>Seccion de usuarios</h4>
                 
                 <ul>
-                    <li><a href="my_account.php?misOrdenes">Login</a></li>
-                    <li><a href="../customer_register.php">registarme</a></li>
+                    <li><a href="customer/my_account.php?misOrdenes">Logearse</a></li>
+                    <li><a href="customer_register.php">registarme</a></li>
                 </ul>
                 
                 <hr class="hidden-md hidden-lg hidden-sm">
@@ -66,23 +67,23 @@
                 <hr class="hidden-md hidden-lg">
                 
             </div>
-            
+
             <div class="col-sm-6 col-md-3">
                 
                 <h4>Encuentranos</h4>
                 
-                <p>
+                <p><!-- p Start -->
                     
                     <strong>Vicenta</strong>
-                    <br/>Direccion
-                    <br/>Numero
-                    <br/>Mail
+                    <br/> Uruguay 529, 50000 Salto
+                    <br/>096354036
+                    <br/>vicenta@gmail.com
                     <br>
                     <br/><Strong>GlizzyCorp</Strong></a>
                     
                 </p>
                 
-                <a href="GlizzyUs.php">Mira nuestra pagina de contactos</a>
+                <a href="https://glizzycorp.shop/">Mira nuestra pagina de contactos</a>
                 
                 <hr class="hidden-md hidden-lg">
                 
@@ -114,7 +115,6 @@
                 
                 <p class="social">
                     <a href="https://www.facebook.com/vicenta.saltouy/?locale=es_LA" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
                     <a href="https://www.instagram.com/vicenta_salto/" class="fa fa-instagram"></a>
                 </p>
                 
@@ -133,7 +133,7 @@
         </div>
         <div class="col-md-6">
             
-            <p class="pull-right">Hecho por : <a href="#">GlizzyCorp</a></p>
+            <p class="pull-right">Hecho por : <a href="https://glizzycorp.shop/">GlizzyCorp</a></p>
             
         </div>
     </div>
